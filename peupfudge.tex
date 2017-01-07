@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+
+%packages
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{tikz}
+
+
+\title{PeupFudge}
+\author{Ebrahim \\ Yusuf}
+\date{\today}
+
+\parindent0ex
+\parskip5mm
+
+%commands
+\newcommand{\notes}[1]{{\color{Tan} #1}}
+
+\begin{document}
+%\maketitle
+\textbf{Peupfudge}
+\hfill
+\textbf{\today}\\
+\textit{Derived from core Fudge rules by Yusuf, Yussra, and Ebrahim.}
+
+\section{Introduction}
+\notes{what peupfudge is all about. it gives you the classes and not the objects. what a gm is. pc vs npc. numbering system.}
+
+\section{Characters}
+A \emph{character} is an agent in the world.
+Individual characters are represented by their traits and their status.
+\emph{Traits} describe a character and their abilities.
+\emph{Status} describes a character's dynamic current state.
+
+\textbf{Traits}\vspace{-6mm}
+\begin{itemize}
+\item \emph{Characteristics}
+describe identity and background
+(e.g., name, race, species, height, gender).
+\item \emph{Abilities}
+represent improvable traits that play a role in action resolution
+(e.g. strength, climbing, legal knowledge).
+They have a positive integer \emph{ability level}.
+\emph{Powers} are abilities that can also be turned off completely.
+Abilities are organized in a tree, the mechanics of which are elaborated in section \ref{sec:tree}.
+\item \emph{Properties} are traits that a character either has or does not have (e.g. deaf).
+\end{itemize}
+
+\textbf{Status}\vspace{-6mm}
+\begin{itemize}
+\item \emph{Bars} are ever-changing numerical statuses (e.g. mana, hunger, reputation).
+\item \emph{Inventory} is the collection of items on a character's person (see section \ref{sec:items}).
+\item \emph{Wound level} is a listing of a character's current injuries (see section \ref{sec:wounds}).
+\end{itemize}
+
+In creating a game world, a GM needs to specify the structure of a character by specifying the traits and statuses relevant to the campaign. A GM must essentially decide how a character sheet looks. In particular, this will involve inventing the characteristics, abilities, and bars, which might be based on the specific setting of the game.
+
+\subsection{The Ability Tree}\label{sec:tree}			
+
+\notes{Classes can be basically GM made presets.
+magic can be power or property}
+
+The purpose of an ability level is to have something to roll against while resolving actions. If you don't know what that means, have a look at the introduction to section \ref{sec:actions} before diving into the details of this section.
+
+%abilities starting at poor
+Most abilities have an initial (untrained) level of 3. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of 1, while a very easy ability could start at 5.
+
+%define structure of tree, as well as terms 'skill' and 'attribute'
+Abilities are arranged in a tree structure in which broad abilities govern more specific ones. An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node). Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}. An example:
+
+\notes{put difficulty lvls in the tree}
+
+\tikzset{
+  treenode/.style = {shape=rectangle, rounded corners,
+                     draw, align=center,
+                     top color=white},
+  attribute/.style     = {treenode, font=\ttfamily\normalsize, bottom color=blue!30},
+  skill/.style         = {treenode, font=\ttfamily\normalsize, bottom color=red!20},
+}
+\begin{tikzpicture}
+  [
+    grow                    = right,
+    sibling distance        = 3em,
+    level distance          = 15em,
+    edge from parent/.style = {draw, -latex},
+    every node/.style       = {font=\scriptsize},
+    sloped
+  ]
+  \node [attribute] {Mind}
+    child { node [attribute] {Medicine}
+      child { node [skill] {First Aid}
+        edge from parent node [below] {1}}
+      child { node [skill] {Wound Care}
+        edge from parent node [below] {1}}
+      edge from parent node [below] {1}}
+    child { node [skill] {Literacy}
+      edge from parent node [below] {1}}
+    child { node [skill] {Engineering}
+      edge from parent node [below] {1}};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  [
+    grow                    = right,
+    sibling distance        = 3em,
+    level distance          = 15em,
+    edge from parent/.style = {draw, -latex},
+    every node/.style       = {font=\scriptsize},
+    sloped
+  ]
+  \node [attribute] {Body}
+    child { node [attribute] {Athletics}
+      child { node [skill] {Running}
+        edge from parent node [below] {1}}
+      child { node [skill] {Swimming}
+        edge from parent node [below] {1}}
+      edge from parent node [below] {2} }
+    child { node [skill] {Climbing}
+      edge from parent node [below] {1}}
+    child { node [attribute] {Muscle\\Strength} 
+      child { node [skill] {Hauling}
+        edge from parent node [below] {1}}
+      child { node [skill] {Hand-to-Hand\\Combat}
+        edge from parent node [below] {1}}
+      edge from parent node [below] {2}};
+\end{tikzpicture}.
+
+Attributes are shown in blue and skills are shown in red.
+%intuitive meaning (intention) of 'governing' and of weights.
+
+%xp can only be used to raise skills, not attributes. and only ones that were used (rolled against) lately. (players ask gm).
+
+%parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
+
+%raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
+
+%good tree design is important. if it seems limiting that only skills can be trained directly, then the tree may not be designed well.
+
+%explain what powers are and how they sit in the tree (just pretend they don't exist if off)
+
+%suggest "character level" as root node.
+
+%one way to make npcs more grainy is to "trim off" some leaves and turn attributes into leaves for them.
+
+
+%examples of ability trees (or reference to later appearance of examples)
+
+\subsection{Character Development}\label{sec:dev}
+
+%on char creation you start with some xp (50 times # of skills), and use it to raise leaves as in usual development
+
+%if a skill needs to be introduced in the middle of the game due to an omission (i.e. using an attribute to roll for a particular omitted skill often), then start it at its parent -2. capped below at 1, of course.
+
+\subsection{Items and Inventory} \label{sec:items}
+\notes{attributes are traits that all items have
+an item can have additional descriptors for traits
+examples of traits are: material, weight, scale, value
+an item can also have a status (e.g. condition)}
+
+
+\section{Actions}\label{sec:actions}
+When a character attempts a task that has a possibility of failure, the outcome is governed partly by a dice roll.
+The dice roll represents the dependence of the outcome on factors that are not modeled in the game or that are altogether unpredictable.
+\notes{[discuss unopposed and opposed. rolling focus on most specialized suitable ability. when rolling against attribute, subtract 2 from it's level for rolled degree purposes. this does not apply to grainy npc situation.]}
+\subsection{Combat}
+\notes{[description of what is combat round]
+
+	During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
+	It is an opposed action, resolved as follows:
+		Result of attack: ReD (Relative Degree) = attacker's RoD - defender's RoD (0 is miss, 1 is graze, >1 is hit)
+			RoD (Rolled Degree): 2dF + Relevant trait + StanceMod + SitMod
+				StanceMod is Stance for attacker and is -Stance for defender.
+					Stance is a number from -2 to 2 chosen by each player at the beginning of the combat round.
+				SitMod is a modifier based on various situational conditions (see below).
+		Miss: No peup
+		Hit: 2x ReD + DF + 1dF (dmg die roll)
+			DF (Dmg Factor): Attacker's ODF - Defender's DDF
+				ODF (Offensive Dmg Factor): Relevant trait (e.g. Str) + Weapon (e.g. type, sharpness, scale, condition, etc.)
+				DDF (Defensive Dmg Factor): Relevant trait (e.g. Con) + Armor (e.g. material, toughness, scale, condition, etc.)
+			Hit severity comes from top left of pg. 47
+		Graze: DF + 1dF (dmg die roll)
+			Graze severity comes from Table 4.56
+	Note that players may be simulataneously attempting to attack each other in the same combat round.
+	This is resolved as above (i.e. as multiple separate opposed actions).
+
+Target body parts:
+a player may call, before their attack is resolved, that they intend to target a certain body part.
+this introduces a negative SitMod into the attacker's rolled degree, based on the difficulty of hitting that body part.
+if the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
+negative penalities are introduced to relevant traits (see SitMod -> injuries).
+
+evasion
+
+	possible suggestion for scale: log base 2
+pulling punches, knocking out, stunning
+speed
+peup
+
+crit system}
+
+\subsubsection{Situational Modifers}
+\notes{Situational stuff (e.g. positioning, weapon lengths, height advantages, cover, range, multiple combatants, injuries, peup, surprise, scale difference)}
+
+\subsubsection{Wounds and Healing}\label{sec:wounds}
+
+
+\end{document}
