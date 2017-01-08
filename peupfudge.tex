@@ -24,7 +24,7 @@
 \textit{Derived from core Fudge rules by Yusuf, Yussra, and Ebrahim.}
 
 \section{Introduction}
-\notes{what peupfudge is all about. it gives you the classes and not the objects. what a gm is. pc vs npc. numbering system.}
+\notes{what peupfudge is all about. it gives you the classes and not the objects. what a gm is. pc vs npc. numbering system \& 4dF. xp.}
 
 \section{Characters}
 A \emph{character} is an agent in the world.
@@ -57,18 +57,13 @@ In creating a game world, a GM needs to specify the structure of a character by 
 
 \subsection{The Ability Tree}\label{sec:tree}			
 
-\notes{Classes can be basically GM made presets.
-magic can be power or property}
-
 The purpose of an ability level is to have something to roll against while resolving actions. If you don't know what that means, have a look at the introduction to section \ref{sec:actions} before diving into the details of this section.
 
 %abilities starting at poor
-Most abilities have an initial (untrained) level of 3. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of 1, while a very easy ability could start at 5.
+Most abilities have an initial (untrained) level of 3. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of 1, while a very easy ability could start at 5. What is considered ``untrained'' will depend on the setting of the world.
 
 %define structure of tree, as well as terms 'skill' and 'attribute'
-Abilities are arranged in a tree structure in which broad abilities govern more specific ones. An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node). Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}. An example:
-
-\notes{put difficulty lvls in the tree}
+Abilities are arranged in a tree structure in which broad abilities govern more specific ones. An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node). Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}. Here is an example of an initial skill tree where attributes are shown in blue, skills are shown in red, skill levels are in parentheses, and weights are labeled on edges:
 
 \tikzset{
   treenode/.style = {shape=rectangle, rounded corners,
@@ -86,17 +81,17 @@ Abilities are arranged in a tree structure in which broad abilities govern more 
     every node/.style       = {font=\scriptsize},
     sloped
   ]
-  \node [attribute] {Mind}
-    child { node [attribute] {Medicine}
-      child { node [skill] {First Aid}
-        edge from parent node [below] {1}}
-      child { node [skill] {Wound Care}
-        edge from parent node [below] {1}}
-      edge from parent node [below] {1}}
-    child { node [skill] {Literacy}
-      edge from parent node [below] {1}}
-    child { node [skill] {Engineering}
-      edge from parent node [below] {1}};
+  \node [attribute] {Mind (3)}
+    child { node [attribute] {Medicine (2)}
+      child { node [skill] {First Aid (3)}
+        edge from parent node [above] {1}}
+      child { node [skill] {Wound Care (2)}
+        edge from parent node [above] {1}}
+      edge from parent node [above] {1}}
+    child { node [skill] {Literacy (3)}
+      edge from parent node [above] {2}}
+    child { node [skill] {Engineering (1)}
+      edge from parent node [above] {1}};
 \end{tikzpicture}
 
 \begin{tikzpicture}
@@ -108,31 +103,32 @@ Abilities are arranged in a tree structure in which broad abilities govern more 
     every node/.style       = {font=\scriptsize},
     sloped
   ]
-  \node [attribute] {Body}
-    child { node [attribute] {Athletics}
-      child { node [skill] {Running}
-        edge from parent node [below] {1}}
-      child { node [skill] {Swimming}
-        edge from parent node [below] {1}}
-      edge from parent node [below] {2} }
-    child { node [skill] {Climbing}
-      edge from parent node [below] {1}}
-    child { node [attribute] {Muscle\\Strength} 
-      child { node [skill] {Hauling}
-        edge from parent node [below] {1}}
-      child { node [skill] {Hand-to-Hand\\Combat}
-        edge from parent node [below] {1}}
-      edge from parent node [below] {2}};
+  \node [attribute] {Body (3)}
+    child { node [attribute] {Athletics (3)}
+      child { node [skill] {Running (4)}
+        edge from parent node [above] {1}}
+      child { node [skill] {Swimming (2)}
+        edge from parent node [above] {1}}
+      edge from parent node [above] {2} }
+    child { node [skill] {Climbing (2)}
+      edge from parent node [above] {1}}
+    child { node [attribute] {Muscle\\Strength (3)} 
+      child { node [skill] {Hauling (3)}
+        edge from parent node [above] {1}}
+      child { node [skill] {Hand-to-Hand\\Combat (3)}
+        edge from parent node [above] {1}}
+      edge from parent node [above] {2}};
 \end{tikzpicture}.
 
-Attributes are shown in blue and skills are shown in red.
-%intuitive meaning (intention) of 'governing' and of weights.
-
-%xp can only be used to raise skills, not attributes. and only ones that were used (rolled against) lately. (players ask gm).
+\paragraph{Conceptual Summary} Let us summarize the mechanics to be explained. The weight of an ability represents its importance to its group, i.e. the degree to which its improvement improves its governing ability.
+Players are granted experience points (xp) throughout the game. They may use xp to raise skills that they have recently used (i.e. rolled against). Only skills, and not attributes, may be raised directly with xp.
+The mechanics of ability tree development are such that competence in skills related to a given skill make it easier to train that skill.
 
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
+
+%conceptual summary explaining the two main mechanics
 
 %good tree design is important. if it seems limiting that only skills can be trained directly, then the tree may not be designed well.
 
@@ -142,26 +138,33 @@ Attributes are shown in blue and skills are shown in red.
 
 %one way to make npcs more grainy is to "trim off" some leaves and turn attributes into leaves for them.
 
+%player classes can be GM-made presets
 
 %examples of ability trees (or reference to later appearance of examples)
+%magic as power
 
 \subsection{Character Development}\label{sec:dev}
+
+%xp can only be used to raise skills, not attributes. and only ones that were used (rolled against) lately. (players ask gm).
 
 %on char creation you start with some xp (50 times # of skills), and use it to raise leaves as in usual development
 
 %if a skill needs to be introduced in the middle of the game due to an omission (i.e. using an attribute to roll for a particular omitted skill often), then start it at its parent -2. capped below at 1, of course.
 
+%magic as property
+
 \subsection{Items and Inventory} \label{sec:items}
 \notes{attributes are traits that all items have
 an item can have additional descriptors for traits
 examples of traits are: material, weight, scale, value
-an item can also have a status (e.g. condition)}
+an item can also have a status (e.g. condition).
+carrying capacity can be a bar.}
 
 
 \section{Actions}\label{sec:actions}
 When a character attempts a task that has a possibility of failure, the outcome is governed partly by a dice roll.
 The dice roll represents the dependence of the outcome on factors that are not modeled in the game or that are altogether unpredictable.
-\notes{[discuss unopposed and opposed. rolling focus on most specialized suitable ability. when rolling against attribute, subtract 2 from it's level for rolled degree purposes. this does not apply to grainy npc situation.]}
+\notes{[discuss unopposed and opposed. rolling focus on most specialized suitable ability. when rolling against attribute, subtract 2 from it's level for rolled degree purposes. this does not apply to grainy npc situation. 4dF probability table.]}
 \subsection{Combat}
 \notes{[description of what is combat round]
 
