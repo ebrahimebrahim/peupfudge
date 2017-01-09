@@ -21,7 +21,7 @@
 \textbf{Peupfudge}
 \hfill
 \textbf{\today}\\
-\textit{Derived from core Fudge rules by Yusuf, Yussra, and Ebrahim.}
+\textit{Derived from core Fudge rules by Ebrahim, Yusuf, and Yussra.}
 
 \section{Introduction}
 \notes{what peupfudge is all about. it gives you the classes and not the objects. what a gm is. pc vs npc. numbering system \& 4dF. xp.}
@@ -125,6 +125,15 @@ Players are granted experience points (xp) throughout the game. They may use xp 
 The mechanics of ability tree development are such that competence in skills related to a given skill make it easier to train that skill.
 
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
+\paragraph{Raising Skills} Skills may be raised with xp. Two factors affect the xp cost of raising a particular skill (the difficulty in training that skill to the next level): the current level of the skill, and the levels of its line of governing attributes. It is hard to further raise a skill which is already high in level. At the same time, a high governing attribute makes it easier to raise a given skill, because it implies a higher degree of related knowledge.
+
+A weighted average is used to determine the total \emph{governing attributes level} corresponding to a particular skill. All attributes that govern the skill must be taken into account; the attribute that governs the skill directly, and the attributes which govern that attribute in turn, and so on. Starting from the skill, go up in the line of attributes. Assign a weight of '1' for the attribute farthest from the skill, and double that weight for each attribute going down the line. Use that weight and the individual attribute levels to determine the total governing attributes level for a skill. The closer an attribute is to a skill, the larger its hand in governing the skill. 
+
+Here is a table where the two factors, current skill level and governing attributes level, are taken into account to determine xp cost:
+
+\notes{Insert xp table here}
+
+\notes{I forget, does the table and this level of detail go here or in char development? feel free to move it around; -y}
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
 
