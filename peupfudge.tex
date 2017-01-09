@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
+
 %jej3856
+
 %packages
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{fullpage}
@@ -7,7 +9,7 @@
 
 
 \title{PeupFudge}
-\author{Ebrahim \\ Yusuf}
+\author{Ebrahim \\ Yusuf \\ Yussra}
 \date{\today}
 
 \parindent0ex
@@ -136,6 +138,11 @@ Here is a table where the two factors, current skill level and governing attribu
 \notes{I forget, does the table and this level of detail go here or in char development? feel free to move it around; -y}
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
+\paragraph{Raising Attributes} Attributes cannot be raised directly using xp. Anytime a skill is raised, there is a chance that the attribute that governs it will be raised. This chance is determined by two factors: the weight of the skill (\emph{w}), and the sum of the weight of other sibling skills which are still at or below the level of the governing attribute (\emph{n}). A high level of broad competence in an area typically comes from training various specific skills under that area. Here is a formula where \emph{w} and \emph{n} are taken into account to determine the chance that the governing attribute is raised:
+
+\notes{Insert formula here. This is just a placeholder, we can replace it with a qul table or something later; -y}
+
+Based on this formula, it is easier to raise an attribute by raising many of the skills it governs above its level, rather than simply focusing on a few and ignoring the rest. This mechanic extends through the ability tree; any time an attribute is raised by this mechanism, the formula should be used again to determine whether the attribute that governs it in turn is raised.
 
 %conceptual summary explaining the two main mechanics
 
