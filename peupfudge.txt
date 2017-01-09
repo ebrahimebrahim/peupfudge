@@ -1,0 +1,68 @@
+action resolution
+
+wounds/healing
+
+items
+	attributes are traits that all items have
+	an item can have additional descriptors for traits
+	examples of traits are: material, weight, scale, value
+	an item can also have a status (e.g. condition)
+
+Character Creation/Development
+	Definition.
+		Traits:
+			Characteristics are prominent string traits (e.g. name, race).
+			Skills are numerical traits (e.g. Climbing).
+				Each skill has starting value, usually -2.
+			Powers are boolean traits with a numerical component (e.g. Flying).
+				These are just skills that can be off, and are so by default.
+			Attributes are prominent numerical traits (e.g. Strength).
+			Properties are boolean traits (e.g. Deaf).
+			(Prominent means they should be explicitly described for most characters.)
+		Status:
+			Bars are dynamic numerical traits (e.g. Mana).
+			Inventory
+				Equipped Items
+				Carried Items
+			Wound level
+				peup
+	Notes:
+		Classes can be basically GM made presets
+		magic can be power or property
+	Creation
+	Development
+
+Qombat
+	During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
+	It is an opposed action, resolved as follows:
+		Result of attack: ReD (Relative Degree) = attacker's RoD - defender's RoD (0 is miss, 1 is graze, >1 is hit)
+			RoD (Rolled Degree): 2dF + Relevant trait + StanceMod + SitMod
+				StanceMod is Stance for attacker and is -Stance for defender.
+					Stance is a number from -2 to 2 chosen by each player at the beginning of the combat round.
+				SitMod is a modifier based on various situational conditions (see below).
+		Miss: No peup
+		Hit: 2x ReD + DF + 1dF (dmg die roll)
+			DF (Dmg Factor): Attacker's ODF - Defender's DDF
+				ODF (Offensive Dmg Factor): Relevant trait (e.g. Str) + Weapon (e.g. type, sharpness, scale, condition, etc.)
+				DDF (Defensive Dmg Factor): Relevant trait (e.g. Con) + Armor (e.g. material, toughness, scale, condition, etc.)
+			Hit severity comes from top left of pg. 47
+		Graze: DF + 1dF (dmg die roll)
+			Graze severity comes from Table 4.56
+	Note that players may be simulataneously attempting to attack each other in the same combat round.
+	This is resolved as above (i.e. as multiple separate opposed actions).
+
+Target body parts:
+a player may call, before their attack is resolved, that they intend to target a certain body part.
+this introduces a negative SitMod into the attacker's rolled degree, based on the difficulty of hitting that body part.
+if the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
+negative penalities are introduced to relevant traits (see SitMod -> injuries).
+
+evasion
+
+Situational stuff (e.g. positioning, weapon lengths, height advantages, cover, range, multiple combatants, injuries, peup, surprise, scale difference)
+	possible suggestion for scale: log base 2
+pulling punches, knocking out, stunning
+speed
+peup
+
+crit system
