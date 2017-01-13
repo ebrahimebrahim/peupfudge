@@ -6,6 +6,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{fullpage}
 \usepackage{tikz}
+\usepackage{amsmath}
 
 
 \title{PeupFudge}
@@ -26,7 +27,12 @@
 \textit{Derived from core Fudge rules by Ebrahim, Yusuf, and Yussra.}
 
 \section{Introduction}
-\notes{what peupfudge is all about. it gives you the classes and not the objects. what a gm is. pc vs npc. numbering system \& 4dF. xp.}
+\notes{what peupfudge is all about.
+it gives you the classes and not the objects.
+what a gm is.
+pc vs npc.
+numbering system, it's logarithmic interpretation, 4dF.
+xp.}
 
 \section{Characters}
 A \emph{character} is an agent in the world.
@@ -45,7 +51,7 @@ represent improvable traits that play a role in action resolution
 They have a positive integer \emph{ability level}.
 \emph{Powers} are abilities that can also be turned off completely.
 Abilities are organized in a tree, the mechanics of which are elaborated in section \ref{sec:tree}.
-\item \emph{Properties} are traits that a character either has or does not have (e.g. deaf).
+\item \emph{Properties} are binary traits-- a character either has or does not have a given property (e.g. deaf).
 \end{itemize}
 
 \textbf{Status}\vspace{-6mm}
@@ -53,9 +59,8 @@ Abilities are organized in a tree, the mechanics of which are elaborated in sect
 \item \emph{Bars} are ever-changing numerical statuses (e.g. mana, hunger, reputation).
 \item \emph{Inventory} is the collection of items on a character's person (see section \ref{sec:items}).
 \item \emph{Wound level} is a listing of a character's current injuries (see section \ref{sec:wounds}).
+\item \emph{Conditions} are binary statuses (e.g. asleep, paralyzed, poisoned, on fire, etc.)
 \end{itemize}
-
-\notes{Should we add a category "status conditions?" Things like asleep, paralyzed, stunned, poisoned, on fire, etc. This is tough because they would work fine as properties, and they would not be mechanistically different at all, it would just make more sense to put them under the banner of "status" rather than "traits." Peup. -y}
 
 In creating a game world, a GM needs to specify the structure of a character by specifying the traits and statuses relevant to the campaign. A GM must essentially decide how a character sheet looks. In particular, this will involve inventing the characteristics, abilities, and bars, which might be based on the specific setting of the game.
 
@@ -67,7 +72,11 @@ The purpose of an ability level is to have something to roll against while resol
 Most abilities have an initial (untrained) level of 3. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of 1, while a very easy ability could start at 5. What is considered ``untrained'' will depend on the setting of the world.
 
 %define structure of tree, as well as terms 'skill' and 'attribute'
-Abilities are arranged in a tree structure in which broad abilities govern more specific ones. An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node). Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}. Here is an example of an initial skill tree where attributes are shown in blue, skills are shown in red, skill levels are in parentheses, and weights are labeled on edges:
+Abilities are arranged in a tree structure in which broad abilities govern more specific ones.
+An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node).
+Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}.
+Here is an example of an initial ability tree where attributes are shown in blue,
+skills are shown in red, skill levels are in parentheses, and weights are labeled on edges:
 
 \tikzset{
   treenode/.style = {shape=rectangle, rounded corners,
@@ -129,18 +138,49 @@ Players are granted experience points (xp) throughout the game. They may use xp 
 The mechanics of ability tree development are such that competence in skills related to a given skill make it easier to train that skill.
 
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
-\paragraph{Raising Skills} Skills may be raised with xp. Two factors affect the xp cost of raising a particular skill (the difficulty in training that skill to the next level): the current level of the skill, and the levels of its line of governing attributes. It is hard to further raise a skill which is already high in level. At the same time, a high governing attribute makes it easier to raise a given skill, because it implies a higher degree of related knowledge.
+\paragraph{Raising Skills}
+Skills may be raised with xp.
+The xp cost of raising a particular skill depends on
+the skill's current level and the levels of all its ancestor attributes in the ability tree.
+A high-level skill is harder to raise.
+A skill with a high-level governing attribute is easier to raise.
+%(I deleted "because it implies related knowledge" b/c we already said that in the conceptual summary -e)
+Use the following table to determine the xp cost for a skill level increase:
 
-A weighted average is used to determine the total \emph{governing attributes level} corresponding to a particular skill. All attributes that govern the skill must be taken into account; the attribute that governs the skill directly, and the attributes which govern that attribute in turn, and so on. Starting from the skill, go up in the line of attributes. Assign a weight of '1' for the attribute farthest from the skill, and double that weight for each attribute going down the line. Use that weight and the individual attribute levels to determine the total governing attributes level for a skill. The closer an attribute is to a skill, the larger its hand in governing the skill. 
+\notes{Insert xp table here, with the labels "current skill level" and "attribute bonus"}
 
-Here is a table where the two factors, current skill level and governing attributes level, are taken into account to determine xp cost:
+The \emph{attribute bonus} is a weighted average over all ancestor attributes of the skill being trained:
+\begin{align*}
+\textrm{[attribute bonus]}
+=\big(\ &\textrm{[level of governing attribute]}\\
+&+\ \frac{1}{2}\textrm{[level of its governing attribute]}\\
+&+\ \frac{1}{4}\textrm{[level of its governing attribute]}\\
+&+\ \cdots \big)
+\ /\ \big(1+\frac{1}{2}+\frac{1}{4}+\cdots\big)
+\end{align*}
+Equivalently,
+\vspace{-6mm}
+\begin{itemize}
+\item Starting from the skill, go up along the line of attributes
+and assign a weight of '1' for the attribute farthest from the skill.
+\item Double that weight for each attribute going down the line.
+\item Use that weight and the individual attribute levels to determine the total attribute bonus for the skill.
+\end{itemize}
+\vspace{-6mm}
+Thus the closer an attribute is to a skill in the ability tree, the larger its hand in governing the skill. 
 
-\notes{Insert xp table here}
+
 
 \notes{I forget, does the table and this level of detail go here or in char development? feel free to move it around; -y}
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
-\paragraph{Raising Attributes} Attributes cannot be raised directly using xp. Anytime a skill is raised, there is a chance that the attribute that governs it will be raised. This chance is determined by two factors: the weight of the skill (\emph{w}), and the sum of the weight of other sibling skills which are still at or below the level of the governing attribute (\emph{n}). A high level of broad competence in an area typically comes from training various specific skills under that area. Here is a formula where \emph{w} and \emph{n} are taken into account to determine the chance that the governing attribute is raised:
+\paragraph{Raising Attributes}
+Attributes cannot be raised directly using xp.
+\notes{[The following paragraph talks about raising skill levels only. Shouldn't it be talking about raising \emph{ability} levels?]}
+Anytime a skill is raised, there is a chance that the attribute that governs it will be raised.
+This chance is determined by two factors: the weight of the skill (\emph{w}), and the sum of the weight of other sibling skills which are still at or below the level of the governing attribute (\emph{n}).
+A high level of broad competence in an area typically comes from training various specific skills under that area.
+Here is a formula where \emph{w} and \emph{n} are taken into account to determine the chance that the governing attribute is raised:
 
 \notes{Insert formula here. This is just a placeholder, we can replace it with a qul table or something later; -y}
 
@@ -148,6 +188,9 @@ Based on this formula, it is easier to raise an attribute by raising many of the
 
 %conceptual summary explaining the two main mechanics
 \notes{some kind of section separator/header} The mechanics for raising skills and attributes are meant to be realistic. Training a specific skill is easier with more general related experience, especially for that experience which pertains most directly to the skill. At the same time, the general experience typically comes from training in a wide variety of related specific skills. The ability tree also has the effect of encouraging players, via xp discounts, to make characters that make sense and have some degree of specialization.
+\notes{[This comment could probably be the same as the "good tree design is important section".
+We already have a ``conceptual summary'' section above.
+I recommend titling this paragraph ``Designing a good ability tree'' or something like that.]}
 
 %good tree design is important. if it seems limiting that only skills can be trained directly, then the tree may not be designed well.
 
