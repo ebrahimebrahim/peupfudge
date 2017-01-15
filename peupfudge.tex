@@ -133,7 +133,7 @@ skills are shown in red, skill levels are in parentheses, and weights are labele
       edge from parent node [above] {2}};
 \end{tikzpicture}.
 
-\paragraph{Conceptual Summary} Let us summarize the mechanics to be explained. The weight of an ability represents its importance to its group, i.e. the degree to which its improvement improves its governing ability.
+\paragraph{The Idea} Let us summarize the mechanics to be explained. The weight of an ability represents its importance to its group, i.e. the degree to which its improvement improves its governing ability.
 Players are granted experience points (xp) throughout the game. They may use xp to raise skills that they have recently used (i.e. rolled against). Only skills, and not attributes, may be raised directly with xp.
 The mechanics of ability tree development are such that competence in skills related to a given skill make it easier to train that skill.
 
@@ -171,12 +171,13 @@ Thus the closer an attribute is to a skill in the ability tree, the larger its h
 
 
 
-\notes{I forget, does the table and this level of detail go here or in char development? feel free to move it around; -y}
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
 \paragraph{Raising Attributes}
 Attributes cannot be raised directly using xp.
-\notes{[The following paragraph talks about raising skill levels only. Shouldn't it be talking about raising \emph{ability} levels?]}
+\notes{[The following paragraph talks about raising skill levels only.
+Shouldn't it be talking about raising \emph{ability} levels?
+Instead of mentioning later that ``the mechanic extends...'' -e]}
 Anytime a skill is raised, there is a chance that the attribute that governs it will be raised.
 This chance is determined by two factors: the weight of the skill (\emph{w}), and the sum of the weight of other sibling skills which are still at or below the level of the governing attribute (\emph{n}).
 A high level of broad competence in an area typically comes from training various specific skills under that area.
@@ -214,17 +215,15 @@ The purpose of xp is to spend it to increase the level of skills, according to t
 \notes{[insert direct reference to table if we make one.]}
 Note that attribute levels cannot be raised directly, but instead have a chance of increasing every time a governed skill is trained.
 
-In addition to deciding \emph{when to award} xp and \emph{how much},
-the GM also exerts some control over \emph{which} skills players may spend their xp on, and \emph{when} players must spend it.
-The skills that can be trained should really be ones that are relevant to the accomplishments that resulted in the xp reward in the first place.
-A GM may enforce this by listing which skills have been opened (perhaps separately for each player) to training after a given xp reward,
-or by just asking players to clear each skill with him before increasing its level.
-A GM may also limit the extent to which players can save their xp, for example by setting a maximum amount that can be saved after a given xp award.
-\notes{[This limitation on xp-saving is dumb. We shouldn't have it as an option.
-But the issue is that xp-saving doesn't work well with only allowing recently-rolled-against skills to be increased.
-What is a good way to resolve this?
-We want xp-saving, but we also don't want people to raise random skills that are unrelated to what they used to gain the xp in the first place...]}
-\notes{[SOLUTION: no xp saving allowed. when xp is gained, it must be ALLOCATED. however, it can be partially spent on something, with the rest to be spent later. a player keeps track of how much xp they have invested in partially purchased skill level raises. at each xp award, only relevant skills are opened up to this allocation.]}
+The skills that can be trained should be limited to ones that are relevant to the accomplishments that resulted in the xp reward in the first place.
+A GM may enforce this by listing 
+(perhaps separately for each player)
+which skills have been opened
+to xp-allocation after a given xp reward,
+or by asking players to clear each skill with him.
+Players cannot save xp to use on arbitrary skills; they must \emph{allocate} their xp towards skills when they receive it.
+It is fine to allocate to a skill an amount of xp less than what is needed to increase its level.
+Players are responsible for keeping track of how much xp they have invested in partially purchased skill level increases.
 
 
 %on char creation you start with some xp (50 times # of skills), and use it to raise leaves as in usual development; "static" and "live" character creation (use static for classes)
