@@ -17,6 +17,7 @@ clist = range(1,9)
 alist = range(1,10)
 
 
+colcolor = lambda color : ">{\\columncolor[HTML]{"+color+"}[\\tabcolsep][1.1\\tabcolsep]}"
 blue = "\\cellcolor[HTML]{67C4D8}"
 red  = "\\cellcolor[HTML]{F67D75}"
 purp = "\\cellcolor[HTML]{AFA1A7}"
@@ -26,28 +27,31 @@ f = open("xptable.tex", "w")
 f.write("\\setlength{\\minrowclearance}{6pt}\n")
 f.write("\\begin{tabular}{crlllllllll}\n")
 
-f.write("\\multicolumn{2}{c}{"+purp+"} & \\multicolumn{"+str(len(alist))+"}{c}{"+blue+"\\textbf{Attribute Bonus}} \\\\\n")
+f.write("\\multicolumn{2}{"+colcolor("AFA1A7")+"c}{} & \\multicolumn{"+str(len(alist))+"}{"+colcolor("67C4D8")+"c}{\\textbf{Attribute Bonus}} \\\\\n")
+f.write("\\noalign{\\vspace{-1pt}}\n")
 
-f.write("\\multicolumn{2}{c}{\multirow{-2}{*}{"+purp+"\\textbf{XP Cost}}} &")
+f.write("\\multicolumn{2}{"+colcolor("AFA1A7")+"c}{\multirow{-2}{*}{\\textbf{XP Cost}}} &")
 for a in alist:
-  f.write(" \\multicolumn{1}{r}{"+blue+"\\textbf{"+str(a)+"}} ")
+  f.write(" \\multicolumn{1}{"+colcolor("67C4D8")+"r}{\\textbf{"+str(a)+"}} ")
   if a!=alist[-1]:
     f.write(" & ")
 f.write("\\\\ \\cline{3-11}\n")
 
 for c in clist:
   if c!=clist[-1]:
-    f.write(red+" & ")
+    f.write(" \\multicolumn{1}{"+colcolor("F67D75")+"r}{} & ")
   else:
+    f.write("\\multicolumn{1}{"+colcolor("F67D75")+"l}{")
     f.write("\\multirow{-"+str(len(clist))+"}{*}{"+red)
     f.write("\\rotatebox[origin=c]{90}{\\textbf{Current Skill Level}}")
-    f.write("} & ")
-  f.write(red+"\\textbf{"+str(c)+"} & ")
+    f.write("}} & ")
+  f.write(" \\multicolumn{1}{"+colcolor("F67D75")+"r|}{\\textbf{"+str(c)+"}} & ")
   for a in alist:
     f.write(" \\multicolumn{1}{r|}{"+str(xp_cost(a,c))+"} ")
     if a!=alist[-1]:
       f.write(" & ")
   f.write("\\\\ \\cline{3-11}\n")
+  f.write("\\noalign{\\vspace{-1pt}}\n")
 
 f.write("\\end{tabular}\n")
 f.close()
