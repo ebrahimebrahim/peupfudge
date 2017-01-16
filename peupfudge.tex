@@ -3,7 +3,8 @@
 %jej3856
 
 %packages
-\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[usenames,dvipsnames,table,xcdraw]{xcolor}
+\usepackage{multirow}
 \usepackage{fullpage}
 \usepackage{tikz}
 \usepackage{amsmath}
@@ -147,7 +148,12 @@ A skill with a high-level governing attribute is easier to raise.
 %(I deleted "because it implies related knowledge" b/c we already said that in the conceptual summary -e)
 Use the following table to determine the xp cost for a skill level increase:
 
-\notes{Insert xp table here, with the labels "current skill level" and "attribute bonus"}
+\begin{center}
+\input{xptable.tex}
+\end{center}
+%I don't like using the standard roman font in the table. should find a better font to display those numbers
+
+
 
 The \emph{attribute bonus} is a weighted average over all ancestor attributes of the skill being trained:
 \begin{align*}
