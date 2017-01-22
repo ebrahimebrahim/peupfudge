@@ -1,13 +1,12 @@
 \documentclass[12pt]{article}
 
-%jej3856
-
 %packages
 \usepackage[usenames,dvipsnames,table,xcdraw]{xcolor}
 \usepackage{multirow}
 \usepackage{fullpage}
 \usepackage{tikz}
 \usepackage{amsmath}
+\usepackage{graphics}
 
 
 \title{PeupFudge}
@@ -149,7 +148,9 @@ A skill with a high-level governing attribute is easier to raise.
 Use the following table to determine the xp cost for a skill level increase:
 
 \begin{center}
+\resizebox{\columnwidth}{!}{
 \input{xptable.tex}
+}
 \end{center}
 %I don't like using the standard roman font in the table. should find a better font to display those numbers
 
