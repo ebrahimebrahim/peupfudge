@@ -17,7 +17,7 @@ xp_cost = lambda a,c : int(round(s*pow(b,c)*(1-d*(a-3))))
 clist = range(1,9)
 
 #list of attribute bonuses to put as columns table:
-alist = map(lambda x:x/(2.0),range(1,19))
+alist = map(lambda x:x/(2.0),range(2,19))
 
 
 colcolor = lambda color : ">{\\columncolor[HTML]{"+color+"}[\\tabcolsep][1.1\\tabcolsep]}"
