@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 
+import random
+
 class Node(object):
   def __init__(self, name, untrained_level=3, level=None):
     self.name = name
     self.untrained_level = untrained_level
     self.level = level if level is not None else untrained_level
     self.children_weights = []
+    self.parent = None
   def add_child(self, child_node, weight=1):
     if not isinstance(child_node, self.__class__):
       raise TypeError("Child should be of type "+str(self.__class__)+".")
+    child_node.parent = self
     self.children_weights.append((child_node, weight))
   def children(self):
-    return (c for c,w in self.children_weights)
+    return [c for c,w in self.children_weights]
   def child_with_weight_by_name(self, name):
     try:
       return self.children_weights[[c.name for c,w in self.children_weights].index(name)]
@@ -24,7 +28,7 @@ class Node(object):
     child, weight = self.child_with_weight_by_name(name)
     return weight
   def descendants(self):
-    return [c for c in self.children()]+[d for c in self.children() for d in c.descendants()]
+    return self.children()+[d for c in self.children() for d in c.descendants()]
   def descendant(self, name):
     descendants = self.descendants()
     try:
@@ -33,10 +37,25 @@ class Node(object):
       raise Exception(self.name+' has no descendant by the name '+name)
   def is_skill(self):
     return not bool(self.children_weights)
-  def __str__(self, indent=0, weight_under_parent=1):
-    own_label = indent*'  ' + '['+str(weight_under_parent)+'] ' + self.name + ": " + str(self.level)
-    children_labels = '\n'.join([c.__str__(indent+1,w) for c,w in self.children_weights])
+  def own_weight(self):
+    if self.parent is None:
+      raise Exception(self.name+' has no weight because it has no parent.')
+    return self.parent.weight_of(self.name)
+  def __str__(self, indent=0):
+    own_label = indent*'  ' + '['+(str(self.own_weight()) if self.parent else '-')+'] ' + self.name + ": " + str(self.level)
+    children_labels = '\n'.join([c.__str__(indent+1) for c,w in self.children_weights])
     return own_label + ('\n' if not self.is_skill() else '') + children_labels
+  def train(self, indirect = False):
+    if not self.is_skill() and not indirect:
+      raise Exception('Cannot directly train the attribute '+self.name+'.')
+    self.level += 1
+    if self.parent:
+      w = float(self.own_weight())
+      w_plus_n = sum(c.own_weight() for c in self.parent.children() if (c.level <= self.parent.level or c is self))
+      p = w / w_plus_n #probability that the parent will increase
+      if random.random() < p:
+        self.parent.train(indirect=True)
+    
   
 
 eg = Node('level')
