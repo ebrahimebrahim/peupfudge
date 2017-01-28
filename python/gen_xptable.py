@@ -26,35 +26,39 @@ red  = colcolor("F67D75")
 purp = colcolor("AFA1A7")
 
 
-f = open("xptable.tex", "w")
-f.write("\\setlength{\\minrowclearance}{6pt}\n")
-f.write("\\begin{tabular}{cr"+(len(alist)*'l')+"}\n")
-
-f.write("\\multicolumn{2}{"+purp+"c}{} & \\multicolumn{"+str(len(alist))+"}{"+blue+"c}{\\textbf{Attribute Bonus}} \\\\\n")
-f.write("\\noalign{\\vspace{-1pt}}\n")
-
-f.write("\\multicolumn{2}{"+purp+"c}{\multirow{-2}{*}{\\textbf{XP}}} &")
-for a in alist:
-  f.write(" \\multicolumn{1}{"+blue+"r}{\\textbf{"+str(a)+"}} ")
-  if a!=alist[-1]:
-    f.write(" & ")
-f.write("\\\\ \\cline{3-"+str(2+len(alist))+"}\n")
-
-for c in clist:
-  if c!=clist[-1]:
-    f.write(" \\multicolumn{1}{"+red+"r}{} & ")
-  else:
-    f.write("\\multicolumn{1}{"+red+"l}{")
-    f.write("\\multirow{-"+str(len(clist))+"}{*}{")
-    f.write("\\rotatebox[origin=c]{90}{\\textbf{Current Skill Level}}")
-    f.write("}} & ")
-  f.write(" \\multicolumn{1}{"+red+"r|}{\\textbf{"+str(c)+"}} & ")
+def main():
+  f = open("xptable.tex", "w")
+  f.write("\\setlength{\\minrowclearance}{6pt}\n")
+  f.write("\\begin{tabular}{cr"+(len(alist)*'l')+"}\n")
+  
+  f.write("\\multicolumn{2}{"+purp+"c}{} & \\multicolumn{"+str(len(alist))+"}{"+blue+"c}{\\textbf{Attribute Bonus}} \\\\\n")
+  f.write("\\noalign{\\vspace{-1pt}}\n")
+  
+  f.write("\\multicolumn{2}{"+purp+"c}{\multirow{-2}{*}{\\textbf{XP}}} &")
   for a in alist:
-    f.write(" \\multicolumn{1}{r|}{"+str(xp_cost(a,c))+"} ")
+    f.write(" \\multicolumn{1}{"+blue+"r}{\\textbf{"+str(a)+"}} ")
     if a!=alist[-1]:
       f.write(" & ")
   f.write("\\\\ \\cline{3-"+str(2+len(alist))+"}\n")
-  f.write("\\noalign{\\vspace{-1pt}}\n")
+  
+  for c in clist:
+    if c!=clist[-1]:
+      f.write(" \\multicolumn{1}{"+red+"r}{} & ")
+    else:
+      f.write("\\multicolumn{1}{"+red+"l}{")
+      f.write("\\multirow{-"+str(len(clist))+"}{*}{")
+      f.write("\\rotatebox[origin=c]{90}{\\textbf{Current Skill Level}}")
+      f.write("}} & ")
+    f.write(" \\multicolumn{1}{"+red+"r|}{\\textbf{"+str(c)+"}} & ")
+    for a in alist:
+      f.write(" \\multicolumn{1}{r|}{"+str(xp_cost(a,c))+"} ")
+      if a!=alist[-1]:
+        f.write(" & ")
+    f.write("\\\\ \\cline{3-"+str(2+len(alist))+"}\n")
+    f.write("\\noalign{\\vspace{-1pt}}\n")
+  
+  f.write("\\end{tabular}\n")
+  f.close()
 
-f.write("\\end{tabular}\n")
-f.close()
+if __name__ == "__main__":
+  main()

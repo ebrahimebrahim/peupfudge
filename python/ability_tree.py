@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-import random, re
+import random
+import re
+import gen_xptable as xptable
 
 class Node(object):
   """Ability tree node class. AKA, ability tree, for the root node object.
@@ -75,6 +77,32 @@ class Node(object):
     children_labels = '\n'.join([c.__str__(indent+1,extra_info=extra_info) for c in self.children])
     return own_label + ('\n' if not self.is_skill() else '') + children_labels
 
+  def ancestors(self):
+    """Return list of ancestors, ordered starting from immediate parent."""
+    return [self.parent]+self.parent.ancestors() if self.parent else []
+
+  def cost_to_train(self):
+    """Return xp cost of training this skill
+       
+       This uses the actual xp table that goes into the manual, and has no more
+       information to go off of than what is in that table.
+       It will do all the rounding a play would do when reading off the table.
+    """
+    anc = self.ancestors()
+    raw_attribute_bonus = sum( 1.0/pow(2,n)*a.level for n,a in enumerate(anc) ) / sum(1.0/pow(2,n) for n in range(len(anc)))
+    attribute_bonus = min(xptable.alist, key = lambda x : abs(x-raw_attribute_bonus)) #round to closest available column in list
+    return xptable.xp_cost(attribute_bonus, self.level)
+    
+  def probability_of_parent_increase(self):
+    """Return probability that the parent will increase if this skill were trained, a float"""
+    if not self.parent:
+      raise Exception(self.name+' has no parent, so you cannot ask for the probability of parent increase')
+    if not all(s.weight for s in self.parent.children):
+      raise Exception(self.name+': could not compute probability of parent increase b/c some siblings seem not to have assigned weight')
+    w = float(self.weight)
+    w_plus_n = sum(s.weight for s in self.parent.children if (s.level <= self.parent.level or s is self))
+    return w / w_plus_n
+
   def train(self, indirect = False):
     """Train this skill
 
@@ -87,12 +115,7 @@ class Node(object):
     if not self.is_skill() and not indirect:
       raise Exception('Cannot directly train the attribute '+self.name+'.')
     self.level += 1
-    if self.parent:
-      assert all(s.weight for s in self.parent.children) #all siblings should have a weight
-      w = float(self.weight)
-      w_plus_n = sum(s.weight for s in self.parent.children if (s.level <= self.parent.level or s is self))
-      p = w / w_plus_n #probability that the parent will increase
-      if random.random() < p:
+    if self.parent and random.random() < self.probability_of_parent_increase():
         self.parent.train(indirect=True)
 
 

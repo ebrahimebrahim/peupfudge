@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-import copy, numpy
+import copy
+import numpy
 import matplotlib.pyplot as plt
 from ability_tree import *
 
