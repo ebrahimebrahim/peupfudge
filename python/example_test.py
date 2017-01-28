@@ -24,7 +24,7 @@ print mean_tree(eg,outcomes)
 print '\n'
 
 #this will print out the average resulting tree with percentiles
-show_percentiles(eg,outcomes,percentiles=[1,25,75,99])
+print percentiles(eg,outcomes,percentiles=[1,25,75,99])
 
 #this shows the probability distribution for the resulting level of "body"
 show_histogram('body',outcomes)

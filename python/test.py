@@ -41,5 +41,5 @@ def trainer4(eg):
   for n in range(10):
     trainer3(eg)
 
-o = run_trials(eg, trainer4, num_trials=10000)
-show_percentiles(eg, o)
+o = run_trials(eg, trainer4, num_trials=1000)
+print percentiles(eg, o)
