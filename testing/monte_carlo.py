@@ -40,3 +40,14 @@ def show_histogram(ability_name, outcomes):
   l = outcomes[ability_name]
   plt.hist(l, normed=True, bins=range(min(l),max(l)+1));
   plt.show()
+
+def show_percentiles(node, outcomes, percentiles = [1,25,50,75,99]):
+  """Show tree with each ability preceded by a list of percentiles, and with mean replacing ability levels.
+
+     Args:
+       node: the ability tree, a Node
+       outcomes: outcomes from a run_trials for that ability tree, a dict
+       percentiles: a list of percentiles to display
+  """
+  extra_info = {name : str([int(p) for p in numpy.percentile(outcomes[name], percentiles)]) for name in outcomes.keys()}
+  print mean_tree(node, outcomes).__str__(extra_info=extra_info)

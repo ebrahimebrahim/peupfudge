@@ -66,9 +66,13 @@ class Node(object):
     """Return whether or not this ability is a skill"""
     return not bool(self.children)
 
-  def __str__(self, indent=0):
+  def __str__(self, indent=0, extra_info=None):
+    #extra_info gives a chance to display extra information from a str-->str, name |--> info, dict
     own_label = indent*'  ' + '['+(str(self.weight) if self.weight else '-')+'] ' + self.name + ": " + str(self.level)
-    children_labels = '\n'.join([c.__str__(indent+1) for c in self.children])
+    if extra_info:
+      maxlen = max(len(s) for s in extra_info.values())
+      own_label = extra_info[self.name] + (4+maxlen-len(extra_info[self.name]))*' ' + own_label
+    children_labels = '\n'.join([c.__str__(indent+1,extra_info=extra_info) for c in self.children])
     return own_label + ('\n' if not self.is_skill() else '') + children_labels
 
   def train(self, indirect = False):

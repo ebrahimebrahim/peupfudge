@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# This file is a demonstration of how to use monte_carlo.py
+
 from monte_carlo import *
 
 #example tree to test this on:
@@ -19,6 +21,11 @@ outcomes = run_trials(eg,eg_trainer,10000)
 
 #this will print out the average resulting tree
 print mean_tree(eg,outcomes)
+print '\n'
+
+#this will print out the average resulting tree with percentiles
+show_percentiles(eg,outcomes,percentiles=[1,25,75,99])
 
 #this shows the probability distribution for the resulting level of "body"
 show_histogram('body',outcomes)
+
