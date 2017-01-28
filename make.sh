@@ -1,3 +1,5 @@
 #!/bin/bash
-./gen_xptable.py
+set -e
+
+python/gen_xptable.py
 pdflatex peupfudge.tex
