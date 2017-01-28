@@ -49,9 +49,10 @@ class Node(object):
       return self.children[[c.name for c in self.children].index(name)]
     except ValueError:
       raise Exception(self.name+' has no child by the name '+name)
+
   def descendants(self):
-    """Return list of all descendants of this Node (children, their children, etc.)"""
-    return self.children+[d for c in self.children for d in c.descendants()]
+    """Return list of all descendants of this Node (children, their children, etc.), including the node itself."""
+    return [self]+[d for c in self.children for d in c.descendants()]
 
   def descendant(self, name):
     """Access a descendant by name (a descendant need not be a direct child)"""
@@ -153,4 +154,3 @@ def import_ability_tree(filename):
   return node_from_lines(lines)
   
 
-eg = import_ability_tree("example.tree")
