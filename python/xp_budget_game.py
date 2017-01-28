@@ -55,6 +55,6 @@ def play_sequence(seq, num_trials=1000):
   outcomes, xpcosts = run_trials(tree,trainer_from_sequence(seq),num_trials=num_trials,include_xpcosts=True)
   print percentiles(tree,outcomes) + "\n"
   print "Average XP cost: " + str(numpy.mean(xpcosts)) + "\n"
-  print "You XP budget: "+str(budget)
+  print "Your XP budget: "+str(budget)
   over_percent = 100*float(len(filter(lambda x : x>budget,xpcosts)))/len(xpcosts)
   print "You went over your budget "+str(int(round(over_percent)))+"% of the time."

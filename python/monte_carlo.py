@@ -35,12 +35,13 @@ def run_trials(node, trainer, num_trials=1000, include_xpcosts=False):
     return outcomes
 
 def mean_tree(node, outcomes):
-  """Return a version of the ability tree whose ability levels are the average of those found in outcomes"""
+  """Return a version of the ability tree whose ability levels are the average of those found in outcomes.
+     The averages are rounded to the nearest tenth."""
   if set([d.name for d in node.descendants()]) != set(outcomes.keys()):
     raise Exception("It looks like the outcomes list you provided was meant for a different tree.")
   new_tree = copy.deepcopy(node)
   for ability_name in outcomes.keys():
-    new_tree.descendant(ability_name).level = numpy.mean(outcomes[ability_name])
+    new_tree.descendant(ability_name).level = round(numpy.mean(outcomes[ability_name]),1)
   return new_tree
 
 def show_histogram(ability_name, outcomes):
