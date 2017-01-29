@@ -5,7 +5,7 @@
 from monte_carlo import *
 
 #example tree to test this on:
-eg = import_ability_tree("example.tree")
+eg = import_ability_tree("trees/example.tree")
 
 #example trainer that trains hauling three times and wound care four times
 def eg_trainer(eg):

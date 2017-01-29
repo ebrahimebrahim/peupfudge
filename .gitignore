@@ -3,3 +3,4 @@
 *.pdf
 xptable.tex
 *.pyc
+python/trees/*.tex

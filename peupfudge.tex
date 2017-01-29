@@ -75,63 +75,12 @@ Most abilities have an initial (untrained) level of 3. The GM may choose some di
 Abilities are arranged in a tree structure in which broad abilities govern more specific ones.
 An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node).
 Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}.
-Here is an example of an initial ability tree where attributes are shown in blue,
-skills are shown in red, skill levels are in parentheses, and weights are labeled on edges:
+Below is an example of an initial ability tree, with an ability level displayed next to each ability.
+Attributes are shown in blue, skills are shown in red, and weights are labeled on edges.
 
-\tikzset{
-  treenode/.style = {shape=rectangle, rounded corners,
-                     draw, align=center,
-                     top color=white},
-  attribute/.style     = {treenode, font=\ttfamily\normalsize, bottom color=blue!30},
-  skill/.style         = {treenode, font=\ttfamily\normalsize, bottom color=red!20},
-}
-\begin{tikzpicture}
-  [
-    grow                    = right,
-    sibling distance        = 3em,
-    level distance          = 15em,
-    edge from parent/.style = {draw, -latex},
-    every node/.style       = {font=\scriptsize},
-    sloped
-  ]
-  \node [attribute] {Mind (3)}
-    child { node [attribute] {Medicine (2)}
-      child { node [skill] {First Aid (3)}
-        edge from parent node [above] {1}}
-      child { node [skill] {Wound Care (2)}
-        edge from parent node [above] {1}}
-      edge from parent node [above] {1}}
-    child { node [skill] {Literacy (3)}
-      edge from parent node [above] {2}}
-    child { node [skill] {Engineering (1)}
-      edge from parent node [above] {1}};
-\end{tikzpicture}
-
-\begin{tikzpicture}
-  [
-    grow                    = right,
-    sibling distance        = 3em,
-    level distance          = 15em,
-    edge from parent/.style = {draw, -latex},
-    every node/.style       = {font=\scriptsize},
-    sloped
-  ]
-  \node [attribute] {Body (3)}
-    child { node [attribute] {Athletics (3)}
-      child { node [skill] {Running (4)}
-        edge from parent node [above] {1}}
-      child { node [skill] {Swimming (2)}
-        edge from parent node [above] {1}}
-      edge from parent node [above] {2} }
-    child { node [skill] {Climbing (2)}
-      edge from parent node [above] {1}}
-    child { node [attribute] {Muscle\\Strength (3)} 
-      child { node [skill] {Hauling (3)}
-        edge from parent node [above] {1}}
-      child { node [skill] {Hand-to-Hand\\Combat (3)}
-        edge from parent node [above] {1}}
-      edge from parent node [above] {2}};
-\end{tikzpicture}.
+\begin{center}
+\input{python/trees/example.tree.tex}
+\end{center}
 
 \paragraph{The Idea} Let us summarize the mechanics to be explained. The weight of an ability represents its importance to its group, i.e. the degree to which its improvement improves its governing ability.
 Players are granted experience points (xp) throughout the game. They may use xp to raise skills that they have recently used (i.e. rolled against). Only skills, and not attributes, may be raised directly with xp.

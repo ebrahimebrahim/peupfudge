@@ -6,7 +6,7 @@
 from monte_carlo import *
 
 # Starting ability tree to play this game on:
-tree = import_ability_tree("example.tree")
+tree = import_ability_tree("trees/example.tree")
 
 # XP budget to play with
 budget = 3000
