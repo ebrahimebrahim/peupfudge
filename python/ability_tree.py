@@ -123,10 +123,20 @@ class Node(object):
     if self.parent and random.random() < self.probability_of_parent_increase():
         self.parent.train(indirect=True)
 
-  def tex(self):
-    vert_spacing = 0.75
-    horiz_spacing = 5.
+  def tex(self, vert_spacing=0.85, horiz_spacing=3.5):
+    """Return a tikz picture of this tree to be included in tex documents.
+       The picture lists all skills down a column on the right, and extends ancestors to the left.
+       Make sure you \\usepackage{tikz} in your tex document.
 
+       Args:
+         vert_spacing: (float) the vertical spacing in cm between skills
+         horiz_spacing: (float or list) the spacing in cm between columns of the tree;
+           if a single float is given then the spacing is uniform
+           if a list l of floats is given then the space between columns n and n+1 is l[n]
+
+       Returns:
+         the tex as a string
+    """
     undepth = lambda n : max(dpth for desc,dpth in n.descendants(with_depth=True)) 
     # (measures how deep the deepest child of a node is)
     maxdepth = undepth(self) # max undepth == max depth of course
@@ -143,7 +153,14 @@ class Node(object):
       children_positions = [how_far_down(c) for c in n.children]
       return (min(children_positions) + max(children_positions))/2.
     def how_far_over(n):
-      return (maxdepth-undepth(n))*horiz_spacing
+      column = maxdepth - undepth(n) #columns are 0, 1, ..., maxdepth
+      if hasattr(horiz_spacing, "__getitem__"):
+        try:
+          return sum(horiz_spacing[:column])
+        except IndexError:
+          raise Exception("Can't produce tex for tree rooted at \'"+self.name+"\'; horiz_spacing has too few entries.")
+      else:
+        return column * horiz_spacing
         
 
     tex = """\\tikzset{
