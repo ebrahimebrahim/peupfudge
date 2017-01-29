@@ -118,6 +118,36 @@ class Node(object):
     if self.parent and random.random() < self.probability_of_parent_increase():
         self.parent.train(indirect=True)
 
+  def tex(self):
+    tex =\
+          """\\tikzset{
+             treenode/.style = {shape=rectangle, rounded corners,
+                                draw, align=center,
+                                top color=white},
+             attribute/.style     = {treenode, font=\\ttfamily\\normalsize, bottom color=blue!30},
+             skill/.style         = {treenode, font=\\ttfamily\\normalsize, bottom color=red!20},
+           }
+           \\begin{tikzpicture}
+             [
+               grow                    = right,
+               sibling distance        = 3em,
+               level distance          = 15em,
+               edge from parent/.style = {draw, -latex},
+               every node/.style       = {font=\scriptsize},
+               sloped
+             ]"""
+    nodestr = lambda node : '['+('skill' if node.is_skill() else 'attribute')+']'+' {'+node.name+" ("+str(node.level)+')} '
+    def tikznode(node,depth=0):
+      r =  "\\node " if depth==0 else "node "
+      r += nodestr(node) + '\n'
+      for c in node.children:
+        r += "child { " + tikznode(c, depth=depth+1)
+        r += " edge from parent node [above] {"+str(c.weight)+"}"
+        r += "}"
+      return r
+    tex += tikznode(self)+';'
+    tex += "\\end{tikzpicture}"
+    return tex
 
 
 
