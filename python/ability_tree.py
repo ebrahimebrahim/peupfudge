@@ -164,11 +164,9 @@ class Node(object):
         
 
     tex = """\\tikzset{
-  treenode/.style = {shape=rectangle, rounded corners,
-                     draw, align=center,
-                     top color=white},
+  treenode/.style = {shape=rectangle, rounded corners, top color=white, draw},
   attribute/.style     = {treenode, font=\\ttfamily\\normalsize, bottom color=blue!30},
-  skill/.style         = {treenode, font=\\ttfamily\\normalsize, bottom color=red!20},
+  skill/.style         = {treenode, font=\\ttfamily\\normalsize, bottom color=red!20, right},
   weight/.style = {pos=0.5, shape=circle, scale=1, minimum height=1, inner sep=1pt, fill=white, font=\\scriptsize, draw}
 }
 \\begin{tikzpicture}\n"""
@@ -184,7 +182,7 @@ class Node(object):
     tex += ";\n"
     for n in self.descendants():
       for c in n.children:
-        tex += "\\draw (" + n.name + ") -- (" + c.name + ")"
+        tex += "\\draw[-{latex}] (" + n.name + ") -- (" + c.name + ".west)"
         tex += "  node[weight]{" + str(c.weight) + "};\n"
     tex += "\\end{tikzpicture}"
     return tex
