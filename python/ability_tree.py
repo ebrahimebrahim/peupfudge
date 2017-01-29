@@ -124,31 +124,51 @@ class Node(object):
         self.parent.train(indirect=True)
 
   def tex(self):
-    tex ="""\\tikzset{
+    vert_spacing = 0.75
+    horiz_spacing = 5.
+
+    undepth = lambda n : max(dpth for desc,dpth in n.descendants(with_depth=True)) 
+    # (measures how deep the deepest child of a node is)
+    maxdepth = undepth(self) # max undepth == max depth of course
+    a = [(d,undepth(d)) for d in self.descendants()] # nodes and their undepths
+    b = map(lambda x : x[0].name, a); # lets look at how the names are ordered here
+    a.sort(key = lambda x : (x[1], b.index(x[0].name))) # now they are in the order that lets you recursively decide positioning
+    aa = [[n for n,u in a if u==udpth] for udpth in range(maxdepth+1)] # same, but list of lists will be easier to work with
+    def how_far_down(n):
+      if undepth(n) == 0: #for skills, the undeep-least things, we just space them evenly
+        return aa[0].index(n)*vert_spacing
+      #for everything else, we base it on how its children are positioned
+      assert(all(undepth(c)<undepth(n) for c in n.children))
+      # ... obviously the children are less undeep right?
+      children_positions = [how_far_down(c) for c in n.children]
+      return (min(children_positions) + max(children_positions))/2.
+    def how_far_over(n):
+      return (maxdepth-undepth(n))*horiz_spacing
+        
+
+    tex = """\\tikzset{
   treenode/.style = {shape=rectangle, rounded corners,
                      draw, align=center,
                      top color=white},
   attribute/.style     = {treenode, font=\\ttfamily\\normalsize, bottom color=blue!30},
   skill/.style         = {treenode, font=\\ttfamily\\normalsize, bottom color=red!20},
+  weight/.style = {pos=0.5, shape=circle, scale=1, minimum height=1, inner sep=1pt, fill=white, font=\\scriptsize, draw}
 }
-\\begin{tikzpicture}
-  [
-    grow                    = right,
-    sibling distance        = 3em,
-    level distance          = 15em,
-    edge from parent/.style = {draw, -latex},
-    every node/.style       = {font=\scriptsize},
-    sloped
-  ]\n"""
-    nodestr = lambda node : '['+('skill' if node.is_skill() else 'attribute')+']'+' {'+node.name+" ("+str(node.level)+')} '
-    def tikznode(node,depth=0):
-      r =  "\\node " if depth==0 else "node "
-      r += nodestr(node) + '\n'
-      for c in node.children:
-        r += depth*"  "+"child { " + tikznode(c, depth=depth+1)
-        r += depth*"  "+"edge from parent node [above] {"+str(c.weight)+"}}\n"
-      return r
-    tex += tikznode(self)+';'
+\\begin{tikzpicture}\n"""
+    def nodestr(node):
+      nodestr  = '(' + str(how_far_over(node)) + ',' + str(-how_far_down(node)) + ') '
+      nodestr += 'node ['+('skill' if node.is_skill() else 'attribute')+'] '
+      nodestr += '(' + node.name + ') '
+      nodestr += '{' + node.name + ' ' + str(node.level) + '} '
+      return nodestr
+    tex += "\\draw\n"
+    for n in self.descendants():
+      tex += "  "+nodestr(n)+"\n"
+    tex += ";\n"
+    for n in self.descendants():
+      for c in n.children:
+        tex += "\\draw (" + n.name + ") -- (" + c.name + ")"
+        tex += "  node[weight]{" + str(c.weight) + "};\n"
     tex += "\\end{tikzpicture}"
     return tex
 
