@@ -17,7 +17,7 @@ abbrev =\
  'l':'literacy',
  'w':'wound care',
  'f':'first aid',
- 't':'hand-to-hand combat',
+ 't':'hand-to-hand',
  'h':'hauling',
  'c':'climbing',
  's':'swimming',
