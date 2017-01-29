@@ -52,9 +52,14 @@ class Node(object):
     except ValueError:
       raise Exception(self.name+' has no child by the name '+name)
 
-  def descendants(self):
-    """Return list of all descendants of this Node (children, their children, etc.), including the node itself."""
-    return [self]+[d for c in self.children for d in c.descendants()]
+  def descendants(self, with_depth=False, start_depth=0):
+    """Return list of all descendants of this Node (children, their children, etc.), including the node itself.
+       If with_depth, False by default, is toggled on then the return will be a list of pairs (descendant, depth)
+       where the root node has a depth of zero."""
+    if with_depth:
+      return [(self,start_depth)]+[(desc,dpth) for c in self.children for desc,dpth in c.descendants(with_depth=True, start_depth=start_depth+1)]
+    else:
+      return [self]+[d for c in self.children for d in c.descendants()]
 
   def descendant(self, name):
     """Access a descendant by name (a descendant need not be a direct child)"""
@@ -119,31 +124,29 @@ class Node(object):
         self.parent.train(indirect=True)
 
   def tex(self):
-    tex =\
-          """\\tikzset{
-             treenode/.style = {shape=rectangle, rounded corners,
-                                draw, align=center,
-                                top color=white},
-             attribute/.style     = {treenode, font=\\ttfamily\\normalsize, bottom color=blue!30},
-             skill/.style         = {treenode, font=\\ttfamily\\normalsize, bottom color=red!20},
-           }
-           \\begin{tikzpicture}
-             [
-               grow                    = right,
-               sibling distance        = 3em,
-               level distance          = 15em,
-               edge from parent/.style = {draw, -latex},
-               every node/.style       = {font=\scriptsize},
-               sloped
-             ]"""
+    tex ="""\\tikzset{
+  treenode/.style = {shape=rectangle, rounded corners,
+                     draw, align=center,
+                     top color=white},
+  attribute/.style     = {treenode, font=\\ttfamily\\normalsize, bottom color=blue!30},
+  skill/.style         = {treenode, font=\\ttfamily\\normalsize, bottom color=red!20},
+}
+\\begin{tikzpicture}
+  [
+    grow                    = right,
+    sibling distance        = 3em,
+    level distance          = 15em,
+    edge from parent/.style = {draw, -latex},
+    every node/.style       = {font=\scriptsize},
+    sloped
+  ]\n"""
     nodestr = lambda node : '['+('skill' if node.is_skill() else 'attribute')+']'+' {'+node.name+" ("+str(node.level)+')} '
     def tikznode(node,depth=0):
       r =  "\\node " if depth==0 else "node "
       r += nodestr(node) + '\n'
       for c in node.children:
-        r += "child { " + tikznode(c, depth=depth+1)
-        r += " edge from parent node [above] {"+str(c.weight)+"}"
-        r += "}"
+        r += depth*"  "+"child { " + tikznode(c, depth=depth+1)
+        r += depth*"  "+"edge from parent node [above] {"+str(c.weight)+"}}\n"
       return r
     tex += tikznode(self)+';'
     tex += "\\end{tikzpicture}"
