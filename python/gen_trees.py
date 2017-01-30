@@ -6,8 +6,6 @@
 import os
 from ability_tree import *
 
-trees_to_write = ["example.tree"]
-
 def write_tex(tree_file, vert_spacing, horiz_spacing):
   scriptname = os.path.basename(os.path.realpath(__file__))
   trees_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),"trees")
@@ -18,8 +16,7 @@ def write_tex(tree_file, vert_spacing, horiz_spacing):
   f.close()
 
 def main():
-  for tree_file in trees_to_write:
-    write_tex(tree_file, 0.85, [3,3.5,3])
+  write_tex("example.tree", 0.85, [3,3.5,3])
 
 if __name__=="__main__":
   main()
