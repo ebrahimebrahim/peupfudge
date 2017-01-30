@@ -129,7 +129,9 @@ class Node(object):
        Make sure you \\usepackage{tikz} in your tex document.
 
        Args:
-         vert_spacing: (float) the vertical spacing in cm between skills
+         vert_spacing: (float or list) the vertical spacing in cm between skills
+           if a single float is given then the  spacing is uniform
+           if a list l of floats is given then the space between skills n and n+1 is l[n]
          horiz_spacing: (float or list) the spacing in cm between columns of the tree;
            if a single float is given then the spacing is uniform
            if a list l of floats is given then the space between columns n and n+1 is l[n]
@@ -140,13 +142,19 @@ class Node(object):
     undepth = lambda n : max(dpth for desc,dpth in n.descendants(with_depth=True)) 
     # (measures how deep the deepest child of a node is)
     maxdepth = undepth(self) # max undepth == max depth of course
-    a = [(d,undepth(d)) for d in self.descendants()] # nodes and their undepths
-    b = map(lambda x : x[0].name, a); # lets look at how the names are ordered here
-    a.sort(key = lambda x : (x[1], b.index(x[0].name))) # now they are in the order that lets you recursively decide positioning
-    aa = [[n for n,u in a if u==udpth] for udpth in range(maxdepth+1)] # same, but list of lists will be easier to work with
+    skills = [d for d in self.descendants() if undepth(d)==0]
+    # these should be in the proper order to avoid crossing edges as much as possible
+    # (given how Node.descendants works)
+
+    if not hasattr(horiz_spacing, "__getitem__"):
+      horiz_spacing = maxdepth*[horiz_spacing]
+    if not hasattr(vert_spacing, "__getitem__"):
+      vert_spacing = (len(skills)-1)*[vert_spacing]
+      
     def how_far_down(n):
-      if undepth(n) == 0: #for skills, the undeep-least things, we just space them evenly
-        return aa[0].index(n)*vert_spacing
+      if undepth(n) == 0: # the base case for how_far_down is skills
+        row = skills.index(n)
+        return sum(vert_spacing[:row])
       #for everything else, we base it on how its children are positioned
       assert(all(undepth(c)<undepth(n) for c in n.children))
       # ... obviously the children are less undeep right?
@@ -154,13 +162,7 @@ class Node(object):
       return (min(children_positions) + max(children_positions))/2.
     def how_far_over(n):
       column = maxdepth - undepth(n) #columns are 0, 1, ..., maxdepth
-      if hasattr(horiz_spacing, "__getitem__"):
-        try:
-          return sum(horiz_spacing[:column])
-        except IndexError:
-          raise Exception("Can't produce tex for tree rooted at \'"+self.name+"\'; horiz_spacing has too few entries.")
-      else:
-        return column * horiz_spacing
+      return sum(horiz_spacing[:column])
         
 
     tex = """\\tikzset{
