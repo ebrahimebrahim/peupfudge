@@ -83,13 +83,17 @@ Attributes are shown in blue, skills are shown in red, and weights are labeled o
 \end{center}
 
 \paragraph{The Idea} Let us summarize the mechanics to be explained. The weight of an ability represents its importance to its group, i.e. the degree to which its improvement improves its governing ability.
-Players are granted experience points (xp) throughout the game. They may use xp to raise skills that they have recently used (i.e. rolled against). Only skills, and not attributes, may be raised directly with xp.
-The mechanics of ability tree development are such that competence in skills related to a given skill make it easier to train that skill.
+Players are granted experience points (xp) throughout the game. They may use xp to raise skills that they have recently used (i.e. rolled against).
+Only skills, and not attributes, may be raised directly with xp.
+The mechanics of training abilities are such that competence in skills related to a given skill make it easier to train that skill.
+One effect of this is that players are encouraged
+to make characters that make sense and have some degree of specialization.
+\notes{[Does this really hold? Needs testing.]}
 
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
-\paragraph{Raising Skills}
-Skills may be raised with xp.
-The xp cost of raising a particular skill depends on
+\paragraph{Training Skills}
+Skills may be trained with xp.
+The xp cost of raising a particular skill level depends on
 the skill's current level and the levels of all its ancestor attributes in the ability tree.
 A high-level skill is harder to raise.
 A skill with a high-level governing attribute is easier to raise.
@@ -103,7 +107,6 @@ Use the following table to determine the xp cost for a skill level increase:
 \end{center}
 %I don't like using the standard roman font in the table. should find a better font to display those numbers
 
-\notes{possibly need to find new system for calculating attribute bonus}
 
 The \emph{attribute bonus} is a weighted average over all ancestor attributes of the skill being trained:
 \begin{align*}
@@ -129,27 +132,41 @@ Thus the closer an attribute is to a skill in the ability tree, the larger its h
 
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
-\paragraph{Raising Attributes}
-Attributes cannot be raised directly using xp.
-\notes{[The following paragraph talks about raising skill levels only.
-Shouldn't it be talking about raising \emph{ability} levels?
-Instead of mentioning later that ``the mechanic extends...'' -e]}
-Anytime a skill is raised, there is a chance that the attribute that governs it will be raised.
-This chance is determined by two factors: the weight of the skill (\emph{w}), and the sum of the weight of other sibling skills which are still at or below the level of the governing attribute (\emph{n}).
-A high level of broad competence in an area typically comes from training various specific skills under that area.
-Here is a formula where \emph{w} and \emph{n} are taken into account to determine the chance that the governing attribute is raised:
+\paragraph{Training Attributes}
+Unlike skills, attributes cannot be trained directly using xp.
+Whenever an ability level is increased, there is a chance that it's governing ability will also increase.
+This mechanic applies to \emph{all} abilities, so that the effect of training skills via xp
+propagates up the ability tree in a probabilistic fashion.
+Here's how it works:
+Let $A$ and $B$ are abilities such that $A$ governs $B$ with $B$ bearing weight $w$ (so $A \xrightarrow{w} B$ in the ability tree).
+Whenever $B$ increases in level, the chance that $A$ increases in level is given by
+$$\frac{w}{w+n}\quad,$$
+where $n$ is the sum of the weights of the \emph{other} abilities governed by $A$
+whose level is at most that of $A$.
+We provide a table for rolling a d10, so the formula is not needed.
 
-\notes{Insert formula here. This is just a placeholder, we can replace it with a qul table or something later; -y}
 
-Based on this formula, it is easier to raise an attribute by raising many of the skills it governs above its level, rather than simply focusing on a few and ignoring the rest. This mechanic extends through the ability tree; any time an attribute is raised by this mechanism, the formula should be used again to determine whether the attribute that governs it in turn is raised.
+\notes{[provide table, and include explanation of precisely how to roll against table entries]}
 
-%conceptual summary explaining the two main mechanics
-\notes{some kind of section separator/header} The mechanics for raising skills and attributes are meant to be realistic. Training a specific skill is easier with more general related experience, especially for that experience which pertains most directly to the skill. At the same time, the general experience typically comes from training in a wide variety of related specific skills. The ability tree also has the effect of encouraging players, via xp discounts, to make characters that make sense and have some degree of specialization.
-\notes{[This comment could probably be the same as the "good tree design is important section".
-We already have a ``conceptual summary'' section above.
-I recommend titling this paragraph ``Designing a good ability tree'' or something like that.]}
+\notes{[provide a quick example of determining $w$ and $n$, and include in the example an extra layer of propagation]}
+
+Thus a high level of broad competence in an area typically comes from training various specific skills under that area.
+It is easier to raise an attribute by raising many of the skills it governs above its level,
+rather than by merely focusing on a few and ignoring the rest.
+\notes{[Does that statement really hold true? Test it out.]}
+
+The mechanics for training skills and attributes are meant to resemble real training and experience.
+Training a specific skill is easier to do given more general related experience,
+and more so for that experience which pertains most directly to the skill,
+hence the attribute bonus.
+At the same time, that general experience typically comes from training in a wide variety of related specific skills,
+hence the above mechanic.
+
 
 %good tree design is important. if it seems limiting that only skills can be trained directly, then the tree may not be designed well.
+\paragraph{Tree Design}
+\notes{peup.}
+
 
 %explain what powers are and how they sit in the tree (just pretend they don't exist if off)
 
