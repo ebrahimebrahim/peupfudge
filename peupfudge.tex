@@ -91,7 +91,7 @@ to make characters that make sense and have some degree of specialization.
 \notes{[Does this really hold? Needs testing.]}
 
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
-\paragraph{Training Skills}
+\subsubsection{Training Skills}\label{sec:skill}
 Skills may be trained with xp.
 The xp cost of raising a particular skill level depends on
 the skill's current level and the levels of all its ancestor attributes in the ability tree.
@@ -132,19 +132,19 @@ Thus the closer an attribute is to a skill in the ability tree, the larger its h
 
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
-\paragraph{Training Attributes}
+\subsubsection{Training Attributes}\label{sec:att}
 Unlike skills, attributes cannot be trained directly using xp.
 Whenever an ability level is increased, there is a chance that it's governing ability will also increase.
 This mechanic applies to \emph{all} abilities, so that the effect of training skills via xp
 propagates up the ability tree in a probabilistic fashion.
 Here's how it works:
-Let $A$ and $B$ are abilities such that $A$ governs $B$ with $B$ bearing weight $w$ (so $A \xrightarrow{w} B$ in the ability tree).
+Let $A$ and $B$ be abilities such that $A$ governs $B$ with $B$ bearing weight $w$ (so $A \xrightarrow{w} B$ in the ability tree).
 Whenever $B$ increases in level, the chance that $A$ increases in level is given by
 $$\frac{w}{w+n}\quad,$$
 where $n$ is the sum of the weights of the \emph{other} abilities governed by $A$
 whose level is at most that of $A$.
 We provide a table for rolling a d10, so the formula is not needed.
-
+However, players do need to know how to compute the quantity $n$.
 
 \notes{[provide table, and include explanation of precisely how to roll against table entries]}
 
@@ -155,24 +155,29 @@ It is easier to raise an attribute by raising many of the skills it governs abov
 rather than by merely focusing on a few and ignoring the rest.
 \notes{[Does that statement really hold true? Test it out.]}
 
+\subsubsection{Tree Design}
 The mechanics for training skills and attributes are meant to resemble real training and experience.
 Training a specific skill is easier to do given more general related experience,
 and more so for that experience which pertains most directly to the skill,
-hence the attribute bonus.
+hence the attribute bonus of section \ref{sec:skill}.
 At the same time, that general experience typically comes from training in a wide variety of related specific skills,
-hence the above mechanic.
-
+hence section \ref{sec:att}.
 
 %good tree design is important. if it seems limiting that only skills can be trained directly, then the tree may not be designed well.
-\paragraph{Tree Design}
-\notes{peup.}
-
-
-%explain what powers are and how they sit in the tree (just pretend they don't exist if off)
+Designing a good ability tree may require some practice and repeated revisions at first.
+If it seems limiting in the context of a given tree that attributes cannot be trained directly,
+then consider redesigning the tree.
+Perhaps some of those attributes should instead be skills, and new attributes should be
+introduced to group them.
+One approach to designing a tree from scratch is to begin by listing all the desired skills
+and grouping them into related clumps.
+Suitable attributes could reveal themselves in the clumps.
 
 %suggest "character level" as root node.
 
 %one way to make npcs more grainy is to "trim off" some leaves and turn attributes into leaves for them.
+
+%explain what powers are and how they sit in the tree (just pretend they don't exist if off)
 
 %examples of ability trees (or reference to later appearance of examples)
 %magic as power
@@ -220,7 +225,8 @@ When a character attempts a task that has a possibility of failure, the outcome 
 The dice roll represents the dependence of the outcome on factors that are not modeled in the game or that are altogether unpredictable.
 \notes{[discuss unopposed and opposed. rolling focus on most specialized suitable ability. when rolling against attribute, subtract 2 from it's level for rolled degree purposes. this does not apply to grainy npc situation. 4dF probability table.]}
 \subsection{Combat}
-\notes{[description of what is combat round]
+\notes{
+[description of what is combat round]
 
 	During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
 	It is an opposed action, resolved as follows:
@@ -253,7 +259,8 @@ pulling punches, knocking out, stunning
 speed
 peup
 
-crit system}
+crit system
+}
 
 \subsubsection{Situational Modifers}
 \notes{Situational stuff (e.g. positioning, weapon lengths, height advantages, cover, range, multiple combatants, injuries, peup, surprise, scale difference)}
