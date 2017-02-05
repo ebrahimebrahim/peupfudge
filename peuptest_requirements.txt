@@ -1,0 +1,21 @@
+These are some things that we'd like to be true of the ability tree mechanics.
+This list should help us decide what kind of tests to include in peuptest.
+Some of the requirements listed are intentionally vague because we still need
+to decide what we actually want.
+
+1) since we interpret skill level on a logairthmic scale,
+it should be (multiplicatively) more costly to train a higher level skill
+
+2) it should be easier to train a skill when one already has related skills
+up to a comparable level to the target level of the skill being worked on.
+how much easier should depend suitably on those levels.
+
+3) attributes should more or less keep up with the general level of the
+abilities that they govern, at least on average.
+
+4) here is an opposite way of stating (2):
+there should be some cost imposed on trying to create to general of a character,
+and an even greater cost imposed on trying to create a character that doesn't
+make sense. but the costs should not be prohibitive.
+
+5) outcomes that should be ridiculously lucky or unluck shouldn't occur too frequently.
