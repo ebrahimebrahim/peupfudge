@@ -73,6 +73,10 @@ class Node(object):
     """Return whether or not this ability is a skill"""
     return not bool(self.children)
 
+  def skills(self):
+    """Return descendants of this node that are skills, i.e. that do not themselves have children"""
+    return [d for d in self.descendants() if d.is_skill()]
+
   def __str__(self, indent=0, extra_info=None):
     #extra_info gives a chance to display extra information from a str-->str, name |--> info, dict
     own_label = indent*'  ' + '['+(str(self.weight) if self.weight else '-')+'] ' + self.name + ": " + str(self.level)
