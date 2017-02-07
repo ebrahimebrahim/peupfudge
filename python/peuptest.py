@@ -8,7 +8,7 @@ import copy
 import numpy
 
 list_of_trees_to_test = ["example.tree"]
-N = 1000
+N = 200
 
 #---- DELETE THESE LINES WHEN DONE TESTING: (TODO)
 eg = import_ability_tree("trees/example.tree")
@@ -36,13 +36,21 @@ def trainer_from_sequence(seq):
   return trainer
 
 def test_tree(tree):
+
+  # test 1: it should multiplicatively cost more to train a higher level skill
   maxtrain = 8
   skill_level_costs = {(skill.name,n) : numpy.mean(run_trials(tree,trainer_from_sequence(n*[skill.name]),num_trials=N,include_xpcosts=True)[1])
                        for skill in tree.skills() for n in range(1,maxtrain+1) }
   multipliers_by_skill = {skill.name : [(float(skill_level_costs[(skill.name,n+1)])/skill_level_costs[(skill.name,n)])
                                                 for n in range(1,maxtrain)]
                       for skill in tree.skills() }
-  return multipliers_by_skill
+  multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(maxtrain-1)]
+  min_mult = round(min(multipliers),2)
+  max_mult = round(max(multipliers),2)
+  print "Skill training xp cost ratio from one level to the next:"
+  print "  ranges from " + str(min_mult) + " to " + str(max_mult)
+
+  # test 2: it should be easier to train a skill given related skills
 
 
 if __name__=="__main__":
