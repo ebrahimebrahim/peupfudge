@@ -90,12 +90,34 @@ class Node(object):
     """Return list of ancestors, ordered starting from immediate parent."""
     return [self.parent]+self.parent.ancestors() if self.parent else []
 
+  def related_skills(self, order=1):
+    """Return a list of nearby skills in the tree related to this skill.
+       
+       Everything in the list returned is a skill.
+       The argument "order" determines how far away to look from that skill.
+       The only related skill of order 0 is this node itself (assuming it is a skill; otherwise include its descendants)
+       Related skills of order 1 are sibling skills, and descendants thereof.
+       Related skills of order 2 are cousin or aunt skills, and descendant thereof.
+       And so on:
+         Related skills of order n are descendant skills of the n^th ancestor
+    """
+    ancestors = self.ancestors()
+    skills_only = lambda x : filter(lambda y : y.is_skill(), x)
+    if order < 0:
+      raise Exception("Related skills of order "+str(order)+"? Does not make sense.")
+    if order > len(ancestors):
+      return skills_only(ancestors[-1].descendants())
+    if order == 0:
+      return skills_only(self.descendants())
+    assert order >= 1 and order <= len(ancestors)
+    return skills_only(ancestors[order-1].descendants())
+
   def cost_to_train(self):
     """Return xp cost of training this skill
        
        This uses the actual xp table that goes into the manual, and has no more
        information to go off of than what is in that table.
-       It will do all the rounding a play would do when reading off the table.
+       It will do all the rounding a player would do when reading off the table.
     """
     anc = self.ancestors()
     raw_attribute_bonus = sum( 1.0/pow(2,n)*a.level for n,a in enumerate(anc) ) / sum(1.0/pow(2,n) for n in range(len(anc)))
