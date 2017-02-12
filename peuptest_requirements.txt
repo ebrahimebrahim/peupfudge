@@ -3,7 +3,7 @@ This list should help us decide what kind of tests to include in peuptest.
 Some of the requirements listed are intentionally vague because we still need
 to decide what we actually want.
 
-1) since we interpret skill level on a logairthmic scale,
+1) since we interpret skill level on a logarithmic scale,
 it should be (multiplicatively) more costly to train a higher level skill
 
 2) it should be easier to train a skill when one already has related skills
@@ -18,4 +18,4 @@ there should be some cost imposed on trying to create to general of a character,
 and an even greater cost imposed on trying to create a character that doesn't
 make sense. but the costs should not be prohibitive.
 
-5) outcomes that should be ridiculously lucky or unluck shouldn't occur too frequently.
+5) outcomes that should be ridiculously lucky or unlucky shouldn't occur too frequently.
