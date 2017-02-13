@@ -34,6 +34,13 @@ def run_trials(node, trainer, num_trials=1000, include_xpcosts=False):
   else:
     return outcomes
 
+def expected_xpcost(node, trainer, num_trials=1000):
+  """Run a training function many times on an ability tree, and return expected xp cost.
+
+     Args are as in run_trials.
+  """
+  return numpy.mean(run_trials(node, trainer, num_trials, include_xpcosts=True)[1])
+
 def mean_tree(node, outcomes):
   """Return a version of the ability tree whose ability levels are the average of those found in outcomes.
      The averages are rounded to the nearest tenth."""

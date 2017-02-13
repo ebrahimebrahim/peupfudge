@@ -100,6 +100,8 @@ class Node(object):
        Related skills of order 2 are cousin or aunt skills, and descendant thereof.
        And so on:
          Related skills of order n are descendant skills of the n^th ancestor
+
+       What is returned is the list of related skills *up to* the given order
     """
     ancestors = self.ancestors()
     skills_only = lambda x : filter(lambda y : y.is_skill(), x)
