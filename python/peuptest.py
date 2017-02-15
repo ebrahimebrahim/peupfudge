@@ -123,14 +123,49 @@ def test2_run(tree, skill, s, t, o, r):
   return expected_xpcost(d_tree, trainer_from_sequence((t-s)*[skill.name]), num_trials=N)
     
 def test2_data(tree, skill):
-  # TODO figure out what data to collect here...
-  # note that at the moment, this raises the exception that test2_run can raise.
-  ss = [3,max_skill_level-3]
-  t_minus_s = 2
-  os = [1,2]
-  r_minus_ss = [-2,-1,0,1,2]
-  return {(s,t_minus_s+s,o,r_minus_s+s):test2_run(tree, skill, s, t_minus_s+s, o, r_minus_s+s) for s in ss for o in os for r_minus_s in r_minus_ss}
+  """Return data set for test criterion (2)
 
+     Given a tree and a skill in that tree (both Nodes), return a dict
+       (s,o,r) --> dc_dr
+     where
+       dc_dr is the rate of change,
+         with respect to level of related skills,
+         of the expected xp cost of training the given skill by one level
+       s is the level at which to start the given skill
+       o is the order of relatedness of related skills
+       r is the level of related skills
+
+     Perhaps the following is clearer:
+       Fix a tree, and a skill in that tree.
+       Fix an order o of related skills to consider fore a given skill
+       The (expected) xp cost of training a skill by one level can be considered as a function c_o(s,r)
+       of the skill's current level s, and the level r of its related skills of order o.
+       (Assuming we only care to vary those things here, of course)
+       dc_dr is the estimated partial derivative of c_o with respect to r, evaluated at (s,r).
+
+     The range of (s,o,r)'s provided is small but reasonable:
+       o can be 1 or 2
+       s ranges from 1 to max_skill_level-1
+       r takes on some medium-low value, and some medium-high value.
+
+     Finally, a subtlety to heed:
+      When we "set r" to some value to see it's effect on c_o(s,r), we are really *training* it
+      up to that value from whatever it starts at in the tree.
+      This is essential for test criterion (2), because it is in the process of training related skills
+      that the mechanic is allowed to take effect.
+      Note that this means that the results of test (2) do have some dependence on the starting levels of
+      skills related to the skill being tested.
+  """
+  os = [1,2]
+  ss = range(1,max_skill_level)
+  def rs_from_o(o):
+    min_r = min(s.level for s in skill.related_skills(o) if s != skill) #min allowable choice of r
+    max_r = max_skill_level #let's take this to be max allowable choice of r
+    r_low = int(round(0.3*(max_r-min_r)+min_r))
+    r_hi  = int(round(0.7*(max_r-min_r)+min_r))
+    return [r_low, r_hi]
+  dc_dr = lambda s,t,o,r : test2_run(tree, skill, s,t,o,r+1)-test2_run(tree,skill, s,t,o,r)
+  return {(s,o,r):dc_dr(s,s+1,o,r) for o in os for r in rs_from_o(o) for s in ss}
 
 
 if __name__=="__main__":
