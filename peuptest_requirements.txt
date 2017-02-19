@@ -10,6 +10,39 @@ it should be (multiplicatively) more costly to train a higher level skill
 up to a comparable level to the target level of the skill being worked on.
 how much easier should depend suitably on those levels.
 
+Here's my reasoning about the relationship here:
+We should think of xp as a sort of unit of "training juice"
+that could be poured into training something.
+I almost want to say it's a unit of "effort" going into training,
+but it's not exactly effort; one could imagine
+situations in which different amounts of effort would yield the same training results
+and hence ought to yield the same xp reward.
+There's probably a better term than "training juice," but let's just go with it for now.
+A skill level is interpreted on a log scale, so having one more
+level on related skills to a given skill means that you are b times better at related skills,
+where b is some (almost) constant base.
+Now we pose the question: In what way should having one more level in related skills
+to a given skill make it easier to train that skill by one level?
+Answer: It should reduce the xp needed to train that skill by a factor proportional to b.
+Justification:
+2a) Why should the reduction be applied to the xp cost?
+Because it is the effort (or rather training juice) needed to train the skill which should be directly affected.
+2b) Why should the reduction amount be proportional to b?
+Because of the multiplicative way in which we interpret skill levels;
+one more level on related skills to a given skills means you are b times better at them.
+2c) Why should the reduction be by a factor rather than being, say, a subtracted quantity?
+Because we want each unit of training juice to be made a bit more potent by the presence
+of related skills.
+Example:
+It helps to think of training juice in "hours." 
+This is actually accurate if we assume that all the time spent training is uniform in the progress that it
+contributes to improvement of skill; but it is usually not the way to think of things in-game because
+player characters usually earn xp by doing things rather than by explicitly spending time on training.
+Suppose that you and I are practicing climbing, but you have one more level in related skills than I have.
+Each additional hour I put into climbing yields a greater improvement in my climbing skills than it would
+have if I didn't have the related skills at all, hence (2a) and (2c).
+The magnitude of the same effect for your should be b times greater, because you are b times better at the related skills, hence (2b).
+
 3) attributes should more or less keep up with the general level of the
 abilities that they govern, at least on average.
 
