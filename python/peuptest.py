@@ -14,6 +14,7 @@ list_of_trees_to_test = ["example.tree"]
 
 #---- DELETE THESE LINES WHEN DONE TESTING: (TODO)
 eg = import_ability_tree("trees/example.tree")
+eg2 = import_ability_tree("trees/example_test.tree")
 #----
 
 def main():
@@ -133,11 +134,12 @@ def test2_data(tree, skill):
          of the expected xp cost of training the given skill by one level
        s is the level at which to start the given skill
        o is the order of relatedness of related skills
+         (see ability_tree.Node.related_skills docstring for meaning of order)
        r is the level of related skills
 
      Perhaps the following is clearer:
        Fix a tree, and a skill in that tree.
-       Fix an order o of related skills to consider fore a given skill
+       Fix an order o of related skills to consider for a given skill
        The (expected) xp cost of training a skill by one level can be considered as a function c_o(s,r)
        of the skill's current level s, and the level r of its related skills of order o.
        (Assuming we only care to vary those things here, of course)
@@ -156,14 +158,15 @@ def test2_data(tree, skill):
       Note that this means that the results of test (2) do have some dependence on the starting levels of
       skills related to the skill being tested.
   """
-  os = [1,2]
-  ss = range(1,max_skill_level)
-  def rs_from_o(o):
-    min_r = min(s.level for s in skill.related_skills(o) if s != skill) #min allowable choice of r
+  o_range = [1,2]
+  def r_range(o):
+    min_r = max(s.level for s in skill.related_skills(o) if s != skill) #min allowable choice of r
     max_r = max_skill_level #let's take this to be max allowable choice of r
-    r_low = int(round(0.3*(max_r-min_r)+min_r))
-    r_hi  = int(round(0.7*(max_r-min_r)+min_r))
-    return [r_low, r_hi]
+    return range(min_r, max_r+1)
+  def s_range(o):
+    min_s = 1
+    max_s = max_skill_level-1
+    return [int(round(f*(max_s-min_s)+min_s)) for f in [0.2,0.5,0.8]]
   dc_dr = lambda s,t,o,r : test2_run(tree, skill, s,t,o,r+1)-test2_run(tree,skill, s,t,o,r)
   return {(s,o,r):dc_dr(s,s+1,o,r) for o in os for r in rs_from_o(o) for s in ss}
 
