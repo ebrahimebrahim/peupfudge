@@ -9,6 +9,7 @@ import numpy
 
 max_skill_level = 9
 N = 200
+percentiles = [0,25,50,75,100]
 
 list_of_trees_to_test = ["example.tree"]
 
@@ -54,15 +55,23 @@ def test_tree(tree):
                                         for n in range(1,max_skill_level-1)]
                           for skill in tree.skills() }
   multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(max_skill_level-2)]
-  min_mult = round(min(multipliers),2)
-  max_mult = round(max(multipliers),2)
-  print "Skill training xp cost ratio from one level to the next:"
-  print "  ranges from " + str(min_mult) + " to " + str(max_mult)
+  print "--- TEST 1 INFO ---"
+  print "Skill training xp cost ratio from one level to the next, percentiles:"
+  print ' '.join([str(round(p,2)) for p in numpy.percentile(multipliers,percentiles)])
 
   # test 2:
+  orders = [1,2,3]
+  o_DFlist = {o:[] for o in orders} # will map each order to list of measured discount factors over many skills over many conditions
   for skill in tree.skills():
-    pass
-    #PEUP TODO
+    osr_DF = test2_data(tree,skill,orders)
+    for o in orders:
+      o_DFlist[o] += [osr_DF[k] for k in osr_DF.keys() if k[0]==o]
+  o_DFpercentiles = {o:numpy.percentile(o_DFlist[o],percentiles) for o in orders}
+  print "--- TEST 2 INFO ---"
+  print "Percentiles for discount factor (see test2 docstrings)..."
+  for o in orders:
+    print "Related skills of order "+str(o)+": "+' '.join([str(round(p,2)) for p in o_DFpercentiles[o]])
+    
  
 def test1_run(tree, skill, n):
   """Return data point for test criterion (1)
@@ -85,7 +94,7 @@ def test1_data(tree):
              n is the number of times to train that skill, ranging from 1 to max_skill_level
              c is the expected xp cost for that training
   """
-  return {(skill.name,n) : test1_run(tree, skill.name, n) for skill in tree.skills() for n in range(1,max_skill_level) }
+  return {(skill.name,n) : test1_run(tree, skill, n) for skill in tree.skills() for n in range(1,max_skill_level) }
 
 def test2_run(tree, skill, s, t, o, r, r0):
   """Return data point for test criterion (2)
@@ -123,10 +132,10 @@ def test2_run(tree, skill, s, t, o, r, r0):
     trainer += (r - r0) * [rel_skill.name]
   d_tree = mean_tree(d_tree, run_trials(d_tree, trainer_from_sequence(trainer), num_trials=N))
   if t-s==1:
-    return d_skill.cost_to_train()
+    return d_tree.descendant(skill.name).cost_to_train()
   return expected_xpcost(d_tree, trainer_from_sequence((t-s)*[skill.name]), num_trials=N)
     
-def test2_data(tree, skill):
+def test2_data(tree, skill, o_range=[1]):
   """Return data set for test criterion (2)
 
      Given a tree and a skill in that tree (both Nodes), return a dict
@@ -151,7 +160,7 @@ def test2_data(tree, skill):
        (Assuming we only care to vary those things here, of course)
 
      The range of (o,s,r)'s provided is small but reasonable:
-       o can be 1 or 2
+       o can take on any value passed in the "o_range" argument, which is a list
        s can take on a low or a high value
        r ranges from r_start to 8
 
@@ -162,7 +171,6 @@ def test2_data(tree, skill):
       that the mechanic is allowed to take effect.
   """
   r_start = 2 # level to start related skills at before training them up to various r's
-  o_range = [1,2]
   r_range = range(r_start, max_skill_level+1)
   min_s = 1
   max_s = max_skill_level-1
