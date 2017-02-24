@@ -91,11 +91,11 @@ def test_tree(tree):
   print "\n--- TEST 3 INFO ---"
   orders = range(1,tree_depth+1)
   num_skills = [10, 25, 50, 100]
+  print "When we train skills N times, ancestors of order O tend to be this many levels higher than their descendants of that order:\n"
+  row_format = "{:<5}" + "{:>5}" * (len(orders))
+  print row_format.format(*(["N  O:"]+orders))
   for n in num_skills:
-    print "When we train skills " + str(n) + " times:"
-    for o in orders:
-      stat = round(test3(tree,n,o),1)
-      print "  Ancestors of order " + str(o) + " tend to be " + str(stat) + " levels higher than their descendants of that order."
+    print row_format.format(*([str(n)]+[str(round(test3(tree,n,o),1)) for o in orders]))
     
  
 def test1_run(tree, skill, n):
