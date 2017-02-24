@@ -6,9 +6,10 @@ from monte_carlo import *
 import os, sys
 import copy
 import numpy
+import random
 
 max_skill_level = 9
-N = 200
+N = 10
 percentiles = [0,25,50,75,100]
 
 list_of_trees_to_test = ["example.tree"]
@@ -39,6 +40,18 @@ def trainer_from_sequence(seq):
     return cost
   return trainer
 
+def random_trainer(n):
+  """Return a trainer function that trains n random skills"""
+  def trainer(node):
+    cost = 0
+    for i in range(n):
+      skill = random.choice(node.skills())
+      cost += skill.cost_to_train()
+      skill.train()
+    return cost
+  return trainer
+
+
 def test_tree(tree):
   """Run all tests on tree,
      analyze the collected data,
@@ -49,17 +62,20 @@ def test_tree(tree):
       so that main() can do the work of producing a cumulative report for all trees)
   """
 
+  tree_depth = max(len(skill.ancestors()) for skill in tree.skills())
+
   # test 1:
+  print "\n--- TEST 1 INFO ---"
   skill_level_costs = test1_data(tree)
   multipliers_by_skill = {skill.name : [(float(skill_level_costs[(skill.name,n+1)])/skill_level_costs[(skill.name,n)])
                                         for n in range(1,max_skill_level-1)]
                           for skill in tree.skills() }
   multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(max_skill_level-2)]
-  print "--- TEST 1 INFO ---"
   print "Skill training xp cost ratio from one level to the next, percentiles:"
   print ' '.join([str(round(p,2)) for p in numpy.percentile(multipliers,percentiles)])
 
   # test 2:
+  print "\n--- TEST 2 INFO ---"
   orders = [1,2,3]
   o_DFlist = {o:[] for o in orders} # will map each order to list of measured discount factors over many skills over many conditions
   for skill in tree.skills():
@@ -67,10 +83,19 @@ def test_tree(tree):
     for o in orders:
       o_DFlist[o] += [osr_DF[k] for k in osr_DF.keys() if k[0]==o]
   o_DFpercentiles = {o:numpy.percentile(o_DFlist[o],percentiles) for o in orders}
-  print "--- TEST 2 INFO ---"
   print "Percentiles for discount factor (see test2 docstrings)..."
   for o in orders:
     print "Related skills of order "+str(o)+": "+' '.join([str(round(p,2)) for p in o_DFpercentiles[o]])
+
+  # test 3:
+  print "\n--- TEST 3 INFO ---"
+  orders = range(1,tree_depth+1)
+  num_skills = [10, 25, 50, 100]
+  for n in num_skills:
+    print "When we train skills " + str(n) + " times:"
+    for o in orders:
+      stat = round(test3(tree,n,o),1)
+      print "  Ancestors of order " + str(o) + " tend to be " + str(stat) + " levels higher than their descendants of that order."
     
  
 def test1_run(tree, skill, n):
@@ -182,6 +207,27 @@ def test2_data(tree, skill, o_range=[1]):
       for r in r_range[0:-1]:
         DF[(o,s,r)] = float(c[r+1])/c[r]
   return DF
+
+
+def test3(tree, num_trains, order):
+  """ Return average difference between levels of skills and levels of their ancestors of the given order.
+
+      An ancestor of order 1 is a parent, order 2 a grandparent, etc.
+
+      This will randomly train num_trains levels of skills.
+      Then for each pair (s,a) for which 'a' is an ancestor of s of order 'order',
+      subtract the level of s from the level of a.
+      Average this quantity over all pairs (s,a), and over many of these random-training trials.
+      Return this average.
+  """
+  if order <= 0:
+    raise Exception("For test3 order should be 1 or greater.")
+  tree_depth = max(len(skill.ancestors()) for skill in tree.skills())
+  if order > tree_depth:
+    raise Exception("test3 has no data to report on when the chosen order is greater than the depth of the tree.")
+  mt = mean_tree(tree,run_trials(tree,random_trainer(num_trains),num_trials=N))
+  return numpy.mean([(skill.ancestors()[order-1].level - skill.level) for skill in mt.skills() if len(skill.ancestors())>=order])
+      
 
 
 if __name__=="__main__":
