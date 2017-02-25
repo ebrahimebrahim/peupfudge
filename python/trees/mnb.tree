@@ -1,0 +1,41 @@
+[-] level: 3
+  [1] strength: 3
+    [1] ironflesh: 3
+    [2] force: 3
+      [1] power strike: 3
+      [1] power throw: 3
+      [1] power draw: 3
+  [2] agility: 3
+    [3] weapon master: 3
+      [2] melee: 3
+        [1] one-handed: 3
+        [1] two-handed: 3
+        [1] polearms: 3
+      [2] ranged: 3
+        [1] archery: 2
+        [1] crossbows: 4
+        [1] throwing: 3
+      [1] shield: 3
+    [2] horseminship: 3
+      [2] riding: 3
+      [1] horse archery: 2
+    [2] athletics: 3
+    [1] looting: 3
+  [2] intelligence: 3
+    [1] trainer: 3
+    [2] tactics: 2
+    [2] travel: 3
+      [1] tracking: 2
+      [2] pathfinding: 3
+      [1] spotting: 3
+    [1] inventory management: 3
+    [2] medicine: 3
+      [1] wound treatment: 3
+      [1] surgery: 2
+      [1] first aid: 4
+    [1] engineer: 2
+  [1] charisma: 3
+    [2] persuasion: 3
+    [1] prisoner management: 1
+    [2] leadership: 2
+    [1] trade: 3

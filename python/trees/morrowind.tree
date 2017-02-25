@@ -1,15 +1,16 @@
 [-] level: 3
   [1] combat: 3
     [1] endurance: 3
-      [1] heavy armor: 3
+      [1] heavy armor: 2
       [1] medium armor: 3
-      [1] spear: 3
-    [1] strength: 3
-      [1] acrobatics: 3
+    [2] strength: 3
+      [2] acrobatics: 3
       [1] armorer: 3
-      [1] axe: 3
-      [1] blunt weapon: 3
-      [1] long blade: 3
+      [3] large weapons: 3
+        [1] spear: 3
+        [1] axe: 3
+        [1] blunt weapon: 3
+        [1] long blade: 3
   [1] magic: 3
     [1] intelligence: 3
       [1] alchemy: 3
@@ -22,17 +23,17 @@
       [1] mysticism: 3
       [1] restoration: 3
   [1] stealth: 3
-    [1] agility: 3
+    [2] agility: 3
       [1] block: 3
-      [1] light armor: 3
-      [1] marksman: 3
+      [1] light armor: 4
+      [2] marksman: 2
       [1] sneak: 3
-    [1] speed: 3
-      [1] athletics: 3
+    [2] speed: 3
+      [2] athletics: 3
       [1] hand-to-hand: 3
       [1] short blade: 3
       [1] unarmored: 3
     [1] personality: 3
       [1] illusion: 3
-      [1] mercantile: 3
-      [1] speechcraft: 3
+      [1] mercantile: 2
+      [2] speechcraft: 3

@@ -1,21 +1,21 @@
 [-] level: 3
-  [1] strength: 3
+  [2] strength: 3
     [1] sword: 3
     [1] mace: 3
     [1] axe: 3
     [1] polearm: 3
-  [1] dexterity: 3
-    [1] ranged: 3
+  [2] dexterity: 3
+    [3] ranged: 3
     [1] locks: 3
   [1] constitution: 3
     [1] shield: 3
     [1] swimming: 3
-  [1] intelligence: 3
-    [1] magic: 3
-    [1] casting: 3
+  [2] intelligence: 3
+    [2] magic: 3
+    [1] casting: 2
   [1] perception: 3
-    [1] stealth: 3
+    [1] stealth: 2
     [1] appraise: 3
   [1] charisma: 3
-    [1] leadership: 3
+    [1] leadership: 2
     [1] trading: 3
