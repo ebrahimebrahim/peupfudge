@@ -47,7 +47,7 @@ The magnitude of the same effect for your should be b times greater, because you
 abilities that they govern, at least on average.
 
 4) here is an opposite way of stating (2):
-there should be some cost imposed on trying to create to general of a character,
+there should be some cost imposed on trying to create too general of a character,
 and an even greater cost imposed on trying to create a character that doesn't
 make sense. but the costs should not be prohibitive.
 

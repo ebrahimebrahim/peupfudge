@@ -9,7 +9,7 @@ import numpy
 import random
 
 max_skill_level = 9
-N = 10
+N = 200
 percentiles = [0,25,50,75,100]
 
 list_of_trees_to_test = ["example.tree"]
@@ -41,7 +41,7 @@ def trainer_from_sequence(seq):
   return trainer
 
 def random_trainer(n):
-  """Return a trainer function that trains n random skills"""
+  """Return a trainer function that trains n random skills."""
   def trainer(node):
     cost = 0
     for i in range(n):
@@ -51,6 +51,43 @@ def random_trainer(n):
     return cost
   return trainer
 
+def nca_dist(l):
+  """Return distance away of nearest common ancestor of given list l of skills."""
+  assert(len(l)>=1)
+  # ancestors of skill that *includes* self at beginning 
+  anc = lambda s : [s]+s.ancestors()
+  nca = [k for k in anc(l[0]) if all(k in anc(j) for j in l[1:])][0]
+  # I have a particular idea in mind when I choose "min" below.
+  # TODO: Is it correct?
+  return min(anc(k).index(nca) for k in l)
+  
+
+def classmaker(tree,num_skills,cluster_size):
+  """Return a random selection of num_skills skills from tree
+     chosen in internally related clusters each consisting of
+     cluster_size skills."""
+  skillpool = set(tree.skills())
+  assert cluster_size>0
+  selection = []
+  cluster = []
+  for i in range(num_skills):
+    if not cluster:
+      skl = random.choice(list(skillpool))
+      skillpool.remove(skl)
+      cluster.append(skl)
+    else:
+      min_nca_dist = min(nca_dist([s]+cluster) for s in skillpool)
+      skl = random.choice([s for s in skillpool if nca_dist([s]+cluster)==min_nca_dist])
+      skillpool.remove(skl)
+      cluster.append(skl)
+    if i == num_skills-1 or len(cluster)==cluster_size:
+      selection+=cluster
+      cluster = []
+  assert cluster==[]
+  assert len(selection)==num_skills
+  return selection
+      
+      
 
 def test_tree(tree):
   """Run all tests on tree,
