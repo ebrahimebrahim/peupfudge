@@ -14,6 +14,19 @@ percentiles = [0,25,50,75,100]
 list_of_trees_to_test = ["barogna.tree", "example.tree", "mnb.tree", "morrowind.tree", "urw.tree"]
 
 def main():
+  print """\n=== Explanation of discount factor and orders of relatedness ===
+Consider the cost c of training a particular skill to be a function c(s,r) of
+both the current level s of that skill and the levels r up to which we've trained
+its related skills before. This can be measured by setting those related skills to
+a fixed starting level (2 for the purposes of this test), training them up to level r,
+and then asking how much it would cost to train the skill in focus up by one level from s.
+
+The ratio c(s,r+1)/c(s,r), which we will call the discount factor, is what criterion 2
+wants to be constant; test 2 gathers the distribution of this quantity.
+We should expect different answers depending on how closely related of related skills
+we train to get this statistic. A related skill of "order" 1 is a sibling skill or
+a descendant thereof. A related skill of order 2 is an aunt skill, or descendant thereof.\n\n\n"""
+
   for t in list_of_trees_to_test:
     print "=== Report for tree "+t+" ===\n"
     test_tree(import_ability_tree(os.path.join("./trees/",t)))
@@ -23,10 +36,6 @@ def test_tree(tree):
   """Run all tests on tree,
      analyze the collected data,
      and try to print some useful info
-
-     (This will soon change:
-      Instead of printing out information, it will return it in some form,
-      so that main() can do the work of producing a cumulative report for all trees)
   """
 
   tree_depth = max(len(skill.ancestors()) for skill in tree.skills())
@@ -38,11 +47,13 @@ def test_tree(tree):
                                         for n in range(1,max_skill_level-1)]
                           for skill in tree.skills() }
   multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(max_skill_level-2)]
-  print "Skill training xp cost ratio from one level to the next, percentiles:"
+  print "Skill training xp cost ratio from one level to the next, percentiles "+str(percentiles)+" of distribution:"
   print ' '.join([str(round(p,2)) for p in numpy.percentile(multipliers,percentiles)])
 
   # test 2:
   print "\n--- TEST 2 INFO ---"
+
+  print "We list the percentiles "+str(percentiles)+" for the distribution of the discount factor.\n"
   orders = [1,2]
   o_DFlist = {o:[] for o in orders} # will map each order to list of measured discount factors over many skills over many conditions
   for skill in tree.skills():
@@ -50,7 +61,6 @@ def test_tree(tree):
     for o in orders:
       o_DFlist[o] += [osr_DF[k] for k in osr_DF.keys() if k[0]==o]
   o_DFpercentiles = {o:numpy.percentile(o_DFlist[o],percentiles) for o in orders}
-  print "Percentiles for discount factor (see test2 docstrings)..."
   for o in orders:
     print "Related skills of order "+str(o)+": "+' '.join([str(round(p,2)) for p in o_DFpercentiles[o]])
 
@@ -58,7 +68,7 @@ def test_tree(tree):
   print "\n--- TEST 3 INFO ---"
   orders = range(1,tree_depth+1)
   num_skills = [10, 25, 50, 100]
-  print "When we train skills N times, ancestors of order O tend to be this many levels higher than their descendants of that order:\n"
+  print "When we train a skill N times, its O^th ancestor tends to be this many levels higher than it:\n"
   row_format = "{:<5}" + "{:>5}" * (len(orders))
   print row_format.format(*(["N  O:"]+orders))
   for n in num_skills:
