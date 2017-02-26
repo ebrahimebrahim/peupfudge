@@ -9,21 +9,70 @@ import numpy
 import random
 
 max_skill_level = 9
-N = 200
+N = 100
 percentiles = [0,25,50,75,100]
-
-list_of_trees_to_test = ["example.tree"]
-
-#---- DELETE THESE LINES WHEN DONE TESTING: (TODO)
-eg = import_ability_tree("trees/example.tree")
-eg2 = import_ability_tree("trees/example_test.tree")
-#----
+list_of_trees_to_test = ["barogna.tree", "example.tree", "mnb.tree", "morrowind.tree", "urw.tree"]
 
 def main():
-#  for t in list_of_trees_to_test:
-#    test_tree(import_ability_tree(os.path.join("./trees/",t)))
-#UNCOMMENT THE ABOVE AND DELETE THE pass WHEN DONE TESTING (TODO)
-  pass
+  for t in list_of_trees_to_test:
+    print "=== Report for tree "+t+" ===\n"
+    test_tree(import_ability_tree(os.path.join("./trees/",t)))
+    print "\n"
+
+def test_tree(tree):
+  """Run all tests on tree,
+     analyze the collected data,
+     and try to print some useful info
+
+     (This will soon change:
+      Instead of printing out information, it will return it in some form,
+      so that main() can do the work of producing a cumulative report for all trees)
+  """
+
+  tree_depth = max(len(skill.ancestors()) for skill in tree.skills())
+
+  # test 1:
+  print "\n--- TEST 1 INFO ---"
+  skill_level_costs = test1_data(tree)
+  multipliers_by_skill = {skill.name : [(float(skill_level_costs[(skill.name,n+1)])/skill_level_costs[(skill.name,n)])
+                                        for n in range(1,max_skill_level-1)]
+                          for skill in tree.skills() }
+  multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(max_skill_level-2)]
+  print "Skill training xp cost ratio from one level to the next, percentiles:"
+  print ' '.join([str(round(p,2)) for p in numpy.percentile(multipliers,percentiles)])
+
+  # test 2:
+  print "\n--- TEST 2 INFO ---"
+  orders = [1,2]
+  o_DFlist = {o:[] for o in orders} # will map each order to list of measured discount factors over many skills over many conditions
+  for skill in tree.skills():
+    osr_DF = test2_data(tree,skill,orders)
+    for o in orders:
+      o_DFlist[o] += [osr_DF[k] for k in osr_DF.keys() if k[0]==o]
+  o_DFpercentiles = {o:numpy.percentile(o_DFlist[o],percentiles) for o in orders}
+  print "Percentiles for discount factor (see test2 docstrings)..."
+  for o in orders:
+    print "Related skills of order "+str(o)+": "+' '.join([str(round(p,2)) for p in o_DFpercentiles[o]])
+
+  # test 3:
+  print "\n--- TEST 3 INFO ---"
+  orders = range(1,tree_depth+1)
+  num_skills = [10, 25, 50, 100]
+  print "When we train skills N times, ancestors of order O tend to be this many levels higher than their descendants of that order:\n"
+  row_format = "{:<5}" + "{:>5}" * (len(orders))
+  print row_format.format(*(["N  O:"]+orders))
+  for n in num_skills:
+    print row_format.format(*([str(n)]+[str(round(test3(tree,n,o),1)) for o in orders]))
+
+  # test 4:
+  print "\n--- TEST 4 INFO ---"
+  g,c,p = test4(tree, portion=3, train_by=3)
+  pcent_more = lambda a,b : str(int(round(100*(float(a)/float(b)-1))))
+  print "To train a third of the skills from level 3 to 6:"
+  print "  It costs the classmaker "+str(int(round(c)))+"xp."
+  print "  It costs the generalist "+str(int(round(g)))+"xp, "+ pcent_more(g,c) +" percent more than the classmaker."
+  print "  It costs the peuper     "+str(int(round(p)))+"xp, "+ pcent_more(p,c) +" percent more than the classmaker."
+  
 
 
 
@@ -57,11 +106,10 @@ def nca_dist(l):
   # ancestors of skill that *includes* self at beginning 
   anc = lambda s : [s]+s.ancestors()
   nca = [k for k in anc(l[0]) if all(k in anc(j) for j in l[1:])][0]
-  # I have a particular idea in mind when I choose "min" below.
+  # I have a particular idea in mind when I choose "min" below...
   # TODO: Is it correct?
   return min(anc(k).index(nca) for k in l)
   
-
 def classmaker(tree,num_skills,cluster_size):
   """Return a random selection of num_skills skills from tree
      chosen in internally related clusters each consisting of
@@ -86,53 +134,7 @@ def classmaker(tree,num_skills,cluster_size):
   assert cluster==[]
   assert len(selection)==num_skills
   return selection
-      
-      
 
-def test_tree(tree):
-  """Run all tests on tree,
-     analyze the collected data,
-     and try to print some useful info
-
-     (This will soon change:
-      Instead of printing out information, it will return it in some form,
-      so that main() can do the work of producing a cumulative report for all trees)
-  """
-
-  tree_depth = max(len(skill.ancestors()) for skill in tree.skills())
-
-  # test 1:
-  print "\n--- TEST 1 INFO ---"
-  skill_level_costs = test1_data(tree)
-  multipliers_by_skill = {skill.name : [(float(skill_level_costs[(skill.name,n+1)])/skill_level_costs[(skill.name,n)])
-                                        for n in range(1,max_skill_level-1)]
-                          for skill in tree.skills() }
-  multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(max_skill_level-2)]
-  print "Skill training xp cost ratio from one level to the next, percentiles:"
-  print ' '.join([str(round(p,2)) for p in numpy.percentile(multipliers,percentiles)])
-
-  # test 2:
-  print "\n--- TEST 2 INFO ---"
-  orders = [1,2,3]
-  o_DFlist = {o:[] for o in orders} # will map each order to list of measured discount factors over many skills over many conditions
-  for skill in tree.skills():
-    osr_DF = test2_data(tree,skill,orders)
-    for o in orders:
-      o_DFlist[o] += [osr_DF[k] for k in osr_DF.keys() if k[0]==o]
-  o_DFpercentiles = {o:numpy.percentile(o_DFlist[o],percentiles) for o in orders}
-  print "Percentiles for discount factor (see test2 docstrings)..."
-  for o in orders:
-    print "Related skills of order "+str(o)+": "+' '.join([str(round(p,2)) for p in o_DFpercentiles[o]])
-
-  # test 3:
-  print "\n--- TEST 3 INFO ---"
-  orders = range(1,tree_depth+1)
-  num_skills = [10, 25, 50, 100]
-  print "When we train skills N times, ancestors of order O tend to be this many levels higher than their descendants of that order:\n"
-  row_format = "{:<5}" + "{:>5}" * (len(orders))
-  print row_format.format(*(["N  O:"]+orders))
-  for n in num_skills:
-    print row_format.format(*([str(n)]+[str(round(test3(tree,n,o),1)) for o in orders]))
     
  
 def test1_run(tree, skill, n):
@@ -195,7 +197,7 @@ def test2_run(tree, skill, s, t, o, r, r0):
   d_tree = mean_tree(d_tree, run_trials(d_tree, trainer_from_sequence(trainer), num_trials=N))
   if t-s==1:
     return d_tree.descendant(skill.name).cost_to_train()
-  return expected_xpcost(d_tree, trainer_from_sequence((t-s)*[skill.name]), num_trials=N)
+  return expected_xpcost(d_tree, trainer_from_sequence((t-s)*[skill.name]), num_trials=N/5)
     
 def test2_data(tree, skill, o_range=[1]):
   """Return data set for test criterion (2)
@@ -264,7 +266,41 @@ def test3(tree, num_trains, order):
     raise Exception("test3 has no data to report on when the chosen order is greater than the depth of the tree.")
   mt = mean_tree(tree,run_trials(tree,random_trainer(num_trains),num_trials=N))
   return numpy.mean([(skill.ancestors()[order-1].level - skill.level) for skill in mt.skills() if len(skill.ancestors())>=order])
-      
+   
+   
+def test4(tree, portion=3, train_by=3):
+  """ Return expected xp cost for generalist, classmaker, and peuper when training up the tree.
+      A generalist will train skills randomly.
+      A classmaker trains a cluster of related skills.
+      A peuper trains two clusters of related skills.
+
+      Args:
+        tree:     (Node) the tree to work on
+        portion:  (int) determines what portion of the skills are chosen for training.
+                        for example portion=3 means 1/3 of skills get trained.
+        train_by: (int) when training up a skill, this is how many levels it gets trained up.
+
+      Returns: list of respective expected xp cost for generalist, classmaker, peuper.
+  """
+  d_tree = copy.deepcopy(tree) # dummy tree
+  for skill in d_tree.skills():
+    skill.level=3 # start each skill at 3
+  num_skills = len(d_tree.skills())/portion
+  assert num_skills>=1
+  cluster_sizes = [1, num_skills, max(1,num_skills/2)] # the generalist, the classmaker, and the peuper
+
+  def classmaker_trainer(cluster_size):
+    def trainer(node):
+      cost = 0
+      seq = train_by*map(lambda s : s.name, classmaker(d_tree,num_skills, cluster_size))
+      for name in seq:
+          cost += node.descendant(name).cost_to_train()
+          node.descendant(name).train()
+      return cost
+    return trainer
+
+  return [expected_xpcost(d_tree, classmaker_trainer(cs), N*5) for cs in cluster_sizes]
+  
 
 
 if __name__=="__main__":
