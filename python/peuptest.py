@@ -53,7 +53,7 @@ def test_tree(tree):
   # test 2:
   print "\n--- TEST 2 INFO ---"
 
-  print "We list the percentiles "+str(percentiles)+" for the distribution of the discount factor.\n"
+  print "We list the percentiles "+str(percentiles)+" for the distribution of the discount factor (explained above).\n"
   orders = [1,2]
   o_DFlist = {o:[] for o in orders} # will map each order to list of measured discount factors over many skills over many conditions
   for skill in tree.skills():
@@ -62,7 +62,7 @@ def test_tree(tree):
       o_DFlist[o] += [osr_DF[k] for k in osr_DF.keys() if k[0]==o]
   o_DFpercentiles = {o:numpy.percentile(o_DFlist[o],percentiles) for o in orders}
   for o in orders:
-    print "Related skills of order "+str(o)+": "+' '.join([str(round(p,2)) for p in o_DFpercentiles[o]])
+    print "With respect to related skills of order "+str(o)+": "+' '.join([str(round(p,2)) for p in o_DFpercentiles[o]])
 
   # test 3:
   print "\n--- TEST 3 INFO ---"
@@ -83,7 +83,14 @@ def test_tree(tree):
   print "  It costs the generalist "+str(int(round(g)))+"xp, "+ pcent_more(g,c) +" percent more than the classmaker."
   print "  It costs the peuper     "+str(int(round(p)))+"xp, "+ pcent_more(p,c) +" percent more than the classmaker."
   
-
+  # test 5:
+  print "\n--- TEST 5 INFO ---"
+  start  = 3
+  target = 6
+  print "If we were to train all "+str(len(tree.skills()))+" skills from level "+str(start)+" to level "+str(target)+","
+  print "then the distribution of resulting levels on the abilities is as described below."
+  print "The first columns show the percentiles indicated at the top, and the number following an ability name is the mean.\n"
+  print test5(tree, start, target, [1,5,25,75,95,99])
 
 
 def trainer_from_sequence(seq):
@@ -204,10 +211,10 @@ def test2_run(tree, skill, s, t, o, r, r0):
       continue
     rel_skill.level = r0
     trainer += (r - r0) * [rel_skill.name]
-  d_tree = mean_tree(d_tree, run_trials(d_tree, trainer_from_sequence(trainer), num_trials=N))
+  d_tree = mean_tree(d_tree, run_trials(d_tree, trainer_from_sequence(trainer), num_trials=N/3))
   if t-s==1:
     return d_tree.descendant(skill.name).cost_to_train()
-  return expected_xpcost(d_tree, trainer_from_sequence((t-s)*[skill.name]), num_trials=N/5)
+  return expected_xpcost(d_tree, trainer_from_sequence((t-s)*[skill.name]), num_trials=N/3)
     
 def test2_data(tree, skill, o_range=[1]):
   """Return data set for test criterion (2)
@@ -310,7 +317,18 @@ def test4(tree, portion=3, train_by=3):
     return trainer
 
   return [expected_xpcost(d_tree, classmaker_trainer(cs), N*5) for cs in cluster_sizes]
-  
+
+def test5(tree, skills_start=3, skills_target=6, percentiles=[1,5,25,50,75,95,99]):
+  """ Returns string showing tree that results if all skills are trained from level skills_start up to skills_target.
+      The tree shown has the expected level of each individual ability next to it, along with a list
+      of percentiles in the distribution consisting of the resulting level of that ability after each training trial.
+  """
+  d_tree = copy.deepcopy(tree)
+  for skl in d_tree.skills():
+    skl.level=skills_start
+  assert (skills_target - skills_start) >= 0
+  seq = (skills_target - skills_start) * [skl.name for skl in d_tree.skills()]
+  return percentiles_tree(d_tree, run_trials(d_tree, trainer_from_sequence(seq), num_trials=10*N), percentiles)
 
 
 if __name__=="__main__":

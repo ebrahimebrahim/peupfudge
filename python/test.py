@@ -42,4 +42,4 @@ def trainer4(eg):
     trainer3(eg)
 
 o = run_trials(eg, trainer4, num_trials=1000)
-print percentiles(eg, o)
+print percentiles_tree(eg, o)

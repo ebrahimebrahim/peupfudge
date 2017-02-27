@@ -82,7 +82,7 @@ class Node(object):
     own_label = indent*'  ' + '['+(str(self.weight) if self.weight else '-')+'] ' + self.name + ": " + str(self.level)
     if extra_info:
       maxlen = max(len(s) for s in extra_info.values())
-      own_label = extra_info[self.name] + (4+maxlen-len(extra_info[self.name]))*' ' + own_label
+      own_label = extra_info[self.name] + (3+maxlen-len(extra_info[self.name]))*' ' + own_label
     children_labels = '\n'.join([c.__str__(indent+1,extra_info=extra_info) for c in self.children])
     return own_label + ('\n' if not self.is_skill() else '') + children_labels
 
