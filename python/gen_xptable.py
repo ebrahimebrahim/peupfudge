@@ -9,11 +9,11 @@ import os
 # d = discount factor
 b = 1.7
 s = 10.2
-d = 0.125
+d = 0.85
 
 # a = attribute bonus
 # c = current skill level
-xp_cost = lambda a,c : int(round(s*pow(b,c)*(1-d*(a-3))))
+xp_cost = lambda a,c : int(round(s*pow(b,c)*pow(d,a-3)))
 
 #list of current skill levels to put as rows of table:
 clist = range(1,9)
