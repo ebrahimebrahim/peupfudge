@@ -152,7 +152,7 @@ class Node(object):
     if self.parent and random.random() < self.probability_of_parent_increase():
         self.parent.train(indirect=True)
 
-  def tex(self, vert_spacing=0.85, horiz_spacing=3.5):
+  def tex(self, vert_spacing=0.85, horiz_spacing=3.5, dn=None):
     """Return a tikz picture of this tree to be included in tex documents.
        The picture lists all skills down a column on the right, and extends ancestors to the left.
        Make sure you \\usepackage{tikz} in your tex document.
@@ -164,6 +164,9 @@ class Node(object):
          horiz_spacing: (float or list) the spacing in cm between columns of the tree;
            if a single float is given then the spacing is uniform
            if a list l of floats is given then the space between columns n and n+1 is l[n]
+         dn: a positive integer, or None (default).
+             if None, then edges are labelled by weights, which are enclosed in circles.
+             if a positive integer, then edges are labeled by dice roll thresholds for governing attribute increase, based on rolling a "dn"
 
        Returns:
          the tex as a string
@@ -193,12 +196,16 @@ class Node(object):
       column = maxdepth - undepth(n) #columns are 0, 1, ..., maxdepth
       return sum(horiz_spacing[:column])
         
+    weight_shape = "circle" if not dn else "rectangle"
+    inner_sep = "1pt" if not dn else "2pt"
+    dn_threshold = lambda c : int(round((1-c.probability_of_parent_increase())*dn))+1
+    edge_label = lambda c : c.weight if not dn else dn_threshold(c)
 
     tex = """\\tikzset{
   treenode/.style = {shape=rectangle, rounded corners, top color=white, draw},
   attribute/.style     = {treenode, font=\\ttfamily\\normalsize, bottom color=blue!30},
   skill/.style         = {treenode, font=\\ttfamily\\normalsize, bottom color=red!20, right},
-  weight/.style = {pos=0.5, shape=circle, scale=1, minimum height=1, inner sep=1pt, fill=white, font=\\scriptsize, draw}
+  weight/.style = {pos=0.5, shape="""+weight_shape+""", scale=1, minimum height=1, inner sep="""+inner_sep+""", fill=white, font=\\scriptsize, draw}
 }
 \\begin{tikzpicture}\n"""
     def nodestr(node):
@@ -214,7 +221,7 @@ class Node(object):
     for n in self.descendants():
       for c in n.children:
         tex += "\\draw[-{latex}] (" + n.name + ") -- (" + c.name + ".west)"
-        tex += "  node[weight]{" + str(c.weight) + "};\n"
+        tex += "  node[weight]{" + str(edge_label(c)) + "};\n"
     tex += "\\end{tikzpicture}"
     return tex
 

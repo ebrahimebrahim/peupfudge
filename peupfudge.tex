@@ -88,7 +88,7 @@ Only skills, and not attributes, may be raised directly with xp.
 The mechanics of training abilities are such that competence in skills related to a given skill make it easier to train that skill.
 One effect of this is that players are encouraged
 to make characters that make sense and have some degree of specialization.
-\notes{[Does this really hold? Needs testing.]}
+
 
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
 \subsubsection{Training Skills}\label{sec:skill}
@@ -138,22 +138,31 @@ Whenever an ability level is increased, there is a chance that it's governing ab
 This mechanic applies to \emph{all} abilities, so that the effect of training skills via xp
 propagates up the ability tree in a probabilistic fashion.
 Here's how it works:
-Let $A$ and $B$ be abilities such that $A$ governs $B$ with $B$ bearing weight $w$ (so $A \xrightarrow{w} B$ in the ability tree).
-Whenever $B$ increases in level, the chance that $A$ increases in level is given by
-$$\frac{w}{w+n}\quad,$$
-where $n$ is the sum of the weights of the \emph{other} abilities governed by $A$
-whose level is at most that of $A$.
-We provide a table for rolling a d10, so the formula is not needed.
-However, players do need to know how to compute the quantity $n$.
+Let $A$ be an attribute that governs abilities $B_1,\ldots,B_n$, with respective weights $w_1,\ldots, w_n$.
+Whenever $B_i$ increases in level, the chance that $A$ increases in level is given by
+$$\frac{w_i}{w_1+\cdots+w_n}\ .$$
+It is sensible to round this quantity to the nearest $(\frac{1}{n})^\text{th}$ and roll a d$n$ to determine
+the outcome.
+In fact, this quantity only needs to be computed once for each edge of the ability tree,
+and the weights can then be dispensed with.
+After choosing initial weights and computing these probabilities,
+one might as well label the edges by the dice roll needed to raise a governing attribute.
+We recommend that the GM present the game's ability tree to players in this format.
+To demonstrate, here is our example tree from above, with d20 difficulties on the edges:
+\begin{center}
+\input{python/trees/example.tree.d20.tex}
+\end{center}
+Now when a player trains their \emph{climbing} skill by spending the needed xp,
+they also roll a d20 to see if their \emph{body} attribute increases.
+If they roll at least a 17, it does increase.
+In this case they would roll again for a chance to increase their \emph{level} attribute,
+with success if the roll is at least an 11.
 
-\notes{[provide table, and include explanation of precisely how to roll against table entries]}
 
-\notes{[provide a quick example of determining $w$ and $n$, and include in the example an extra layer of propagation]}
 
-Thus a high level of broad competence in an area typically comes from training various specific skills under that area.
-It is easier to raise an attribute by raising many of the skills it governs above its level,
-rather than by merely focusing on a few and ignoring the rest.
-\notes{[Does that statement really hold true? Test it out.]}
+
+
+
 
 \subsubsection{Tree Design}
 The mechanics for training skills and attributes are meant to resemble real training and experience.
@@ -173,7 +182,11 @@ One approach to designing a tree from scratch is to begin by listing all the des
 and grouping them into related clumps.
 Suitable attributes could take form in the clumps.
 
-\notes{suggest "character level" as root node.}
+An ability tree need not have a single root ability; it could instead
+consist of multiple disconnected ability trees.
+A reasonable root ability, if it is desired, would be akin to the notion of a ``character level'' common to role playing games.
+While it wouldn't mean quite the same thing in the context of an ability tree, \emph{level} is still a compelling name for
+what could be thought of as ``general competence'' or ``the ability to learn.''
 
 \notes{one way to make npcs more grainy is to "trim off" some leaves and turn attributes into leaves for them.}
 
