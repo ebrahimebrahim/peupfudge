@@ -77,7 +77,7 @@ def test_tree(tree,tests):
     print "\n--- TEST 3 INFO ---"
     orders = range(1,tree_depth+1)
     num_skills = [10, 25, 50, 100]
-    print "When we train a skill N times, its O^th ancestor tends to be this many levels higher than it:\n"
+    print "When we train skills N times, its O^th ancestor tends to be this many levels higher than it:\n"
     row_format = "{:<5}" + "{:>5}" * (len(orders))
     print row_format.format(*(["N  O:"]+orders))
     for n in num_skills:

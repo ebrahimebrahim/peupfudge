@@ -134,7 +134,8 @@ class Node(object):
       raise Exception(self.name+': could not compute probability of parent increase b/c some siblings seem not to have assigned weight')
     w = float(self.weight)
     w_plus_n = sum(s.weight for s in self.parent.children if (s.level <= self.parent.level or s is self))
-    return w / w_plus_n
+#    return w / w_plus_n
+    return w / sum(s.weight for s in self.parent.children)
 
   def train(self, indirect = False):
     """Train this skill

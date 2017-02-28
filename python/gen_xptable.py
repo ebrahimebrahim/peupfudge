@@ -7,9 +7,9 @@ import os
 # b = skill level base
 # s = xp scale factor
 # d = discount factor
-b = 1.7
-s = 10.2
-d = 0.85
+b = 1.8
+s = 50.0 / pow(b,3)
+d = 0.65
 
 # a = attribute bonus
 # c = current skill level
