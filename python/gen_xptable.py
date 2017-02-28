@@ -7,9 +7,14 @@ import os
 # b = skill level base
 # s = xp scale factor
 # d = discount factor
-b = 1.8
+b = 1.85
 s = 50.0 / pow(b,3)
-d = 0.65
+d = 1.35/b
+
+# Note that s is set so that the (3,3) position in the table has an xp cost of 50.
+# Note that d is set to b'/b, where b' is a sort of modified base:
+#  b' is the base you would see if you read diagonally down the table instead of straight down.
+#  It represents how much harder it is, on average, to increase all children of a skill from a to a+1 vs from a-1 to a.
 
 # a = attribute bonus
 # c = current skill level
