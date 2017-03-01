@@ -152,7 +152,7 @@ To demonstrate, here is our example tree from above, with d20 difficulties on th
 \begin{center}
 \input{python/trees/example.tree.d20.tex}
 \end{center}
-Now when a player trains their \emph{climbing} skill by spending the needed xp,
+When a player trains their \emph{climbing} skill by spending the needed xp,
 they also roll a d20 to see if their \emph{body} attribute increases.
 If they roll at least a 17, it does increase.
 In this case they would roll again for a chance to increase their \emph{level} attribute,
@@ -184,18 +184,32 @@ Suitable attributes could take form in the clumps.
 
 An ability tree need not have a single root ability; it could instead
 consist of multiple disconnected ability trees.
-A reasonable root ability, if it is desired, would be akin to the notion of a ``character level'' common to role playing games.
+A reasonable root ability, if one is desired, would be akin to the notion of a ``character level'' common to role playing games.
 While it wouldn't mean quite the same thing in the context of an ability tree, \emph{level} is still a compelling name for
 what could be thought of as ``general competence'' or ``the ability to learn.''
 
+\paragraph{Powers}
+Some abilities can be labeled as \emph{powers}, which just means that they can be disabled completely.
+A power that is disabled for a character cannot be trained or rolled against,
+but it plays the same role as an ordinary ability for all other purposes (e.g. calculating
+the probabilities of section \ref{sec:att}).
+All abilities governed by a power are automatically powers, and they are
+automatically disabled when the power is disabled.
+The GM should decide what sorts of circumstances cause various powers to become enabled.
+
+The option of powers is available because it sometimes makes sense for certain abilities to be altogether unavailable to certain characters.
+One could implement such abilities as \emph{properties} instead (explained in section \ref{sec:dev}),
+but it may be desirable to incorporate these things into the ability tree so that they can be trained and tracked with other abilties.
+A typical example would be magic as an innate ability:
+non-casters should have it disabled in their tree, but one could envision an entire subtree consisting of schools of magic for casters.
+
+\paragraph{NPCs}
+Tracking the abilities of every NPC using a full ability tree can become a hassle.
+Fortunately, there is an easy way to lessen this work: simply \emph{trim} their ability tree!
+That is, shave off some abilities from the skill end of their tree, so that some attributes become skills.
 
 
-\notes{explain what powers are and how they sit in the tree (just pretend they don't exist if off... wait does that even make sense)}
 
-\notes{one way to make npcs more grainy is to "trim off" some leaves and turn attributes into leaves for them.}
-
-
-\notes{magic as power}
 
 \subsection{Character Development}\label{sec:dev}
 
@@ -224,7 +238,10 @@ Players are responsible for keeping track of how much xp they have invested in p
 
 \notes{if a skill needs to be introduced in the middle of the game due to an omission (i.e. using an attribute to roll for a particular omitted skill often), then start it at its parent -2. capped below at 1, of course.}
 
+\notes{explain properties}
+
 \notes{magic as property}
+
 
 \subsection{Items and Inventory} \label{sec:items}
 \notes{attributes are traits that all items have
@@ -288,6 +305,7 @@ crit system
 
 \notes{an index/summary of game mechanics. this is something that one could read to remind themselves of all the rules
 if they've already read the manual. also this would be something for a GM to read to remind themselves
-exactly what it is about their game world they need to specify. ideally this should be short, and in list format"}
+exactly what it is about their game world they need to specify (like a list of questions for them to answer).
+ideally this should be short, and in list format"}
 
 \end{document}
