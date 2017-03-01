@@ -37,10 +37,10 @@ xp.}
 \section{Characters}
 A \emph{character} is an agent in the world.
 Individual characters are represented by their traits and their status.
-\emph{Traits} describe a character and their abilities.
-\emph{Status} describes a character's dynamic current state.
+\emph{Traits} describe a characters background and abilities.
+\emph{Statuses} describes a character's dynamic current state.
 
-\textbf{Traits}\vspace{-6mm}
+\textbf{Traits}\vspace{-1em}
 \begin{itemize}
 \item \emph{Characteristics}
 describe identity and background
@@ -54,7 +54,7 @@ Abilities are organized in a tree, the mechanics of which are elaborated in sect
 \item \emph{Properties} are binary traits-- a character either has or does not have a given property (e.g. deaf).
 \end{itemize}
 
-\textbf{Status}\vspace{-6mm}
+\textbf{Statuses}\vspace{-1em}
 \begin{itemize}
 \item \emph{Bars} are ever-changing numerical statuses (e.g. mana, hunger, reputation).
 \item \emph{Inventory} is the collection of items on a character's person (see section \ref{sec:items}).
@@ -243,8 +243,11 @@ Players are responsible for keeping track of how much xp they have invested in p
 \subsubsection{Character Creation}
 Players start with some xp to build up their ability tree.
 A reasonable starting quantity is \input{xp_start_multiplier.tex}xp times the number of skills in the tree,
-but a GM may have reasons for using more or less, or even for varying the amount for certain characters.
-This starting xp is spent during character creation, and it works just like the ordinary character development that follows an xp reward.
+but a GM may have reasons for using more or less, or even for varying the amount for certain characters.\footnote{
+The ability tree a character starts with represents skills gained
+gained during a character's life up to the beginning of the narrative,
+so these sorts of GM decisions can be based on other information about the character.}
+This starting xp is spent during character creation, and it works just like the ordinary character development that follows an xp award.
 Since much depends on rolling at this stage, we recommend that it be done ``live;'' i.e. in the presence of other players.
 As an alternative to this form of character creation, a GM may provide prepared \emph{classes} for players to pick from.
 A \emph{class} is nothing but a pre-made ability tree.
@@ -291,11 +294,39 @@ Set the skill's level to 2 below the level of its governing attribute (capped be
 
 
 \subsection{Items and Inventory} \label{sec:items}
-\notes{attributes are traits that all items have
-an item can have additional descriptors for traits
-examples of traits are: material, weight, scale, value
-an item can also have a status (e.g. condition).
-carrying capacity can be a bar.}
+A character's \emph{inventory} is the list of items carried on their person,
+along with the ways in which those items are carried.
+Ultimately, it is a hierarchical listing of containers and items.
+Yes... it is another tree!
+The root nodes of the inventory tree are the character's ``natural'' containers (hands, back, etc.),
+the intermediate nodes are containers (which are themselves items),
+and the leaf nodes are arbitrary items.
+
+\emph{Items} are material entities in the world, 
+specifically ones that a character would carry.
+Like characters, they are represented by their \emph{traits} and \emph{statuses}.
+
+\textbf{Item Traits}
+\vspace{-1em}
+\begin{itemize}
+\item \emph{Characteristics} are item descriptors (e.g. name, textual description, material, shape)
+\item \emph{Attributes} are numerical traits (e.g. weight, size).
+\end{itemize}
+\textbf{Item Statuses}
+\vspace{-1em}
+\begin{itemize}
+\item \emph{Bars} are dynamic numerical statuses (e.g. condition).
+\item \emph{Conditions} are binary statuses (e.g. broken handle).
+\end{itemize}
+
+Not all items need to be represented at the same level of detail.
+For many items, an item name may suffice.
+
+The inventory tree should be subject to some constraints
+(e.g. due to container volumes, character strength, fatigue, etc.).
+The GM should decide how to manage these constraints.
+(e.g. containers have a volume attribute, character's have a carrying capacity based on some physical ability, etc.)
+
 
 
 \section{Actions}\label{sec:actions}
