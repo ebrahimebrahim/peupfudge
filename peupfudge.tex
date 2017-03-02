@@ -31,8 +31,13 @@
 it gives you the classes and not the objects.
 what a gm is.
 pc vs npc.
-numbering system, it's logarithmic interpretation, 4dF.
 xp.}
+
+\subsection{Numbers and Adjectives} \label{sec:quant}
+
+\notes{
+numbering system, it's logarithmic interpretation, 4dF.
+}
 
 \section{Characters}
 A \emph{character} is an agent in the world.
@@ -332,7 +337,97 @@ The GM should decide how to manage these constraints
 \section{Actions}\label{sec:actions}
 When a character attempts a task that has a possibility of failure, the outcome is governed partly by a dice roll.
 The dice roll represents the dependence of the outcome on factors that are not modeled in the game or that are altogether unpredictable.
-\notes{[discuss unopposed and opposed. rolling focus on most specialized suitable ability. when rolling against attribute, subtract 2 from it's level for rolled degree purposes (but if you do it too much as a substitute for a specific skill then see section \ref{sec:bta}). this does not apply to grainy npc situation. 4dF probability table.]}
+We will call these \emph{purely variable} factors.
+The basic idea is that the attempt is a success if and only if
+$$ R + M \geq D, $$
+where $R$ is the result of a \emph{roll}, $M$ is some sort of \emph{modifier}, and $D$ is the \emph{difficulty} of the task.
+The specifics depends on the type of action: opposed or unopposed.
+
+Let us use the term \emph{difficulty factors} to refer to
+the primary factors leading to the possibilities of success or failure for an action,
+but only those factors that are \emph{indepdent of who is attempting the action}.
+For those factors that \emph{are due to the character attempting the action} let us use the term \emph{aiding factors}.
+The difficulty factors for a character attempting to climb a cliff are things
+like the steepness of the cliff and the availability of footholds.
+The climbing skill of the character and the fact that they have a grappling hook would be aiding factors.
+The difficulty factors for a character attempting to punch someone in a brawl might include the defensive abilities of the opponent,
+while the punching abilities of the character would be aiding factors.
+
+\subsection{Unopposed Actions}\label{sec:unopposed}
+If the difficulty factors for an action cannot be attributed to some other character's abilities,
+then the action is \emph{unopposed}.
+In this case:
+\vspace{-1em}
+\begin{itemize}
+\item $R$ is the result of rolling $4$dF.
+\item $M$ is determined based on the aiding factors for the action; it is usually the level of an ability.
+\item $D$ is determined based on the difficulty factors for the action.
+\end{itemize}
+Some judgement is needed for the determination of $M$ and $D$. For $M$,
+find a skill to serve as the primary aiding factor for the character's action,
+and set $M$ to be the level of that skill.
+If no suitable skill is available, you may use a suitable attribute... with a possible \emph{attribute penalty}.\footnote{
+The attribute penalty does not apply to attributes that became skills for NPCs with trimmed trees.}
+If the attribute description really nails the aiding factors, then no penalty is needed.
+But if the attribute is being used as a stand-in for a more specific ability that happens not to be in the ability tree,
+then set $M$ to be two less than the level of that attribute.
+In uncertain and in-between situations, set $M$ to be one less than the level of the attribute.
+Finally, the GM should use their judgement to modify $M$ a bit further based on any other aiding factors.
+Making reasonable decisions about the numbers here requires a proper understanding of section \ref{sec:quant}.
+This is even more crucial for $D$, which is left completely up to the judgement of the GM.
+
+Summarizing, an unopposed action is successful if and only if
+\begin{align*}
+4\text{dF}
++([\text{relevant ability level}]
+-[\text{attribute penalty}]
++[\text{other aiding factors}])
+\geq D.
+\end{align*}
+The value of $R$ can feed directly into the narrative,
+for it represents the purely variable aspect of a character's performance of a task,
+independent of aiding factors and difficulty factors.
+It can be fun to asssign extreme narrative interpretations to extreme values of $R$.
+
+
+\subsection{Opposed Actions}\label{sec:opposed}
+If the difficulty factors for an action are due to some other character's abilities,
+then the action is \emph{opposed}, and we refer to this other character as the \emph{opposing character}.
+In this case:
+\vspace{-1em}
+\begin{itemize}
+\item $R$ is $2$dF.
+\item $M$ is determined based on the aiding factors for the action; it is usually an ability level of the acting character.
+\item $D$ is $R' + M'$, where
+\begin{itemize}
+\item $R'$ is $2$dF.
+\item $M'$ is determined based on the difficulty factors for the action; it is usually an ability level of the opposing character.
+\end{itemize}
+\end{itemize}
+Here $M$ and $M'$ are determined just like $M$ for unopposed actions.
+Summarizing, an opposed action is successful if and only if
+\begin{align*}
+&2\text{dF}
++([\text{relevant ability level}]
+-[\text{attribute penalty}]
++[\text{other aiding factors}])\\
+\geq\ & 
+2\text{dF}
++([\text{relevant opposing ability level}]
+-[\text{attribute penalty}]
++[\text{other difficulty factors}]).
+\end{align*}
+For the sake of feeding the outcomes of rolls into the narrative,
+$R$ represents the purely variable aspect of the acting character's performance,
+while $R'$ represents the purely variable aspect of the opposing character's performance.
+It makes sense to have the respective acting and opposing players roll the dice for these.
+
+
+
+
+
+
+
 \subsection{Combat}
 \notes{
 [description of what is combat round]
