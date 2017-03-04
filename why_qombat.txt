@@ -1,0 +1,116 @@
+(08:36:57 PM) يوسف: so these were the types of conflicts i was thinking about
+(08:37:00 PM) يوسف: man vs man
+(08:37:02 PM) يوسف: man vs nature
+(08:37:07 PM) يوسف: man vs society
+(08:37:32 PM) يوسف: man vs self
+(08:38:14 PM) يوسف: so for a lot of those, you can imagine combat being an important expression of the conflict...
+(08:38:26 PM) يوسف: man vs nature and man vs society especially
+(08:38:33 PM) يوسف: a rebellion, a war, someone lost in a jungle
+(08:38:51 PM) يوسف: but you can also imagine many examples of these types of conflict that wouldn't include combat
+(08:40:00 PM) يوسف: like a society dealing with a natural disaster or something
+(08:40:01 PM) يوسف: or peup
+(08:40:35 PM) يوسف: i mean many novels and many movies don't contain combat
+(08:40:58 PM) يوسف: but these seem to not be the types that become any kinds of GAMES
+(08:41:13 PM) يوسف: novels or movies that do contain combat frequently become games
+(08:41:28 PM) يوسف: there's some aspect of it which i think makes it particularly favorable for games
+(08:41:37 PM) يوسف: maybe the challenge or competitive aspect?
+(08:41:46 PM) يوسف: combat doesn't have to be the vessel for that
+(08:41:53 PM) يوسف: but it kind of creates something modular
+(08:42:37 PM) يوسف: a system that provides challenges, that you can add to and understand and measure yourself with, that can connect with the narrative of the story, be influenced by it and affect it
+(08:43:21 PM) يوسف: the "challenges" are ones that you can get a better idea for as you continue in the game, they're a kind of constant structure
+(08:44:08 PM) يوسف: it can also be something you measure against--a challenge or combat round which you couldn't handle at the beginning of the game but could handle now
+(08:44:42 PM) يوسف: or something which plays into the narrative--you pick up something in the story which will somehow aid in combat, or use combat in the story out of necessity or to get something done
+(08:45:23 PM) يوسف: in fact, i'm trying to think of a game that DOESN'T have such modular challenges
+(08:45:36 PM) يوسف: talos principle had the puzzles...we learned more about their mechanics with each one
+(08:45:46 PM) يوسف: yussra once showed us a game which had something like combat but with the theme of talking
+(08:47:05 PM) يوسف: it kind of represents conflict resolution
+(08:47:18 PM) يوسف: it represents a challenge which you can either overcome or fail to overcome
+(08:47:47 PM) يوسف: but it's more in depth, and stable throughout a game
+(08:47:58 PM) يوسف: i'm not sure, but i don't think it has to be combat
+(08:49:06 PM) يوسف: but i do think some kind of conflict resolution system which goes deeper than just action resolution is necessary to make it really a game
+(08:50:01 PM) يوسف: or i'm just peuping
+(08:50:56 PM) يوسف: conflict resolution would depend on the setting and the type of main conflict for the story i guess
+(08:51:17 PM) يوسف: in a hospital setting where the story follows a surgeon, maybe the "challenges" are the surgeries he performs
+(08:52:56 PM) يوسف: i'm trying to think of other settings
+(08:53:02 PM) يوسف: but i'm pretty sure this idea is widely applicable
+(08:53:20 PM) يوسف: in a setting of a war, the challenge is combat
+(08:53:38 PM) يوسف: in the lord of the rings, the conflict was they had to get this ring to a volcano through really dangerous lands
+(08:53:45 PM) يوسف: obviously combat will be a big part of the challenges they face
+(08:53:53 PM) يوسف: it'll be the challenge faced for any game that is based on it
+(08:54:22 PM) يوسف: i think RPG's just tend to have settings that are conducive for combat as a conflict resolution system
+(08:54:37 PM) يوسف: if you think of RPG's that have a setting completely unrelated to war or combat, it probably also doesn't have combat
+(08:54:48 PM) يوسف: something like harvest moon
+(08:56:13 PM) ابراهيم: wow really well thought out!
+(08:56:17 PM) ابراهيم: i will shower and read that again!
+(08:56:22 PM) يوسف: ty! jej :D
+(08:56:29 PM) ابراهيم: i also had some ideas during run, will tell after shower
+(08:56:54 PM) يوسف: also, to add one more thing, i think taking it out and leaving it at that will be bad
+(08:57:12 PM) يوسف: because then anyone who tries to make an rpg with peupfudge which somewhat resembles common rpg stories will fail
+(08:57:18 PM) يوسف: they won't be able to 
+(08:57:38 PM) يوسف: but it's worth thinking about whether we can or should generalize it in some way, or whether it's really as fundamental as it's made to seem
+(09:16:52 PM) ابراهيم: peup
+(09:17:13 PM) ابراهيم: yes i agree that we should at least give detailed combat mechanics
+(09:17:20 PM) ابراهيم: well, the ones we came up with at least
+(09:17:29 PM) ابراهيم: which are not THAT detailed as far as these things usually go
+(09:17:55 PM) ابراهيم: ok here is the thought i had, and it fits your idea of generalizing:
+(09:18:18 PM) ابراهيم: first, what's makes our combat system different from just a series of opposed actions?
+(09:18:25 PM) ابراهيم: three things
+(09:18:42 PM) ابراهيم: 1) combat rounds allow for sensitivity to the timing of actions
+(09:18:49 PM) يوسف: peup
+(09:19:28 PM) ابراهيم: 2) damage dice. while there is an ordinary opposed action to determine success or failure of a hit, it is followed by damage dice to determine the severity.
+(09:20:06 PM) ابراهيم: 3) wounds. the combat system has a specific way of applying temporary to permanent effects on characters
+(09:20:22 PM) ابراهيم: generalizing
+(09:20:29 PM) ابراهيم: oh, first
+(09:20:37 PM) ابراهيم: adding to (1)
+(09:21:24 PM) ابراهيم: (1*) space. detailed combat can be carried out on a grid, so there is sensitivity to space as well as time. (i forget if we talked about including this possibility in peupfudge)
+(09:21:39 PM) ابراهيم: ok now these are not so crazy to generalize!
+(09:21:42 PM) ابراهيم: (1) is easy
+(09:22:01 PM) ابراهيم: sometimes there can be a series of opposed or unopposed actions where timing matters a lot!
+(09:22:10 PM) ابراهيم: in this case, we introduce rounds
+(09:22:21 PM) ابراهيم: if space matters a lot, we introduce the grid
+(09:22:32 PM) يوسف: hmm
+(09:22:34 PM) ابراهيم: not specific to combat at all
+(09:22:37 PM) يوسف: this is qul
+(09:22:51 PM) يوسف: so someone could use basically the same system to simulate a basketball game or something? :D
+(09:22:57 PM) ابراهيم: jej!
+(09:23:39 PM) ابراهيم: but they have to work to decide what the actions are that play into the subsystem, and fine tune their timings and spatial arrangement
+(09:24:09 PM) ابراهيم: now before generalizing the others
+(09:24:16 PM) ابراهيم: i want to go back to your idea
+(09:25:07 PM) ابراهيم: 
+(08:41:53 PM) يوسف: but it kind of creates something modular
+(08:42:37 PM) يوسف: a system that provides challenges, that you can add to and understand and measure yourself with, that can connect with the narrative of the story, be influenced by it and affect it
+(08:43:21 PM) يوسف: the "challenges" are ones that you can get a better idea for as you continue in the game, they're a kind of constant structure
+(08:44:08 PM) يوسف: it can also be something you measure against--a challenge or combat round which you couldn't handle at the beginning of the game but could handle now
+(08:44:42 PM) يوسف: or something which plays into the narrative--you pick up something in the story which will somehow aid in combat, or use combat in the story out of necessity or to get something done
+(09:25:23 PM) ابراهيم: this really nails it i think
+(09:26:05 PM) ابراهيم: i want to suggest that it is this kind of modular and consistent challenge structure that we want to generalize to
+(09:26:07 PM) يوسف: jej!
+(09:26:42 PM) ابراهيم: i was trying to think of a name for it in the shower
+(09:26:50 PM) ابراهيم: the best i've got for now is "subsystem"
+(09:27:03 PM) ابراهيم: sounds less lame than "minigame" lol
+(09:27:18 PM) ابراهيم: but if you think about it, combat subsystems in RPGs really are a sort of minigame
+(09:28:04 PM) ابراهيم: ok generalizing (2):
+(09:28:26 PM) يوسف: jej :D
+(09:28:27 PM) يوسف: yes
+(09:28:53 PM) ابراهيم: it's nothing more than a situation where instead of modeling only success and failure as an outcome, we want to allow for more outcomes (in the case of damage dice it is the amount of success in the event of success)
+(09:29:30 PM) ابراهيم: so (2) is a case of using dice to allow for more than just a binary outcome, which usual opposed and unopposed actions are limited to
+(09:29:38 PM) ابراهيم: this is clearly not limited to combat!
+(09:30:21 PM) يوسف: yes!
+(09:30:34 PM) ابراهيم: finally, (3) is tricky
+(09:30:52 PM) ابراهيم: first, let's isolate the "wounds" system
+(09:31:01 PM) ابراهيم: it's really a "health" system
+(09:31:25 PM) ابراهيم: it could be as crucial to a character as their skills and attributes
+(09:31:34 PM) ابراهيم: it's a part of their state of being
+(09:31:42 PM) ابراهيم: it is not specifically tied to combat
+(09:31:48 PM) ابراهيم: what do you think? agree?
+(09:32:25 PM) يوسف: hmmm
+(09:32:37 PM) يوسف: yes
+(09:32:43 PM) يوسف: do you mean to generalize it beyond health?
+(09:32:50 PM) ابراهيم: no
+(09:32:56 PM) ابراهيم: we've already sort of done that lol
+(09:32:57 PM) يوسف: or say that health is more general than combat?
+(09:33:00 PM) ابراهيم: with bars and properties
+(09:33:01 PM) يوسف: jej
+(09:33:02 PM) يوسف: :D
+(09:33:05 PM) يوسف: yes haha
+(09:33:11 PM) ابراهيم: yes i'm saying health is more general than combat
