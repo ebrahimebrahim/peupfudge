@@ -63,9 +63,18 @@ Abilities are organized in a tree, the mechanics of which are elaborated in sect
 \begin{itemize}
 \item \emph{Bars} are ever-changing numerical statuses (e.g. mana, hunger, reputation).
 \item \emph{Inventory} is the collection of items on a character's person (see section \ref{sec:items}).
-\item \emph{Wound level} is a listing of a character's current injuries (see section \ref{sec:wounds}).
+\item \emph{Health} is the state of a character's physical well-being and injuries (see sections \ref{sec:health} and \ref{sec:wounds}).
 \item \emph{Conditions} are binary statuses (e.g. asleep, paralyzed, poisoned, on fire, etc.)
 \end{itemize}
+
+\notes{Currently nothing is even written about conditions!
+But before remedying that... should conditions just be merged into health?}
+
+\notes{Another, more important question:
+Shall we give up on the distinction between traits and statuses?
+The distinction is there for sure, but so far it has served no purpose at all!
+Why make readers go through definitions that don't later do anything?
+Then any non-health-related conditions become just properteries that can come and go... because that's what they \emph{are}.}
 
 In creating a game world, a GM needs to specify the structure of a character by specifying the traits and statuses relevant to the campaign. A GM must essentially decide how a character sheet looks. In particular, this will involve inventing the characteristics, abilities, and bars, which might be based on the specific setting of the game.
 
@@ -332,6 +341,9 @@ The inventory tree should be subject to some constraints
 The GM should decide how to manage these constraints
 (e.g. containers have a volume attribute, characters have a carrying capacity based on some physical ability, etc.).
 
+\subsection{Health} \label{sec:health}
+
+\notes{[write this section]}
 
 
 \section{Actions}\label{sec:actions}
@@ -549,7 +561,7 @@ crit system
 \subsubsection{Situational Modifers}
 \notes{Situational stuff (e.g. positioning, weapon lengths, height advantages, cover, range, multiple combatants, injuries, peup, surprise, scale difference)}
 
-\subsubsection{Wounds and Healing}\label{sec:wounds}
+\subsubsection{Wounds}\label{sec:wounds}
 
 \section{Appendix}
 
