@@ -7,7 +7,9 @@
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{graphics}
+\usepackage{makeidx}
 
+\makeindex
 
 \title{PeupFudge}
 \author{Ebrahim \\ Yusuf \\ Yussra}
@@ -40,11 +42,12 @@ numbering system, it's logarithmic interpretation, 4dF.
 }
 
 \section{Characters}
-A \emph{character} is an agent in the world.
-Individual characters are represented by their traits and their statuses.
-\emph{Traits} describe a character's background and abilities.
-\emph{Statuses} describe a character's dynamic current state.
+A \emph{character}
+\index{character} is an agent in the world.
+Individual characters are represented by their traits,
+which describe a character's background, abilities, and their dynamic current state.
 
+\index{traits}
 \textbf{Traits}\vspace{-1em}
 \begin{itemize}
 \item \emph{Characteristics}
@@ -55,28 +58,20 @@ represent improvable traits that play a role in action resolution
 (e.g. strength, climbing, legal knowledge).
 They have a positive integer \emph{ability level}.
 \emph{Powers} are abilities that can also be turned off completely.
-Abilities are organized in a tree, the mechanics of which are elaborated in section \ref{sec:tree}.
-\item \emph{Properties} are binary traits-- a character either has or does not have a given property (e.g. deaf).
+Abilities are organized in a tree and separated into \emph{skills} and \emph{attributes}.
+\item \emph{Properties} are binary traits-- a character either has or does not have a given property
+(e.g. deaf, blessed).
+\item \emph{Bars} are numerical statuses (e.g. mana, hunger, reputation).
+\item \emph{Inventory} is the collection of items on a character's person.
+\item \emph{Physical condition} is the state of a character's physiology, well-being, and injuries.
 \end{itemize}
 
-\textbf{Statuses}\vspace{-1em}
-\begin{itemize}
-\item \emph{Bars} are ever-changing numerical statuses (e.g. mana, hunger, reputation).
-\item \emph{Inventory} is the collection of items on a character's person (see section \ref{sec:items}).
-\item \emph{Health} is the state of a character's physical well-being and injuries (see sections \ref{sec:health} and \ref{sec:wounds}).
-\item \emph{Conditions} are binary statuses (e.g. asleep, paralyzed, poisoned, on fire, etc.)
-\end{itemize}
+\notes{choose better name for physical condition}
 
-\notes{Currently nothing is even written about conditions!
-But before remedying that... should conditions just be merged into health?}
 
-\notes{Another, more important question:
-Shall we give up on the distinction between traits and statuses?
-The distinction is there for sure, but so far it has served no purpose at all!
-Why make readers go through definitions that don't later do anything?
-Then any non-health-related conditions become just properteries that can come and go... because that's what they \emph{are}.}
-
-In creating a game world, a GM needs to specify the structure of a character by specifying the traits and statuses relevant to the campaign. A GM must essentially decide how a character sheet looks. In particular, this will involve inventing the characteristics, abilities, and bars, which might be based on the specific setting of the game.
+In creating a game world, a GM needs to specify the structure of a character by specifying the traits and statuses relevant to the campaign.
+A GM must essentially decide how a character sheet looks.
+In particular, this will involve inventing the some of the traits which might be based on the specific setting of the game.
 
 \subsection{The Ability Tree}\label{sec:tree}			
 
@@ -87,8 +82,11 @@ Most abilities have an initial (untrained) level of 3. The GM may choose some di
 
 %define structure of tree, as well as terms 'skill' and 'attribute'
 Abilities are arranged in a tree structure in which broad abilities govern more specific ones.
+\index{ability tree}
 An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node).
+\index{skill}\index{attribute}
 Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}.
+\index{weight}
 Below is an example of an initial ability tree, with an ability level written next to each ability.
 Attributes are shown in blue, skills are shown in red, and weights are labeled on edges.
 
@@ -98,6 +96,7 @@ Attributes are shown in blue, skills are shown in red, and weights are labeled o
 
 \paragraph{The Idea} Let us summarize the mechanics to be explained. The weight of an ability represents its importance to its group, i.e. the degree to which its improvement improves its governing ability.
 Players are granted experience points (xp) throughout the game. They may use xp to raise skills that they have recently used (i.e. rolled against).
+\index{xp}
 Only skills, and not attributes, may be raised directly with xp.
 The mechanics of training abilities are such that competence in skills related to a given skill make it easier to train that skill.
 One effect of this is that players are encouraged
@@ -107,6 +106,7 @@ to make characters that make sense and have some degree of specialization.
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
 \subsubsection{Training Skills}\label{sec:skill}
 Skills may be trained with xp.
+\index{train}\index{xp}
 The xp cost of raising a particular skill level depends on
 the skill's current level and the levels of all its ancestor attributes in the ability tree.
 A high-level skill is harder to raise.
@@ -123,6 +123,7 @@ Use the following table to determine the xp cost for a skill level increase:
 
 
 The \emph{attribute bonus} is a weighted average over all ancestor attributes of the skill being trained:
+\index{attribute bonus}
 \begin{align*}
 \textrm{[attribute bonus]}
 =\big(\ &\textrm{[level of governing attribute]}\\
@@ -148,6 +149,7 @@ Thus the closer an attribute is to a skill in the ability tree, the larger its h
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
 \subsubsection{Training Attributes}\label{sec:att}
 Unlike skills, attributes cannot be trained directly using xp.
+\index{train}
 Whenever an ability level is increased, there is a chance that its governing ability will also increase.
 This mechanic applies to \emph{all} abilities, so that the effect of training skills via xp
 propagates up the ability tree in a probabilistic fashion.
@@ -180,6 +182,7 @@ with success if the roll is at least an 11.
 
 \subsubsection{Tree Design}
 The mechanics for training skills and attributes are meant to resemble real training and experience.
+\index{train}
 Training a specific skill is easier to do given more general related experience,
 and more so for that experience which pertains most directly to the skill,
 hence the attribute bonus of section \ref{sec:skill}.
@@ -204,6 +207,7 @@ what could be thought of as ``general competence'' or ``the ability to learn.''
 
 \paragraph{Powers}
 Some abilities can be labeled as \emph{powers}, which just means that they can be disabled completely.
+\index{power}
 A power that is disabled for a character cannot be trained or rolled against,
 but it plays the same role as an ordinary ability for all other purposes (e.g. calculating
 the probabilities of section \ref{sec:att}).
@@ -215,6 +219,7 @@ The option of powers is available because it sometimes makes sense for certain a
 One could implement such abilities as \emph{properties} instead (explained in section \ref{sec:dev}),
 but it may be desirable to incorporate these things into the ability tree so that they can be trained and tracked with other abilties.
 A typical example would be magic as an innate ability:
+\index{magic}
 non-casters should have it disabled in their tree, but one could envision an entire subtree consisting of schools of magic for casters.
 
 \paragraph{NPCs}
@@ -224,19 +229,18 @@ That is, shave off some abilities from the skill end of their tree, so that some
 
 
 
-
 \subsection{Character Development}\label{sec:dev}
 
 The GM should provide players with the structure of an empty character sheet,
 complete with all the needed traits and statuses to be initialized by players.
-While abilities have well-defined mechanics, some other traits and statuses
+While abilities have well-defined mechanics, some other traits
 need to be specified and elaborated by the GM.
 
 First we take a moment explain how xp works throughout gameplay,
 then we lay out the different aspects of character creation.
 
 \subsubsection{Using Experience Points}
-Experience points (xp) quantify the process of training abilities.
+Experience points (xp) quantify the process of training abilities.\index{xp}
 The GM doles out xp to the players after their characters accomplish some chunk of the narrative.
 The idea is that more xp should be awarded for greater success and for the accomplishment of more difficult tasks,
 but this is ultimately up to the GM.
@@ -245,6 +249,7 @@ The purpose of xp is to spend it to increase the level of skills, according to t
 Note that attribute levels cannot be raised directly, but instead have a chance of increasing every time a governed skill is trained.
 
 The skills that can be trained should be limited to ones that are relevant to the accomplishments that resulted in the xp reward in the first place.
+\index{train}
 A GM may enforce this by listing 
 (perhaps separately for each player)
 which skills have been opened
@@ -254,8 +259,8 @@ Players cannot save xp to use on arbitrary skills; they must \emph{allocate} the
 It is fine to allocate to a skill an amount of xp less than what is needed to increase its level.
 Players are responsible for keeping track of how much xp they have invested in partially purchased skill level increases.
 
-\subsubsection{Character Creation}
-Players start with some xp to build up their ability tree.
+\subsubsection{Character Creation}\label{sec:creation}
+Players start with some xp to build up their ability tree. \index{xp}
 A reasonable starting quantity is \input{xp_start_multiplier.tex}xp times the number of skills in the tree,
 but a GM may have reasons for using more or less, or even for varying the amount for certain characters.\footnote{
 The ability tree a character starts with represents skills gained
@@ -268,7 +273,7 @@ A \emph{class} is nothing but a pre-made ability tree.
 This alternative eliminates rolling completely; a middle ground option would be to provide a choice
 of partially developed classes and also give a bit of xp to customize things.
 
-Characteristics should also be pinned down during character creation.
+Characteristics should also be pinned down during character creation.\index{characteristic}
 Since they play a mostly narrative role, there are no detailed mechanics to govern their structure.
 The GM simply chooses which characteristics are relevant to the game world, and they are included on character sheets.
 Players are encouraged to write descriptions that are brief enough to reference and recall while still
@@ -280,18 +285,16 @@ They might need to interact with other game mechanics
 in a specific way (e.g. a character with no arms should have some trouble training their swordsmanship),
 or they might just need to be put in the spotlight due to their effect on many situations
 (e.g. a deaf character should have a reduced chance of noticing the ambush they are about to walk into).
-This is addressed by one more type of character trait: \emph{properties}.
+This is addressed by one more type of character trait: \emph{properties}.\index{property}
 A property should be a single word or very brief phrase that can be true of a character or not,
 and it should have a description if it needs one.
 A character's properties should be listed together on their character sheet.
 Players can come up with properties at character creation and get them approved by the GM.
 The GM can also provide a list of properties for players to choose from, with some descriptions and constraints.
 
-That covers traits. As for statuses,
-the GM should provide initialization instructions with each status they include.
+The GM should provide initialization instructions with each trait they include.
 If characters have a reputation \emph{bar}, how shall it start out?
 How about \emph{inventory}--how should that start out?
-
 
 
 \subsubsection{Belated Tree Augmentation}\label{sec:bta}
@@ -308,7 +311,7 @@ Set the skill's level to 2 below the level of its governing attribute (capped be
 
 
 \subsection{Items and Inventory} \label{sec:items}
-A character's \emph{inventory} is the list of items carried on their person,
+A character's \emph{inventory}\index{inventory} is the list of items carried on their person,
 along with the ways in which those items are carried.
 Ultimately, it is a hierarchical listing of containers and items.
 Yes...it is another tree!
@@ -318,18 +321,14 @@ and the leaf nodes are arbitrary items.
 
 \emph{Items} are material entities in the world, 
 specifically ones that a character would carry.
-Like characters, they are represented by their \emph{traits} and \emph{statuses}.
+Like characters, they are represented by their \emph{traits}.
+\index{item traits}
 
 \textbf{Item Traits}
 \vspace{-1em}
 \begin{itemize}
 \item \emph{Characteristics} are item descriptors (e.g. name, textual description, material, shape)
-\item \emph{Attributes} are numerical traits (e.g. weight, size).
-\end{itemize}
-\textbf{Item Statuses}
-\vspace{-1em}
-\begin{itemize}
-\item \emph{Bars} are dynamic numerical statuses (e.g. condition).
+\item \emph{Attributes} are numerical traits (e.g. weight, size, condition).
 \item \emph{Conditions} are binary statuses (e.g. broken handle).
 \end{itemize}
 
@@ -343,7 +342,9 @@ The GM should decide how to manage these constraints
 
 \subsection{Health} \label{sec:health}
 
-\notes{[write this section]}
+\notes{choose better name for physical condition}
+
+\notes{write this section}
 
 
 \section{Actions}\label{sec:actions}
@@ -545,6 +546,7 @@ Depictions of great fumbles, near-hits, and close calls are more exciting than a
 \paragraph{Grazing}
 
 
+
 \notes{
 		Result of attack: ReD (Relative Degree) = attacker's RoD - defender's RoD (0 is miss, 1 is graze, >1 is hit)
 			RoD (Rolled Degree): 2dF + Relevant trait + StanceMod + SitMod
@@ -592,5 +594,7 @@ crit system
 if they've already read the manual. also this would be something for a GM to read to remind themselves
 exactly what it is about their game world they need to specify (like a list of questions for them to answer).
 ideally this should be short, and in list format"}
+
+\printindex
 
 \end{document}
