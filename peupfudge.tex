@@ -354,6 +354,8 @@ The basic idea is that the attempt is a success if
 $$ R + M \geq D, $$
 where $R$ is the result of a \emph{roll}, $M$ is some sort of \emph{modifier} based on an ability level,
 and $D$ is the \emph{difficulty} of the task.
+The \emph{relative performance} of the character during the action is the difference
+$$ R+M-D. $$
 The specifics depends on the type of action: opposed or unopposed.
 
 
@@ -402,7 +404,9 @@ Summarizing, an unopposed action is successful if
 The value of $R$ can feed directly into the narrative,
 for it represents the purely variable aspect of a character's performance of a task,
 independent of aiding factors and difficulty factors.
-It can be fun to asssign extreme narrative interpretations to extreme values of $R$.
+The same goes for the relative performance $R+M-D$, which represents actual performance given all the information.
+It can be fun to asssign extreme narrative interpretations to extreme values of $R$ and $R+M-D$,
+or even throw in some actual consequences.
 
 
 \subsection{Opposed Actions}\label{sec:opposed}
@@ -436,6 +440,9 @@ For the purpose of feeding the outcomes of rolls into the narrative,
 $R$ represents the purely variable aspect of the acting character's performance,
 while $R'$ represents the purely variable aspect of the opposing character's performance.
 It makes sense to have the respective acting and opposing players roll the dice for these.
+As with unopposed actions, extreme values of $R$, $R'$,
+and the relative performance $(R+M)-(R'+M')$
+can be given special narrative interpretations or consequences.
 
 
 \subsection{Time and Space}
@@ -519,13 +526,26 @@ Is it influenced \notes{WAIT HOW DO WE DO SPEED?!}
 
 Without saying any more, mechanics are already in place for combat:
 it is a series of opposed actions that usually trigger rounds.
-But we provide some more detailed mechanics, each of which is optional.
-The GM should decide at the outset which subset of these mechanics to adopt.
+But we provide some more detailed mechanics.%, each of which is optional.
+%The GM should decide at the outset which subset of these mechanics to adopt.
+In short: attacks are resolved as opposed actions to determine whether they succeeded,
+and successful attacks are followed by further rolling for the severity of the outcome.
+
+\paragraph{Hit or Miss}
+During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
+It is an opposed action, resolved according to relative performance:
+$$ (R + M) - (R' + M'). $$
+A value of $0$ or less is a \emph{miss}, $1$ is a \emph{graze}, and a value greater than $1$ is a \emph{hit}.
+
+\paragraph{Missing}
+No damage follows a miss. However, as we have suggested for general action resolution,
+it can be fun to let the roll values and relative performance feed into the narrative or have some consequences.
+Depictions of great fumbles, near-hits, and close calls are more exciting than a simple ``you miss.''
+
+\paragraph{Grazing}
+
 
 \notes{
-
-	During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
-	It is an opposed action, resolved as follows:
 		Result of attack: ReD (Relative Degree) = attacker's RoD - defender's RoD (0 is miss, 1 is graze, >1 is hit)
 			RoD (Rolled Degree): 2dF + Relevant trait + StanceMod + SitMod
 				StanceMod is Stance for attacker and is -Stance for defender.
