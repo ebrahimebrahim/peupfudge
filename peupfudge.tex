@@ -466,22 +466,39 @@ An example could be nocking an arrow, aiming, drawing a bow, and releasing.
 Such a ``high resolution'' is probably too much most of the time, so multi-component actions could be ``blurred'' into a single
 action (with duration the sum of the durations of the components) until other actions get involved and shorten the round durations.
 
-\paragraph{Grids}
-Some actions \emph{trigger a grid},
+\paragraph{Location}
+Some actions \emph{trigger location tracking},
 meaning that the GM and the players begin to keep track of the locations of characters relative to various objects.
-This can be done on a grid extending through the primary plane of activity (usually a top-view grid, possibly with elevation information).
-The grid may be represented mentally or on paper or a board as needed.
-The GM should decide if they want to use a square or a hex grid for their campaign.
+This can be done on a grid extending through the primary plane of activity (usually a top-view grid, possibly with elevation information),
+or along a more complex curve or surface if needed.
+The grid/curve/surface may be represented on a board or piece of paper, but it could also just be briefly represented mentally.
+For example, a detailed battle could be drawn out on a top-view grid,
+but if characters are simply chasing a chicken then it suffices to mentally keep track
+of their positions along the trajectory of the chicken.
 After creating an ability tree, the GM should consider various actions
 that could use the various skills and decide on the following:
 \vspace{-1em}
 \begin{enumerate}
 \item\label{itm:grid:trigger}
-Does part of this action ever need to be resolved on a grid? Under what circumstances?
+Does part of this action ever need to be resolved with location tracking? Under what circumstances?
 \item\label{itm:grid:length}
 What are the spatial parameters/constraints of the action? (e.g. its range of influence, distance or placement of targets, etc.)
 \end{enumerate}
-The grid spacing may be decided by the GM once a grid is triggered.
+The type of location tracking and its scale may be decided by the GM when it is triggered.
+
+
+
+\paragraph{Motion}
+When time is being measured in rounds \emph{and} locations are being tracked,
+the relation between them brings character movement into the quantified realm.
+The GM should answer the following questions after deciding on characteristics and traits:
+\vspace{-1em}
+\begin{itemize}
+\item
+What are the types of character movement (e.g. walk, run).
+What determines character movement speed?
+Is it influenced \notes{WAIT HOW DO WE DO SPEED?!}
+\end{itemize}
 
 
 
