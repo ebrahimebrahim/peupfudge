@@ -531,29 +531,11 @@ Is it influenced \notes{WAIT HOW DO WE DO SPEED?! we could just peup!}
 
 \subsection{Combat}\label{sec:qombat}
 
-Without saying any more, mechanics are already in place for combat:
-it is a series of opposed actions that usually trigger rounds.
-But we provide some more detailed mechanics. %, each of which is optional.
-%The GM should decide at the outset which subset of these mechanics to adopt.
-For clarity of language we will call the acting character the \emph{attacker}
-and the opposing character the \emph{defender}.
-
-\paragraph{Summary}
-Attacks are resolved as opposed actions to determine whether they succeeded.
-Successful attacks are followed by further rolling to determine the severity of the outcome,
-which we quantify as \emph{damage}.
-Damage is then converted into an actual wound that gets recorded on the defender's character sheet.
-Details follow.
-
-
-\paragraph{Hit or Miss}
-During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
-It is an opposed action, resolved according to relative performance:
-$$ (R + M) - (R' + M'). $$
-A value of $0$ or less is a \emph{miss}, $1$ is a \emph{graze}, and a value greater than $1$ is a \emph{hit}.
-
-The modifiers $M$ and $M'$ are comprised of situational modifiers and stance modifiers, which will be explained below.
-First we define a quantity that will help us describe the damage resulting from hits and grazes.
+\notes{we still need to consider if we are including the following:
+evasion,
+pulling punches, knocking out, stunning,
+crit system.
+}
 
 \def\NDF{\Delta}
 \def\ODF{d}
@@ -562,7 +544,62 @@ First we define a quantity that will help us describe the damage resulting from 
 \def\DDF{\ODF'}
 \def\DDFA{\ODFA'}
 \def\DDFM{\ODFM'}
-\paragraph{Damage Factor}
+
+
+Without saying any more, mechanics are already in place for combat:
+it is a series of opposed actions that usually trigger rounds.
+But we provide some more detailed mechanics for resolving an attack. %, each of which is optional.
+%The GM should decide at the outset which subset of these mechanics to adopt.
+For clarity of language we will call the acting character the \emph{attacker}
+and the opposing character the \emph{defender}.
+
+During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
+Here is the attack resolution process:
+\vspace{-1em}\begin{enumerate}
+\item
+An attack is an opposed action, resolved according to relative performance:
+$$ (R + M) - (R' + M'). $$
+A negative value is a \emph{miss}, a positive value is a \emph{hit}, and a value of zero is a \emph{graze}.
+The modifiers $M$ and $M'$ are comprised of situational modifiers and stance modifiers, explained in section \ref{sec:sitmod}.
+\item
+In the case of a hit or a graze, further rolling is done to determine the severity of the outcome,
+which we quantify as \emph{damage}.
+Computing damage requires settling on a \emph{net damage factor} $\NDF$ for the attack, explained in section \ref{sec:ndf}.
+A hit results in a damage of
+$$ 2((R + M) - (R' + M')) + \NDF + 1\text{dF} $$
+while a graze results in a damage of
+$$ \frac{1}{2} (\NDF + 1\text{dF}). $$
+\item
+Damage then determines the type of wound inflicted on the defender, according to section \ref{sec:wounds}.
+\end{enumerate}
+
+
+
+\subsubsection{Situation and Stance}\label{sec:sitmod}
+
+\notes{Situational stuff (e.g. positioning, weapon lengths, height advantages, cover, range, multiple combatants, injuries, peup, surprise, scale difference)}
+
+\paragraph{Stance}
+peup
+
+\notes{
+				StanceMod is Stance for attacker and is -Stance for defender.
+					Stance is a number from -2 to 2 chosen by each player at the beginning of the combat round.
+}
+
+\paragraph{Targeting}
+peup
+
+\notes{
+Target body parts:
+a player may call, before their attack is resolved, that they intend to target a certain body part.
+this introduces a negative SitMod into the attacker's rolled degree, based on the difficulty of hitting that body part.
+if the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
+negative penalities are introduced to relevant traits (see SitMod -> injuries).
+}
+
+
+\subsubsection{Net Damage Factor}\label{sec:ndf}
 The damage dealt by a successful attack will depend on the \emph{net damage factor} $\NDF$
 for the attack. It is defined to be the difference between the \emph{damage factors} $\ODF$ 
 and $\DDF$ of the attacker and the defender, respectively:
@@ -577,72 +614,19 @@ The damage modifer consists of other factors that affect the ability of the atta
 For example $\ODFM$ could involve the weapon being used, and $\DDFM$ could involve the defender's armor.
 Putting it together,
 $$ \NDF = (\ODFA + \ODFM) - (\DDFA + \DDFM). $$
-An understanding of section \ref{sec:quant} should be used to judge the values of $\ODFM$ and $\DDFM$
+An understanding of section \ref{sec:quant} is required to properly judge the values of $\ODFM$ and $\DDFM$
 based on the circumstances.
 
-\paragraph{Missing}
-No damage follows a miss. However, as we have suggested for general action resolution,
-it can be fun to let the roll values and relative performance feed into the narrative or have some consequences.
-Depictions of great fumbles, near-hits, and close calls are more exciting than a simple ``you miss.''
-
-\paragraph{Grazing}
-A graze results in $$ \NDF + 1\text{dF} $$
-damage applied to the defender.
-
-\notes{wait... graze severity comes from a different table than hit severity... that's peup...}
-
-\paragraph{Hitting}
-A hit results in
-$$ 2((R + M) - (R' + M')) + \NDF + 1\text{dF} $$
-damage applied to the defender.
-
-\paragraph{Situation}
-Um... \notes{peup.}
-
-\paragraph{Stance}
-Um... \notes{peup.}
-
-\paragraph{Targeting}
-Um... \notes{peup.}
 
 
-\notes{
-		Result of attack: ReD (Relative Degree) = attacker's RoD - defender's RoD (0 is miss, 1 is graze, >1 is hit)
-			RoD (Rolled Degree): 2dF + Relevant trait + StanceMod + SitMod
-				StanceMod is Stance for attacker and is -Stance for defender.
-					Stance is a number from -2 to 2 chosen by each player at the beginning of the combat round.
-				SitMod is a modifier based on various situational conditions (see below).
-		Miss: No peup
-		Hit: 2x ReD + DF + 1dF (dmg die roll)
-			DF (Dmg Factor): Attacker's ODF - Defender's DDF
-				ODF (Offensive Dmg Factor): Relevant trait (e.g. Str) + Weapon (e.g. type, sharpness, scale, condition, etc.)
-				DDF (Defensive Dmg Factor): Relevant trait (e.g. Con) + Armor (e.g. material, toughness, scale, condition, etc.)
-			Hit severity comes from top left of pg. 47
-		Graze: DF + 1dF (dmg die roll)
-			Graze severity comes from Table 4.56
-	Note that players may be simulataneously attempting to attack each other in the same combat round.
-	This is resolved as above (i.e. as multiple separate opposed actions).
 
-Target body parts:
-a player may call, before their attack is resolved, that they intend to target a certain body part.
-this introduces a negative SitMod into the attacker's rolled degree, based on the difficulty of hitting that body part.
-if the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
-negative penalities are introduced to relevant traits (see SitMod -> injuries).
-
-evasion
-
-	possible suggestion for scale: log base 2
-pulling punches, knocking out, stunning
-speed
-peup
-
-crit system
-}
-
-\subsubsection{Situational Modifers}
-\notes{Situational stuff (e.g. positioning, weapon lengths, height advantages, cover, range, multiple combatants, injuries, peup, surprise, scale difference)}
 
 \subsubsection{Wounds}\label{sec:wounds}
+
+\notes{base things on :\\
+			Hit severity comes from top left of pg. 47\\
+			Graze severity comes from Table 4.56
+}
 
 \section{Appendix}
 
