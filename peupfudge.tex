@@ -546,13 +546,63 @@ It is an opposed action, resolved according to relative performance:
 $$ (R + M) - (R' + M'). $$
 A value of $0$ or less is a \emph{miss}, $1$ is a \emph{graze}, and a value greater than $1$ is a \emph{hit}.
 
+\notes{that should include description of relevant abilities for $M$ and $M'$.}
+
+\def\DF{\Delta}
+\def\ODF{d}
+\def\ODFA{d_A}
+\def\ODFM{d_M}
+\def\DDF{\ODF'}
+\def\DDFA{\ODFA'}
+\def\DDFM{\ODFM'}
+\paragraph{Damage Factor}
+The damage dealt by a successful attack will depend on the \emph{damage factor} $\DF$
+for the attack. It is defined to be the difference between the attacker's \emph{offensive damage factor} $\ODF$
+and the defender's \emph{defensive damage factor} $\DDF$:
+$$ \DF = \ODF - \DDF. $$
+Offensive damage factor $\ODF$ is defined to be the level $\ODFA$ of a relevant ability
+plus a weapon modifier $\ODFM$.
+The ability that goes into $\ODFA$ should be one that plays a role in determining how
+powerful the attack is (e.g. strength for an axe swing).
+The weapon modifier represents the ability of the attack to do damage due to the
+weapon being used (e.g. its type, sharpness, size, condition, etc.).
+Defensive damage factor $\DDF$ is defined to be the level $\DDFA$ of a relevant ability
+plus an armor modifier $\DDFM$.
+The ability that goes into $\DDFA$ should be one that plays a role in determining a
+character's capacity to absorb damage (e.g. \notes{w8 whut wood even be an example of this}).
+The armor modifier $\DDFM$ represents the ability of the defender's equipment to absorb damage.
+Putting it together,
+$$ \DF = (\ODFA + \ODFM) - (\DDFA + \DDFM) $$ 
+An understanding of section \ref{sec:quant} should be used to judge the values of $\ODFM$ and $\DDFM$
+based on the circumstances.
+
+\notes{
+What if there is no ability that belongs in $\ODFA$?
+}
+
+\notes{
+If a weapon is particularly well-suited to piercing the particular armor, does that info go into $\ODFM$ or $\DDFM$?
+}
+
 \paragraph{Missing}
 No damage follows a miss. However, as we have suggested for general action resolution,
 it can be fun to let the roll values and relative performance feed into the narrative or have some consequences.
 Depictions of great fumbles, near-hits, and close calls are more exciting than a simple ``you miss.''
 
 \paragraph{Grazing}
-\notes{peup}
+Um... \notes{peup.}
+
+\paragraph{Hitting}
+Um... \notes{peup.}
+
+\paragraph{Situation}
+Um... \notes{peup.}
+
+\paragraph{Stance}
+Um... \notes{peup.}
+
+\paragraph{Targetting}
+Um... \notes{peup.}
 
 
 \notes{
