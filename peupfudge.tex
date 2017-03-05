@@ -552,7 +552,8 @@ It is an opposed action, resolved according to relative performance:
 $$ (R + M) - (R' + M'). $$
 A value of $0$ or less is a \emph{miss}, $1$ is a \emph{graze}, and a value greater than $1$ is a \emph{hit}.
 
-\notes{that should include description of relevant abilities for $M$ and $M'$.}
+The modifiers $M$ and $M'$ are comprised of situational modifiers and stance modifiers, which will be explained below.
+First we define a quantity that will help us describe the damage resulting from hits and grazes.
 
 \def\NDF{\Delta}
 \def\ODF{d}
@@ -575,7 +576,7 @@ If no relevant ability can be identified for $\ODFA$ or $\DDFA$, set it to $5$.
 The damage modifer consists of other factors that affect the ability of the attack to do damage.
 For example $\ODFM$ could involve the weapon being used, and $\DDFM$ could involve the defender's armor.
 Putting it together,
-$$ \NDF = (\ODFA + \ODFM) - (\DDFA + \DDFM) $$
+$$ \NDF = (\ODFA + \ODFM) - (\DDFA + \DDFM). $$
 An understanding of section \ref{sec:quant} should be used to judge the values of $\ODFM$ and $\DDFM$
 based on the circumstances.
 
@@ -585,10 +586,15 @@ it can be fun to let the roll values and relative performance feed into the narr
 Depictions of great fumbles, near-hits, and close calls are more exciting than a simple ``you miss.''
 
 \paragraph{Grazing}
-Um... \notes{peup.}
+A graze results in $$ \NDF + 1\text{dF} $$
+damage applied to the defender.
+
+\notes{wait... graze severity comes from a different table than hit severity... that's peup...}
 
 \paragraph{Hitting}
-Um... \notes{peup.}
+A hit results in
+$$ 2((R + M) - (R' + M')) + \NDF + 1\text{dF} $$
+damage applied to the defender.
 
 \paragraph{Situation}
 Um... \notes{peup.}
