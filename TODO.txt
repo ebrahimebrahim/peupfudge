@@ -1,0 +1,12 @@
+how to control spread in test 5 for ability tree?
+
+is there a better way to handle weighted average for att bonus? seems disruptive to calculate
+
+consider doing > for action resolution or sticking with >= for opposed actions even when they are combat (so make graze 0)
+
+where do quantitive base physical characteristics like speed go? in with health or as their own system?
+
+need to devise a health system
+then decide how damage should translate into injuries
+and how injuries should affect character performance
+remember to examine the grazing damage formula and make sure it's okay
