@@ -571,11 +571,9 @@ plus a damage modifier $\ODFM$, and similarly for $\DDF$.
 The ability that goes into $\ODFA$ should be one that plays a role in determining how
 powerful the attack is (e.g. strength for an axe swing), and the ability that goes into $\DDFA$
 should be one that plays a role in determining a character's capacity to absorb damage (e.g. constitution). 
-If no relevant ability could be identified, assign a value of 5 to $\ODFA$ or $\DDFA$. 
-The attacker's damage modifier $\ODFM$ consists of other factors that contribute to the ability of the attack to do damage 
-(e.g. weapon being used), 
-and the defender's damage modifier $\DDFM$ consists of other factors that contribute to the ability of the defender
-to absorb damage (e.g. armor being used).
+If no relevant ability can be identified for $\ODFA$ or $\DDFA$, set it to $5$. 
+The damage modifer consists of other factors that affect the ability of the attack to do damage.
+For example $\ODFM$ could involve the weapon being used, and $\DDFM$ could involve the defender's armor.
 Putting it together,
 $$ \NDF = (\ODFA + \ODFM) - (\DDFA + \DDFM) $$
 An understanding of section \ref{sec:quant} should be used to judge the values of $\ODFM$ and $\DDFM$
