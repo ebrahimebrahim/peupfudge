@@ -560,7 +560,7 @@ Here is the attack resolution process:
 An attack is an opposed action, resolved according to relative performance:
 $$ (R + M) - (R' + M'). $$
 A negative value is a \emph{miss}, a positive value is a \emph{hit}, and a value of zero is a \emph{graze}.
-The modifiers $M$ and $M'$ are comprised of situational modifiers and stance modifiers, explained in section \ref{sec:sitmod}.
+The modifiers $M$ and $M'$ are comprised of several bits that are explained in section \ref{sec:sitmod}.
 \item
 In the case of a hit or a graze, further rolling is done to determine the severity of the outcome,
 which we quantify as \emph{damage}.
@@ -575,31 +575,29 @@ Damage then determines the type of wound inflicted on the defender, according to
 
 
 
-\subsubsection{Situation and Stance}\label{sec:sitmod}
+\subsubsection{The Modifiers $M$ and $M'$}\label{sec:sitmod}
 
 \notes{Situational stuff (e.g. positioning, weapon lengths, height advantages, cover, range, multiple combatants, injuries, peup, surprise, scale difference)}
 
 \paragraph{Stance}
 At the beginning of each round of combat,
-characters have an oppertunity to choose a \emph{stance}:
+characters have an opportunity to choose a \emph{stance}:
 defensive ($-1$), neutral ($0$), or aggressive ($1$).
 This number is addeded to a character's $M$ for their attack and subtracted from their
 $M'$ each time they are attacked during the round.
+A neutral stance is assumed if no stance is explicitly chosen.
 
 
 \paragraph{Targeting}
-peup
-
-\notes{
-Target body parts:
-a player may call, before their attack is resolved, that they intend to target a certain body part.
-this introduces a negative SitMod into the attacker's rolled degree, based on the difficulty of hitting that body part.
-if the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
-negative penalities are introduced to relevant traits (see SitMod -> injuries).
-}
+A player may call, before their attack is resolved, that they intend to target a certain body part.
+This introduces a \emph{targetting penalty} that decreases $M$, based on the difficulty of hitting that body part.
+The GM judges what the targetting penalty should be;
+to give a frame of reference it could be $2$ for a torso and $5$ for an eye.
+\notes{I randomly chose those numbers. Let's discuss and find actually suitable numbers there.}
+If the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
 
 
-\subsubsection{Net Damage Factor}\label{sec:ndf}
+\subsubsection{The Net Damage Factor $\NDF$}\label{sec:ndf}
 The damage dealt by a successful attack will depend on the \emph{net damage factor} $\NDF$
 for the attack. It is defined to be the difference between the \emph{damage factors} $\ODF$ 
 and $\DDF$ of the attacker and the defender, respectively:
@@ -627,6 +625,8 @@ based on the circumstances.
 			Hit severity comes from top left of pg. 47\\
 			Graze severity comes from Table 4.56
 }
+
+\notes{what are the penalties due to wounds}
 
 \section{Appendix}
 

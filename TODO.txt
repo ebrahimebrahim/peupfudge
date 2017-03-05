@@ -10,3 +10,5 @@ need to devise a health system
 then decide how damage should translate into injuries
 and how injuries should affect character performance
 remember to examine the grazing damage formula and make sure it's okay
+
+what should  be targetting penalty if you're going for an eye? for a torso?
