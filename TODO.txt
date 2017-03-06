@@ -17,3 +17,28 @@ and then insert some non-miss (maybe graze) consequence for succeeding on R+M wi
 or is that too much to keep track of to be worth it?
 
 consider giving a frame of reference for what the numbers could be for all sitmods
+
+index section 3
+
+test and tweak combat system
+
+write:
+- health
+- wounds
+- movement
+- numbers and adjectives
+- intro
+
+additional things:
+- illustrations
+  - at least need awesome cover illustration
+  - illustrations can be of practical and not just aesthetic value:
+    for each mechanic an illustration of the example that goes with it can make it much easier to remember later
+- appendix
+  - reference sheet
+  - base character sheet
+  - example trees
+  - examples of the various mechanics
+  - list of questions the GM should answer
+  - some sort of glossary of game mechanics (use peupfudge.ind to extract page numbers)?
+    or does index sort of play that role?
