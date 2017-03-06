@@ -5,3 +5,6 @@ xptable.tex
 xp_start_multiplier.tex
 *.pyc
 python/trees/*.tex
+*.idx
+*.ind
+*.ilg
