@@ -198,7 +198,7 @@ class Node(object):
         
     weight_shape = "circle" if not dn else "rectangle"
     inner_sep = "1pt" if not dn else "2pt"
-    dn_threshold = lambda c : int(round((1-c.probability_of_parent_increase())*dn))+1
+    dn_threshold = lambda c : int(round((1-c.probability_of_parent_increase())*dn))
     edge_label = lambda c : c.weight if not dn else dn_threshold(c)
 
     tex = """\\tikzset{
