@@ -15,3 +15,5 @@ question to answer later when we know more:
 should we make players pay attention to R+M with AND without targetting penalty,
 and then insert some non-miss (maybe graze) consequence for succeeding on R+M without?
 or is that too much to keep track of to be worth it?
+
+consider giving a frame of reference for what the numbers could be for all sitmods
