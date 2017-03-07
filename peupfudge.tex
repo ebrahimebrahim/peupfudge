@@ -11,20 +11,22 @@
 
 \makeindex
 
-\title{PeupFudge}
+%commands
+\newcommand{\notes}[1]{{\color{Tan} #1}}
+\newcommand{\emdex}[1]{\emph{#1}\index{#1}}
+\newcommand{\peupfudge}{Peupfudge}
+
+\title{\peupfudge}
 \author{Ebrahim \\ Yusuf \\ Yussra}
 \date{\today}
 
 \parindent0ex
 \parskip5mm
 
-%commands
-\newcommand{\notes}[1]{{\color{Tan} #1}}
-\newcommand{\emdex}[1]{\emph{#1}\index{#1}}
 
 \begin{document}
 %\maketitle
-\textbf{Peupfudge}
+\textbf{\peupfudge}
 \hfill
 \textbf{\today}\\
 \textit{Derived from core Fudge rules by Ebrahim, Yusuf, and Yussra.}
@@ -34,13 +36,69 @@
 it gives you the classes and not the objects.
 what a gm is.
 pc vs npc.
-xp.}
+xp.
+how we suggest you read this manual.}
 
 \subsection{Numbers and Adjectives} \label{sec:quant}
 
-\notes{
-numbering system, it's logarithmic interpretation, 4dF.
-}
+%we quantify challange and capability
+Players will face challenges, and they will have to rely on the capabilities of their
+characters to confront them.
+At it's core, \peupfudge{} is nothing more than a mechanism 
+that crudely quantifies these challenges and capabilities in order to
+compare them and weave an interesting narrative.
+Let us set up the numerical scale to be used for this quantification:
+\begin{center}
+{\setlength{\extrarowheight}{1pt}
+\begin{tabular}{l|l}
+level & adjective \\
+\cline{1-2}
+1 & abysmal \\
+2 & terrible \\
+3 & poor \\
+4 & mediocre \\
+5 & fair \\
+6 & good \\
+7 & great \\
+8 & superb \\
+9 & legendary \\[8pt]
+\multicolumn{2}{c}{(more if needed)}
+\end{tabular}}
+\end{center}
+We call these numbers \emph{levels}; they appear as ability levels in section \ref{sec:tree}
+and as difficulty levels in section \ref{sec:actions}.
+The adjectives provide some guidelines for interpreting levels.
+This interpretation is sharpened by viewing the scale as
+logarithmic with a base of \input{base.tex}\unskip.
+This means that a good climber is \input{base.tex} times as skilled as a fair climber,
+who is in turn \input{base.tex} times as skilled as a mediocre climber, and so on.
+A cliff of ``good'' difficulty level can be thought of as one that would challenge a ``good'' climber,
+in that a good climber would be expected to successfully climb it $38\%$ of the time.
+
+What does it even \emph{mean} to say things like ``$A$ is twice as good of a climber'' as $B$?
+We take it to mean that ``$A$ has about twice the climbing experience that $B$ has''.
+Some care is then needed in order to interpret levels consistently.
+Suppose that $A$ has great strength and $B$ has merely good strength.
+This apparently means that ``$A$ is \input{base.tex} times as strong as $B$.''
+But this does \emph{not} imply that $A$ can lift \input{base.tex} times as much weight as $B$.
+What it does imply is that the factor by which $A$ can lift more weight than $B$ is
+\emph{as though} $A$ had \input{base.tex} times as much \emph{strength training} as $B$.
+
+%3 things help interpret: adj, b times xp, 38%
+In summary, there are three clues that guide interpretations of levels:
+\vspace{-1em}\begin{enumerate}
+\item \notes{peup}
+\item \notes{peup}
+\item \notes{peup}
+\end{enumerate}
+
+
+%gm needs to know how to judge the difficulty of a task,
+%and also gm and players need to know how to interpret for narrative sake
+\notes{peup}
+
+%dF
+\notes{peup}
 
 \section{Characters}
 A \emph{character}
@@ -79,6 +137,7 @@ In particular, this will involve inventing the some of the traits which might be
 
 The purpose of an ability level is to have something to roll against while resolving actions. If you don't know what that means, have a look at the introduction to section \ref{sec:actions} before diving into the details of this section.
 
+Ability levels are to be interpreted based on section \ref{sec:quant}.
 %abilities starting at poor
 Most abilities have an initial (untrained) level of 3. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of 1, while a very easy ability could start at 5. What is considered ``untrained'' will depend on the setting of the world.
 
@@ -361,7 +420,7 @@ We will call these \emdex{purely variable} factors.
 The basic idea is that the attempt is a success if
 $$ R + M > D, $$
 where $R$ is the result of a \emph{roll}, $M$ is some sort of \emdex{modifier} based on an ability level,
-and $D$ is the \emdex{difficulty} of the task.
+and $D$ is the \emdex{difficulty level} of the task.
 The \emdex{relative performance} of the character during the action is the difference
 $$ R+M-D. $$
 The specifics depends on the type of action: opposed or unopposed.
