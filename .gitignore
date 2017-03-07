@@ -3,6 +3,7 @@
 *.pdf
 xptable.tex
 xp_start_multiplier.tex
+base.tex
 *.pyc
 python/trees/*.tex
 *.idx
