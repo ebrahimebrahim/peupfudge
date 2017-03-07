@@ -24,7 +24,6 @@ write:
 - health
 - wounds
 - movement
-- numbers and adjectives
 - intro
 
 additional things:
