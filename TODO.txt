@@ -18,8 +18,6 @@ or is that too much to keep track of to be worth it?
 
 consider giving a frame of reference for what the numbers could be for all sitmods
 
-index section 3
-
 test and tweak combat system
 
 write:

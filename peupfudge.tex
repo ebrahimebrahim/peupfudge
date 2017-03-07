@@ -20,6 +20,7 @@
 
 %commands
 \newcommand{\notes}[1]{{\color{Tan} #1}}
+\newcommand{\emdex}[1]{\emph{#1}\index{#1}}
 
 \begin{document}
 %\maketitle
@@ -317,7 +318,7 @@ Set the skill's level to 2 below the level of its governing attribute (capped be
 
 
 \subsection{Items and Inventory} \label{sec:items}
-A character's \emph{inventory}\index{inventory} is the list of items carried on their person,
+A character's \emdex{inventory} is the list of items carried on their person,
 along with the ways in which those items are carried.
 Ultimately, it is a hierarchical listing of containers and items.
 Yes...it is another tree!
@@ -356,21 +357,21 @@ The GM should decide how to manage these constraints
 \section{Actions}\label{sec:actions}
 When a character attempts a task that has a possibility of failure, the outcome is governed partly by a dice roll.
 The dice roll represents the dependence of the outcome on factors that are not modeled in the game or that are altogether unpredictable.
-We will call these \emph{purely variable} factors.
+We will call these \emdex{purely variable} factors.
 The basic idea is that the attempt is a success if
 $$ R + M > D, $$
-where $R$ is the result of a \emph{roll}, $M$ is some sort of \emph{modifier} based on an ability level,
-and $D$ is the \emph{difficulty} of the task.
-The \emph{relative performance} of the character during the action is the difference
+where $R$ is the result of a \emph{roll}, $M$ is some sort of \emdex{modifier} based on an ability level,
+and $D$ is the \emdex{difficulty} of the task.
+The \emdex{relative performance} of the character during the action is the difference
 $$ R+M-D. $$
 The specifics depends on the type of action: opposed or unopposed.
 
 
 
-Let us use the term \emph{difficulty factors} to refer to
+Let us use the term \emdex{difficulty factors} to refer to
 the primary factors leading to the possibilities of success or failure for an action,
 but only those factors that are \emph{independent of who is attempting the action}.
-For those factors that \emph{are due to the character attempting the action} let us use the term \emph{aiding factors}.
+For those factors that \emph{are due to the character attempting the action} let us use the term \emdex{aiding factors}.
 The difficulty factors for a character attempting to climb a cliff are things
 like the steepness of the cliff and the availability of footholds.
 The climbing skill of the character and the fact that they have a grappling hook would be aiding factors.
@@ -379,7 +380,7 @@ while the punching abilities of the character would be aiding factors.
 
 \subsection{Unopposed Actions}\label{sec:unopposed}
 If the difficulty factors for an action cannot be attributed to some other character's abilities,
-then the action is \emph{unopposed}.
+then the action is \emph{unopposed}.\index{action!unopposed}
 In this case:
 \vspace{-1em}
 \begin{itemize}
@@ -387,10 +388,11 @@ In this case:
 \item $M$ is determined based on the aiding factors for the action; it is usually the level of an ability.
 \item $D$ is determined based on the difficulty factors for the action.
 \end{itemize}
-Some judgement is needed for the determination of $M$ and $D$. For $M$,
+Some judgement is needed for the determination of $M$ and $D$. For $M$\index{modifier},
 find a skill to serve as the primary aiding factor for the character's action,
 and set $M$ to be the level of that skill.
-If no suitable skill is available, you may use a suitable attribute...with a possible \emph{attribute penalty}.\footnote{
+If no suitable skill is available, you may use a suitable attribute...
+with a possible \emdex{attribute penalty}.\footnote{
 The attribute penalty does not apply to attributes that became skills for NPCs with trimmed trees.}
 If the attribute description really nails the aiding factors, then no penalty is needed.
 But if the attribute is being used as a stand-in for a more specific ability that happens not to be in the ability tree,
@@ -418,7 +420,8 @@ or even throw in some actual consequences.
 
 \subsection{Opposed Actions}\label{sec:opposed}
 If the difficulty factors for an action are due to some other character's abilities,
-then the action is \emph{opposed}, and we refer to this other character as the \emph{opposing character}.
+then the action is \emph{opposed}\index{action!opposed}, and we refer to this other character 
+as the \emdex{opposing character}\index{opposing character}.
 In this case:
 \vspace{-1em}
 \begin{itemize}
@@ -430,7 +433,7 @@ In this case:
 \item $M'$ is determined based on the difficulty factors for the action; it is usually an ability level of the opposing character.
 \end{itemize}
 \end{itemize}
-Here $M$ and $M'$ are determined just like $M$ for unopposed actions.
+Here $M$ and $M'$ are determined just like $M$ for unopposed actions\index{modifier}.
 Summarizing, an opposed action is successful if
 \begin{align*}
 &2\text{dF}
@@ -460,7 +463,7 @@ To handle this we can divide up time into discrete \emph{rounds} and divide up s
 The canonical example is combat, which is coming in section \ref{sec:qombat}.
 
 \paragraph{Rounds}
-Some actions \emph{trigger rounds},
+Some actions \emph{trigger rounds}\index{round},
 meaning that play for everyone involved starts to proceed in a simultaneous-turn-based style,
 round by round.
 Each round represents the passage of a certain amount of time.
@@ -495,7 +498,8 @@ action (with duration the sum of the durations of the components) until other ac
 \paragraph{Location}
 Some actions \emph{trigger location tracking},
 meaning that the GM and the players begin to keep track of the locations of characters relative to various objects.
-This can be done on a grid extending through the primary plane of activity (usually a top-view grid, possibly with elevation information),
+This can be done on a grid\index{grid} extending through the primary plane of activity
+(usually a top-view grid, possibly with elevation information),
 or along a more complex curve or surface if needed.
 The grid/curve/surface may be represented on a board or piece of paper, but it could also just be briefly represented mentally.
 For example, a detailed battle could be drawn out on a top-view grid,
@@ -550,27 +554,27 @@ Without saying any more, mechanics are already in place for combat:
 it is a series of opposed actions that usually trigger rounds.
 But we provide some more detailed mechanics for resolving an attack. %, each of which is optional.
 %The GM should decide at the outset which subset of these mechanics to adopt.
-For clarity of language we will call the acting character the \emph{attacker}
-and the opposing character the \emph{defender}.
+For clarity of language we will call the acting character the \emdex{attacker}
+and the opposing character the \emdex{defender}.
 
-During a combat round, a player who is able to attack another player (e.g. is within range) may attempt to do so.
+During a combat round, a player who is able to attack\index{attack} another player (e.g. is within range) may attempt to do so.
 Here is the attack resolution process:
 \vspace{-1em}\begin{enumerate}
 \item
 An attack is an opposed action, resolved according to relative performance:
 $$ (R + M) - (R' + M'). $$
-A negative value is a \emph{miss}, a positive value is a \emph{hit}, and a value of zero is a \emph{graze}.
+A negative value is a \emdex{miss}, a positive value is a \emdex{hit}, and a value of zero is a \emdex{graze}.
 The modifiers $M$ and $M'$ are comprised of several bits that are explained in section \ref{sec:sitmod}.
 \item
 In the case of a hit or a graze, further rolling is done to determine the severity of the outcome,
-which we quantify as \emph{damage}.
+which we quantify as \emdex{damage}.
 Computing damage requires settling on a \emph{net damage factor} $\NDF$ for the attack, explained in section \ref{sec:ndf}.
 A hit results in a damage of
 $$ 2((R + M) - (R' + M')) + \NDF + 1\text{dF} $$
 while a graze results in a damage of
 $$ \frac{1}{2} (\NDF + 1\text{dF}). $$
 \item
-Damage then determines the type of wound inflicted on the defender, according to section \ref{sec:wounds}.
+Damage then determines the type of wound\index{wound} inflicted on the defender, according to section \ref{sec:wounds}.
 \end{enumerate}
 
 
@@ -579,7 +583,7 @@ Damage then determines the type of wound inflicted on the defender, according to
 
 
 \paragraph{Situation}
-Many factors having to do with the particular situation
+Many factors having to do with the particular situation\index{situation}
 surrounding an attack can be tossed into the determination of $M$ and $M'$.
 Focus on
 aspects of the situation that affect the attack's probability of success,
@@ -604,7 +608,7 @@ lower elevation, light in eyes, kneeling, etc. %I finally found this on fudge ma
 
 \paragraph{Stance}
 At the beginning of each round of combat,
-characters have an opportunity to choose a \emph{stance}:
+characters have an opportunity to choose a \emdex{stance}:
 defensive ($-1$), balanced ($0$), or aggressive ($1$).
 This number is added to a character's $M$ for their attack and subtracted from their
 $M'$ each time they are attacked during the round.
@@ -613,14 +617,14 @@ A balanced stance is assumed if no stance is explicitly chosen.
 
 \paragraph{Targeting}
 A player may call, before their attack is resolved, that they intend to target a certain body part.
-This introduces a \emph{targeting penalty} that decreases $M$, based on the difficulty of hitting that body part.
+This introduces a \emdex{targeting penalty} that decreases $M$, based on the difficulty of hitting that body part.
 The GM judges what the targeting penalty should be;
 to give a frame of reference it could be $1$ for a torso and $4$ for an eye.
 If the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
 
 
 \subsubsection{The Net Damage Factor $\NDF$}\label{sec:ndf}
-The damage dealt by a successful attack depends on the \emph{net damage factor} $\NDF$
+The damage dealt by a successful attack depends on the \emdex{net damage factor} $\NDF$
 for the attack. It is defined to be the difference between the \emph{damage factors} $\ODF$ 
 and $\DDF$ of the attacker and the defender, respectively:
 $$ \NDF = \ODF - \DDF. $$
