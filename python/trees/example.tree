@@ -1,15 +1,15 @@
-[-] level: 3
-  [1] mind: 3
-    [1] engineering: 1
-    [2] literacy: 3
-    [1] medicine: 2
-      [1] wound care: 2
-      [1] first aid: 3
-  [1] body: 3
-    [2] muscle: 3
-      [1] hand-to-hand: 3
-      [1] hauling: 3
-    [1] climbing: 2
-    [2] athletics: 3
-      [1] swimming: 2
-      [1] running: 4
+[-] level: -2
+  [1] mind: -2
+    [1] engineering: -4
+    [2] literacy: -2
+    [1] medicine: -3
+      [1] wound care: -3
+      [1] first aid: -2
+  [1] body: -2
+    [2] muscle: -2
+      [1] hand-to-hand: -2
+      [1] hauling: -2
+    [1] climbing: -3
+    [2] athletics: -2
+      [1] swimming: -3
+      [1] running: -1

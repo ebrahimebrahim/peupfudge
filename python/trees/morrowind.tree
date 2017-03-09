@@ -1,39 +1,39 @@
-[-] level: 3
-  [1] combat: 3
-    [1] endurance: 3
-      [1] heavy armor: 2
-      [1] medium armor: 3
-    [2] strength: 3
-      [2] acrobatics: 3
-      [1] armorer: 3
-      [3] large weapons: 3
-        [1] spear: 3
-        [1] axe: 3
-        [1] blunt weapon: 3
-        [1] long blade: 3
-  [1] magic: 3
-    [1] intelligence: 3
-      [1] alchemy: 3
-      [1] conjuration: 3
-      [1] enchant: 3
-      [1] security: 3
-    [1] willpower: 3
-      [1] alteration: 3
-      [1] destruction: 3
-      [1] mysticism: 3
-      [1] restoration: 3
-  [1] stealth: 3
-    [2] agility: 3
-      [1] block: 3
-      [1] light armor: 4
-      [2] marksman: 2
-      [1] sneak: 3
-    [2] speed: 3
-      [2] athletics: 3
-      [1] hand-to-hand: 3
-      [1] short blade: 3
-      [1] unarmored: 3
-    [1] personality: 3
-      [1] illusion: 3
-      [1] mercantile: 2
-      [2] speechcraft: 3
+[-] level: -2
+  [1] combat: -2
+    [1] endurance: -2
+      [1] heavy armor: -3
+      [1] medium armor: -2
+    [2] strength: -2
+      [2] acrobatics: -2
+      [1] armorer: -2
+      [3] large weapons: -2
+        [1] spear: -2
+        [1] axe: -2
+        [1] blunt weapon: -2
+        [1] long blade: -2
+  [1] magic: -2
+    [1] intelligence: -2
+      [1] alchemy: -2
+      [1] conjuration: -2
+      [1] enchant: -2
+      [1] security: -2
+    [1] willpower: -2
+      [1] alteration: -2
+      [1] destruction: -2
+      [1] mysticism: -2
+      [1] restoration: -2
+  [1] stealth: -2
+    [2] agility: -2
+      [1] block: -2
+      [1] light armor: -1
+      [2] marksman: -3
+      [1] sneak: -2
+    [2] speed: -2
+      [2] athletics: -2
+      [1] hand-to-hand: -2
+      [1] short blade: -2
+      [1] unarmored: -2
+    [1] personality: -2
+      [1] illusion: -2
+      [1] mercantile: -3
+      [2] speechcraft: -2

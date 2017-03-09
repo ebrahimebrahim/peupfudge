@@ -1,41 +1,41 @@
-[-] level: 3
-  [1] strength: 3
-    [1] ironflesh: 3
-    [2] force: 3
-      [1] power strike: 3
-      [1] power throw: 3
-      [1] power draw: 3
-  [2] agility: 3
-    [3] weapon master: 3
-      [2] melee: 3
-        [1] one-handed: 3
-        [1] two-handed: 3
-        [1] polearms: 3
-      [2] ranged: 3
-        [1] archery: 2
-        [1] crossbows: 4
-        [1] throwing: 3
-      [1] shield: 3
-    [2] horseminship: 3
-      [2] riding: 3
-      [1] horse archery: 2
-    [2] athletics: 3
-    [1] looting: 3
-  [2] intelligence: 3
-    [1] trainer: 3
-    [2] tactics: 2
-    [2] travel: 3
-      [1] tracking: 2
-      [2] pathfinding: 3
-      [1] spotting: 3
-    [1] inventory management: 3
-    [2] medicine: 3
-      [1] wound treatment: 3
-      [1] surgery: 2
-      [1] first aid: 4
-    [1] engineer: 2
-  [1] charisma: 3
-    [2] persuasion: 3
-    [1] prisoner management: 1
-    [2] leadership: 2
-    [1] trade: 3
+[-] level: -2
+  [1] strength: -2
+    [1] ironflesh: -2
+    [2] force: -2
+      [1] power strike: -2
+      [1] power throw: -2
+      [1] power draw: -2
+  [2] agility: -2
+    [3] weapon master: -2
+      [2] melee: -2
+        [1] one-handed: -2
+        [1] two-handed: -2
+        [1] polearms: -2
+      [2] ranged: -2
+        [1] archery: -3
+        [1] crossbows: -1
+        [1] throwing: -2
+      [1] shield: -2
+    [2] horseminship: -2
+      [2] riding: -2
+      [1] horse archery: -3
+    [2] athletics: -2
+    [1] looting: -2
+  [2] intelligence: -2
+    [1] trainer: -2
+    [2] tactics: -3
+    [2] travel: -2
+      [1] tracking: -3
+      [2] pathfinding: -2
+      [1] spotting: -2
+    [1] inventory management: -2
+    [2] medicine: -2
+      [1] wound treatment: -2
+      [1] surgery: -3
+      [1] first aid: -1
+    [1] engineer: -3
+  [1] charisma: -2
+    [2] persuasion: -2
+    [1] prisoner management: -4
+    [2] leadership: -3
+    [1] trade: -2

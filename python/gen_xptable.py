@@ -8,7 +8,7 @@ import os
 # s = xp scale factor
 # d = discount factor
 b = 1.85
-s = 50.0 / pow(b,3)
+s = 50.0 / pow(b,-2)
 d = 1.35/b
 
 # Note that s is set so that the (3,3) position in the table has an xp cost of 50.
@@ -18,13 +18,13 @@ d = 1.35/b
 
 # a = attribute bonus
 # c = current skill level
-xp_cost = lambda a,c : int(round(s*pow(b,c)*pow(d,a-3)))
+xp_cost = lambda a,c : int(round(s*pow(b,c)*pow(d,a+2)))
 
 #list of current skill levels to put as rows of table:
-clist = range(1,9)
+clist = range(-4,4)
 
 #list of attribute bonuses to put as columns table:
-alist = map(lambda x:x/(2.0),range(2,19))
+alist = map(lambda x:x/(2.0),range(-8,9))
 
 
 colcolor = lambda color : ">{\\columncolor[HTML]{"+color+"}[\\tabcolsep][1.1\\tabcolsep]}"
