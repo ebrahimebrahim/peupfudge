@@ -249,7 +249,7 @@ def import_ability_tree(filename):
   def parse_line(line):
     name_list = re.findall("(?<=]).+(?=:)", line)
     weight_list = re.findall("(?<=\[).+(?=\])", line)
-    level_list = re.findall("(?<=:)[\d\s]+", line)
+    level_list = re.findall("(?<=:)[\d\s-]+", line)
     if any(len(l)!=1 for l in [name_list,weight_list,level_list]):
       raise Exception("Could not parse the following line:\n"+line)
     return name_list[0].strip(), weight_list[0].strip(), level_list[0].strip()
