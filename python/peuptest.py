@@ -9,7 +9,8 @@ import numpy
 import random
 import argparse
 
-max_skill_level = 9
+max_skill_level = 4
+min_skill_level = -4
 N = 100
 percentiles = [0,25,50,75,100]
 list_of_trees_to_test = ["barogna.tree", "example.tree", "mnb.tree", "morrowind.tree", "urw.tree"]
@@ -53,9 +54,9 @@ def test_tree(tree,tests):
     print "\n--- TEST 1 INFO ---"
     skill_level_costs = test1_data(tree)
     multipliers_by_skill = {skill.name : [(float(skill_level_costs[(skill.name,n+1)])/skill_level_costs[(skill.name,n)])
-                                          for n in range(1,max_skill_level-1)]
+                                          for n in range(1,max_skill_level-min_skill_level-1)]
                             for skill in tree.skills() }
-    multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(max_skill_level-2)]
+    multipliers =  [multipliers_by_skill[skill.name][n] for skill in tree.skills() for n in range(max_skill_level-min_skill_level-2)]
     print "Skill training xp cost ratio from one level to the next, percentiles "+str(percentiles)+" of distribution:"
     print ' '.join([str(round(p,2)) for p in numpy.percentile(multipliers,percentiles)])
 
@@ -87,15 +88,15 @@ def test_tree(tree,tests):
     print "\n--- TEST 4 INFO ---"
     g,c,p = test4(tree, portion=3, train_by=3)
     pcent_more = lambda a,b : str(int(round(100*(float(a)/float(b)-1))))
-    print "To train a third of the skills from level 3 to 6:"
+    print "To train a third of the skills from level -2 to 1:"
     print "  It costs the classmaker "+str(int(round(c)))+"xp."
     print "  It costs the generalist "+str(int(round(g)))+"xp, "+ pcent_more(g,c) +" percent more than the classmaker."
     print "  It costs the peuper     "+str(int(round(p)))+"xp, "+ pcent_more(p,c) +" percent more than the classmaker."
     
   if '5' in tests:
     print "\n--- TEST 5 INFO ---"
-    start  = 3
-    target = 6
+    start  = min_skill_level+2
+    target = min_skill_level+5
     print "If we were to train all "+str(len(tree.skills()))+" skills from level "+str(start)+" to level "+str(target)+","
     print "then the distribution of resulting levels on the abilities is as described below."
     print "The first columns show the percentiles indicated at the top, and the number following an ability name is the mean.\n"
@@ -181,10 +182,10 @@ def test1_data(tree):
 
      Returns a dictionary mapping (s, n) --> c
        where s is a skill name, ranging over all skills in the tree
-             n is the number of times to train that skill, ranging from 1 to max_skill_level
+             n is the number of times to train that skill, ranging from 1 to max_skill_level - min_skill_level
              c is the expected xp cost for that training
   """
-  return {(skill.name,n) : test1_run(tree, skill, n) for skill in tree.skills() for n in range(1,max_skill_level) }
+  return {(skill.name,n) : test1_run(tree, skill, n) for skill in tree.skills() for n in range(1,max_skill_level-min_skill_level) }
 
 def test2_run(tree, skill, s, t, o, r, r0):
   """Return data point for test criterion (2)
@@ -260,9 +261,9 @@ def test2_data(tree, skill, o_range=[1]):
       This is essential for test criterion (2), because it is in the process of training related skills
       that the mechanic is allowed to take effect.
   """
-  r_start = 2 # level to start related skills at before training them up to various r's
+  r_start = min_skill_level+1 # level to start related skills at before training them up to various r's
   r_range = range(r_start, max_skill_level+1)
-  min_s = 1
+  min_s = min_skill_level
   max_s = max_skill_level-1
   s_range = [int(round(f*(max_s-min_s)+min_s)) for f in [0.2,0.8]]
   DF = {}
@@ -310,7 +311,7 @@ def test4(tree, portion=3, train_by=3):
   """
   d_tree = copy.deepcopy(tree) # dummy tree
   for skill in d_tree.skills():
-    skill.level=3 # start each skill at 3
+    skill.level=min_skill_level+2 # start each skill at poor
   num_skills = len(d_tree.skills())/portion
   assert num_skills>=1
   cluster_sizes = [1, num_skills, max(1,num_skills/2)] # the generalist, the classmaker, and the peuper
@@ -327,7 +328,7 @@ def test4(tree, portion=3, train_by=3):
 
   return [expected_xpcost(d_tree, classmaker_trainer(cs), N*5) for cs in cluster_sizes]
 
-def test5(tree, skills_start=3, skills_target=6, percentiles=[1,5,25,50,75,95,99]):
+def test5(tree, skills_start=min_skill_level+2, skills_target=min_skill_level+5, percentiles=[1,5,25,50,75,95,99]):
   """ Returns string showing tree that results if all skills are trained from level skills_start up to skills_target.
       The tree shown has the expected level of each individual ability next to it, along with a list
       of percentiles in the distribution consisting of the resulting level of that ability after each training trial.
