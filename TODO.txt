@@ -45,8 +45,19 @@ scale wound bubs to number of body parts.
 e.g. blobman vs equally matched human with limbs should be a fair battle
 
 shift levels back to 0
+  - ok it's done in manual but there are some aspects of peuptest that still need to be fixed to work with it
+
+write attacks section in tree design?
 
 change damage factor so that d_A is a merging of all relevant abilities.
-consider the meaningfulness of a general sort of ability level merging
+consider the meaningfulness of a general sort of ability level merging.
+consider how orders would come in too.
 
 consider that we now, with our interpretation of levels, cannot have giants' strengths modeled in ability tree
+update: added concept of orders, but still need to expand on various sections accordingly:
+- orders section in tree design, where gm thinks about what additional "units" they need to create for levels based on their world
+- something under training skills/attributes training secs about how things would go if there is an order label on ability level
+  (i.e. that it's unchanged basically)
+- something in unopposed actions section on how orders come into comparison
+- something in opposed actions too
+- something in combat on how it would affect relative performance.... wait HOW WOULD IT?!

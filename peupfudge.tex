@@ -77,17 +77,37 @@ in that a good climber would be expected to successfully climb it $38\%$ of the 
 
 What does it even \emph{mean} to say things like ``$A$ is twice as good of a climber'' as $B$?
 We take it to mean that ``$A$ has about twice the climbing experience that $B$ has''.
-Some care is then needed in order to interpret levels consistently.
+Making sense of this in turn requires that we agree on some sort of untrained baseline for climbing.
+This baseline should be based the adjective that makes sense, and the GM chooses it
+explicitly while building the ability tree (coming up in section \ref{sec:tree}).
+
+Some care is needed in order to interpret levels consistently.
 Suppose that $A$ has great strength and $B$ has merely good strength.
 This apparently means that ``$A$ is \input{base.tex} times as strong as $B$.''
 But this does \emph{not} imply that $A$ can lift \input{base.tex} times as much weight as $B$.
 What it does imply is that the factor by which $A$ can lift more weight than $B$ is
 \emph{as though} $A$ had \input{base.tex} times as much \emph{strength training} as $B$.
 
+\paragraph{Orders}
+So ability levels correspond to the experience required to attain a certain degree of competence...
+but \emph{whose} experience?
+If all characters in a campaign are humans, then the focus is on human experience.
+But how could one measure, say, a giant's strength in terms of the amount of experience a human needs to attain such strength?
+It may well be that \emph{no} amount of strength training could bring an ordinary human to such strength.
+Giants are simply on a different scale of numbers when it comes to the level of their strength ability;
+we will say that their strength is of a different \emdex{order}.
+For each order that is needed in a campaign, the GM should assign a label that looks like a unit.
+For example a giant of great strength (for a giant) would be said to have strength $2$G,
+where the label ``G'' indicates that the level $2$ is meant to be interpreted on the order of giants.
+Unlabeled (``unitless'') levels should be interpreted on the order of humans, or whatever is the
+most standard type of being in the campaign.
+
+
 %3 things help interpret: adj, b times xp, 38%
-In summary, there are three clues that can guide interpretations of levels:
+In summary, there are four clues that can guide interpretations of a level:
 \vspace{-1em}\begin{enumerate}
-\item The adjectives.
+\item The adjective that goes with the level.
+\item The order label on the level, if any.
 \item Each additional ability level corresponds to
 \input{base.tex} times as much experience's worth of the ability.
 \item A challenge of difficulty level $D$ is one that can be overcome $38\%$ of the time for
@@ -146,7 +166,7 @@ The purpose of an ability level is to have something to roll against while resol
 
 Ability levels are to be interpreted based on section \ref{sec:quant}.
 %abilities starting at poor
-Most abilities have an initial (untrained) level of 3. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of 1, while a very easy ability could start at 5. What is considered ``untrained'' will depend on the setting of the world.
+Most abilities have an initial (untrained) level of -2. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of -3, while a very easy ability could start at 0. What is considered ``untrained'' will depend on the setting of the world.
 
 %define structure of tree, as well as terms 'skill' and 'attribute'
 Abilities are arranged in a tree structure in which broad abilities govern more specific ones.
