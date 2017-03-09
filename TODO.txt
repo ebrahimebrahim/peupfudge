@@ -39,7 +39,9 @@ additional things:
   - list of questions the GM should answer
   - some sort of glossary of game mechanics (use peupfudge.ind to extract page numbers)?
     or does index sort of play that role?
-
+  - a section on advanced mechanics
+    - order gap and gluing together scales of different order
+    - more specific ways of calculating some of the things in sitmod
 
 scale wound bubs to number of body parts.
 e.g. blobman vs equally matched human with limbs should be a fair battle
