@@ -61,7 +61,7 @@ consider that we now, with our interpretation of levels, cannot have giants' str
 update: added concept of orders, but still need to expand on various sections accordingly:
 / orders section in tree design, where gm thinks about what additional "units" they need to create for levels based on their world
   (do make sure its qlear that e.g. a giant doesn't need his own order for all skill levels, just the ones that would matter like strength) 
-- something under training skills/attributes training secs about how things would go if there is an order label on ability level
+/ something under training skills/attributes training secs about how things would go if there is an order label on ability level
   (i.e. that it's unchanged basically)
 - something in unopposed actions section on how orders come into comparison
 - something in opposed actions too
