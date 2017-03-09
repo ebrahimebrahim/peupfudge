@@ -104,7 +104,7 @@ most standard type of being in the campaign.
 \notes{insert a qul graph demonstrating orders}
 
 %3 things help interpret: adj, b times xp, 38%
-In summary, there are four clues that can guide interpretations of a level:
+To summarize, there are four clues that can guide interpretations of a level:
 \vspace{-1em}\begin{enumerate}
 \item The adjective that goes with the level.
 \item The order label on the level.
@@ -234,6 +234,7 @@ Thus the closer an attribute is to a skill in the ability tree, the larger its h
 
 
 
+
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
 \subsubsection{Training Attributes}\label{sec:att}
 Unlike skills, attributes cannot be trained directly using xp.
@@ -263,6 +264,8 @@ In this case they would roll again for a chance to increase their \emph{level} a
 with success if the roll surpasses 10.
 
 
+Order\index{order} labels are never added or removed through the training of skills or attributes,
+and they have no effect on determining the attribute bonus or reading the xp cost table.
 
 
 
@@ -316,10 +319,37 @@ Fortunately, there is an easy way to lessen this work: simply \emph{trim} their 
 That is, shave off some abilities from the skill end of their tree, so that some attributes become skills.
 
 \paragraph{Attacks}
-\notes{peup}
+There are two ways in which abilities play a role in attack resolution:
+to determine whether an attack was successful (i.e. whether it hit its target),
+and to determine how effective it was (i.e. how much damage it dealt).
+For a campaign that is expected to involve lots of combat, the GM
+should ensure that their ability tree has an adequate set of abilities
+to accommodate it.
+Here is a way for the GM to go about this:
+First, make a list of attacks that you think players could attempt in this world.
+Go through all the skills and consider, for each skill, how a player might try and use the skill
+in the context of an attack. Add these attacks to the list.
+Now go through all the attacks in your list and ask the following of each attack:
+\vspace{-1em}\begin{itemize}
+\item Is it clear which ability would be relevant to determining whether the attack is successful?
+\item Is it clear which ability or abilities would be relevant to determining the effectiveness of the attack?
+Is there at least one?
+\end{itemize}
+Add or rearrange abilities until these questions can be answered satisfactorily.
+
 
 \paragraph{Orders}
-\notes{peup}
+The GM should ponder over what orders\index{order} of levels might be needed for their campaign.
+What are the most standard beings in the world to serve as player characters?
+Unlabelled ``unitless'' ability levels are interpreted in terms of these beings,
+as described in section \ref{sec:quant}.
+Consider each ability in the context of the beings of the world.
+Do some of these abilities need special order labels for some of the beings?
+The typical situation would be one in which there is an ability $A$ and
+two types of beings $B_1$ and $B_2$ such that
+levels of $A$ on the order of $B_1$ are never sufficient
+to describe the ability $A$ for beings of type $B_2$.
+
 
 \subsection{Character Development}\label{sec:dev}
 
@@ -456,6 +486,11 @@ The \emdex{relative performance} of the character during the action is the diffe
 $$ R+M-D. $$
 The specifics depend on the type of action: opposed or unopposed.
 
+When different orders\index{order} of level are used for $M$ and $D$,
+no roll is necessary to resolve the action.
+It is automatic success if $M$ is of a higher order than $D$, and an automatic failure
+if $M$ is of a lower order than $D$.
+The relative performance in those cases can be taken to be $+\infty$ and $-\infty$ respectively.
 
 
 Let us use the term \emdex{difficulty factors} to refer to
@@ -667,6 +702,8 @@ $$ \frac{1}{2} (\NDF + 1\text{dF}). $$
 Damage then determines the type of wound\index{wound} inflicted on the defender, according to section \ref{sec:wounds}.
 \end{enumerate}
 
+When $M$ is of a lower or greater order\index{order} than $M'$, hit damage is taken to be $0$ or $\infty$ respectively.
+In this case there would be no need to roll the $1$dF or consider $\NDF$.
 
 
 \subsubsection{The Modifiers $M$ and $M'$}\label{sec:sitmod}
@@ -758,6 +795,8 @@ ideally this should be short, and in list format"}
 \notes{give formula for xp table in case ppl need to go over 9}
 
 \notes{should include convenient table of fudge die roll probabilities}
+
+\notes{a section on advanced mechnics}
 
 \printindex
 

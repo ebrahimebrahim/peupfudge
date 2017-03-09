@@ -9,14 +9,11 @@ then decide how damage should translate into injuries
 and how injuries should affect character performance
 remember to examine the grazing damage formula and make sure it's okay
 
-what should  be targetting penalty if you're going for an eye? for a torso?
-
 question to answer later when we know more:
 should we make players pay attention to R+M with AND without targetting penalty,
 and then insert some non-miss (maybe graze) consequence for succeeding on R+M without?
 or is that too much to keep track of to be worth it?
-
-consider giving a frame of reference for what the numbers could be for all sitmods
+(we qould just have more detailed targetting system under "advanced mechanics" in appendix)
 
 test and tweak combat system
 
@@ -26,11 +23,19 @@ write:
 - movement
 - intro
 
+consider introducing the following into qombat:
+- evasion
+- pulling punches
+- knocking out
+- stunning
+- crits
+
 additional things:
 - illustrations
   - at least need awesome cover illustration
   - illustrations can be of practical and not just aesthetic value:
     for each mechanic an illustration of the example that goes with it can make it much easier to remember later
+  - a giant using a tree as a toothpick
 - appendix
   - reference sheet
   - base character sheet
@@ -39,15 +44,13 @@ additional things:
   - list of questions the GM should answer
   - some sort of glossary of game mechanics (use peupfudge.ind to extract page numbers)?
     or does index sort of play that role?
-
+  - a section on advanced mechanics
+    - order gap and gluing together scales of different order
+    - more specific ways of calculating some of the things in sitmod
+    - a more detailed targetting system?
 
 scale wound bubs to number of body parts.
 e.g. blobman vs equally matched human with limbs should be a fair battle
-
-shift levels back to 0
-  - ok it's done in manual but there are some aspects of peuptest that still need to be fixed to work with it
-
-write attacks section in tree design?
 
 change damage factor so that d_A is a merging of all relevant abilities.
 consider the meaningfulness of a general sort of ability level merging.
@@ -55,12 +58,4 @@ consider how orders would come in too.
 
 make qul graph demonstrating orders
 
-consider that we now, with our interpretation of levels, cannot have giants' strengths modeled in ability tree
-update: added concept of orders, but still need to expand on various sections accordingly:
-- orders section in tree design, where gm thinks about what additional "units" they need to create for levels based on their world
-  (do make sure its qlear that e.g. a giant doesn't need his own order for all skill levels, just the ones that would matter like strength) 
-- something under training skills/attributes training secs about how things would go if there is an order label on ability level
-  (i.e. that it's unchanged basically)
-- something in unopposed actions section on how orders come into comparison
-- something in opposed actions too
-- something in combat on how it would affect relative performance.... wait HOW WOULD IT?!
+write a bit more about bars.
