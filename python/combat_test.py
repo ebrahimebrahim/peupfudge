@@ -7,7 +7,6 @@ t=T.import_ability_tree("trees/combat_test.tree")
 
 dF = lambda n : sum(random.choice([-1,0,1]) for i in range(n))
 
-
 class Attack(object):
   def __init__(self,verb,weapon,hit_ab,dmg_ab,def_ab,abs_ab):
     self.verb=verb
@@ -18,7 +17,6 @@ class Attack(object):
     self.abs_ab=abs_ab
 
 
-#actually this should inherit from a more generic Item class
 class Item(object):
   
   def __init__(self,name,dmg):
@@ -28,7 +26,7 @@ class Item(object):
 punch = Attack("punch",None,"punching","strength","brawl defending","constitution")
 kick = Attack("kick",None,"kicking","strength","brawl defending","constitution")
 
-#could have one of these for each type of creaturs:
+#could have one of these for each type of creatures:
 wound_zones = {"head":5,"chest":6,"stomach":6,"l_arm":5,"r_arm":5,"l_leg":7,"r_leg":7, "neck":1}
 def random_target(wound_zones):
   r = random.randrange(sum(wound_zones.values()))
@@ -37,7 +35,6 @@ def random_target(wound_zones):
     if r >= c and r < c+wound_zones[z]:
       return z
     c += wound_zones[z]
-  
 
 #represents a wound level on a particular body part
 class WoundLevel(object):
@@ -90,6 +87,7 @@ class Character(object):
   def is_alive(self):
     return all(not self.wounds[body_part].dead for body_part in ["head","neck","chest"])
   def attack(self, defender, attack):
+
     M  = self.tree.descendant(attack.hit_ab).level
     Mp = defender.tree.descendant(attack.def_ab).level
     dA  = self.tree.descendant(attack.dmg_ab).level
@@ -98,7 +96,7 @@ class Character(object):
     Delta = dA - dAp #damage factor
     dmg = 0; verb = "misses"
     if rp<0:
-      return verb
+      return self.name + " " + verb
     elif rp==0:
       dmg = 0.5 * (Delta + dF(1))
       verb="grazes"
@@ -116,11 +114,14 @@ class Character(object):
     elif dmg < 9:
       woundword = "hurting"
       defender.wounds[target].hurt()
-    else:
+    elif dmg < 100:
       woundword = "incapacitation"
       defender.wounds[target].incap()
+    else:
+      woundword = "death"
+      defender.wounds[target].die()
 
-    return self.name+" "+verb+" "+defender.name+" in the "+target+", resulting in "+woundword
+    return self.name+" "+verb+" "+defender.name+" in the "+target+", resulting in "+woundword+". "+self.wounds[target].__str__("It")+"."
 
 
 A = Character("Alice")
