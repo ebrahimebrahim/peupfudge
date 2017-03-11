@@ -32,6 +32,9 @@ rewrite damage factor section:
 
 write general suggestion on merging ability levels if needed by going to nearest common ancestor
 
+add weapon type to sitmod
+
+come up with formal words and accompanying explanation for the four "combat modifiers"
 
 change damage factor so that d_A is a merging of all relevant abilities.
 consider the meaningfulness of a general sort of ability level merging.
