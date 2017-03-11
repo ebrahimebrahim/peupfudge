@@ -4,10 +4,11 @@ is there a better way to handle weighted average for att bonus? seems disruptive
 
 where do quantitive base physical characteristics like speed go? in with health or as their own system?
 
+devise system to determine movement speed in various situations
+
 need to devise a health system
 then decide how damage should translate into injuries
-and how injuries should affect character performance
-remember to examine the grazing damage formula and make sure it's okay
+and how injuries should affect character performance (injury penalty)
 
 question to answer later when we know more:
 should we make players pay attention to R+M with AND without targetting penalty,
@@ -15,7 +16,29 @@ and then insert some non-miss (maybe graze) consequence for succeeding on R+M wi
 or is that too much to keep track of to be worth it?
 (we qould just have more detailed targetting system under "advanced mechanics" in appendix)
 
-test and tweak combat system
+E
+test and tweak combat system:
+- rig up damage-->wound table such that it makes sense to simply add (merged) ability levels directly to damage factor
+- make grazing damage and hit damage formulas good
+
+scale wound bubs to number of body parts.
+e.g. blobman vs equally matched human with limbs should be a fair battle
+
+Y
+rewrite damage factor section:
+- don't separate d into just two components, instead list things like sitmod
+- one of the things to list is a relevant ability level, or better yet, nearest common ancestor of relevant ability levels
+- explain that the gm judges other stuff based on damage-->wound table.
+
+write general suggestion on merging ability levels if needed by going to nearest common ancestor
+
+add weapon type to sitmod
+
+come up with formal words and accompanying explanation for the four "combat modifiers"
+
+change damage factor so that d_A is a merging of all relevant abilities.
+consider the meaningfulness of a general sort of ability level merging.
+consider how orders would come in too.
 
 write:
 - health
@@ -36,6 +59,13 @@ additional things:
   - illustrations can be of practical and not just aesthetic value:
     for each mechanic an illustration of the example that goes with it can make it much easier to remember later
   - a giant using a tree as a toothpick
+  - a pocket calculator
+  - an AI distributed on multiple systems
+  - a guy trying to climb a cliff while dodging falling boulders
+  - a guy climbing an "ability" tree
+  - a humanoid amorphous blob with one body part fighting a spider with lots of parts
+  - character in a cave fighting against theoretical constructs that look like wisps from WC3
+    that are invincible and blink out of existence 10 seconds after their birth
 - appendix
   - reference sheet
   - base character sheet
@@ -49,12 +79,7 @@ additional things:
     - more specific ways of calculating some of the things in sitmod
     - a more detailed targetting system?
 
-scale wound bubs to number of body parts.
-e.g. blobman vs equally matched human with limbs should be a fair battle
 
-change damage factor so that d_A is a merging of all relevant abilities.
-consider the meaningfulness of a general sort of ability level merging.
-consider how orders would come in too.
 
 make qul graph demonstrating orders
 

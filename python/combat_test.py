@@ -4,6 +4,7 @@ import ability_tree as T
 import random
 import numpy
 import copy
+import sys
 
 dF = lambda n : sum(random.choice([-1,0,1]) for i in range(n))
 
@@ -132,13 +133,13 @@ class Character(object):
     woundword="nothing"
     if dmg < 1:
       pass
-    elif dmg < 5:
+    elif dmg < 3:
       woundword = "scratching"
       defender.wounds[target].scratch()
-    elif dmg < 9:
+    elif dmg < 6:
       woundword = "hurting"
       defender.wounds[target].hurt()
-    elif dmg < 100:
+    elif dmg < 20:
       woundword = "incapacitation"
       defender.wounds[target].incap()
     else:
@@ -159,7 +160,7 @@ B = Character("Bob")
 def battle_data(char1,char2):
   """ Return mean number of rounds and char1 win rate for battle between these characters. """
   data=[]
-  for i in range(200):
+  for i in range(1000):
     A=copy.deepcopy(char1)
     B=copy.deepcopy(char2)
     rounds = 0
@@ -171,5 +172,14 @@ def battle_data(char1,char2):
     data.append((rounds,A.is_alive()))
   return numpy.mean([d[0] for d in data]) , len(filter(lambda d : d[1],data))/float(len(data))
 
-C=Character("Charl")
-D=Character("Dennis")
+for punching_train in range(4):
+  for strength_train in range(4):
+    C=Character("Charl")
+    D=Character("Dennis")
+    for i in range(punching_train):
+      C.tree.descendant("punching").train()
+    for i in range(strength_train):
+      C.tree.descendant("strength").train()
+    rounds, winrate = battle_data(C,D)
+    sys.stdout.write(str(int(round(100*winrate)))+" ("+str(int(rounds))+")\t\t")
+  sys.stdout.write("\n")
