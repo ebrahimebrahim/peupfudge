@@ -23,7 +23,7 @@ test and tweak combat system:
 - make grazing damage and hit damage formulas good
 
 scale wound bubs to number of body parts.
-e.g. blobman vs equally matched human with limbs should be a fair battle
+e.g. blobman vs equally matched human with limbs vs equally matched spoida should be a fair battle
 - everything should have same total bubs
 - should bub distribution be a thing? if so, should scratch-hurt ratio be fixed?
 - how do injury penalties scale with bub scaling?
