@@ -133,13 +133,13 @@ class Character(object):
     woundword="nothing"
     if dmg < 1:
       pass
-    elif dmg < 3:
+    elif dmg < 4:
       woundword = "scratching"
       defender.wounds[target].scratch()
-    elif dmg < 6:
+    elif dmg < 7:
       woundword = "hurting"
       defender.wounds[target].hurt()
-    elif dmg < 20:
+    elif dmg < 15:
       woundword = "incapacitation"
       defender.wounds[target].incap()
     else:
