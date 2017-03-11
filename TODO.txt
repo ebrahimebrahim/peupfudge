@@ -9,6 +9,7 @@ devise system to determine movement speed in various situations
 need to devise a health system
 then decide how damage should translate into injuries
 and how injuries should affect character performance (injury penalty)
+- are bub injuries limited to combat?
 
 question to answer later when we know more:
 should we make players pay attention to R+M with AND without targetting penalty,
@@ -23,6 +24,9 @@ test and tweak combat system:
 
 scale wound bubs to number of body parts.
 e.g. blobman vs equally matched human with limbs should be a fair battle
+- everything should have same total bubs
+- should bub distribution be a thing? if so, should scratch-hurt ratio be fixed?
+- how do injury penalties scale with bub scaling?
 
 Y
 rewrite damage factor section:
