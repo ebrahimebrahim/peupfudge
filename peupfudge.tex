@@ -493,15 +493,17 @@ if $M$ is of a lower order than $D$.
 The relative performance in those cases can be taken to be $+\infty$ and $-\infty$ respectively.
 
 
-Let us use the term \emdex{difficulty factors} to refer to
+Let us use the term \emdex{aiding factors} to refer to
 the primary factors leading to the possibilities of success or failure for an action,
-but only those factors that are \emph{independent of who is attempting the action}.
-For those factors that \emph{are due to the character attempting the action} let us use the term \emdex{aiding factors}.
+but only those factors that are \emph{due to the character attempting the action}.
+For those factors that \emph{are independent of the character attempting the action} let us use the term \emdex{difficulty factors}.
 The difficulty factors for a character attempting to climb a cliff are things
 like the steepness of the cliff and the availability of footholds.
 The climbing skill of the character and the fact that they have a grappling hook would be aiding factors.
 The difficulty factors for a character attempting to punch someone in a brawl might include the defensive abilities of the opponent,
 while the punching abilities of the character would be aiding factors.
+A rule of thumb is that if a factor can be removed from the picture by changing who is attempting an action,
+then it is an aiding factor. Otherwise, it is a difficulty factor.
 
 \subsection{Unopposed Actions}\label{sec:unopposed}
 If the difficulty factors for an action cannot be attributed to some other character's abilities,
@@ -679,21 +681,49 @@ Without saying any more, mechanics are already in place for combat:
 it is a series of opposed actions that usually trigger rounds.
 But we provide some more detailed mechanics for resolving an attack. %, each of which is optional.
 %The GM should decide at the outset which subset of these mechanics to adopt.
+
+\subsubsection{Attack Terminology}
 For clarity of language we will call the acting character the \emdex{attacker}
 and the opposing character the \emdex{defender}.
-
-There are four types of factors that determine the outcome of an attack. Imagine, for example, an attacker lunging with a sword at an armored defender:
+%There are four types of factors that determine the outcome of an attack.
+We also call the aiding factors \emdex{hitting factors} and we call the difficulty factors
+\emdex{preventive factors}.
+These determine the \emph{success}\index{attack success} of an attack. There are two other types of factors that
+contribute only to its \emph{effectiveness}\index{attack effectiveness} in the event of success:
+\emdex{impact factors} and \emdex{protective factors}.
+Before describing any mechinics, let us lay out the four types of factors that contribute to attack resolution:
 \vspace{-1em}\begin{itemize}
-\item \emdex{Hitting factors} (this is the name used for \emph{aiding factors} in the context of combat) are those factors which contribute to determining whether the attack misses, grazes, or hits the defender, while being dependent only on the \emph{attacker}. In the example, one hitting factor might be the sword skill of the attacker. \emdex{Preventive factors} (this is the name used for \emph{difficulty factors} in the context of combat) are those factors which contribute to determining whether the attack misses, grazes, or hits the defender, while being dependent only on the \emph{defender}. In the example, one preventive factor might be the dodging skill of the defender.
-\item \emdex{Impact factors} are those factors which contribute to determining how much damage the attack inflicts on the defender, while being dependent only on the \emph{attacker}. In the example, one impact factor might be the strength skill of the attacker. \emdex{Protective factors} are those factors which contribute to determining how much damage the attack inflicts on the defender, while being dependent only on the \emph{defender}. In the example, one protective factor might be the type of armor the defender is wearing.
+\item \emph{Hitting factors} are involved in determining whether an attack hits the defender,
+and they are those factors that depend on who is attacking.
+\item \emph{Preventive factors} are also involved in determining whether an attack hits the defender,
+but independently of who is attacking. 
+\item \emph{Impact factors} contribute only to the damage a successful attack can inflict on its target
+(not to its chances of success in the first place),
+and they are those factors that depend on who is attacking.
+\item \emph{Protective factors} also contribute only to damage inflicted,
+but independently of who is attacking.
 \end{itemize}
+\begin{center}\begin{tabular}{l|ll}
+              & offensive & defensive  \\
+\cline{1-3}
+success       & hitting   & prevention \\
+effectiveness & impact    & protection 
+\end{tabular}\end{center}
+%Imagine, for example, an attacker lunging with a sword at an armored defender:
+Consider the example of an attacker lunging with a sword at an armored defender.
+%In the example, one hitting factor might be the sword skill of the attacker.
+The attacker's sword skill is a hitting factor,
+%In the example, one preventive factor might be the dodging skill of the defender.
+and defender's dodging skill is a preventive factor.
+Now consider what happens if the lunge strikes its target.
+%In the example, one impact factor might be the strength skill of the attacker.
+The attacker's strength is an impact factor,
+%In the example, one protective factor might be the type of armor the defender is wearing.
+and the defender's armor is a protective factor.
+%It should be noted that the line between offensive and defensive factors is not always clear. Some factors will be dependent on both the attacker and the defender. For example, if an attacker sneaks up on an unsuspecting defender, the chance of a successful attack will increase; but would that be because the attacker is sneaking or because the defender is caught by surprise? Because the factors are summed together, in such a case, the element of surprise can be considered as either a hitting factor or a preventive factor; just make sure not to count its effect twice.
 
-The following table can aid in visualizing how these four types of factors affect an attack:
 
-\notes{peuptable}
-
-It should be noted that the line between offensive and defensive factors is not always clear. Some factors will be dependent on both the attacker and the defender. For example, if an attacker sneaks up on an unsuspecting defender, the chance of a successful attack will increase; but would that be because the attacker is sneaking or because the defender is caught by surprise? Because the factors are summed together, in such a case, the element of surprise can be considered as either a hitting factor or a preventive factor; just make sure not to count its effect twice.
-
+\subsubsection{Resolving an Attack}
 During a combat round, a player who is able to attack\index{attack} another player (e.g. is within range) may attempt to do so.
 Here is the attack resolution process:
 \vspace{-1em}\begin{enumerate}

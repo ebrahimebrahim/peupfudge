@@ -53,6 +53,8 @@ rewrite damage factor section:
 - one of the things to list is a relevant ability level, or better yet, nearest common ancestor of relevant ability levels
 - explain that the gm judges other stuff based on damage-->wound table.
 
+mention the possibility of overlap between aiding factors and difficulty factors
+
 write general suggestion on merging ability levels if needed by going to nearest common ancestor
 
 add weapon type to sitmod
@@ -92,6 +94,7 @@ additional things:
     that are invincible and blink out of existence 10 seconds after their birth
   - someone stabilizing a bleeding person
   - a character chasing a chicken, with the trajectory indicated with regular distance markings
+  - a basketball
 - appendix
   - reference sheet
   - base character sheet
@@ -110,3 +113,6 @@ additional things:
 make qul graph demonstrating orders
 
 write a bit more about bars.
+
+have a chapter on modules, move combat section there.
+
