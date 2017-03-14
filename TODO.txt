@@ -64,12 +64,15 @@ additional things:
     for each mechanic an illustration of the example that goes with it can make it much easier to remember later
   - a giant using a tree as a toothpick
   - a pocket calculator
+  - dice
   - an AI distributed on multiple systems
   - a guy trying to climb a cliff while dodging falling boulders
   - a guy climbing an "ability" tree
   - a humanoid amorphous blob with one body part fighting a spider with lots of parts
   - character in a cave fighting against theoretical constructs that look like wisps from WC3
     that are invincible and blink out of existence 10 seconds after their birth
+  - someone stabilizing a bleeding person
+  - a character chasing a chicken, with the trajectory indicated with regular distance markings
 - appendix
   - reference sheet
   - base character sheet
