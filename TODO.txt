@@ -5,11 +5,31 @@ is there a better way to handle weighted average for att bonus? seems disruptive
 where do quantitive base physical characteristics like speed go? in with health or as their own system?
 
 devise system to determine movement speed in various situations
+- gm should choose, for each creature of world, what are the types of locomotion and what are base speeds for each
+- e.g. humans could have walking, running, sprinting
+- if want, can choose an ability from tree to serve as modifier. (come up with formula to modify)
+- if want, can have a fatigue/energy bar or health condition to limit some types of locomotion
+- idea for an advanced mechanic: penalties to speed or fatigue due to inventory weight
 
+Y
 need to devise a health system
-then decide how damage should translate into injuries
-and how injuries should affect character performance (injury penalty)
-- are bub injuries limited to combat?
+- conditions and trauma (come up with clear and short way to describe distinction)
+- conditions are handled by flowcharts
+  - gm should make one of these for each health condition they'd like to have for each type of creature in their world.
+  - a node is a particular state with respect to the condition,
+    complete with a description of the effects (e.g. penalties to abilities) of being in that state.
+  - each edge is labeled with the event that triggers a state transition,
+    and it can branch into multiple target nodes with multiple probabilities.
+    - convert probabilities to convenient dice rolls.
+    - these branchings can also be labeled with abilities that modify the rolls.
+  - example: bleeding
+  - the full info in these flowcharts could be considered to be some sort of medical knowledge.
+    it is up to the gm how much of it to reveal to players.
+- trauma is handled as a list of injuries
+  - how should injuries be described? do we provide a standard way like "scratch", "hurt", etc?
+  - gm should consider, for each ability, which body parts are needed for it.
+    (we should come up with how injury penalty works to affect abilities).
+  - ... how do injuries heal?
 
 question to answer later when we know more:
 should we make players pay attention to R+M with AND without targetting penalty,
@@ -17,7 +37,6 @@ and then insert some non-miss (maybe graze) consequence for succeeding on R+M wi
 or is that too much to keep track of to be worth it?
 (we qould just have more detailed targetting system under "advanced mechanics" in appendix)
 
-E
 test and tweak combat system:
 - rig up damage-->wound table such that it makes sense to simply add (merged) ability levels directly to damage factor
 - make grazing damage and hit damage formulas good
@@ -28,7 +47,7 @@ e.g. blobman vs equally matched human with limbs vs equally matched spoida shoul
 - should bub distribution be a thing? if so, should scratch-hurt ratio be fixed?
 - how do injury penalties scale with bub scaling?
 
-Y
+E
 rewrite damage factor section:
 - don't separate d into just two components, instead list things like sitmod
 - one of the things to list is a relevant ability level, or better yet, nearest common ancestor of relevant ability levels
