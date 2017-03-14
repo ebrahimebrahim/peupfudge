@@ -1,3 +1,4 @@
--wound system
 -acute conditions accomodation & causes (bleeding, infection, poisoning, being on fire)
+  -wound system (the effect of wounds, not how to get them)
+  -healing
 -chronic conditions accomodation & causes (diseases, peup, not having limb)
