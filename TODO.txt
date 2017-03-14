@@ -47,14 +47,6 @@ e.g. blobman vs equally matched human with limbs vs equally matched spoida shoul
 - should bub distribution be a thing? if so, should scratch-hurt ratio be fixed?
 - how do injury penalties scale with bub scaling?
 
-E
-rewrite damage factor section:
-- don't separate d into just two components, instead list things like sitmod
-- one of the things to list is a relevant ability level, or better yet, nearest common ancestor of relevant ability levels
-- explain that the gm judges other stuff based on damage-->wound table.
-
-mention the possibility of overlap between aiding factors and difficulty factors
-
 write general suggestion on merging ability levels if needed by going to nearest common ancestor
 
 add weapon type to sitmod
@@ -115,4 +107,6 @@ make qul graph demonstrating orders
 write a bit more about bars.
 
 have a chapter on modules, move combat section there.
+remember to move attacks paragraph of tree design section to there also
 
+come up with a better term for hitting factors
