@@ -3,6 +3,8 @@
 *.pdf
 xptable.tex
 xp_start_multiplier.tex
+damage_table.tex
+size_protection_table.tex
 base.tex
 *.pyc
 python/trees/*.tex

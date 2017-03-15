@@ -4,7 +4,6 @@
 
 where do quantitive base physical characteristics like speed go? in with health or as their own system?
 
-E
 devise system to determine movement speed in various situations
 - gm should choose, for each creature of world, what are the types of locomotion and what are base speeds for each
 - e.g. humans could have walking, running, sprinting
@@ -32,9 +31,12 @@ need to devise a health system
     (we should come up with how injury penalty works to affect abilities).
   - ... how do injuries heal?
 
+E
 test and tweak combat system:
 - rig up damage-->wound table such that it makes sense to simply add (merged) ability levels directly to damage factor
 - make grazing damage and hit damage formulas good
+- suggest gm to make body diagram with sizes and protections coming from protection<-->size table
+- tell gm to calibrate size measurements for protection in terms of size of thing that it would take a good punch to scratch
 
 scale wound bubs to number of body parts.
 e.g. blobman vs equally matched human with limbs vs equally matched spoida should be a fair battle
@@ -50,7 +52,7 @@ or is that too much to keep track of to be worth it?
 
 write general suggestion on merging ability levels if needed by going to nearest common ancestor
 
-add weapon type to sitmod
+add weapon type to sitmod and Delta
 
 write: health, wounds, movement, intro
 
@@ -97,6 +99,7 @@ additional things:
   - someone stabilizing a bleeding person
   - a character chasing a chicken, with the trajectory indicated with regular distance markings
   - a basketball
+  - a bunch of characters missing and deflecting against a big boss character like bartholophat or lavos
 - appendix
   - reference sheet
   - base character sheet
