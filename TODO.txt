@@ -33,8 +33,6 @@ need to devise a health system
 
 E
 test and tweak combat system:
-- rig up damage-->wound table such that it makes sense to simply add (merged) ability levels directly to damage factor
-- make grazing damage and hit damage formulas good
 - suggest gm to make body diagram with sizes and protections coming from protection<-->size table
 - tell gm to calibrate size measurements for protection in terms of size of thing that it would take a good punch to scratch
 
