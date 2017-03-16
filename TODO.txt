@@ -54,11 +54,15 @@ add weapon type to sitmod and Delta
 
 write: health, wounds, movement, intro
 
+add a healing section to qombat
+
+include comment on rerolling when body part is mangled and you randomly target it
 
 ===================
 === Needed next ===
 ===================
 
+section on character death in health sec
 
 make qul graph demonstrating orders
 
