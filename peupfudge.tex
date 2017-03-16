@@ -492,8 +492,8 @@ The basic idea is that the attempt is a success if
 $$ R + M > D, $$
 where $R$ is the result of a \emph{roll}, $M$ is some sort of \emdex{modifier} based on an ability level,
 and $D$ is the \emdex{difficulty level} of the task.
-The \emdex{relative performance} of the character during the action is the difference
-$$ R+M-D. $$
+The \emdex{relative performance} $\rho$ of the character during the action is the difference
+$$ \rho=R+M-D. $$
 The specifics depend on the type of action: opposed or unopposed.
 
 When different orders\index{order} of level are used for $M$ and $D$,
@@ -503,15 +503,17 @@ if $M$ is of a lower order than $D$.
 The relative performance in those cases can be taken to be $+\infty$ and $-\infty$ respectively.
 
 
-Let us use the term \emdex{difficulty factors} to refer to
+Let us use the term \emdex{aiding factors} to refer to
 the primary factors leading to the possibilities of success or failure for an action,
-but only those factors that are \emph{independent of who is attempting the action}.
-For those factors that \emph{are due to the character attempting the action} let us use the term \emdex{aiding factors}.
+but only those factors that are \emph{due to the character attempting the action}.
+For those factors that \emph{are independent of the character attempting the action} let us use the term \emdex{difficulty factors}.
 The difficulty factors for a character attempting to climb a cliff are things
 like the steepness of the cliff and the availability of footholds.
 The climbing skill of the character and the fact that they have a grappling hook would be aiding factors.
 The difficulty factors for a character attempting to punch someone in a brawl might include the defensive abilities of the opponent,
 while the punching abilities of the character would be aiding factors.
+A rule of thumb is that if a factor can be removed from the picture by changing who is attempting an action,
+then it is an aiding factor. Otherwise, it is a difficulty factor.
 
 \subsection{Unopposed Actions}\label{sec:unopposed}
 If the difficulty factors for an action cannot be attributed to some other character's abilities,
@@ -548,7 +550,7 @@ Summarizing, an unopposed action is successful if
 The value of $R$ can feed directly into the narrative,
 for it represents the purely variable aspect of a character's performance of a task,
 independent of aiding factors and difficulty factors.
-The same goes for the relative performance $R+M-D$, which represents actual performance given all the information.
+The same goes for the relative performance $\rho=R+M-D$, which represents actual performance given all the information.
 It can be fun to asssign extreme narrative interpretations to extreme values of $R$ and $R+M-D$,
 or even throw in some actual consequences.
 
@@ -586,7 +588,7 @@ $R$ represents the purely variable aspect of the acting character's performance,
 while $R'$ represents the purely variable aspect of the opposing character's performance.
 It makes sense to have the respective acting and opposing players roll the dice for these (or for the GM to roll the dice for an opposing character that is not a player).
 As with unopposed actions, extreme values of $R$, $R'$,
-and the relative performance $(R+M)-(R'+M')$
+and the relative performance $\rho=(R+M)-(R'+M')$
 can be given special narrative interpretations or consequences.
 
 
@@ -687,37 +689,64 @@ crit system.
 
 Without saying any more, mechanics are already in place for combat:
 it is a series of opposed actions that usually trigger rounds.
-But we provide some more detailed mechanics for resolving an attack. %, each of which is optional.
-%The GM should decide at the outset which subset of these mechanics to adopt.
+But we provide some more detailed mechanics for resolving an attack.
+
+\subsubsection{Attack Terminology}
 For clarity of language we will call the acting character the \emdex{attacker}
 and the opposing character the \emdex{defender}.
-
-There are four types of factors that determine the outcome of an attack. Imagine, for example, an attacker lunging with a sword at an armored defender:
+%There are four types of factors that determine the outcome of an attack.
+We also call the aiding factors \emdex{hitting factors} and we call the difficulty factors
+\emdex{preventive factors}.
+These determine the \emph{success}\index{attack success} of an attack. There are two other types of factors that
+contribute only to its \emph{effectiveness}\index{attack effectiveness} in the event of success:
+\emdex{impact factors} and \emdex{protective factors}.
+Laying out the four types of factors that contribute to attack resolution, we have:
 \vspace{-1em}\begin{itemize}
-\item \emdex{Hitting factors} (this is the name used for \emph{aiding factors} in the context of combat) are those factors which contribute to determining whether the attack misses, grazes, or hits the defender, while being dependent only on the \emph{attacker}. In the example, one hitting factor might be the sword skill of the attacker. \emdex{Preventive factors} (this is the name used for \emph{difficulty factors} in the context of combat) are those factors which contribute to determining whether the attack misses, grazes, or hits the defender, while being dependent only on the \emph{defender}. In the example, one preventive factor might be the dodging skill of the defender.
-\item \emdex{Impact factors} are those factors which contribute to determining how much damage the attack inflicts on the defender, while being dependent only on the \emph{attacker}. In the example, one impact factor might be the strength skill of the attacker. \emdex{Protective factors} are those factors which contribute to determining how much damage the attack inflicts on the defender, while being dependent only on the \emph{defender}. In the example, one protective factor might be the type of armor the defender is wearing.
+\item \emph{Hitting factors} are involved in determining whether an attack hits the defender,
+and they are those factors that depend on who is attacking.
+\item \emph{Preventive factors} are also involved in determining whether an attack hits the defender,
+but independently of who is attacking. 
+\item \emph{Impact factors} contribute only to the damage a successful attack can inflict on its target
+(not to its chances of success in the first place),
+and they are those factors that depend on who is attacking.
+\item \emph{Protective factors} also contribute only to damage inflicted,
+but independently of who is attacking.
 \end{itemize}
+\begin{center}\begin{tabular}{l|ll}
+              & offensive & defensive  \\
+\cline{1-3}
+success       & hitting   & prevention \\
+effectiveness & impact    & protection 
+\end{tabular}\end{center}
+%Imagine, for example, an attacker lunging with a sword at an armored defender:
+Consider the example of an attacker lunging with a sword at an armored defender.
+%In the example, one hitting factor might be the sword skill of the attacker.
+The attacker's sword skill is a hitting factor,
+%In the example, one preventive factor might be the dodging skill of the defender.
+and defender's dodging skill is a preventive factor.
+Now consider what happens if the lunge strikes its target.
+%In the example, one impact factor might be the strength skill of the attacker.
+The attacker's strength is an impact factor,
+%In the example, one protective factor might be the type of armor the defender is wearing.
+and the defender's armor is a protective factor.
+%It should be noted that the line between offensive and defensive factors is not always clear. Some factors will be dependent on both the attacker and the defender. For example, if an attacker sneaks up on an unsuspecting defender, the chance of a successful attack will increase; but would that be because the attacker is sneaking or because the defender is caught by surprise? Because the factors are summed together, in such a case, the element of surprise can be considered as either a hitting factor or a preventive factor; just make sure not to count its effect twice.
 
-The following table can aid in visualizing how these four types of factors affect an attack:
 
-\notes{peuptable}
-
-It should be noted that the line between offensive and defensive factors is not always clear. Some factors will be dependent on both the attacker and the defender. For example, if an attacker sneaks up on an unsuspecting defender, the chance of a successful attack will increase; but would that be because the attacker is sneaking or because the defender is caught by surprise? Because the factors are summed together, in such a case, the element of surprise can be considered as either a hitting factor or a preventive factor; just make sure not to count its effect twice.
-
+\subsubsection{Resolving an Attack}
 During a combat round, a player who is able to attack\index{attack} another player (e.g. is within range) may attempt to do so.
 Here is the attack resolution process:
 \vspace{-1em}\begin{enumerate}
 \item
 An attack is an opposed action, resolved according to relative performance:
-$$ (R + M) - (R' + M'). $$
+$$ \rho = (R + M) - (R' + M'). $$
 A negative value is a \emdex{miss}, a positive value is a \emdex{hit}, and a value of zero is a \emdex{graze}.
 The modifiers $M$ and $M'$ are comprised of several bits that are explained in section \ref{sec:sitmod}.
 \item
 In the case of a hit or a graze, further rolling is done to determine the severity of the outcome,
 which we quantify as \emdex{damage}.
-Computing damage requires settling on a \emph{net damage factor} $\NDF$ for the attack, explained in section \ref{sec:ndf}.
+Computing damage requires settling on a \emph{damage factor} $\NDF$ for the attack, explained in section \ref{sec:ndf}.
 A hit results in a damage of
-$$ 2((R + M) - (R' + M')) + \NDF + 1\text{dF} $$
+$$ 2\rho + \NDF + 1\text{dF} $$
 while a graze results in a damage of
 $$ \frac{1}{2} (\NDF + 1\text{dF}). $$
 \item
@@ -772,26 +801,35 @@ to give a frame of reference it could be $1$ for a torso and $4$ for an eye.
 If the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
 
 
-\subsubsection{Impact and Protection: ($\NDF$)}\label{sec:ndf}
-The damage dealt by a successful attack depends on $\NDF$, the difference between \emdex{impact} and \emdex{protection}:
-$$ \NDF = impact - protection $$
-Impact is given by the impact factors, which are the factors that determine the capability of the attack to deal damage.
-The offensive damage factor $\ODF$ is defined to be the sum of the factors that determine the capability of the attack to deal damage,
-and the defensive damage factor $\DDF$ is defined to be the sum of the factors that determine the defender's capacity to absorb damage.level $\ODFA$ of a relevant ability
-plus a damage modifier $\ODFM$, and similarly for $\DDF$.
-The ability that goes into $\ODFA$ should be one that plays a role in determining how
-powerful the attack is (e.g. strength for an axe swing), and the ability that goes into $\DDFA$
-should be one that plays a role in determining a character's capacity to absorb damage (e.g. constitution). 
-If no relevant ability can be identified for $\ODFA$ or $\DDFA$, set it to $0$. 
-The damage modifer consists of other factors that affect the ability of the attack to do damage.
-For example $\ODFM$ could involve the weapon being used, and $\DDFM$ could involve the defender's armor.
-Putting it together,
-$$ \NDF = (\ODFA + \ODFM) - (\DDFA + \DDFM). $$
-An understanding of section \ref{sec:quant} is required to properly judge the values of $\ODFM$ and $\DDFM$
-based on the circumstances.
-
-
-
+\subsubsection{Impact and Protection}\label{sec:ndf}
+The damage dealt by a successful attack depends on the \emdex{damage factor} $\NDF$,
+the difference between \emdex{impact} and \emdex{protection}:
+$$ \NDF = \text{[impact]} - \text{[protection]}. $$
+%Impact is given by the impact factors, which are the factors that determine the capability of the attack to deal damage.
+%The offensive damage factor $\ODF$ is defined to be the sum of the factors that determine the capability of the attack to deal damage,
+%and the defensive damage factor $\DDF$ is defined to be the sum of the factors that determine the defender's capacity to absorb damage.level $\ODFA$ of a relevant ability
+%plus a damage modifier $\ODFM$, and similarly for $\DDF$.
+%The ability that goes into $\ODFA$ should be one that plays a role in determining how
+%powerful the attack is (e.g. strength for an axe swing), and the ability that goes into $\DDFA$
+%should be one that plays a role in determining a character's capacity to absorb damage (e.g. constitution). 
+%If no relevant ability can be identified for $\ODFA$ or $\DDFA$, set it to $0$. 
+%The damage modifer consists of other factors that affect the ability of the attack to do damage.
+%For example $\ODFM$ could involve the weapon being used, and $\DDFM$ could involve the defender's armor.
+%Putting it together,
+%$$ \NDF = (\ODFA + \ODFM) - (\DDFA + \DDFM). $$
+Impact is a sum of effects coming from the impact factors involved in the attack,
+and protection is a sum of effects coming from protection factors.
+Here are some suggestions for factors to consider:
+\vspace{-1em}\begin{itemize}
+\item Abilities. A stronger character deals a deadlier blow with a melee weapon.
+The level of a relevant ability can be included directly in impact.
+Don't stack the effects of multiple abilities; instead, use the nearest common ancestor attribute when multiple abilities apply.
+\item Weapons. A sharp sword has a greater impact than a dull or worn sword.
+\item Armor, natural or otherwise. A creature with a tough exterior or armored clothing has greater protection.
+\item Size. The same blow imparts greater destruction to smaller targets. 
+\end{itemize}
+An understanding of section \ref{sec:wounds} is required for the GM to properly
+judge the contribution of these factors to impact and protection.
 
 
 \subsubsection{Wounds}\label{sec:wounds}
