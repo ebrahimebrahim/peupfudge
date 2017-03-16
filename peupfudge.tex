@@ -433,6 +433,7 @@ Set the skill's level to 2 below the level of its governing attribute (capped be
 
 
 \subsection{Health} \label{sec:health}
+<<<<<<< HEAD
 Health describes a character's state of well-being. It is given entirely by the character's \emdex{conditions}. 
 Conditions afflicting a character can be any among a wide variety of ailments that have a pre-defined progression 
 represented by a flowchart. 
@@ -463,6 +464,27 @@ combat).
 
 Trauma is handled as a health condition which applies to a particular body part. To follow the example, a character who is simultaneously 
 bleeding in two different locations will have two separately active flowcharts for bleeding.
+=======
+Health describes a character's state of well-being. It is given entirely by the character's \emph{conditions}. 
+A \emdex{condition} is a flowchart which describes a 
+
+\subsubsection{Trauma}
+\emph{Trauma} encompasses the damage caused to specific parts of a character's body by physical force. 
+It can be caused by any kind of physical force (e.g. falling, combat). The trauma inflicted on a character 
+should be described as a list of injuries and by what body part(s) they affect (e.g. scratched left arm, incapacitated third tentacle). 
+Because these injuries may interfere with a character's ability to perform certain actions, a penalty 
+should be decided for affected abilities based on how important the body part is to the ability . what is trauma? what can cause it?
+describing injuries with word body part. resultant injury penalties.
+gm considers which body parts might be required for which abilities.
+how injuries heal?
+
+\subsubsection{Conditions}
+what is a condition? handled by flowcharts which should be made for every desired condition.
+the flowcharts have entry points, exit points, states (denoted by nodes, with a description of penalties),
+and state transitions (denoted by edges, labeled with the triggering events). probabilities are dice rolls yo.
+give such a bleeding example for instance. how much the flowcharts are peuped to the players could be up to the gm,
+or based on for instance medical knowledge for example. peup.
+>>>>>>> 93865e4f2c6e9727d2a4182374ea25fdbc317636
 
 \subsection{Items and Inventory} \label{sec:items}
 A character's \emdex{inventory} is the list of items carried on their person,
@@ -753,15 +775,21 @@ $$ \rho = (R + M) - (R' + M'). $$
 A negative value is a \emdex{miss}, a positive value is a \emdex{hit}, and a value of zero is a \emdex{graze}.
 The modifiers $M$ and $M'$ are comprised of several bits that are explained in section \ref{sec:sitmod}.
 \item
-In the case of a hit or a graze, further rolling is done to determine the severity of the outcome,
-which we quantify as \emdex{damage}.
+In the case of a miss, attack resolution is complete.
+Otherwise determine the target of the attack, by rolling if needed (see section \ref{sec:bodyparts}).
+\item
+%In the case of a hit or a graze, further rolling is done to determine the severity of the outcome,
+Quantify the severity of the outcome as \emdex{damage}.
 Computing damage requires settling on a \emph{damage factor} $\NDF$ for the attack, explained in section \ref{sec:ndf}.
 A hit results in a damage of
-$$ 2\rho + \NDF + 1\text{dF} $$
+$$ \rho + \NDF $$
 while a graze results in a damage of
-$$ \frac{1}{2} (\NDF + 1\text{dF}). $$
+$$ \frac{1}{2} \NDF, $$
+rounding down.
 \item
-Damage then determines the type of wound\index{wound} inflicted on the defender, according to section \ref{sec:wounds}.
+Damage then determines the type of wound\index{wound} inflicted on the target, according to section \ref{sec:wounds}.
+\item
+Consider what health \notes{peups have been peuped}, and the penalties that can influence later attacks.
 \end{enumerate}
 
 When $M$ is of a lower or greater order\index{order} than $M'$, hit damage is taken to be $0$ or $\infty$ respectively.
@@ -812,6 +840,32 @@ to give a frame of reference it could be $1$ for a torso and $4$ for an eye.
 If the player does not miss, then one records in addition to the usual wounds the specific body part that received the wound.
 
 
+\subsubsection{Body Parts}\label{sec:bodyparts}
+
+%gm should create body diagram for each creature, with sizes of body parts included.
+For each creature of their world, the GM should create a body diagram\index{body diagram}
+that indicates relative sizes of body
+parts that can serve as targets and be injured in combat.
+Here is an example for humans:
+
+\notes{diagram of human body with each body part labeled with a relative size}
+%example of it for human
+
+\newcommand{\peup}{\notes{peup}}
+%roll to determine target if no targetting was called
+If no target was called by the attacking player before their attack was resolved, then a target
+for the attack is chosen at random. The choice is weighted by body part size,
+and it can be determined by a roll.
+Mangled body parts (see section \ref{sec:wounds}) should not be included in target choice--
+simply re-roll if they come up as a target.
+%convert sizes to die rolls for the purpose of randomly choosing a body part, with weighting by size
+Actually, the GM should convert relative body part sizes into dice roll ranges
+and present the body diagram with this included.
+Here is our example with d$20$ ranges put in:
+
+%example of die roll labels for human
+\notes{diagram of human body with each body part labeled with a range of d20 rolls}
+
 \subsubsection{Impact and Protection}\label{sec:ndf}
 The damage dealt by a successful attack depends on the \emdex{damage factor} $\NDF$,
 the difference between \emdex{impact} and \emdex{protection}:
@@ -830,27 +884,97 @@ $$ \NDF = \text{[impact]} - \text{[protection]}. $$
 %$$ \NDF = (\ODFA + \ODFM) - (\DDFA + \DDFM). $$
 Impact is a sum of effects coming from the impact factors involved in the attack,
 and protection is a sum of effects coming from protection factors.
-Here are some suggestions for factors to consider:
-\vspace{-1em}\begin{itemize}
-\item Abilities. A stronger character deals a deadlier blow with a melee weapon.
+Let us go through some of the factors that should be included.
+
+\paragraph{Abilities}
 The level of a relevant ability can be included directly in impact.
+Or, if it only partly applies, a lesser portion of the ability level may be used.
+For example a stronger character deals a deadlier blow with a melee weapon, so a strength ability could be used.
 Don't stack the effects of multiple abilities; instead, use the nearest common ancestor attribute when multiple abilities apply.
-\item Weapons. A sharp sword has a greater impact than a dull or worn sword.
-\item Armor, natural or otherwise. A creature with a tough exterior or armored clothing has greater protection.
-\item Size. The same blow imparts greater destruction to smaller targets. 
-\end{itemize}
+A relevant ability may also be included, separately, in protection.
+For example a tougher character can take a harder hit without receiving as much of an injury.
+
+\paragraph{Size}
+The same blow imparts greater destruction to smaller targets. 
+This is why the \emdex{size} of a target is important to protection.
+When creating their world, the GM should choose a \emdex{baseline target}
+size with respect to which all target sizes are compared.
+The choice of baseline target calibrates the entire damage system to respond appropriately to target sizes.
+A good baseline target is one that, with all other things being equal, would be injured a bit from a good punch.
+More precisely, it is a target that recieves a wound of degree $1$ (see section \ref{sec:wounds}) about $38\%$
+of the time, and a wound of degree $0$ the rest of the time, from a successful standard attack by an equally matched character.
+%use the protection table to determine suitable contribution to protection due to size of body part
+Use the following table to choose a suitable contribution to protection due to the size of a body part:
+\begin{center}
+\input{size_protection_table.tex}
+\end{center}
+Sizes are measured in in units of the baseline target size,
+and the value in the right hand column is included in the calculation of total protection.
+%we recommend just putting this number on the body charts directly
+Actually, the GM can include these protection modifiers on the body diagram\index{body diagram}
+directly for players' convenience.
+%example for human, with torso as baseline target
+Here is our human example from above, with protection modifiers included,
+using a human torso as the baseline target:
+
+\notes{diagram of human body with each body part labeled with d20 stuff
+from before and protection modifiers as well}
+
+\paragraph{Other Things}
+We list below suggestions for some other factors that can be included.
 An understanding of section \ref{sec:wounds} is required for the GM to properly
 judge the contribution of these factors to impact and protection.
+\vspace{-1em}\begin{itemize}
+\item Weapons. A sharp sword has a greater impact than a dull or worn sword.
+\item Armor, natural or otherwise. A creature with a tough exterior or armored clothing has greater protection.
+\end{itemize}
 
 
 \subsubsection{Wounds}\label{sec:wounds}
 
-\notes{base things on :\\
-			Hit severity comes from top left of pg. 47\\
-			Graze severity comes from Table 4.56
-}
+%intro
+%hp of body parts
+Wounds on body parts are tracked in terms of \emdex{hit points} (hp).
+Each body part of each character has a number of hit points ranging from
+$0$ to $4$.
+%wound of 'degree' x
+When damage dealt to a target body part results in a decrease of its hp by an amount $n$, 
+a \emph{wound of degree}\index{wound degree}
+$n$ is said to have been inflicted upon the target.
+%damage dealt is according to following table. record new hp. on body diagram, why not.
+Use the following table to determine the degree of wound inflicted on a defender's body part
+due to a given damage:
+\begin{center}
+\input{damage_table.tex}
+\end{center}
+Players should keep track of the hp values of body parts of the characters under their control;
+the body diagram is a useful place to record this information.
 
-\notes{what are the penalties due to wounds}
+%pay attention to health peups that could have been triggered
+Some health \notes{peups may be peuped} following a wound.
+Remember to consider how resulting penalties can influence later attacks.
+
+%death
+The defender dies if a \emdex{vital body part} is at an hp of $0$.
+The GM should decide, for each creature of their world, which body parts are vital.
+
+%narrative interpretation of wounds
+The hp values for a body part have the following descriptions that can feed into the narrative:
+\begin{center}
+{\setlength{\extrarowheight}{1pt}
+\begin{tabular}{l|l}
+hp & adjective \\
+\cline{1-2}
+4  & fine \\
+3  & scratched \\
+2  & hurt \\
+1  & incapacitated \\
+0  & mangled
+\end{tabular}}
+\end{center}
+
+\paragraph{Healing} ...\notes{peup}...
+
 
 \section{Appendix}
 
