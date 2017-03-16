@@ -433,35 +433,38 @@ Set the skill's level to 2 below the level of its governing attribute (capped be
 
 
 \subsection{Health} \label{sec:health}
-Health describes a character's state of well-being. It is given entirely by the character's \emdex{conditions}. 
-Conditions afflicting a character can be any among a wide variety of ailments that have a pre-defined progression 
-represented by a flowchart. 
-In the flowchart, \emph{states} are represented as nodes, and \emph{transitions} are represented as edges. States 
-include a brief label of symptoms; if necessary, a longer description below the flowchart can expand on 
-the resultant effects or penalties. Transitions lead out from the right side of states and into the left side 
-of new states, and include a brief label of what must happen to trigger the transition between states; 
-a longer description below the flowchart can expand on this as well. Transitions coming from the left side of 
-the flowchart represent causes of the condition, and transitions going out to the right side of the flowchart represent 
-means of curing it.
+A character's health is given entirely by their \emdex{conditions}.
+Conditions that could afflict a character have a pre-defined progression represented by a flowchart.
+For every creature in their world, the GM should consider what health conditions they wish to include.
+\emph{States}\index{states} are collections of symptoms, effects on afflicted characters.
+They are represented in the flowchart by nodes.
+\emph{Transitions}\index{transitions} between states are specified by saying the circumstances that trigger them
+and the way to determine the resulting state.
+They are represented in the flowchart by arrows that branch to nodes for potential resulting states.
+Arrows with no source node represent the cause(s) of a condition, the ways for a character to develop the condition.
+Here is an example flowchart for the condition of tuberculosis:
 
 \notes{peupchart: tuberculosis disease}
 
-As the example flowchart shows, transitions can be triggered by actions, the passage of time, probabilities, etc., 
-and these can factors can be combined. For instance, a character with this condition active who is in the ``TB Disease'' 
-state would suffer a penalty of $-2$ to all rolls (see section \ref{sec:actions}). Every day in the game, a d$20$ is rolled, and the highest number 
-transition label which is surpassed is followed; each day there is therefore a $5\%$ chance of the character being cured, a $90\%$ chance 
-of the condition continuing, and a $5\%$ chance of the character dying. At any point while the character is in this cycle, 
-they will be cured if they receive antibiotics.
+The numbers in this example are used to represent d$20$ rolls used to determine the outcome of a طransition. 
+We have used a notation in which the outcome is the one with the highest value surpassed by a d$20$ roll.
+Suppose a character enters the state "TB Disease."
+While in this state, they suffer a penalty of $-2$ to all rolls (rolls will come up in section \ref{sec:actions}).
+If they receive antibiotics, they ``exit the flowchart;'' they recover from the tuberculosis condition.
+If one day passes without treatment, they must roll a d$20$.
+A roll of $1$ results in the character's death, a roll of $20$ results in the character recovering,
+and a roll between $2$ and $19$ results in no change of state.
+Without treatment, this cycle repeats every 24 hours until death or recovery.
 
-In designing the world, the GM should create a flowchart for each desired health condition. It is up to the GM how much of the flowcharts 
-to reveal to the players; this could, for instance, be based on a player's medical knowledge represented by a relevant ability.
+It is up to the GM how much of the flowcharts to reveal to the players.
+This could be based on a player's medical knowledge, which could be represented by a relevant ability.
 
-\paragraph{Traumatic Injuries} Trauma encompasses the damage caused to specific parts of a character's body by physical force (e.g. falling, 
+\paragraph{Traumatic Injuries} Trauma encompasses the damage caused to specific parts of a character's body by physical force (e.g. falling,
 combat).
 
 \notes{peupchart: bleeding}
 
-Trauma is handled as a health condition which applies to a particular body part. To follow the example, a character who is simultaneously 
+Trauma is handled as a health condition which applies to a particular body part. To follow the example, a character who is simultaneously
 bleeding in two different locations will have two separately active flowcharts for bleeding.
 
 \subsection{Items and Inventory} \label{sec:items}

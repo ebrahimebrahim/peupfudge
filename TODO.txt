@@ -4,7 +4,6 @@
 
 Y
 need to devise a health system
-- conditions and trauma (come up with clear and short way to describe distinction)
 - conditions are handled by flowcharts
   - gm should make one of these for each health condition they'd like to have for each type of creature in their world.
   - a node is a particular state with respect to the condition,
