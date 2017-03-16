@@ -433,25 +433,36 @@ Set the skill's level to 2 below the level of its governing attribute (capped be
 
 
 \subsection{Health} \label{sec:health}
-Health describes a character's state of well-being. It is given entirely by the character's \emph{conditions}. 
-A \emdex{condition} is a flowchart which describes a 
+Health describes a character's state of well-being. It is given entirely by the character's \emdex{conditions}. 
+Conditions afflicting a character can be any among a wide variety of ailments that have a pre-defined progression 
+represented by a flowchart. 
+In the flowchart, \emph{states} are represented as nodes, and \emph{transitions} are represented as edges. States 
+include a brief label of symptoms; if necessary, a longer description below the flowchart can expand on 
+the resultant effects or penalties. Transitions lead out from the right side of states and into the left side 
+of new states, and include a brief label of what must happen to trigger the transition between states; 
+a longer description below the flowchart can expand on this as well. Transitions coming from the left side of 
+the flowchart represent causes of the condition, and transitions going out to the right side of the flowchart represent 
+means of curing it.
 
-\subsubsection{Trauma}
-\emph{Trauma} encompasses the damage caused to specific parts of a character's body by physical force. 
-It can be caused by any kind of physical force (e.g. falling, combat). The trauma inflicted on a character 
-should be described as a list of injuries and by what body part(s) they affect (e.g. scratched left arm, incapacitated third tentacle). 
-Because these injuries may interfere with a character's ability to perform certain actions, a penalty 
-should be decided for affected abilities based on how important the body part is to the ability . what is trauma? what can cause it?
-describing injuries with word & body part. resultant injury penalties.
-gm considers which body parts might be required for which abilities.
-how injuries heal?
+\notes{peupchart: tuberculosis disease}
 
-\subsubsection{Conditions}
-what is a condition? handled by flowcharts which should be made for every desired condition.
-the flowcharts have entry points, exit points, states (denoted by nodes, with a description of penalties),
-and state transitions (denoted by edges, labeled with the triggering events). probabilities are dice rolls yo.
-give such a bleeding example for instance. how much the flowcharts are peuped to the players could be up to the gm,
-or based on for instance medical knowledge for example. peup.
+As the example flowchart shows, transitions can be triggered by actions, the passage of time, probabilities, etc., 
+and these can factors can be combined. For instance, a character with this condition active who is in the "TB Disease" 
+state would suffer a penalty of -2 to all rolls (see \sec{actions}). Every day in the game, a d20 is rolled, and the highest number 
+transition label which is surpassed is followed; each day there is therefore a 5\% chance of the character being cured, a 90\% chance 
+of the condition continuing, and a 5\% chance of the character dying. At any point while the character is in this cycle, 
+they will be cured if they receive antibiotics.
+
+In designing the world, the GM should create a flowchart for each desired health condition. It is up to the GM how much of the flowcharts 
+to reveal to the players; this could, for instance, be based on a player's medical knowledge represented by a relevant ability.
+
+\paragraph{Traumatic Injuries} Trauma encompasses the damage caused to specific parts of a character's body by physical force (e.g. falling, 
+combat).
+
+\notes{peupchart: bleeding}
+
+Trauma is handled as a health condition which applies to a particular body part. To follow the example, a character who is simultaneously 
+bleeding in two different locations will have two separately active flowcharts for bleeding.
 
 \subsection{Items and Inventory} \label{sec:items}
 A character's \emdex{inventory} is the list of items carried on their person,
