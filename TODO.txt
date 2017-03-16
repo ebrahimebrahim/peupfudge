@@ -4,6 +4,7 @@
 
 where do quantitive base physical characteristics like speed go? in with health or as their own system?
 
+E
 devise system to determine movement speed in various situations
 - gm should choose, for each creature of world, what are the types of locomotion and what are base speeds for each
 - e.g. humans could have walking, running, sprinting
