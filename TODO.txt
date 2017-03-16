@@ -31,8 +31,6 @@ write: health, wounds, intro
 
 add a healing section to qombat
 
-replace orange peups with suitable terminology from health system when it is written
-
 fill in missing body diagrams
 
 fill in missing health flowcharts
