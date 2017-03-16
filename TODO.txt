@@ -2,16 +2,6 @@
 === Needed before 1.0 ===
 =========================
 
-where do quantitive base physical characteristics like speed go? in with health or as their own system?
-
-E
-devise system to determine movement speed in various situations
-- gm should choose, for each creature of world, what are the types of locomotion and what are base speeds for each
-- e.g. humans could have walking, running, sprinting
-- if want, can choose an ability from tree to serve as modifier. (come up with formula to modify)
-- if want, can have a fatigue/energy bar or health condition to limit some types of locomotion
-- idea for an advanced mechanic: penalties to speed or fatigue due to inventory weight
-
 Y
 need to devise a health system
 - conditions and trauma (come up with clear and short way to describe distinction)
@@ -37,9 +27,15 @@ write general suggestion on merging ability levels if needed by going to nearest
 
 add weapon type to sitmod and Delta
 
-write: health, wounds, movement, intro
+write: health, wounds, intro
 
 add a healing section to qombat
+
+replace orange peups with suitable terminology from health system when it is written
+
+fill in missing body diagrams
+
+fill in missing health flowcharts
 
 
 ===================
@@ -108,3 +104,4 @@ additional things:
     - order gap and gluing together scales of different order
     - more specific ways of calculating some of the things in sitmod
     - a more detailed targetting system?
+    - ways of handling fatigue and movement speed penalties due to inventory weight

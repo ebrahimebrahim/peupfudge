@@ -669,15 +669,21 @@ The type of location tracking and its scale may be decided by the GM when it is 
 \paragraph{Motion}
 When time is being measured in rounds \emph{and} locations are being tracked,
 the relation between them brings character movement into the quantified realm.
-The GM should answer the following questions after deciding on characteristics and traits:
+The GM should consider the following for each creature of their world:
 \vspace{-1em}
-\begin{itemize}
-\item
-What are the types of character movement (e.g. walk, run).
-What determines character movement speed?
-Is it influenced \notes{WAIT HOW DO WE DO SPEED?! we could just peup!}
-\end{itemize}
-
+\begin{enumerate}
+\item What are the main modes of locomotion\index{locomotion} for this creature? (e.g. walking, running, sprinting).
+\item What is the speed of a typical one of these creatures when engaging in each mode of locomotion?
+We call these \emph{base speeds}\index{base speed}.
+\item Is there an ability whose training would improve this creature's speed?
+\end{enumerate}
+If there is such an ability, then actual speeds\index{speed}
+for particular characters can be taken to be
+$$ [\text{base speed}]\times (1.2)^{[\text{ability level}]} $$
+for each mode of locomotion.
+Otherwise, just use the base speeds directly.
+Other mechanics a GM might include to constrain things are a fatigue/energy bar
+or penalties due to health \notes{peups} or inventory weights.
 
 
 
