@@ -21,7 +21,6 @@ need to devise a health system
     (we should come up with how injury penalty works to affect abilities).
   - ... how do injuries heal?
 
-add weapon type to sitmod and Delta
 
 write sections on health and healing part of wounds section
 
