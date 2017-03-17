@@ -15,6 +15,13 @@ write general suggestion on merging ability levels if needed by going to nearest
 
 write intro
 
+write a bit more about bars.
+
+make qul graph demonstrating orders
+
+have a chapter on modules, move combat section there.
+remember to move attacks paragraph of tree design section to there also
+
 ===================
 === Needed next ===
 ===================
@@ -27,14 +34,7 @@ or is that too much to keep track of to be worth it?
 
 section on character death in health sec
 
-make qul graph demonstrating orders
-
 put distributions table for 4dF in 1.1 section "numbers and adjectives"
-
-write a bit more about bars.
-
-have a chapter on modules, move combat section there.
-remember to move attacks paragraph of tree design section to there also
 
 come up with a better term for hitting factors
 
@@ -79,6 +79,8 @@ additional things:
   - list of questions the GM should answer
   - some sort of glossary of game mechanics (use peupfudge.ind to extract page numbers)?
     or does index sort of play that role?
+  - fudge dice roll probabilities
+  - formulas for things like xp table in case people need to go over range in table
   - a section on advanced mechanics
     - order gap and gluing together scales of different order
     - more specific ways of calculating some of the things in sitmod
