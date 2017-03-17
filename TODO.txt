@@ -1,5 +1,5 @@
 =========================
-=== Needed before 1.0 ===
+=== Needed before 0.9 ===
 =========================
 
 Y
@@ -21,19 +21,22 @@ need to devise a health system
     (we should come up with how injury penalty works to affect abilities).
   - ... how do injuries heal?
 
-
-write general suggestion on merging ability levels if needed by going to nearest common ancestor
-
 add weapon type to sitmod and Delta
 
-write: health, wounds, intro
-
-add a healing section to qombat
+write sections on health and healing part of wounds section
 
 fill in missing body diagrams
 
 fill in missing health flowcharts
 
+
+=========================
+=== Needed before 1.0 ===
+=========================
+
+write general suggestion on merging ability levels if needed by going to nearest common ancestor
+
+write intro
 
 ===================
 === Needed next ===
