@@ -1,13 +1,4 @@
 =========================
-=== Needed before 0.9 ===
-=========================
-
-fill in missing body diagrams
-
-fill in missing health flowcharts
-
-
-=========================
 === Needed before 1.0 ===
 =========================
 
