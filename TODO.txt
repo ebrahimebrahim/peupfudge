@@ -2,29 +2,6 @@
 === Needed before 0.9 ===
 =========================
 
-Y
-need to devise a health system
-- conditions are handled by flowcharts
-  - gm should make one of these for each health condition they'd like to have for each type of creature in their world.
-  - a node is a particular state with respect to the condition,
-    complete with a description of the effects (e.g. penalties to abilities) of being in that state.
-  - each edge is labeled with the event that triggers a state transition,
-    and it can branch into multiple target nodes with multiple probabilities.
-    - convert probabilities to convenient dice rolls.
-    - these branchings can also be labeled with abilities that modify the rolls.
-  - example: bleeding
-  - the full info in these flowcharts could be considered to be some sort of medical knowledge.
-    it is up to the gm how much of it to reveal to players.
-- trauma is handled as a list of injuries
-  - how should injuries be described? do we provide a standard way like "scratch", "hurt", etc?
-  - gm should consider, for each ability, which body parts are needed for it.
-    (we should come up with how injury penalty works to affect abilities).
-  - ... how do injuries heal?
-
-add weapon type to sitmod and Delta
-
-write sections on health and healing part of wounds section
-
 fill in missing body diagrams
 
 fill in missing health flowcharts
@@ -51,6 +28,8 @@ or is that too much to keep track of to be worth it?
 section on character death in health sec
 
 make qul graph demonstrating orders
+
+put distributions table for 4dF in 1.1 section "numbers and adjectives"
 
 write a bit more about bars.
 
