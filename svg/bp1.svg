@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2"
-     inkscape:cx="216.65243"
-     inkscape:cy="78.850281"
+     inkscape:cx="202.15243"
+     inkscape:cy="75.350281"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -56,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -153,7 +153,7 @@
          sodipodi:role="line"
          id="tspan4283"
          x="60.675148"
-         y="969.52454">5</tspan></text>
+         y="969.52454">1</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -175,7 +175,7 @@
          sodipodi:role="line"
          id="tspan4295"
          x="163.13963"
-         y="970.53979">20</tspan></text>
+         y="970.53979">4</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -186,7 +186,7 @@
          sodipodi:role="line"
          id="tspan4299"
          x="244.40195"
-         y="915.47345">5</tspan></text>
+         y="915.47345">1</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -197,7 +197,7 @@
          sodipodi:role="line"
          id="tspan4299-3"
          x="243.8027"
-         y="1024.8936">5</tspan></text>
+         y="1024.8936">1</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -208,7 +208,7 @@
          sodipodi:role="line"
          id="tspan4321"
          x="256.57874"
-         y="954.88245">10</tspan></text>
+         y="954.88245">2</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -219,6 +219,6 @@
          sodipodi:role="line"
          id="tspan4321-1"
          x="256.30215"
-         y="988.62689">10</tspan></text>
+         y="988.62689">2</tspan></text>
   </g>
 </svg>
