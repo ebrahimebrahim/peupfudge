@@ -187,7 +187,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -198,111 +198,106 @@
      transform="translate(0,-720.0004)">
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend)"
-       d="m 166.37115,809.76682 0,161.42857"
+       d="m 127.37115,788.76682 0,161.42857"
        id="path4136"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#marker4538);marker-end:url(#marker4604)"
-       d="m 145.65686,956.90967 361.42857,0"
+       d="m 106.65686,935.90967 361.42857,0"
        id="path4140"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="545.87555"
-       y="951.90967"
+       x="506.87555"
+       y="930.90967"
        id="text4142"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="545.87555"
-         y="951.90967"
+         x="506.87555"
+         y="930.90967"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
          id="tspan4146">weight able</tspan><tspan
          sodipodi:role="line"
-         x="545.87555"
-         y="970.65967"
+         x="506.87555"
+         y="949.65967"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
          id="tspan4150">to lift</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="137.96086"
-       y="778.35394"
+       x="124.96086"
+       y="770.35394"
        id="text4142-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="137.96086"
-         y="778.35394"
+         x="124.96086"
+         y="770.35394"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
-         id="tspan4175">strength ability level needed, i.e.</tspan><tspan
-         sodipodi:role="line"
-         x="137.96086"
-         y="797.10394"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
-         id="tspan4177">log(weeks of strength training needed)</tspan></text>
+         id="tspan4177">strength level</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 234.22829,956.90967 c 0,0 43.26495,-7.55523 56.07143,-23.21429 25.57057,-31.26627 23.21429,-118.92856 23.21429,-118.92856"
+       d="m 195.22829,935.90967 c 0,0 43.26495,-7.55523 56.07143,-23.21429 25.57057,-31.26627 23.21429,-118.92856 23.21429,-118.92856"
        id="path4181"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cac" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 383.63563,956.90967 c 0,0 43.26495,-7.55523 56.07143,-23.21429 25.57057,-31.26627 23.21429,-118.92856 23.21429,-118.92856"
+       d="m 344.63563,935.90967 c 0,0 43.26495,-7.55523 56.07143,-23.21429 25.57057,-31.26627 23.21429,-118.92856 23.21429,-118.92856"
        id="path4181-5"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cac" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 317.08544,814.76682 0,142.14285"
+       d="m 278.08544,793.76682 0,142.14285"
        id="path4656"
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 465.77849,814.76682 0,142.14285"
+       d="m 426.77849,793.76682 0,142.14285"
        id="path4656-3"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.59692955px;line-height:125%;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-1289.1851"
-       y="227.63348"
+       x="-1261.7722"
+       y="197.75697"
        id="text5455"
        sodipodi:linespacing="125%"
        transform="matrix(0,-0.76606457,1.305373,0,0,0)"><tspan
          sodipodi:role="line"
          id="tspan5457"
-         x="-1289.1851"
-         y="227.63348"
+         x="-1261.7722"
+         y="197.75697"
          style="font-size:68.65643311px">{</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.59692955px;line-height:125%;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-1289.1851"
-       y="341.98193"
+       x="-1261.7722"
+       y="312.10541"
        id="text5455-5"
        sodipodi:linespacing="125%"
        transform="matrix(0,-0.76606457,1.305373,0,0,0)"><tspan
          sodipodi:role="line"
          id="tspan5457-6"
-         x="-1289.1851"
-         y="341.98193"
+         x="-1261.7722"
+         y="312.10541"
          style="font-size:68.65643311px">{</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="274.51855"
-       y="997.18042"
+       x="235.51855"
+       y="976.18042"
        id="text4142-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="274.51855"
-         y="997.18042"
+         x="235.51855"
+         y="976.18042"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
          id="tspan4150-1">curve measured on</tspan><tspan
          sodipodi:role="line"
-         x="274.51855"
-         y="1015.9304"
+         x="235.51855"
+         y="994.93042"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
          id="tspan5503">order of <tspan
    style="font-weight:bold"
@@ -310,18 +305,18 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="422.62646"
-       y="997.18042"
+       x="383.62646"
+       y="976.18042"
        id="text4142-2-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="422.62646"
-         y="997.18042"
+         x="383.62646"
+         y="976.18042"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
          id="tspan4150-1-6">curve measured on</tspan><tspan
          sodipodi:role="line"
-         x="422.62646"
-         y="1015.9304"
+         x="383.62646"
+         y="994.93042"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-anchor:middle"
          id="tspan5503-0">order of <tspan
    style="font-weight:bold"

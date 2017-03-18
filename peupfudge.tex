@@ -31,6 +31,8 @@
 \textbf{\today}\\
 \textit{Derived from core Fudge rules by Ebrahim, Yusuf, and Yussra.}
 
+\tableofcontents
+
 \section{Introduction}
 \notes{what peupfudge is all about.
 it gives you the classes and not the objects.
@@ -62,7 +64,7 @@ level & adjective \\
 2  & great \\
 3  & superb \\
 4  & legendary \\[8pt]
-\multicolumn{2}{c}{(more if needed)}
+%\multicolumn{2}{c}{(more levels may be introduced if needed)}
 \end{tabular}}
 \end{center}
 We call these numbers \emph{levels}; they appear as ability levels in section \ref{sec:tree}
@@ -72,13 +74,13 @@ This interpretation is sharpened by viewing the scale as
 logarithmic with a base of \input{base.tex}\unskip.
 This means that a good climber is \input{base.tex} times as skilled as a fair climber,
 who is in turn \input{base.tex} times as skilled as a mediocre climber, and so on.
-A cliff of ``good'' difficulty level can be thought of as one that would challenge a ``good'' climber,
+A cliff of good difficulty level can be thought of as one that would challenge a good climber,
 in that a good climber would be expected to successfully climb it $38\%$ of the time.
 
-What does it even \emph{mean} to say things like ``$A$ is twice as good of a climber'' as $B$?
-We take it to mean that ``$A$ has about twice the climbing experience that $B$ has''.
+What does it even \emph{mean} to say things like $A$ is ``twice as good of a climber'' as $B$?
+We take it to mean that $A$ has about twice the climbing experience that $B$ has.
 Making sense of this in turn requires that we agree on some sort of untrained baseline for climbing.
-This baseline should be based the adjective that makes sense, and the GM chooses it
+This baseline should be based on the adjective that makes sense, and the GM chooses it
 explicitly while building the ability tree (coming up in section \ref{sec:tree}).
 
 Some care is needed in order to interpret levels consistently.
@@ -86,7 +88,10 @@ Suppose that $A$ has great strength and $B$ has merely good strength.
 This apparently means that ``$A$ is \input{base.tex} times as strong as $B$.''
 But this does \emph{not} imply that $A$ can lift \input{base.tex} times as much weight as $B$.
 What it does imply is that the factor by which $A$ can lift more weight than $B$ is
-\emph{as though} $A$ had \input{base.tex} times as much \emph{strength training} as $B$.
+\emph{as though} $A$ had \input{base.tex} times as much strength training \emph{experience} as $B$.
+If the skill in question were running, then $A$ would not be \input{base.tex}
+times faster than $B$, but rather have \input{base.tex}
+times as much running experience.
 
 \paragraph{Orders}
 So ability levels correspond to the experience required to attain a certain degree of competence... but \emph{whose} experience?
@@ -100,31 +105,36 @@ For each order that is needed in a campaign, the GM should assign a label that l
 For example a giant of great strength (for a giant) would be said to have strength $2$G,
 where the label ``G'' indicates that the level $2$ is meant to be interpreted on the order of giants.
 Unlabeled ``unitless'' levels should be interpreted on the order of humans, or whatever is the
-\emdex{standard being}, the most typical type of creature that can serve as a player character.
+\emdex{standard being}, the most typical type of creature that can serve as a player character within a campaign.
 
 
 %3 things help interpret: adj, b times xp, 38%
-To summarize, there are four clues that can guide interpretations of a level:
+To summarize, there are four elements that can provide information on a level:
 \vspace{-1em}\begin{enumerate}
 \item The adjective that goes with the level.
 \item The order label on the level.
-\item Each additional ability level corresponds to
-\input{base.tex} times as much experience's worth of the ability.
-\item A challenge of difficulty level $D$ is one that can be overcome $38\%$ of the time for
-someone with a relevant ability level of $D$.
+\item The interpretation of relative ability levels
+(each additional ability level corresponds to
+\input{base.tex} times as much experience's worth of the ability).
+\item The probability governing difficulty levels
+(a challenge of difficulty level $D$ is one that can be overcome $38\%$ of the time for
+someone with an ability level of $D$).
 \end{enumerate}
 %gm needs to know how to judge the difficulty of a task,
 %and also gm and players need to know how to interpret for narrative sake
 The GM ought to understand levels in order to judge the difficulties of various tasks
 and add appropriate modifiers to various rolls.
 The players should also understand levels to some extent,
-so that their perception of the shared narrative coalesces and lines up with the mechanics.
+so that their perception of the shared narrative coalesces and lines up with the mechanics
+of \peupfudge{}.
 
 %dF
-We will refer to dice rolls using the standard ``d$n$'' notation.
+We will refer to dice rolls using the ``d$n$'' notation,
+which stands for an $n$-sided die.
 The main die type used here is the \emdex{fudge die},
-which has the labels $-1$, $0$, and $+1$.
+which can yield $-1$, $0$, or $+1$ with equal chances.
 We denote a fudge die roll by ``dF.''
+The result of a roll of $N$ fudge dice ($N$dF) is the sum of the results of the individual die rolls.
 
 
 \section{Characters}
@@ -142,55 +152,60 @@ describe identity and background
 \item \emph{Abilities}
 represent improvable traits that play a role in action resolution
 (e.g. strength, climbing, legal knowledge).
-They have a positive integer \emph{ability level}.
-\emph{Powers} are abilities that can also be turned off completely.
-Abilities are organized in a tree and separated into \emph{skills} and \emph{attributes}.
+They have an integer ability level.
+\emph{Powers} are abilities that can be turned off completely.
+Abilities are organized in a tree and separated into \emph{skills} and \emph{attributes} (see section \ref{sec:tree}).
 \item \emph{Properties} are binary traits-- a character either has or does not have a given property
 (e.g. deaf, blessed).
 \item \emph{Bars} are numerical statuses (e.g. mana, hunger, reputation).
 \item \emph{Inventory} is the collection of items on a character's person.
-\item \emph{Health} describes the state of a character's well-being as given by medical conditions.
+\item \emph{Health} is the set of conditions that describe the state of a character's well-being.
 \end{itemize}
 
 
-In creating a game world, a GM needs to specify the structure of a character by specifying the traits and statuses relevant to the campaign.
+In creating a game world, a GM needs to specify the traits relevant to the campaign.
 A GM must essentially decide how a character sheet looks.
-In particular, this will involve inventing the some of the traits which might be based on the specific setting of the game.
+In particular, this will involve inventing some of the traits, which might be based on the specific setting of the game.
 
 \subsection{The Ability Tree}\label{sec:tree}			
 
-The purpose of an ability level is to have something to roll against while resolving actions. If you don't know what that means, have a look at the introduction to section \ref{sec:actions} before diving into the details of this section.
+The purpose of an ability level is to have something to roll against while resolving actions.
+(Action resolution will be covered in section \ref{sec:actions}.)
 
 Ability levels are to be interpreted based on section \ref{sec:quant}.
 %abilities starting at poor
-Most abilities have an initial (untrained) level of -2. The GM may choose some different initial ability levels based on the difficulty of a skill. An ability that is very hard to pick up might have an initial level of -3, while a very easy ability could start at 0. What is considered ``untrained'' will depend on the setting of the world.
+Most abilities have an initial (untrained) level of -2.
+The GM may choose some different initial ability levels based on the difficulty of a skill.
+An ability that is hard to pick up might have an initial level of -3, while an easy ability could start at -1.
 
 %define structure of tree, as well as terms 'skill' and 'attribute'
 Abilities are arranged in a tree structure in which broad abilities govern more specific ones.
 \index{ability tree}
 An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node).
 \index{skill}\index{attribute}
-Each edge of the tree (each governing of one ability by another) has an associated \emph{weight}.
+Each arrow of the tree (each governing of one ability by another) has an associated \emph{weight}.
 \index{weight}
+Weight represents the impact an ability has on its group, i.e. the degree to which its improvement
+in turn improves its governing attribute.
 Below is an example of an initial ability tree, with an ability level written next to each ability.
-Attributes are shown in blue, skills are shown in red, and weights are labeled on edges.
+Attributes are shown in blue, skills are shown in red, and weights are labeled on the arrows.
 
 \begin{center}
 \input{python/trees/example.tree.tex}
 \end{center}
 
-\paragraph{The Idea} Let us summarize the mechanics to be explained. The weight of an ability represents its importance to its group, i.e. the degree to which its improvement improves its governing ability.
-Players are granted experience points (xp) throughout the game. They may use xp to raise skills that they have recently used (i.e. rolled against).
+\paragraph{The Idea} Let us summarize the mechanics to be explained.
+Players are granted experience points (xp) throughout the game.
+They may use xp to raise skills that they have recently used (i.e. rolled against).
 \index{xp}
 Only skills, and not attributes, may be raised directly with xp.
-The mechanics of training abilities are such that competence in skills related to a given skill make it easier to train that skill.
-One effect of this is that players are encouraged
+The mechanics of training abilities are such that competence in skills related to a given skill makes it easier to train that skill.
+Consequently, players are encouraged
 to make characters that make sense and have some degree of specialization.
 
 
 %parent ability makes it easier to train children. need to consider full ancestral line. explain 'xp' or refer to sec:dev. give table and equation. note that poor parents are like no parents.
 \subsubsection{Training Skills}\label{sec:skill}
-Skills may be trained with xp.
 \index{train}\index{xp}
 The xp cost of raising a particular skill level depends on
 the skill's current level and the levels of all its ancestor attributes in the ability tree.
@@ -217,16 +232,7 @@ The \emph{attribute bonus} is a weighted average over all ancestor attributes of
 &+\ \cdots \big)
 \ /\ \big(1+\frac{1}{2}+\frac{1}{4}+\cdots\big)
 \end{align*}
-Equivalently,
-\vspace{-6mm}
-\begin{itemize}
-\item Starting from the skill, go up along the line of attributes
-and assign a weight of '1' for the attribute farthest from the skill.
-\item Double that weight for each attribute going down the line.
-\item Use that weight and the individual attribute levels to determine the total attribute bonus for the skill.
-\end{itemize}
-\vspace{-6mm}
-Thus the closer an attribute is to a skill in the ability tree, the larger its hand in governing the skill. 
+Thus, the closer an attribute is to a skill in the ability tree, the larger its hand in governing the skill. 
 
 
 
@@ -234,7 +240,7 @@ Thus the closer an attribute is to a skill in the ability tree, the larger its h
 
 %raising child ability level has chance of raising parent. this applies to attributes as well. give formula and way to implement.
 \subsubsection{Training Attributes}\label{sec:att}
-Unlike skills, attributes cannot be trained directly using xp.
+Unlike skills, attributes cannot be trained directly by using xp.
 \index{train}
 Whenever an ability level is increased, there is a chance that its governing ability will also increase.
 This mechanic applies to \emph{all} abilities, so that the effect of training skills via xp
@@ -244,13 +250,13 @@ Let $A$ be an attribute that governs abilities $B_1,\ldots,B_n$, with respective
 Whenever $B_i$ increases in level, the chance that $A$ increases in level is given by
 $$\frac{w_i}{w_1+\cdots+w_n}\ .$$
 It is sensible to round this quantity to the nearest $(\frac{1}{n})^\text{th}$ and roll a d$n$ to determine
-the outcome.
-In fact, this quantity only needs to be computed once for each edge of the ability tree,
+the whether or not $A$ increases in level.
+In fact, this quantity only needs to be computed once for each arrow of the ability tree,
 and the weights can then be dispensed with.
 After choosing initial weights and computing these probabilities,
-one might as well label the edges by the dice roll one needs to surpass to raise a governing attribute.
+one might as well label the arrows by the dice roll one needs to surpass to raise a governing attribute.
 We recommend that the GM present the game's ability tree to players in this format.
-To demonstrate, here is our example tree from above, with d20 difficulties on the edges:
+To demonstrate, here is our example tree from earlier, with d20 difficulties on the arrows:
 \begin{center}
 \input{python/trees/example.tree.d20.tex}
 \end{center}
