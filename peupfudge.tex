@@ -278,9 +278,9 @@ and they have no effect on determining the attribute bonus or reading the xp cos
 The mechanics for training skills and attributes are meant to resemble real training and experience.
 \index{train}
 Training a specific skill is easier to do given more general related experience,
-and more so for that experience which pertains most directly to the skill,
+and more so for the experience that pertains most directly to the skill,
 hence the attribute bonus of section \ref{sec:skill}.
-At the same time, that general experience typically comes from training in a wide variety of related specific skills,
+At the same time, the general experience typically comes from training in a wide variety of related specific skills,
 hence section \ref{sec:att}.
 
 %good tree design is important. if it seems limiting that only skills can be trained directly, then the tree may not be designed well.
@@ -304,22 +304,22 @@ Some abilities can be labeled as \emph{powers}, which just means that they can b
 \index{power}
 A power that is disabled for a character cannot be trained or rolled against,
 but it plays the same role as an ordinary ability for all other purposes (e.g. calculating
-the probabilities of section \ref{sec:att}).
+the probabilities in section \ref{sec:att}).
 All abilities governed by a power are automatically powers, and they are
 automatically disabled when the power is disabled.
 The GM should decide what sorts of circumstances cause various powers to become enabled.
 
 The option of powers is available because it sometimes makes sense for certain abilities to be altogether unavailable to certain characters.
 One could implement such abilities as \emph{properties} instead (explained in section \ref{sec:dev}),
-but it may be desirable to incorporate these things into the ability tree so that they can be trained and tracked with other abilties.
-A typical example would be magic as an innate ability:
+but it may be desirable to incorporate them into the ability tree so that they can be trained and tracked with other abilties.
+A typical example would be magic as an innate ability.
 \index{magic}
-non-casters should have it disabled in their tree, but one could envision an entire subtree consisting of schools of magic for casters.
+Non-casters should have it disabled in their tree, but one could envision an entire subtree consisting of schools of magic for casters.
 
 \paragraph{NPCs}
 Tracking the abilities of every NPC using a full ability tree can become a hassle.
 Fortunately, there is an easy way to lessen this work: simply \emph{trim} their ability tree!
-That is, shave off some abilities from the skill end of their tree, so that some attributes become skills.
+That is, shave off some abilities from the skill end of their tree so that some attributes become skills.
 
 \paragraph{Attacks}
 There are two ways in which abilities play a role in attack resolution:
@@ -354,6 +354,16 @@ levels of $A$ on the order of $B_1$ are never sufficient
 to describe the ability $A$ for beings of type $B_2$.
 
 
+\subsubsection{Belated Tree Augmentation}\label{sec:bta}
+
+In case you find yourself wishing, long after starting a game,
+that you had included a certain skill in the ability tree,
+we propose some rules for introducing it.
+Add the skill in the desired position to every player's tree.
+Set the skill's level to 2 below the level of its governing attribute for each player.
+Include the desired weight, and recalculate the dice roll difficulties for all skills governed by the governing attribute.
+
+
 \subsection{Character Development}\label{sec:dev}
 
 The GM should provide players with the structure of an empty character sheet,
@@ -370,7 +380,7 @@ The GM doles out xp to the players after their characters accomplish some chunk 
 The idea is that more xp should be awarded for greater success and for the accomplishment of more difficult tasks,
 but this is ultimately up to the GM.
 %xp can only be used to raise skills, not attributes. and only ones that were used (rolled against) lately. (players ask gm).
-The purpose of xp is to spend it to increase the level of skills, according to the xp cost table in section \ref{sec:tree}.
+The purpose of xp is to spend it to increase the levels of skills according to the xp cost table in section \ref{sec:tree}.
 Note that attribute levels cannot be raised directly, but instead have a chance of increasing every time a governed skill is trained.
 
 The skills that can be trained should be limited to ones that are relevant to the accomplishments that resulted in the xp reward in the first place.
@@ -378,8 +388,8 @@ The skills that can be trained should be limited to ones that are relevant to th
 A GM may enforce this by listing 
 (perhaps separately for each player)
 which skills have been opened
-to xp-allocation after a given xp reward,
-or by asking players to clear each skill with him.
+to xp allocation after a given xp reward,
+or by asking players to clear each skill with them.
 Players cannot save xp to use on arbitrary skills; they must \emph{allocate} their xp towards skills when they receive it.
 It is fine to allocate to a skill an amount of xp less than what is needed to increase its level.
 Players are responsible for keeping track of how much xp they have invested in partially purchased skill level increases.
@@ -387,16 +397,16 @@ Players are responsible for keeping track of how much xp they have invested in p
 \subsubsection{Character Creation}\label{sec:creation}
 Players start with some xp to build up their ability tree. \index{xp}
 A reasonable starting quantity is \input{xp_start_multiplier.tex}xp times the number of skills in the tree,
-but a GM may have reasons for using more or less, or even for varying the amount for certain characters.\footnote{
-The ability tree a character starts with represents skills gained
+but a GM may have reasons for using more or less, or even for varying the amount for certain characters.
+The ability tree a character starts with represents skills
 gained during a character's life up to the beginning of the narrative,
-so these sorts of GM decisions can be based on other information about the character.}
-This starting xp is spent during character creation, and it works just like the ordinary character development that follows an xp award.
+so these sorts of GM decisions can be based on other information about the character.
+The starting xp is spent during character creation, and it works just like the ordinary character development that follows an xp award.
 Since much depends on rolling at this stage, we recommend that it be done ``live;'' i.e. in the presence of other players.
 As an alternative to this form of character creation, a GM may provide prepared \emph{classes} for players to pick from.
 A \emph{class} is nothing but a pre-made ability tree.
 This alternative eliminates rolling completely; a middle ground option would be to provide a choice
-of partially developed classes and also give a bit of xp to customize things.
+of partially developed classes and also give a bit of xp for customization.
 
 Characteristics should also be pinned down during character creation.\index{characteristic}
 Since they play a mostly narrative role, there are no detailed mechanics to govern their structure.
@@ -410,15 +420,15 @@ in a specific way (e.g. a character with no arms should have some trouble traini
 or they might just need to be put in the spotlight due to their effect on many situations
 (e.g. a deaf character should have a reduced chance of noticing the ambush they are about to walk into).
 This is addressed by one more type of character trait: \emph{properties}.\index{property}
-A property should be a single word or very brief phrase that can be true of a character or not,
+A property should be a label that can be true of a character or not,
 and it should have a description if it needs one.
-A character's properties should be listed together on their character sheet.
+A character's properties should be listed on their character sheet.
 Players can come up with properties at character creation and get them approved by the GM.
 The GM can also provide a list of properties for players to choose from, with some descriptions and constraints.
 
 A second way to incorporate a character description into the more formal traits
 is to make exceptions for the starting levels of certain abilities.
-For example, a character who is a giant should have a very high starting strength.
+For example, a character who is a mermaid should have a very high initial swimming ability.
 The ideas of section \ref{sec:quant} can be used to set these starting levels appropriately.
 
 The GM should provide initialization instructions with each trait they include.
@@ -427,19 +437,9 @@ How about \emph{inventory}--how should that start out?
 
 \notes{we do not write much about bars at all. we should have at least a dedicated little paragraph.}
 
-\subsubsection{Belated Tree Augmentation}\label{sec:bta}
-
-In case you find yourself wishing, long after starting a game,
-that you had included a certain skill in the ability tree,
-we propose some rules for introducing it.
-Add the skill in the desired position to every player's tree.
-Include the desired weight;
-if the the edge labels correspond to dice roll difficulties, then recalculate those for all skills governed by the governing attribute.
-Set the skill's level to 2 below the level of its governing attribute for each player.
-
 
 \subsection{Health} \label{sec:health}
-A character's health is given entirely by their \emdex{conditions}.
+A character's health is described entirely by their \emdex{conditions}.
 Conditions that could afflict a character have a pre-defined progression represented by a flowchart.
 For every creature in their world, the GM should consider what health conditions they wish to include.
 \emph{States}\index{states} are collections of symptoms, effects on afflicted characters.
@@ -957,7 +957,7 @@ hp & adjective \\
 \end{tabular}}
 \end{center}
 
-\paragraph{Healing} Wounds are a health condition, governed by the following flowchart:
+\paragraph{Healing} Wounds are treated as health conditions, governed by the following flowchart:
 \begin{center} \includegraphics{svg/healing.eps} \end{center}
 
 

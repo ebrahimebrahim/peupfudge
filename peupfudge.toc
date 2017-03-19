@@ -1,0 +1,40 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {subsection}{\numberline {1.1}Numbers and Adjectives}{2}
+\contentsline {paragraph}{Orders}{3}
+\contentsline {section}{\numberline {2}Characters}{5}
+\contentsline {subsection}{\numberline {2.1}The Ability Tree}{5}
+\contentsline {paragraph}{The Idea}{6}
+\contentsline {subsubsection}{\numberline {2.1.1}Training Skills}{6}
+\contentsline {subsubsection}{\numberline {2.1.2}Training Attributes}{7}
+\contentsline {subsubsection}{\numberline {2.1.3}Tree Design}{8}
+\contentsline {paragraph}{Powers}{9}
+\contentsline {paragraph}{NPCs}{9}
+\contentsline {paragraph}{Attacks}{9}
+\contentsline {paragraph}{Orders}{10}
+\contentsline {subsubsection}{\numberline {2.1.4}Belated Tree Augmentation}{10}
+\contentsline {subsection}{\numberline {2.2}Character Development}{10}
+\contentsline {subsubsection}{\numberline {2.2.1}Using Experience Points}{10}
+\contentsline {subsubsection}{\numberline {2.2.2}Character Creation}{11}
+\contentsline {subsection}{\numberline {2.3}Health}{12}
+\contentsline {subsection}{\numberline {2.4}Items and Inventory}{14}
+\contentsline {section}{\numberline {3}Actions}{15}
+\contentsline {subsection}{\numberline {3.1}Unopposed Actions}{16}
+\contentsline {subsection}{\numberline {3.2}Opposed Actions}{16}
+\contentsline {subsection}{\numberline {3.3}Time and Space}{17}
+\contentsline {paragraph}{Rounds}{17}
+\contentsline {paragraph}{Location}{18}
+\contentsline {paragraph}{Motion}{19}
+\contentsline {subsection}{\numberline {3.4}Combat}{19}
+\contentsline {subsubsection}{\numberline {3.4.1}Attack Terminology}{19}
+\contentsline {subsubsection}{\numberline {3.4.2}Resolving an Attack}{20}
+\contentsline {subsubsection}{\numberline {3.4.3}The Modifiers $M$ and $M'$}{21}
+\contentsline {paragraph}{Situation}{21}
+\contentsline {paragraph}{Stance}{21}
+\contentsline {paragraph}{Targeting}{22}
+\contentsline {subsubsection}{\numberline {3.4.4}Body Parts}{22}
+\contentsline {subsubsection}{\numberline {3.4.5}Impact and Protection}{23}
+\contentsline {paragraph}{Abilities}{23}
+\contentsline {paragraph}{Size}{23}
+\contentsline {paragraph}{Other Things}{24}
+\contentsline {subsubsection}{\numberline {3.4.6}Wounds}{24}
+\contentsline {paragraph}{Healing}{25}
