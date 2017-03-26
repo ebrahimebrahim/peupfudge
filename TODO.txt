@@ -8,9 +8,6 @@ write intro
 
 write a bit more about bars.
 
-have a chapter on modules, move combat section there.
-remember to move attacks paragraph of tree design section to there also
-
 add note about healing / organic life forms
 
 ===================
