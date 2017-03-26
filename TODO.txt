@@ -8,8 +8,6 @@ write intro
 
 write a bit more about bars.
 
-add note about healing / organic life forms
-
 ===================
 === Needed next ===
 ===================
