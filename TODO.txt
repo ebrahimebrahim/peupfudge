@@ -2,8 +2,6 @@
 === Needed before 1.0 ===
 =========================
 
-write general suggestion on merging ability levels if needed by going to nearest common ancestor
-
 write intro
 
 write a bit more about bars.
