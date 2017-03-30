@@ -60,7 +60,6 @@ additional things:
   - base character sheet
   - example trees
   - examples of the various mechanics
-  - list of questions the GM should answer
   - some sort of glossary of game mechanics (use peupfudge.ind to extract page numbers)?
     or does index sort of play that role?
   - fudge dice roll probabilities

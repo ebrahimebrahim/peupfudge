@@ -177,14 +177,16 @@ Ability levels are to be interpreted based on section \ref{sec:quant}.
 Most abilities have an initial (untrained) level of -2.
 The GM may choose some different initial ability levels based on the difficulty of a skill.
 An ability that is hard to pick up might have an initial level of -3, while an easy ability could start at -1.
+\index{ability!starting level}
 
 %define structure of tree, as well as terms 'skill' and 'attribute'
 Abilities are arranged in a tree structure in which broad abilities govern more specific ones.
-\index{ability tree}
+\index{ability!ability tree}
 An ability that governs others is an \emph{attribute} (a non-terminal node), while an ability that does not govern any others is a \emph{skill} (a terminal node).
 \index{skill}\index{attribute}
 Each arrow of the tree (each governing of one ability by another) has an associated \emph{weight}.
 \index{weight}
+\index{ability!weight}
 Weight represents the impact an ability has on its group, i.e. the degree to which its improvement
 in turn improves its governing attribute.
 Below is an example of an initial ability tree, with an ability level written next to each ability.
@@ -251,6 +253,7 @@ Whenever $B_i$ increases in level, the chance that $A$ increases in level is giv
 $$\frac{w_i}{w_1+\cdots+w_n}\ .$$
 It is sensible to round this quantity to the nearest $(\frac{1}{n})^\text{th}$ and roll a d$n$ to determine
 the whether or not $A$ increases in level.
+\index{ability!weight!dice roll}
 In fact, this quantity only needs to be computed once for each arrow of the ability tree,
 and the weights can then be dispensed with.
 After choosing initial weights and computing these probabilities,
@@ -417,6 +420,7 @@ The GM should provide initialization instructions with each trait they include.
 If characters have a reputation \emph{bar}, how shall it start out?
 How about \emph{inventory}--how should that start out?
 
+\index{bar}
 \notes{we do not write much about bars at all. we should have at least a dedicated little paragraph.}
 
 
@@ -459,10 +463,12 @@ along with the ways in which those items are carried.
 Ultimately, it is a hierarchical listing of containers and items.
 Yes... it is another tree!
 The root nodes of the inventory tree are the character's ``natural'' containers (hands, back, etc.),
+\index{inventory!root nodes}
 the intermediate nodes are containers (which are themselves items),
 and the leaf nodes are arbitrary items.
+The GM should specify inventory tree root nodes for each creature.
 
-\emph{Items} are material entities in the world, 
+\emph{Items}\index{item} are material entities in the world, 
 specifically ones that a character would carry.
 Like characters, they are represented by their \emph{traits}.
 \index{item traits}
@@ -479,6 +485,7 @@ Not all items need to be represented at the same level of detail.
 For many items, an item name may suffice.
 
 The inventory tree should be subject to some constraints
+\index{inventory!constraints}
 (e.g. due to container volumes, character strength, fatigue, etc.).
 The GM should decide how to manage these constraints
 (e.g. containers have a volume attribute, characters have a carrying capacity based on some physical ability, etc.).
@@ -633,7 +640,7 @@ Such a ``high resolution'' is probably too much most of the time, so multi-compo
 action (with duration the sum of the durations of the components) until other actions get involved and shorten the round durations.
 
 \paragraph{Location}
-Some actions \emph{trigger location tracking},
+Some actions \emph{trigger location tracking}\index{location tracking},
 meaning that the GM and the players begin to keep track of the locations of characters relative to various objects.
 This can be done on a grid\index{grid} extending through the primary plane of activity
 (usually a top-view grid, possibly with elevation information),
@@ -687,61 +694,88 @@ When creating their campaign, the GM should choose the modules they'd like to us
 
 \section{Appendix}
 
-\subsection{World Building}
+\subsection{Campaign Setup Checklist}
 
-%who is the standard being. the most typical creature type to be a PC. unitless levels are measured by them
+There are many rules throughout this manual that depend
+on a GM decision that had to be made during the creation of their campaign.
+As a convenient checklist, we restate those decision points here.
 
-
-%  the ability tree itself, including ability "difficulties" (i.e. their untrained levels)
-%    are there any abilities that should be powers?
-%      for each power what circumstances cause them to be enabled or disabled?
-%    orders. for each ability, consider it in context of beings of the world. does it need special order label for some beings?
-%    time&space. for each ability, consider various actions that could try to use it. for each action:
-%      does it ever trigger rounds? under what circumstances?
-%        if so, how long does it take to complete the action?
-%        when does play return to normal?
-%        are there any multi-component actions?
-%          if so how long does each component take? does duration depend on success or failure?
-%          can any components be interrupted? how, and what results?
-%      does the action ever need to be resolved with location tracking?
-%        if so, what are spatial parameters/constraints for the action?
-%  what characteristics are relevant to game world
-%  any specific properties gm wants to list? are players limited to what is in the list?
-%  what are the bars? and how do they start?
-%  for each creature, what health conditions are there?
-%  what are inventory tree constraints?
-
-%  want to pre-make any items? what are their characteristics/attributes/conditions?
-
-%  xp
-%  how does gm plan to enforce which skills can be trained with an xp reward?
-%  how much xp do character start with during creation? shall it vary across player characters or be uniform?
-%  shall gm provide any classes? (i.e. some already-trained trees to start with and reduced xp to play with). specify them.
-
-%  quantified movement. for each creature:
-%    what are main modes of locomotion? for each mode of locomotion:
-%      what is base speed of a typical one of these creatures when engaging in each mode of locomotion?
-%    is there an ability whose training would improve this creature's speed?
-%    are speeds constrained in any other way like fatigue/ energy bar/ penalties due to health conditions/ inventory weight?
-
-%  modules: what modules shall be used?
-%  combat:
-%    for each skill, how might a player use this skill in the context of an attack? for each attack:
-%      is it clear which ability would be relevant to determining success of attack?
-%      is it clear which ability would be relevant to determining effectiveness of attack?
-%    for each creature
-%      make a body diagram with possible targets of attacks. quantify relative sizes of body parts
-%      decide which body parts are vital
-%      choose/make a healing flowchart
-%    decide on the *baseline target size*
-%      (size of target that would recieve wound of degree 1 38% of time from successful unarmed attack by equally matched standard being)
-
-%  additional things to do after answering questions:
-%    design char sheet
-%    put nice dice rolls on edges instead of ugly weights
-%    if combat module:
-%      put dice rolls on body diagram for random target selection
-%      put protection modifiers on body diagram
+\begin{enumerate}
+\item What is the standard being?
+\item What character characteristics are relevant to the campaign?
+\item Are there any predefined properties? Are characters limited to these?
+\item What are the bars? What is each bar's initial state for player characters?
+\item For each creature type, what health conditions exist for it? Make flowcharts.
+\item Set up the inventory system:
+\begin{enumerate}
+  \item For each creature type, what are the root nodes of its inventory tree?
+  \item How are inventory trees constrained?
+  \item Are there any predefined items?
+  \item How will player character inventories start out?
+\end{enumerate}
+\item Set up the ability tree:
+\begin{enumerate}
+  \item Make an ability tree.
+        This includes naming abilities,
+        choosing their starting levels,
+        connecting abilities by arrows to form a tree,
+        and labeling the arrows with weights.
+  \item For each ability, consider it in the context of the creatures of the world. Does it need any special order labels?
+  \item For each ability, consider various actions that could use it.
+  \begin{enumerate}
+    \item Does the action ever trigger rounds? If so:
+    \begin{enumerate}
+      \item Under what circumstances?
+      \item Is it a multi-component action? If so, can it be interrupted?
+      \item How long does it take to complete the action? If it is a multi-component action, what is the duration of each component?
+      \item When does play return to normal?
+    \end{enumerate}
+    \item Does the action ever need to be resolved with location tracking? If so:
+    \begin{enumerate}
+      \item What are the spatial parameters/constraints for the action?
+    \end{enumerate}
+  \end{enumerate}
+  \item Are there any abilities that should be powers?
+  \begin{enumerate}
+    \item For each power, what circumstances cause it to become enabled or disabled?
+  \end{enumerate}
+\end{enumerate}
+\item Set up character creation:
+\begin{enumerate}
+  \item Are there any predefined classes (pretrained trees)? Do players need to pick from these classes?
+  \item How much xp do players start with for character creation?
+\end{enumerate}
+\item For each creature type, what are its modes of locomotion?
+\begin{enumerate}
+  \item What is the base speed of a typical one of these creatures when engaging in each mode of locomotion?
+  \item Is there an ability whose training would improve this creature's speed?
+  \item Are speeds constrained in any other way (e.g. by some bars)?
+\end{enumerate}
+\item Design a blank character sheet and make any reference sheets players could use.
+\begin{enumerate}
+  \item Put dice roll thresholds on ability tree arrows in place of weight labels.
+\end{enumerate}
+\item What modules will you use?
+\begin{enumerate}
+  \item If you include the Combat module:
+  \begin{enumerate}
+    \item What is the baseline target size?
+    \item For each skill, how might a player use this skill in the context of an attack? For each attack:
+    \begin{enumerate}
+      \item Is it clear which ability is most relevant to determining whether the attack succeeds?
+      \item Is it clear which ability is most relevant to the attack's effectiveness?
+    \end{enumerate}
+    \item For each creature type:
+    \begin{enumerate}
+      \item Make a body diagram that indicates the possible targets of attacks. Quantify relative sizes of body parts.
+      \item Add dice rolls for random target selection to the body diagram.
+      \item Add protection modifiers to the body diagram.
+      \item Which body parts are vital?
+      \item Make or choose a healing flowchart for wounds.
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+\end{enumerate}
 
 
 \printindex
