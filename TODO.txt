@@ -11,6 +11,11 @@ write a bit more about bars.
 ===================
 
 quantify targetting penalty, now that we have sizes quantified in the form of a body diagram
+--> Actually, now I am thinking we should leave it as is. Because
+    (a) it's good and less complicated as it is and
+    (b) connecting it to the body diagram needlessly forces targets to be body parts,
+        while it's nice that they are allowed to be more detailed currently
+        (e.g. eyes are not on the example human body diagram).
 
 section on character death in health sec
 
