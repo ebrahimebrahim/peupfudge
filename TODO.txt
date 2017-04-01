@@ -10,11 +10,7 @@ write a bit more about bars.
 === Needed next ===
 ===================
 
-question to answer later when we know more:
-should we make players pay attention to R+M with AND without targetting penalty,
-and then insert some non-miss (maybe graze) consequence for succeeding on R+M without?
-or is that too much to keep track of to be worth it?
-(we qould just have more detailed targetting system under "advanced mechanics" in appendix)
+quantify targetting penalty, now that we have sizes quantified in the form of a body diagram
 
 section on character death in health sec
 
