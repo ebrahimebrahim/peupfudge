@@ -4,8 +4,6 @@
 
 write intro
 
-write a bit more about bars.
-
 ===================
 === Needed next ===
 ===================
@@ -56,6 +54,7 @@ additional things:
   - a character chasing a chicken, with the trajectory indicated with regular distance markings
   - a basketball
   - a bunch of characters missing and deflecting against a big boss character like bartholophat or lavos
+  - a bar [|||||---]
 - appendix
   - reference sheet
   - base character sheet
