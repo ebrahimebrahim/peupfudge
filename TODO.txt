@@ -64,6 +64,7 @@ additional things:
   - some sort of glossary of game mechanics (use peupfudge.ind to extract page numbers)?
     or does index sort of play that role?
   - fudge dice roll probabilities
+  - example flowcharts (severe bleeding, infection, random diseases, hunger)
   - formulas for things like xp table in case people need to go over range in table
   - a section on advanced mechanics
     - order gap and gluing together scales of different order
