@@ -417,13 +417,21 @@ is to make exceptions for the starting levels of certain abilities.
 For example, a character who is a mermaid should have a very high initial swimming ability.
 The ideas of section \ref{sec:quant} can be used to set these starting levels appropriately.
 
-The GM should provide initialization instructions with each trait they include.
-If characters have a reputation \emph{bar}, how shall it start out?
-How about \emph{inventory}--how should that start out?
-
-\index{bar}
-\notes{we do not write much about bars at all. we should have at least a dedicated little paragraph.}
-
+%bars are other info u want to keep track of
+The setting and focus of a campaign might call for the tracking of specifc
+information about all characters.
+\emph{Bars}\index{bar} can be used
+for this purpose.
+Examples include hunger, thirst, mana, reputation, mood, sleepiness, fatigue, and hygiene.
+For each bar included, the GM should specify a few things:
+\vspace{-1em}\begin{itemize}
+%specify what the bar means
+\item Meaning. What values/states can the bar be in, and what do the different states mean?
+%specify what causes a bar to change and how it starts out.
+\item Change. What causes the bar to change state? Also, how does it start out?
+%and specify what its effects are
+\item Effects. What are the effects of the bar's being in the various states?
+\end{itemize}
 
 \subsection{Health} \label{sec:health}
 A character's health is described entirely by their \emdex{conditions}.
@@ -491,6 +499,7 @@ The inventory tree should be subject to some constraints
 The GM should decide how to manage these constraints
 (e.g. containers have a volume attribute, characters have a carrying capacity based on some physical ability, etc.).
 
+The GM should decide how inventories start out for each character.
 
 \section{Actions}\label{sec:actions}
 When a character attempts a task that has a possibility of failure, the outcome is governed partly by a dice roll.
@@ -705,7 +714,12 @@ As a convenient checklist, we restate those decision points here.
 \item What is the standard being?
 \item What character characteristics are relevant to the campaign?
 \item Are there any predefined properties? Are characters limited to these?
-\item What are the bars? What is each bar's initial state for player characters?
+\item What are the bars? For each bar:
+\begin{enumerate}
+  \item What values/states can the bar be in, and what do the different states mean?
+  \item What causes the bar to change state? Also, how does it start out?
+  \item What are the effects of the bar's being in the various states?
+\end{enumerate}
 \item For each creature type, what health conditions exist for it? Make flowcharts.
 \item Set up the inventory system:
 \begin{enumerate}
