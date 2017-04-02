@@ -8,6 +8,8 @@ write intro
 === Needed next ===
 ===================
 
+add comment in flowhcarts peup about bars being tied to peup
+
 quantify targetting penalty, now that we have sizes quantified in the form of a body diagram
 --> Actually, now I am thinking we should leave it as is. Because
     (a) it's good and less complicated as it is and
