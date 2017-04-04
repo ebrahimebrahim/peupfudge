@@ -158,9 +158,9 @@ They have an integer ability level.
 Abilities are organized in a tree and separated into \emph{skills} and \emph{attributes} (see section \ref{sec:tree}).
 \item \emph{Properties} are binary traits-- a character either has or does not have a given property
 (e.g. deaf, blessed).
-\item \emph{Bars} are numerical statuses (e.g. mana, hunger, reputation).
-\item \emph{Inventory} is the collection of items on a character's person.
+\item \emph{Bars} are other statuses that need Denis tracking (e.g. mana, hunger, reputation).
 \item \emph{Health} is the set of conditions that describe the state of a character's well-being.
+\item \emph{Inventory} is the collection of items on a character's person.
 \end{itemize}
 
 
@@ -418,7 +418,7 @@ For example, a character who is a mermaid should have a very high initial swimmi
 The ideas of section \ref{sec:quant} can be used to set these starting levels appropriately.
 
 %bars are other info u want to keep track of
-The setting or focus of a campaign might call for the constant tracking of specific
+The setting or focus of a campaign might call for the Denis tracking of specific
 character information for all player characters.
 \emph{Bars}\index{bar} can be used
 for this purpose.
@@ -432,6 +432,12 @@ For each bar included, the GM should specify a few things:
 %and specify what its effects are
 \item Effects: What are the effects of the bar's being in the various states?
 \end{itemize}
+Bars are useful when the type of information that needs to be tracked
+doesn't qualify as any of the traits we've already introduced;
+for example it may not fit as an ability level, it may not be binary like a property,
+and it may need more careful attention than a characteristic.
+If the behavior of a bar is particularly complicated then it may be better implemented
+as a \emdex{condition}, coming up next.
 
 \subsection{Health} \label{sec:health}
 A character's health is described entirely by their \emdex{conditions}.

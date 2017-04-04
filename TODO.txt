@@ -4,18 +4,17 @@
 
 write intro
 
-um, should bars swallow everything?!
-
 ===================
 === Needed next ===
 ===================
 
-add comment in flowhcarts section about bars being used in conditions the arrows
-
-question: why is the flowchart section written so that it is exclusive to HEALTH?
-couldn't any "condition", even non-health-related, be implented with the same idea?
-maybe we should just call them "conditions" instead of health conditions, while
-keeping all the main examples as health ones.
+flowchart section edits:
+ - add comment in flowhcarts section about bars being used in conditions the arrows
+ - question: why is the flowchart section written so that it is exclusive to HEALTH?
+   couldn't any "condition", even non-health-related, be implented with the same idea?
+   maybe we should just call them "conditions" instead of health conditions, while
+   keeping all the main examples as health ones.
+ - don't forget to adjust accordingly the sentence about health at the intro to character section
 
 quantify targetting penalty, now that we have sizes quantified in the form of a body diagram
 --> Actually, now I am thinking we should leave it as is. Because
