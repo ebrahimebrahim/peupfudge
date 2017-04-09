@@ -4,6 +4,8 @@
 
 write intro
 
+finish testing qombat?
+
 ===================
 === Needed next ===
 ===================
