@@ -4,6 +4,10 @@
 
 write intro
 
+test combat module
+
+write into combat module the way to deal with initiative with simultaneous combat rounds
+
 ===================
 === Needed next ===
 ===================
