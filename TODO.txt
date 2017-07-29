@@ -28,6 +28,7 @@ quantify targetting penalty, now that we have sizes quantified in the form of a 
 section on character death in health sec
 
 put distributions table for 4dF in 1.1 section "numbers and adjectives"
+at least something to explain where 38% is coming from.
 
 come up with a better term for hitting factors
 
