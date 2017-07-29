@@ -8,6 +8,17 @@ test combat module
 
 write into combat module the way to deal with initiative with simultaneous combat rounds
 
+last sentence under "targetting" doesn't make as much sense with body parts
+oh, we had this from before:
+  quantify targetting penalty, now that we have sizes quantified in the form of a body diagram
+  --> Actually, now I am thinking we should leave it as is. Because
+      (a) it's good and less complicated as it is and
+      (b) connecting it to the body diagram needlessly forces targets to be body parts,
+          while it's nice that they are allowed to be more detailed currently
+          (e.g. eyes are not on the example human body diagram).
+--> Um, actually, let's quantify target penalty in terms of size relative to standard target size.
+    More detailed targetting than body diagram would still be possible.
+
 ===================
 === Needed next ===
 ===================
@@ -19,13 +30,6 @@ flowchart section edits:
    maybe we should just call them "conditions" instead of health conditions, while
    keeping all the main examples as health ones.
  - don't forget to adjust accordingly the sentence about health at the intro to character section
-
-quantify targetting penalty, now that we have sizes quantified in the form of a body diagram
---> Actually, now I am thinking we should leave it as is. Because
-    (a) it's good and less complicated as it is and
-    (b) connecting it to the body diagram needlessly forces targets to be body parts,
-        while it's nice that they are allowed to be more detailed currently
-        (e.g. eyes are not on the example human body diagram).
 
 section on character death in health sec
 
