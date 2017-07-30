@@ -21,6 +21,8 @@ oh, we had this from before:
 
 mention abilities in m and m' in combat module :D
 
+add between hurt and incap, "injured" (-2), and make incap unusable
+
 ===================
 === Needed next ===
 ===================
