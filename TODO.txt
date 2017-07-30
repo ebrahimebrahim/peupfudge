@@ -19,6 +19,8 @@ oh, we had this from before:
 --> Um, actually, let's quantify target penalty in terms of size relative to standard target size.
     More detailed targetting than body diagram would still be possible.
 
+mention abilities in m and m' in combat module :D
+
 ===================
 === Needed next ===
 ===================
