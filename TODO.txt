@@ -41,6 +41,7 @@ put distributions table for 4dF in 1.1 section "numbers and adjectives"
 at least something to explain where 38% is coming from.
 
 come up with a better term for hitting factors
+HOW ABOUT: accuracy (from tales of maj eyal)
 
 further test combat system
   scale wound bubs to number of body parts.
