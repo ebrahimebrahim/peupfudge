@@ -2,6 +2,19 @@
 === Needed before 1.0 ===
 =========================
 
+fix ability level interpretation:
+- use a more logistic-like scale rather than logarithmic to map experience to discrete levels
+  this affects formulas that calculate xp costs, and possibly other stuff too
+- have the raw ability levels in the ability tree represent actual experience for a given character
+  where experience is something like (time spent improving skill) * (quality of practice)
+- natural talents or deficiencies should then be properties that affect rolls against ability levels.
+  one might as well view them as affecting "effective ability level", so it would be convenient
+  for players to record effective ability level in the ability tree next to raw ability level.
+- include a paragraph that explains, just to clarify, how "difficulty of a skill" is handled.
+  with our new interpretation of ability level, it doesn't make sense to say that a "harder skill"
+  requires more experience to reach the same level. instead, it is the *difficulty level of the tasks*
+  that should reflect what we call "skill difficulty".
+
 write intro
 
 test combat module
