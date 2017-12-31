@@ -2,7 +2,7 @@
 
 import random
 import re
-import gen_xptable as xptable
+import gen_numbers as xptable
 
 class Node(object):
   """Ability tree node class. AKA, ability tree, for the root node object.
