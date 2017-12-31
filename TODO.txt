@@ -36,6 +36,8 @@ mention abilities in m and m' in combat module :D
 
 add between hurt and incap, "injured" (-2), and make incap unusable
 
+distinguish between campaign and world
+
 ===================
 === Needed next ===
 ===================
