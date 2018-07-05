@@ -42,6 +42,14 @@ distinguish between campaign and world
 === Needed next ===
 ===================
 
+
+consider XP assignment rubric idea:
+This is a more formalized guideline for a GM to decide how much XP to give out for tasks.
+The GM judges task difficulties already when actions are being resolved,
+so why not use the same judgement to get a hint on how much XP to give?
+This could be something like a table that relates task difficulty (e.g. in terms of adjectives) to numerical XP rewards.
+
+
 flowchart section edits:
  - add comment in flowhcarts section about bars being used in conditions the arrows
  - question: why is the flowchart section written so that it is exclusive to HEALTH?
