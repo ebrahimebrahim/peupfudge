@@ -38,6 +38,10 @@ add between hurt and incap, "injured" (-2), and make incap unusable
 
 distinguish between campaign and world
 
+come up with a name or just give up and settle on peupfudge
+
+xp cost is a direct function of how finely abilities are split up. is that peup?
+
 ===================
 === Needed next ===
 ===================
