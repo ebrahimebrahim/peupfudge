@@ -76,6 +76,13 @@ This just shows a list of scenes, with the active ones that are accessible to th
 Buttons that can lead to character sheet, map, inventory, should always be available from every screen from that point on.
 Hmmm... need to think this through a lot more...
 
+--- Module system ---
+Somehow, modules should be single script files that follow a very specific uniform format.
+All a module needs to do is write to the message log sometimes, possibly add some element to character sheets,
+and have a "view", it's own page that players can look at. IDK what else, but it should all be standardized.
+The element that a module can add to character sheets, and the module's "view" have to be allowed to be very generic.
+(E.g. think of what combat module or time module would need to do.)
+
 
 --- Questions ---
 What should the login system be?
