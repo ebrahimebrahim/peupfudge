@@ -1,0 +1,15 @@
+[0,1] level: -2
+  [0,1] mind: -2
+    [0,1] engineering: -4
+    [0,1] literacy: -2
+    [0,1] medicine: -3
+      [0,1] wound care: -3
+      [0,1] first aid: -2
+  [0,1] body: -2
+    [0,1] muscle: -2
+      [0,1] hand-to-hand: -2
+      [0,1] hauling: -2
+    [0,1] climbing: -3
+    [0.1,3.0] athletics: -2
+      [0,1] swimming: -3
+      [0.1,2.0] running: -1
