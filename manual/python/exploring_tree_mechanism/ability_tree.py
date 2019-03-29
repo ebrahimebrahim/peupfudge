@@ -145,7 +145,10 @@ class Node(object):
       p = delta_level - n
       if verbose: print("{} xp gets injected into {}, stochastically increasing its level by {}".format(xp_injected,self.name,delta_level))
       self.level += n
-      if random.random() < p: self.level += 1
+      if verbose and n>=1 : print("{} must now level up by at least {}".format(self.name,n))
+      if random.random() < p:
+        self.level += 1
+        if verbose: print("{} has leveled up once more!".format(self.name))
       if self.parent: self.parent.train(xp_from_below = w1*xp_injected,verbose=verbose)
       
 
