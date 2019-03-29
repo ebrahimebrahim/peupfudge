@@ -130,7 +130,7 @@ class Node(object):
     c0 = self.level
     w1,b1 = self.labels
     c1 = self.parent.level if self.parent else None   # None means this ability is a root node
-    bonus = b1**(c1+3) if (not c1 is None) else 1
+    bonus = b1**(c1-c0) if (not c1 is None) else 1
     if xp_from_below is None:
       x0=lvl2xp(c0+1)-lvl2xp(c0)
       xp_cost = x0/bonus
