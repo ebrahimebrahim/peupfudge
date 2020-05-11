@@ -43,26 +43,26 @@ h = Node("hurt")
 i = Node("incapactiated")
 d = Node("dead")
 
-f.add_edge("recieve scratch",[(s,1.0)])
-f.add_edge("recieve hurt",[(h,1.0)])
-f.add_edge("recieve incap",[(i,1.0)])
-f.add_edge("recieve death",[(d,1.0)])
-s.add_edge("recieve hurt",[(h,1.0)])
-s.add_edge("recieve incap",[(i,1.0)])
-s.add_edge("recieve death",[(d,1.0)])
-h.add_edge("recieve incap",[(i,1.0)])
-h.add_edge("recieve death",[(d,1.0)])
-i.add_edge("recieve death",[(d,1.0)])
+f.add_edge("receive scratch",[(s,1.0)])
+f.add_edge("receive hurt",[(h,1.0)])
+f.add_edge("receive incap",[(i,1.0)])
+f.add_edge("receive death",[(d,1.0)])
+s.add_edge("receive hurt",[(h,1.0)])
+s.add_edge("receive incap",[(i,1.0)])
+s.add_edge("receive death",[(d,1.0)])
+h.add_edge("receive incap",[(i,1.0)])
+h.add_edge("receive death",[(d,1.0)])
+i.add_edge("receive death",[(d,1.0)])
 
-s.add_edge("recieve scratch",[(s,0.75),(h,0.25)])
-h.add_edge("recieve scratch",[(h,0.90),(i,0.10)])
-h.add_edge("recieve hurt",[(h,0.6),(i,0.4)])
-i.add_edge("recieve scratch",[(i,0.95),(d,0.05)])
-i.add_edge("recieve hurt",[(i,0.75),(d,0.25)])
-i.add_edge("recieve incap",[(i,0.5),(d,0.5)])
+s.add_edge("receive scratch",[(s,0.75),(h,0.25)])
+h.add_edge("receive scratch",[(h,0.90),(i,0.10)])
+h.add_edge("receive hurt",[(h,0.6),(i,0.4)])
+i.add_edge("receive scratch",[(i,0.95),(d,0.05)])
+i.add_edge("receive hurt",[(i,0.75),(d,0.25)])
+i.add_edge("receive incap",[(i,0.5),(d,0.5)])
 
 hp=[d,i,h,s,f]
-ld=["none","recieve scratch","recieve hurt","recieve incap","recieve death"]
+ld=["none","receive scratch","receive hurt","receive incap","receive death"]
 def y(ld_in):
   data = []
   for n in range(10000):
