@@ -1,0 +1,148 @@
+Peupfudge is a generic framework for tabletop role-playing games.
+This document contains the core rules, which can later be modified or extended by modules.
+The game master (GM) constructs or finds a world that can use the Peupfudge framework,
+and then runs campaigns within that world. 
+
+
+Players will face challenges, and they will have to rely on the capabilities of their characters to confront them.
+Peupfudge is a system that crudely quantifies these challenges and capabilities in order to compare them and weave an interesting narrative.
+
+The main die type used here is the fudge die, which can yield $-1$, $0$, or $+1$ with equal chances.
+We denote a fudge die roll by ``dF.'' The result of a roll of $N$ fudge dice ($N$dF) is the sum of the results of the individual die rolls.
+
+\section*{Characters}
+A character is an actor in the world.
+Some characters are controlled by players (PCs) and some characters are controlled by the GM (NPCs).
+Characters are represented by their traits, which we list below.
+PC traits are managed by players on their character sheets, while NPC traits are managed by the GM.
+When creating a world or campaign, the GM determines the traits that will appear on character sheets.
+
+There are five types of traits:
+\begin{itemize}
+\item
+Characteristics describe identity and background that mainly impact the narrative aspects of a campaign.
+Examples: name, race, species, tribe, height, gender, favorite food, appearance, backstory.
+\item
+Abilities represent improvable traits that play a role in action resolution.
+Examples: strength, intelligence, climbing, legal knowledge, cartography, neurosurgery.
+We will soon describe how abilities work.
+\item
+Inventory is the collection of items on a character’s person.
+Examples: helmet, potion, gold coins.
+More detail can be included as needed; for example, one could write “helmet (equipped)” or “helmet (damaged).”
+\end{itemize}
+If a trait doesn’t fit into the three categories above, then it belongs in one of the following two:
+\begin{itemize}
+\item
+Statuses are otherwise unclassified traits that need constant tracking.
+Examples: health, mana, hunger, reputation.
+When introducing a status, the GM should decide what states it can take, what causes the state to change, and what effect each state has.
+\item
+Properties are otherwise unclassified traits that only need to be tracked when they apply to a character.
+Examples: deaf, blessed, stunned, short-tempered, one-armed.
+\end{itemize}
+
+For tips on setting up the traits, refer to the campaign setup checklist in the appendix.
+
+\subsection*{Abilities}
+Before a campaign begins, the GM prepares a set of abilities that are tracked for each character.
+Each ability is associated with an integer level that represents how good a character is at the ability.
+The ability level is a factor in the character’s chance of success when attempting to perform an action dependent on the ability.
+Typically, the initial level for an “untrained” ability would be 0, and there is no hard upper limit for the level as it increases.
+
+The level of an ability can be raised by allocating experience points (XP) to the ability.
+The XP cost of increasing the level of an ability is 2 to the power of the current level.
+The GM may decide how and when to award XP to characters, but it makes sense to place XP rewards after the completion of narrative ``chunks.''
+As soon as XP is awarded, it should be distributed by each player among their abilities.
+The GM may want to restrict XP allocation to the subset of abilities that each player actually used in the completion of the narrative chunk.
+
+Players may spend less XP on an ability than it would cost to level it up.
+In this case the allocated XP is recorded and the ability is only leveled up once it has accumulated enough XP.
+Allocated XP is considered to be spent and cannot later be transferred to a different ability.
+
+XP is to be interpreted as the product of practice time and practice quality, which we will refer to as simply practice.
+Each unit of XP corresponds to a certain amount of practice.
+The exact amount of practice contained in each unit of XP is decided implicitly the first time that the GM awards XP,
+and it crystallizes as the GM continues to award XP in a consistent pattern.
+
+Abilities start at level 0 during character creation.
+The GM provides starting XP to each character based on the practice the character may have gathered throughout their life before the start of the campaign.
+If a character has a natural talent in a given ability,
+then they could get some ability levels for free prior to XP allocation; this would represent a sort of head start in the ability.
+
+Ability level is a function of XP, and XP represents practice.
+But ability level is ultimately meant to represent a character's proficiency.
+Of course practice generally improves proficiency, but characters with the same amount of practice can end up with different levels of proficiency.
+For example, a hobbit and an ogre may get the same amount of strength practice, but the hobbit will still be weaker than the ogre.
+To incorporate this into Peupfudge, a property ``ogre strength'' may be added to the ogre’s character sheet.
+This property would add a certain number to the strength level, but it would do so in a way that should not affect the XP cost for leveling up.
+To keep track of this, the ogre’s strength level can be written in the character sheet as a sum: [unmodified level] + [modifier].
+When the ogre needs to use their strength, they use the sum.
+When the ogre wants to spend XP and level up their strength, they use the unmodified level to determine the cost.
+
+Equivalently, the hobbit could instead take on a “hobbit strength” property that reduces the strength level in a similar way.
+Whichever being ends up not taking on any modifier becomes the standard being for the purposes of level interpretation.
+How strong is a character with level 5 strength?
+It is as strong as a standard being that spent 5 levels worth of practice on its strength.
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+Level    & 0 & 1 & 2 & 3 & 4  & 5  & 6  & 7   & 8   & 9   & $\ldots$ \\ \hline
+XP Cost  & 0 & 1 & 2 & 4 & 8  & 16 & 32 & 64  & 128 & 256 & $\ldots$ \\ \hline
+Total XP & 0 & 1 & 3 & 7 & 15 & 31 & 63 & 127 & 255 & 511 & $\ldots$ \\ \hline
+\end{tabular}
+\end{center}
+
+
+\section*{Actions}
+When a character attempts a task that has a possibility of failure, the outcome is governed by ability, difficulty, and a dice roll. 
+
+We use the term aiding factors to refer to the factors leading to the possibilities of success or failure for an action,
+but only those factors that are due to the character attempting the action.
+For those factors that are independent of the character attempting the action we use the term difficulty factors.
+The aiding factors for a character attempting to climb a cliff are things like the climbing skill of the character and the fact that they have a grappling hook.
+The steepness of the cliff and the availability of footholds would be difficulty factors.
+The difficulty factors for a character attempting to punch someone in a brawl might include the defensive abilities of the opponent,
+while the punching abilities of the character would be aiding factors.
+A rule of thumb is that if a factor can be removed from the picture by changing who is attempting an action, then it is an aiding factor.
+Otherwise, it is a difficulty factor.
+
+Actions are resolved by considering an attempt to be successful if
+
+$$L + A + R \geq D,$$
+
+where
+\begin{itemize}
+\item
+$L$ is the level of an associated ability for the character attempting the task, if there is one.
+The set of abilities chosen for the campaign should be tailored to the types of actions that players are expected to attempt.
+If there isn’t a very suitable ability but there is a close enough one, then the level of the close ability can be used with a deduction. 
+\item
+$A$ is a modifier for any other aiding factors, like the grappling hook.
+\item
+$R$ is the result of a dice roll, $N$dF.
+The dice roll represents the dependence of the outcome on factors that are not modeled in the game or that are otherwise unpredictable.
+The default is $4$dF, and this can be modified if more or less noise seems appropriate.
+\item
+$D$ is the difficulty level of the task, a summary of the difficulty factors.
+Some judgement is needed on the part of the GM in the determination of $D$.
+A difficulty level of $D$ corresponds to a task that someone with an ability level of $D$ would be expected to successfully execute about half the time.
+\end{itemize}
+
+The value of $R$ can feed directly into the narrative; it can be fun to assign extreme narrative interpretations to extreme dice rolls.
+The same goes for $L + A + R - D$, which represents actual performance given all the information.
+
+When setting $D$, the GM should avoid the pitfall of assessing a task only by comparison to similar tasks.
+For example, a neurosurgery task should not be given a lower $D$ just because it is easy “for a neurosurgery.” Note that $D$ ultimately gets compared to an ability level L, which is a function of experience.
+Since neurosurgery itself is hard (in the sense of requiring a lot of experience), the $D$ associated with many neurosurgery tasks, even the relatively easy ones, should be high.
+It might be a good idea when setting up the abilities for a given campaign to determine what level for each skill is considered “poor,” “decent,” “excellent,” etc.
+
+If the difficulty factors for an action are due to some other character's abilities, for example during a race between multiple characters, then the action is opposed.
+There are a couple of modifications one could make for opposed actions:
+For fun, the physical dice rolling can be done by all participants whose characters are involved, with players rolling for their characters and the GM rolling for NPCs.
+Instead of comparing one character’s $L + A + R$ with a $D$ based on the difficulty of the task, one can compare $L + A + R$ for each character to determine their performance relative to one another.
+When the $L + A + R$ of multiple characters is equal, this should be interpreted as a tie rather than a success for any of the tied characters.
+
+Happy Peupfudging!
+
