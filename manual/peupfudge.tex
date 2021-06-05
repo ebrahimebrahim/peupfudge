@@ -1,22 +1,22 @@
 \documentclass[12pt]{article}
 
-%packages
+% packages
 \usepackage{fullpage}
 \usepackage{graphicx}
+\usepackage{amssymb}
 
 
-%commands
+% commands
 \newcommand{\peupfudge}{Peupfudge}
 
-\title{\peupfudge}
-\date{\today}
 
+% paragraph settings
 \parindent0ex
 \parskip5mm
 
 
 \begin{document}
-%\maketitle
+
 \textbf{\huge\peupfudge}
 \hfill
 \textbf{\today}\\
@@ -24,6 +24,14 @@
 %\tableofcontents
 
 \input{core.tex}
+
+\newpage
+\appendix
+
+\input{setup_checklist.tex}
+
+\input{examples.tex}
+
 
 
 \end{document}
