@@ -6,8 +6,8 @@ all: ${DOC}.pdf
 ${DOC}.pdf: ${DOC}.tex core.tex examples.tex ndf_plot.pdf
 	pdflatex ${DOC}.tex
 
-ndf_plot.pdf: python/make_ndf_plot.py
-	python3 python/make_ndf_plot.py
+ndf_plot.pdf: python/make_ndf_data.py
+	python3 python/make_ndf_data.py
 
 .PHONY: clean cleanaux
 
