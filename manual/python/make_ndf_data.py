@@ -28,6 +28,7 @@ get_ps = lambda N : [p(N,n) for n in ns]
 plot_for_N = lambda N : plt.plot(ns, get_ps(N),label = str(N)+"dF")
 plot_for_N(2)
 plot_for_N(4)
+plot_for_N(6)
 plot_for_N(9)
 plt.xticks(ns, labels=ns)
 plt.legend()
