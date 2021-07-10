@@ -3,7 +3,7 @@ AUXFILES=${DOC}.aux ${DOC}.log texput.log
 
 all: ${DOC}.pdf
 
-${DOC}.pdf: ${DOC}.tex core.tex examples.tex probability_reference.tex ndf_plot.pdf ndf_table.tex reference_sheet.pdf
+${DOC}.pdf: ${DOC}.tex core.tex examples.tex probability_reference.tex ndf_plot.pdf ndf_table.tex reference_sheet.pdf reference_sheet.tex
 	pdflatex ${DOC}.tex
 
 ndf_plot.pdf: python/make_ndf_data.py
