@@ -1,14 +1,14 @@
 \peupfudge{} is a generic framework for tabletop role-playing games.
 This document contains the core rules, which can later be modified or extended by modules.
-The game master (GM) constructs or finds a world that can use the \peupfudge{} framework,
+The game master (GM) provides a world that can use the \peupfudge{} framework,
 and then runs campaigns within that world. 
 
 [Illustration of this idea]
 
 Players will face challenges, and they will have to rely on the capabilities of their characters to confront them.
-\peupfudge{} is a system that crudely quantifies these challenges and capabilities in order to compare them and weave an interesting narrative.
+\peupfudge{} is a system that crudely quantifies these challenges and capabilities in order to weave an interesting narrative.
 
-The main die type used here is the fudge die, which can yield $-1$, $0$, or $+1$ with equal chances.
+Fudge dice are the main source of randomness. A fudge die can yield $-1$, $0$, or $+1$ with equal chances.
 We denote a fudge die roll by ``dF.'' The result of a roll of $N$ fudge dice ($N$dF) is the sum of the results of the individual die rolls.
 
 \section{Characters}
@@ -48,7 +48,7 @@ For tips on setting up the traits, refer to the campaign setup checklist in the 
 \subsection{Abilities}
 Before a campaign begins, the GM prepares a set of abilities that are tracked for each character.
 Each ability is associated with an integer \emph{level} that represents how good a character is at the ability.
-The ability level is a factor in the character’s chance of success when attempting to perform an action dependent on the ability.
+Ability level is a factor in the character’s chance of success when attempting to perform an action dependent on the ability.
 Typically, the initial level for an ``untrained'' ability would be $0$, and there is no hard upper limit for the level as it increases.
 
 The level of an ability can be raised by allocating experience points (XP) to the ability.
@@ -138,6 +138,7 @@ For example, a neurosurgery task should not be given a lower $D$ just because it
 Note that $D$ ultimately gets compared to an ability level $L$, which is a function of experience.
 Since neurosurgery itself is hard (in the sense of requiring a lot of experience), the $D$ associated with many neurosurgery tasks, even the \emph{relatively} easy ones, should be high.
 It might be a good idea when setting up the abilities for a given campaign to determine what level for each ability is considered ``poor,'' ``decent,'' ``excellent,'' etc.
+A decent neurosurgeon may have a higher level in neurosurgery than a decent hauler has in hauling.
 
 If the difficulty factors for an action are due to some other character's abilities, for example during a race between multiple characters, then the action is \emph{opposed}.
 There are modifications one could make for opposed actions:
