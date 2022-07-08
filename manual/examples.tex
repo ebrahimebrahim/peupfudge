@@ -1,6 +1,9 @@
 \section{Examples}
 
-\paragraph{Example 1:}
+\newcounter{example}[section]
+\newenvironment{example}{\refstepcounter{example}\paragraph{Example \theexample:}}{}
+
+\begin{example}
 You are a mage who is near the end of an arduous journey through a dungeon, looking for a golden teapot at the end of it.
 You open the door to the final room and enter into a long, narrow room largely taken up by a gaping abyss.
 On the other side of the abyss you see the teapot!
@@ -19,8 +22,10 @@ The GM awards you $10$ XP for completion of this narrative chunk.
 You decide to allocate $7$ XP towards Construction Magic, and $3$ XP towards Mycology (another ability you used in this dungeon, albeit not successfully).
 Construction Magic already had $22$ XP allocated to it (out of the $64$ XP required to raise it to level $7$), and now has $29$.
 Mycology was at level $0$, and has now been raised to level $2$.
+\end{example}
 
-\paragraph{Example 2:} You are the GM and the players have just fought their way into a dungeon room with a closed door at the opposite end.
+\begin{example}
+You are the GM and the players have just fought their way into a dungeon room with a closed door at the opposite end.
 The door is cracked open from the other side, just barely revealing a stack of nasty gremlins.
 Adam announces that his archer character attempts to fire an arrow into the narrow crack.
 As the GM, you need to set the difficulty $D$ for this action.
@@ -45,3 +50,4 @@ Since $-1$ is not such a surprising roll, you do not interpret Adam’s failure 
 His relative performance, on the other hand, is quite low: $L+A+R-D = 2+0-1-4 = -3$.
 And so you narrate that the arrow appears to have had little hope of hitting its target,
 and the gremlins all snicker at Adam’s character.
+\end{example}
