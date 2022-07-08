@@ -5,6 +5,7 @@ all: ${DOC}.pdf
 
 ${DOC}.pdf: ${DOC}.tex core.tex examples.tex probability_reference.tex ndf_plot.pdf ndf_table.tex reference_sheet.pdf reference_sheet.tex
 	pdflatex ${DOC}.tex
+	pdflatex ${DOC}.tex # run a second time to pick up references
 
 ndf_plot.pdf: python/make_ndf_data.py
 	python3 python/make_ndf_data.py

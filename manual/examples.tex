@@ -26,7 +26,81 @@ Mycology was at level $0$, and has now been raised to level $2$.
 
 
 \begin{example}
-(placeholder for setup example)
+The first session of a new \peupfudge{} campaign is about to start.
+The GM tells the players, Kurt and Olivia, about the world, showing them a world map and a character sheet template with a few traits on it specific to this campaign.
+The GM has chosen the set of abilities to be represented in this campaign, and has also decided how to interpret the proficiency of levels for different abilities:
+\begin{center}
+\begin{tabular}{l|>{\centering\arraybackslash}p{5.3em}|>{\centering\arraybackslash}p{5.3em}|>{\centering\arraybackslash}p{5.3em}|}
+\cline{2-4}
+                                 & poor level & decent level & great level \\ \hline
+\multicolumn{1}{|l|}{Muscle}     & 2          & 4            & 6           \\ \hline
+\multicolumn{1}{|l|}{Charisma}   & 2          & 4            & 6           \\ \hline
+\multicolumn{1}{|l|}{Perception} & 2          & 4            & 6           \\ \hline
+\multicolumn{1}{|l|}{Knowledge}  & 3          & 5            & 7           \\ \hline
+\end{tabular}
+\end{center}
+According to this interpretation, attaining a Knowledge level that would be described as ``decent'' requires more time (and hence more XP)
+than attaining a Muscle level that would be described as ``decent.''
+
+The GM says that in this campaign players will first allocate their starting XP ($50$ each), then choose properties, then come up with a backstory that is congruent with their abilities and properties.
+Kurt names his character Kotorikh, and Olivia names her character Obazana.
+For Kotorikh, Kurt allocates $19$ XP to Perception and $31$ XP to Knowledge.
+For Obazana, Olivia allocates $21$ XP to Muscle, $13$ XP to Charisma, $7$ XP to Perception, and $9$ XP to Knowledge.
+In order to determine the resulting levels and the XP progress towards the next level, section \ref{sec:abilities} is applied:
+$\textrm{xp required to level up} = 2^\textrm{old level}$.
+Their ability levels after allocation are displayed along with the XP progress towards the next levels:
+
+(placeholder for kotorikh and obazana ability levels figure)
+
+Next, the GM hands the players a list of pre-made properties, and tells them that they can each choose one starting property for their characters.
+Kurt chooses ``talented observer'' for Kotorikh, which grants a one-time bonus $+7$ starting XP towards Perception, so his Perception is still $4$, but with $11/16$ now allocated towards the next level.
+Olivia chooses ``wealthy'' for Obazana, guaranteeing that Obazana will start with a nice heap of rare jewels.
+
+Next, the GM has Kurt and Olivia describe backstories for their characters.
+Kotorikh is a keen and curious archaeologist from a distant village, who became fascinated by reading about ancient civilizations after his traveling uncle taught him to read and brought him back many books.
+Obazana is a skilled and successful blacksmith from a large city who one day hopes to make weapons and armor for the king’s royal guard.
+
+Next, the GM describes the setup for the campaign.
+Kotorikh, through his readings, believes he has found clues of an ancient civilization that lived underground beneath distant mountains.
+He has reason to believe they had access to a powerful metal unknown to current society.
+He and Obazana have been corresponding via letter, and they have agreed to search for the ancient civilization together.
+Kotorikh hopes to uncover its mysteries and Obazana hopes to discover the powerful metal to make her shop the best in the city.
+
+At the start of the campaign, Kotorikh and Obazana have traveled far from their homes, and have just met at a town halfway between them, leading up to a long path to the mountain range.
+There is one status in the campaign, ``Energy.'' Its states are as follows:
+\begin{itemize}
+\item Rested (+1 to A for actions involving Muscle or Perception)
+\item Neutral (no effect)
+\item Tired (-1 to A for actions involving Muscle or Perception)
+\item Exhausted (-2 to A for actions involving Muscle or Perception)
+\end{itemize}
+To move up in Energy, the GM decides a character must take a ``restful action,'' such as sleeping, eating a warm meal, or drinking certain potions.
+To move down in Energy, a character must exert themselves in a particularly tiring way.
+Kotorikh and Obazana both start off Tired due to their long journey thus far.
+
+Next, the GM gives the player characters their starting inventory.
+He bases it off their profession and backgrounds.
+Kotorikh starts with a pack containing a magnifying glass, a map, a guide to regional plants, a book of myths, eight sheets of parchment, a vial of ink, a quill,
+a worn old shovel, a sling, and a pouch containing $12$ stones.
+Obazana starts with iron armor and a pack containing a quality iron sword, a quality iron axe, a pocket knife, a shard of flint, a smithing hammer, a whetstone,
+and a pouch containing $10$ rare jewels.
+
+As an example, Kotorikh’s character sheet at the start of the game is shown below.
+
+(placeholder for Kotorikh's character sheet)
+
+The GM gives the players a quick description of the town the PCs are starting in.
+The PCs explore it, and soon decide to sleep due to their Tired state.
+After asking around, they discover that the only inn in town is very expensive, demanding three of Obazana’s jewels for both of them to stay the night.
+They decide to sleep outside instead.
+While sleeping, the GM requests Perception checks of both characters; unbeknownst to them, someone is trying to steal the jewels while they sleep!
+The GM determines that $D$ will be $3$ for them to wake up to this particular bandit (that is, someone with a Perception of $3$ would wake up to this bandit about half the time).
+Kotorikh has an $L$ of $4$ in Perception, an $A$ of $-1$ due to his Tired state, and rolls $4$dF getting $R = -1$, for $L+A+R = 2$.
+Obazana has an $L$ of $3$ in Perception, an $A$ of $-1$ due to her Tired state, and rolls $4$dF getting $R = 0$, for $L+A+R = 2$.
+They sleep peacefully through the night, and wake up with their Energy state changed from “Tired” to “Neutral.” But...all of the jewels are missing!
+They ask around about whether anyone has seen the thief.
+Perhaps they should have just slept at the inn.
+
 \end{example}
 
 
@@ -129,7 +203,7 @@ The pals schedule a rematch, and each of them resolves to train in preparation.
 \item
 The hobbit lifts weights for a few minutes every day.
 After a few weeks of training,
-the GM awards the hobbit $9$ XP to be allocated to Strength, raising his unmodified Strength to $4$ ($+\frac{1}{16}$ towards the next level).
+the GM awards the hobbit $9$ XP to be allocated to Strength, raising his unmodified Strength to $4$ ($+1/16$ towards the next level).
 His $L$ would now be represented as $4-1=3$.
 \item
 The cyborg human repeatedly exerts his left arm in a misguided attempt to apply biological strength training concepts to a mechanical arm.
