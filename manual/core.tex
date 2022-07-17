@@ -101,18 +101,7 @@ Total XP & 0 & 1 & 3 & 7 & 15 & 31 & 63 & 127 & 255 & 511 & $\ldots$ \\ \hline
 
 
 \section{Actions}
-When a character attempts a task that has a possibility of failure, the outcome is governed by ability, difficulty, and a dice roll. 
-
-We use the term \emph{aiding factors} to refer to the factors leading to the possibilities of success or failure for an action,
-but only those factors that are \emph{due to the character} attempting the action.
-For those factors that are \emph{independent of the character} attempting the action we use the term \emph{difficulty factors}.
-The aiding factors for a character attempting to climb a cliff are things like the climbing skill of the character and the fact that they have a grappling hook.
-The steepness of the cliff and the availability of footholds would be difficulty factors.
-The difficulty factors for a character attempting to punch someone in a brawl might include the defensive abilities of the opponent,
-while the punching abilities of the character would be aiding factors.
-A rule of thumb is that if a factor can be removed from the picture by changing who is attempting an action, then it is an aiding factor.
-Otherwise, it is a difficulty factor.
-
+When a character attempts an action that has a possibility of failure, the outcome is governed by the capability of the character, the difficulty of the action, and a dice roll.
 Actions are resolved by considering an attempt to be successful if
 $$L + A + R \geq D,$$
 where
@@ -120,21 +109,37 @@ where
 \item
 $L$ is the level of an associated ability for the character attempting the task, if there is one.
 The set of abilities chosen for the campaign should be tailored to the types of actions that players are expected to attempt.
-If there isn’t a very suitable ability but there is a close enough one, then the level of the close ability can be used with a deduction. 
+If there isn’t a very suitable ability but there is a close enough one, then the level of the close ability can be used with a deduction.
 \item
-$A$ is a modifier for any other aiding factors, like the grappling hook.
-\item
+$A$ is a modifier that summarizes \emph{additional character factors},
+which are aspects of the character attempting the action,
+aside from ability levels,
+that can contribute to its success or failure.
+For a character attempting to climb a cliff,
+additional character factors could be the fact that they
+have a grappling hook,
+or that they are afraid of heights.
+\item 
 $R$ is the result of a dice roll, $N$dF.
 The dice roll represents the dependence of the outcome on factors that are not modeled in the game or that are otherwise unpredictable.
-The default is $4$dF, and this can be modified if more or less noise seems appropriate.
+The default is $4$dF, and this can be adjusted if more or less noise seems appropriate.
 \item
-$D$ is the difficulty level of the task, a summary of the difficulty factors.
-Some judgement is needed on the part of the GM in the determination of $D$.
+$D$ is the difficulty level of the task,
+summarizing the \emph{difficulty factors}: aspects of the situation,
+independent of the character,
+that can contribute to the success or failure of the action.
+For a character attempting to climb a cliff, difficulty factors could be
+the steepness of the cliff or the presence of rocks falling from above.
+Some judgment is needed on the part of the GM in the determination of $D$.
 A difficulty level of $D$ corresponds to a task that someone with an ability level of $D$ would be expected to successfully execute about half the time.
 \end{itemize}
 
+If it is unclear whether a factor belongs in $A$ or $D$, consider whether the factor could be removed from the picture by having a different character attempt the same action. If not, then it belongs in $D$.
+Thus every action resolution situation is partitioned into
+character-dependent ($L$ and $A$), challenge-dependent ($D$), and random ($R$) aspects.
 The value of $R$ can feed directly into the narrative; it can be fun to assign extreme narrative interpretations to extreme dice rolls.
 The same goes for $L + A + R - D$, which represents actual performance given all the information.
+
 
 When setting $D$, the GM should avoid the pitfall of assessing a task only by comparison to similar tasks.
 For example, a neurosurgery task should not be given a lower $D$ just because it is easy ``for a neurosurgery.''
@@ -143,12 +148,7 @@ Since neurosurgery itself is hard (in the sense of requiring a lot of experience
 It might be a good idea when setting up the abilities for a given campaign to determine what level for each ability is considered ``poor,'' ``decent,'' ``excellent,'' etc.
 A decent neurosurgeon may have a higher level in neurosurgery than a decent hauler has in hauling.
 
-If the difficulty factors for an action are due to some other character's abilities, for example during a race between multiple characters, then the action is \emph{opposed}.
-There are modifications one could make for opposed actions:
-For fun, the physical dice rolling can be done by all participants whose characters are involved, with players rolling for their characters and the GM rolling for NPCs.
-Instead of comparing one character’s $L + A + R$ with a $D$ based on the difficulty of the task, one can compare $L + A + R$ for each character to determine their performance relative to one another.
-When the $L + A + R$ of multiple characters is equal, this should be interpreted as a tie rather than as a success for any of the tied characters.
-For opposed actions, the default $R$ is $3$dF, and this can be modified if more or less noise seems appropriate.
+If the difficulty factors for an action are due to some other character’s abilities, for example during a race between multiple characters, then the action is \emph{opposed}. There are modifications one could make for opposed actions: Instead of comparing one character’s $L + A + R$ with a $D$ based on the difficulty of the task, one can compare $L + A + R$ for each character to determine their performance relative to one another. Each character's $L + A + R$ essentially represents $D$ for their opponent(s). When the $L + A + R$ of multiple characters is equal, this should be interpreted as a tie rather than as a success for any of the tied characters. For opposed actions, the default $R$ is $3$dF, and this can be modified if more or less noise seems appropriate. For fun, the physical dice rolling can be done by all participants whose characters are involved, with players rolling for their characters and the GM rolling for NPCs.
 
 Happy \peupfudge{}ing!
 
