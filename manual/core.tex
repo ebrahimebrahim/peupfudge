@@ -69,26 +69,49 @@ Each unit of XP corresponds to a certain amount of practice.
 The exact amount of practice contained in each unit of XP is decided implicitly the first time that the GM awards XP,
 and it crystallizes as the GM continues to award XP in a consistent pattern.
 
-Abilities start at level 0 during character creation.
-The GM provides starting XP to each character based on the practice the character may have gathered throughout their life before the start of the campaign.
-If a character has a natural talent in a given ability,
-then they could get some ability levels for free prior to XP allocation; this would represent a sort of head start in the ability.
+Abilities generally start at level 0 during character creation.
+The GM provides starting XP to each character based on the practice the character may have gathered throughout their life
+before the start of the campaign.
 
+\paragraph{Intrinsic Aptitude}
 Ability level is a function of XP, and XP represents \emph{practice}.
 But ability level is ultimately meant to represent a character's \emph{proficiency}.
-Of course practice generally improves proficiency, but characters with the same amount of practice can end up with different levels of proficiency.
-For example, a hobbit and an ogre may get the same amount of strength practice, but the hobbit will still be weaker than the ogre.
-To incorporate this into \peupfudge{}, a property ``ogre strength'' may be added to the ogre’s character sheet.
-This property would add a certain number to the strength level, but it would do so in a way that should not affect the XP cost for leveling up.
-To keep track of this, the ogre’s strength level can be written in the character sheet as a sum: 
-$[\textrm{unmodified level}] + [\textrm{modifier}]$.
-When the ogre needs to use their strength, they use the sum.
-When the ogre wants to spend XP and level up their strength, they use the unmodified level to determine the cost.
+While practice generally improves proficiency, characters with the same amount of practice may have different levels of proficiency.
+The discrepancy between practice and proficiency is termed \emph{intrinsic aptitude}.
+There are two methods to represent intrinsic aptitude:
+\begin{enumerate}
+\item
+An \emph{XP bonus} involves giving "free" XP in an ability that is then used to advance the level of the ability as usual.
+This would simply result in the character being further along on the same learning curve for that ability.
+For example, a character who starts with an XP bonus in the "Chess" ability but has never played chess before
+may find that she is a natural chess whiz when she first tries it,
+but still has to work just as hard to further her chess skills as a character who reached the same point through practice.
+\item
+A \emph{level modifier} adds to or subtracts from the level of an ability,
+but in a way that does not affect the XP cost for leveling up.
+In this case,
+the level may be written in the character sheet as a sum: $[\textrm{unmodified level}] + [\textrm{modifier}] = [\textrm{modified level}]$.
+The modified level represents actual proficiency,
+and the unmodified level represents where the character is on the learning curve for the ability.
+Therefore,
+when using the ability,
+the sum is used,
+but when spending XP to level up the ability,
+the unmodified level is used to determine the cost.
+For example,
+a hobbit and an ogre may get the same amount of Strength practice,
+but the hobbit will still be weaker than the ogre,
+and this discrepancy could be represented by a level modifier for either the hobbit or the ogre.
+This can place them on separate learning curves for Strength in such a way that an ogre would always have an easier time improving its Strength than a hobbit of equal Strength.
+For a given ability,
+the type of being that does not take on any modifier is known as the \emph{standard being} for the purposes of level interpretation.
+In the example,
+if the ogre gets modified Strength and the hobbit does not,
+then hobbits are taken to be the \emph{standard being for Strength interpretation}.
+\end{enumerate}
 
-Equivalently, the hobbit could instead take on a ``hobbit strength'' property that reduces the strength level in a similar way.
-Whichever being ends up not taking on any modifier becomes the \emph{standard being} for the purposes of level interpretation.
-How strong is a character with level 5 strength?
-It is as strong as a standard being that spent 5 levels worth of practice on its strength.
+How strong is a character with level 5 Strength? It is as strong as a standard being that spent 5 levels worth of practice on its Strength.
+
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
