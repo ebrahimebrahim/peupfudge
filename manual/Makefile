@@ -3,7 +3,7 @@ AUXFILES=${DOC}.aux ${DOC}.log texput.log
 
 all: ${DOC}.pdf
 
-${DOC}.pdf: ${DOC}.tex core.tex examples.tex probability_reference.tex ndf_plot.pdf ndf_table.tex reference_sheet.pdf reference_sheet.tex char_sheet_example.pdf xp_allocation_example.pdf framework_diagram.pdf
+${DOC}.pdf: ${DOC}.tex core.tex examples.tex probability_reference.tex ndf_plot.pdf ndf_table.tex reference_sheet.pdf reference_sheet.tex char_sheet_example.pdf xp_allocation_example.pdf framework_diagram.pdf setup_checklist.tex
 	pdflatex ${DOC}.tex
 	pdflatex ${DOC}.tex # run a second time to pick up references
 
