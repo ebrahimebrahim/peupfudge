@@ -4,49 +4,52 @@ This repository contains the source for the Peupfudge manual.
 
 ## Requirements
 
-Install these host tools before building:
-
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
 - Make
-- Inkscape
-- A LaTeX distribution that provides `pdflatex`
-
-Installation steps vary by platform. Ensure `make`, `inkscape`, and `pdflatex` are available on your `PATH`.
+- [Typst](https://typst.app/open-source/#download) 0.14.2 or newer
 
 On the first build, uv installs Python 3.12 and synchronizes the locked Python dependencies.
 
 ## Build
 
-Run all commands from the repository root. Build the manual with:
+Run all commands from the repository root. Build `peupfudge.pdf` with:
 
 ```sh
 make
 ```
 
-The resulting manual is written to `peupfudge.pdf` in the repository root.
-
-To install the locked Python environment explicitly before building, run:
+To install the locked Python environment explicitly, run:
 
 ```sh
 uv sync --locked
 ```
 
-## Maintenance
-
-Remove all generated build output with:
+Remove generated output with:
 
 ```sh
 make clean
 ```
 
-Remove only LaTeX auxiliary files with:
-
-```sh
-make cleanaux
-```
-
-To update all locked Python dependencies within the declared requirements, run:
+Update all locked Python dependencies within the declared requirements with:
 
 ```sh
 uv lock --upgrade
 ```
+
+## Artwork maintenance
+
+Install Inkscape, Fontconfig, and these fonts:
+
+- Roboto Regular and Bold
+- Purisa Regular and Bold
+- cmr10
+- CMU Serif Roman
+- DejaVu Sans
+
+Edit the masters in `artwork/editable/*.inkscape.svg`. New masters should use ordinary SVG text. Then regenerate and validate the portable, text-to-path exports with:
+
+```sh
+make artwork
+```
+
+Commit the edited master and its regenerated portable SVG together.
