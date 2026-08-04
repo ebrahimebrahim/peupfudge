@@ -1,13 +1,14 @@
-*.aux
-*.log
-*.pdf
-*.eps
 *.pyc
 *.swp
-*.idx
-*.ind
-*.ilg
-*.toc
-
-ndf_table.tex
+__pycache__/
 .venv/
+
+/peupfudge.pdf
+/ndf_plot.pdf
+/ndf_table.json
+
+# Outputs from the former SVG-to-PDF build remain local-only.
+/char_sheet_example.pdf
+/framework_diagram.pdf
+/reference_sheet.pdf
+/xp_allocation_example.pdf
