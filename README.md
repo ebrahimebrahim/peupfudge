@@ -40,20 +40,8 @@ Update all locked Python dependencies within the declared requirements with:
 uv lock --upgrade
 ```
 
-## Artwork maintenance
+## Figures and artwork
 
-Install Inkscape, Fontconfig, and these fonts:
+The reference sheet and XP allocation example are written in Typst. Shared figure components are defined in `figures.typ`.
 
-- Roboto Regular and Bold
-- Purisa Regular and Bold
-- cmr10
-- CMU Serif Roman
-- DejaVu Sans
-
-Edit the masters in `artwork/editable/*.inkscape.svg`. New masters should use ordinary SVG text. Then regenerate and validate the portable, text-to-path exports with:
-
-```sh
-make artwork
-```
-
-Commit the edited master and its regenerated portable SVG together.
+The framework diagram and character-sheet example are the live-text SVGs in `artwork/`, embedded directly in the manual. Their printed text uses Libertinus Serif, and the handwritten entries use the bundled Kalam Regular font. The font license and provenance are recorded under `fonts/kalam/`.
