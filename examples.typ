@@ -1,3 +1,5 @@
+#import "figures.typ": xp-allocation-example
+
 #let peupfudge = [Peupfudge]
 #let example-counter = counter("example")
 #let example(body) = [
@@ -59,9 +61,7 @@
   $upright("xp required to level up") = 2^upright("old level")$.
   Their ability levels after allocation are displayed along with any XP progress towards the next levels:
 
-  #align(center)[
-    #image("artwork/xp_allocation_example.svg", width: 54%)
-  ]
+  #xp-allocation-example()
 
   Next, the GM hands the players a list of pre-made properties, and tells them that they can each choose one starting property for their characters.
   Kurt chooses “talented observer” for Kotorikh, which grants a one-time bonus $+7$ starting XP towards Perception, so his Perception is still $4$, but with $11/16$ now allocated towards the next level.

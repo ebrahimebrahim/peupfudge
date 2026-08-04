@@ -10,11 +10,7 @@
   number-align: center + bottom,
 )
 
-// uncomment to use the old font when we were using latex.
-// #set text(
-//   font: "New Computer Modern",
-//   size: 12pt,
-// )
+#set text(font: "Libertinus Serif")
 
 #set par(
   justify: true,

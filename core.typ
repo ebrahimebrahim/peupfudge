@@ -1,3 +1,5 @@
+#import "figures.typ": xp-progression-table
+
 #let peupfudge = [Peupfudge]
 #let run-in-heading(title, body) = [
   #strong[#title] #body
@@ -8,9 +10,7 @@ This document contains the core rules, which can later be modified or extended b
 The game master (GM) provides a world that can use the #peupfudge framework,
 and then runs campaigns within that world.
 
-#align(center)[
-  #image("artwork/framework_diagram.svg")
-]
+#align(center, image("artwork/framework_diagram.svg"))
 
 Players will face challenges, and they will have to rely on the capabilities of their characters to confront them.
 #peupfudge is a system that crudely quantifies these challenges and capabilities in order to weave an interesting narrative.
@@ -110,17 +110,7 @@ before the start of the campaign.
 
 How strong is a character with level 5 Strength? It is as strong as a standard being that spent 5 levels worth of practice on its Strength.
 
-#align(center)[
-  #table(
-    columns: (auto, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
-    align: center,
-    stroke: 0.5pt,
-    inset: (x: 4pt, y: 3pt),
-    [Level], [0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [$dots$],
-    [XP Cost], [0], [1], [2], [4], [8], [16], [32], [64], [128], [256], [$dots$],
-    [Total XP], [0], [1], [3], [7], [15], [31], [63], [127], [255], [511], [$dots$],
-  )
-]
+#xp-progression-table()
 
 = Actions
 

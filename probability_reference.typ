@@ -1,4 +1,5 @@
-= Probability Reference
+#block(breakable: false)[
+#heading(level: 1)[Probability Reference]
 
 The following table shows the probabilities of success when rolling different amounts of fudge dice.
 Each entry is the probability that $N$dF will be $>= D$, for some $N$ and $D$.
@@ -34,6 +35,7 @@ Each entry is the probability that $N$dF will be $>= D$, for some $N$ and $D$.
     ..header-cells,
     ..body-cells,
   )
+]
 ]
 
 The values in the highlighted column are close to $0.5$,

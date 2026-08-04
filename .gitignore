@@ -7,9 +7,3 @@ __pycache__/
 /peupfudge.pdf
 /ndf_plot.pdf
 /ndf_table.json
-
-# Outputs from the former SVG-to-PDF build remain local-only.
-/char_sheet_example.pdf
-/framework_diagram.pdf
-/reference_sheet.pdf
-/xp_allocation_example.pdf
