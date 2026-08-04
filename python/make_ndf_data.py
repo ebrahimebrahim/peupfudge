@@ -44,9 +44,9 @@ color_str = '\\cellcolor{blue!20}'
 with open("ndf_table.tex",'w') as f:
   f.write('\\begin{tabular}{')
   f.write('|' + '|'.join(['c']*(len(cols)+1)) + '|')
-  f.write('}\n\hline\n')
-  f.write(' '.join(f'& $\geq {c}$' for c in cols))
-  f.write('\\\\ \hline\n')
+  f.write('}\n\\hline\n')
+  f.write(' '.join(f'& $\\geq {c}$' for c in cols))
+  f.write('\\\\ \\hline\n')
   for r in rows:
     f.write(f'${r}$dF ')
     for c in cols:
@@ -57,6 +57,5 @@ with open("ndf_table.tex",'w') as f:
       f.write('$ ')
       if r==row_colored or c==col_colored:
         f.write(color_str)
-    f.write('\\\\ \hline\n')
+    f.write('\\\\ \\hline\n')
   f.write('\\end{tabular}\n')
-
