@@ -1,5 +1,6 @@
 DOC=peupfudge
 AUXFILES=${DOC}.aux ${DOC}.log texput.log
+PYTHON_ENV=pyproject.toml uv.lock .python-version
 
 all: ${DOC}.pdf
 
@@ -7,11 +8,11 @@ ${DOC}.pdf: ${DOC}.tex core.tex examples.tex probability_reference.tex ndf_plot.
 	pdflatex ${DOC}.tex
 	pdflatex ${DOC}.tex # run a second time to pick up references
 
-ndf_plot.pdf: python/make_ndf_data.py
-	python3 python/make_ndf_data.py
+ndf_plot.pdf: python/make_ndf_data.py ${PYTHON_ENV}
+	uv run --locked python/make_ndf_data.py
 
-ndf_table.tex: python/make_ndf_data.py
-	python3 python/make_ndf_data.py
+ndf_table.tex: python/make_ndf_data.py ${PYTHON_ENV}
+	uv run --locked python/make_ndf_data.py
 
 reference_sheet.pdf: reference_sheet.svg
 	inkscape reference_sheet.svg --export-pdf=$@
