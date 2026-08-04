@@ -10,3 +10,4 @@
 *.toc
 
 ndf_table.tex
+.venv/
