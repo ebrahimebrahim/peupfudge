@@ -23,12 +23,17 @@
 )
 #set heading(numbering: "1.1")
 
-#let today = datetime.today()
+#let version-file = sys.inputs.at("version-file", default: none)
+#let version = if version-file == none {
+  "unknown (draft)"
+} else {
+  read(version-file).trim()
+}
 #grid(
   columns: (1fr, auto),
   align: (left + bottom, right + bottom),
   text(size: 25pt, weight: "bold")[Peupfudge],
-  [DRAFT: #strong[#today.display("[month repr:long] [day padding:none], [year]")]],
+  [Version #strong[#version]],
 )
 
 #include "core.typ"
