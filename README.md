@@ -18,6 +18,10 @@ Run all commands from the repository root. Build `peupfudge.pdf` with:
 make
 ```
 
+Builds show the current tag (or short commit hash), with `(draft)` for
+uncommitted changes. Direct Typst builds show `Version unknown (draft)` unless
+given `--input version-file=PATH`.
+
 To install the locked Python environment explicitly, run:
 
 ```sh

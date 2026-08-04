@@ -1,16 +1,20 @@
 DOC := peupfudge
+VERSION_FILE := .build/version.txt
 PYTHON_ENV := pyproject.toml uv.lock .python-version
 TYPST_SOURCES := peupfudge.typ core.typ examples.typ probability_reference.typ reference_sheet.typ setup_checklist.typ
 ARTWORK_STEMS := reference_sheet char_sheet_example xp_allocation_example framework_diagram
 ARTWORK := $(addprefix artwork/,$(addsuffix .svg,$(ARTWORK_STEMS)))
 EDITABLE_ARTWORK := $(addprefix artwork/editable/,$(addsuffix .inkscape.svg,$(ARTWORK_STEMS)))
 
-.PHONY: all artwork clean
+.PHONY: all artwork clean FORCE
 
 all: $(DOC).pdf
 
-$(DOC).pdf: $(TYPST_SOURCES) ndf_table.json ndf_plot.pdf $(ARTWORK)
-	typst compile --ignore-system-fonts $< $@
+$(DOC).pdf: $(TYPST_SOURCES) ndf_table.json ndf_plot.pdf $(ARTWORK) python/make_version.py $(PYTHON_ENV) FORCE
+	uv run --locked python python/make_version.py $(VERSION_FILE)
+	typst compile --ignore-system-fonts --input "version-file=$(VERSION_FILE)" $< $@
+
+FORCE:
 
 ndf_table.json: python/make_ndf_data.py $(PYTHON_ENV)
 	uv run --locked python python/make_ndf_data.py --table $@
@@ -58,4 +62,4 @@ artwork: $(EDITABLE_ARTWORK)
 		done
 
 clean:
-	rm -f $(DOC).pdf ndf_table.json ndf_plot.pdf
+	rm -f $(DOC).pdf ndf_table.json ndf_plot.pdf $(VERSION_FILE)
