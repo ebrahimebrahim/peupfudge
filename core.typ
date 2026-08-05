@@ -12,7 +12,7 @@
 )
 
 #let framework-diagram(game-name) = {
-  let source = read("artwork/framework_diagram.svg")
+  let source = read("assets/svg/framework_diagram.svg")
   let element = source.match(
     regex("<text[^>]*id=\"game-name\"[^>]*>[^<]*</text>"),
   )

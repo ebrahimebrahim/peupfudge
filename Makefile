@@ -2,7 +2,7 @@ DOC := peupfudge
 VERSION_FILE := .build/version.txt
 PYTHON_ENV := pyproject.toml uv.lock .python-version
 TYPST_SOURCES := $(wildcard *.typ)
-ARTWORK := artwork/char_sheet_example.svg artwork/framework_diagram.svg
+SVG_ASSETS := assets/svg/char_sheet_example.svg assets/svg/framework_diagram.svg
 FONTS := fonts/kalam/Kalam-Regular.ttf \
 	fonts/libertinus/LibertinusSerif-Regular.otf \
 	fonts/libertinus/LibertinusSerif-Bold.otf
@@ -11,7 +11,7 @@ FONTS := fonts/kalam/Kalam-Regular.ttf \
 
 all: $(DOC).pdf
 
-$(DOC).pdf: $(TYPST_SOURCES) ndf_table.json ndf_plot.pdf $(ARTWORK) $(FONTS) python/make_version.py $(PYTHON_ENV) FORCE
+$(DOC).pdf: $(TYPST_SOURCES) ndf_table.json ndf_plot.pdf $(SVG_ASSETS) $(FONTS) python/make_version.py $(PYTHON_ENV) FORCE
 	uv run --locked python python/make_version.py $(VERSION_FILE)
 	typst compile --ignore-system-fonts --font-path fonts --input "version-file=$(VERSION_FILE)" $(DOC).typ $@
 

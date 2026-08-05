@@ -101,7 +101,7 @@
   As an example, Kotorikh’s character sheet at the start of the game is shown below.
 
   #align(center)[
-    #image("artwork/char_sheet_example.svg", width: 88%)
+    #image("assets/svg/char_sheet_example.svg", width: 88%)
   ]
 
   The GM gives the players a quick description of the town the PCs are starting in.
