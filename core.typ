@@ -2,11 +2,11 @@
 
 #let peupfudge = [Peupfudge]
 #let run-in-heading(title, body) = [
-  #strong[#title] #body
+  #strong[#title] #h(0.8em) #body
 ]
 
 #peupfudge is a generic framework for tabletop role-playing games.
-This document contains the core rules, which can later be modified or extended by modules.
+This document contains the core rules, which can be modified or extended by modules.
 The game master (GM) provides a world that can use the #peupfudge framework,
 and then runs campaigns within that world.
 
@@ -28,22 +28,22 @@ When creating a world or campaign, the GM determines the traits that will appear
 
 There are five types of traits:
 
-- _Characteristics_ describe identity and background that mainly impact the narrative aspects of a campaign.
-  Examples: name, race, species, tribe, height, gender, favorite food, appearance, backstory.
-- _Abilities_ represent improvable traits that play a role in action resolution.
+- _Abilities_ are improvable traits that play a role in action resolution.
   Examples: Strength, Intelligence, Climbing, Legal Knowledge, Cartography, Neurosurgery.
   We will soon describe how abilities work.
 - _Inventory_ is the collection of items on a character's person.
   Examples: helmet, potion, gold coins.
   More detail can be included as needed; for example, one could write “helmet (equipped)” or “helmet (damaged).”
 
-If a trait doesn’t fit into the three categories above, then it can be more generically represented as a status or a property:
+If a trait is not one of these but still has a concrete impact on action resolution, then it is one of the following:
 
-- _Statuses_ are traits that need constant tracking.
+- _Statuses_ are traits that need constant tracking for their impact on action resolution.
   Examples: health, mana, hunger, reputation.
   When introducing a status, the GM should decide what states it can take, what causes the state to change, and what effect each state has.
-- _Properties_ are traits that only need to be tracked when they apply to a character.
+- _Properties_ are traits that can impact action resolution, but that only need to be considered when they apply to a character.
   Examples: deaf, blessed, stunned, short-tempered, one-armed.
+- _Characteristics_ describe identity and background that mainly impact the narrative, with less of a direct connection to action resolution.
+  Examples: name, race, species, tribe, height, gender, favorite food, appearance, backstory.
 
 For tips on setting up the traits, refer to the campaign setup checklist in the appendix.
 
@@ -77,7 +77,7 @@ before the start of the campaign.
   Ability level is a function of XP, and XP represents _practice_.
   But ability level is ultimately meant to represent a character's _proficiency_.
   While practice generally improves proficiency, characters with the same amount of practice may have different levels of proficiency.
-  The discrepancy between practice and proficiency is termed _intrinsic aptitude_.
+  The discrepancy between practice and proficiency is _intrinsic aptitude_.
   There are two methods to represent intrinsic aptitude:
 
   + An _XP bonus_ involves giving “free” XP in an ability that is then used to advance the level of the ability as usual.
@@ -91,10 +91,9 @@ before the start of the campaign.
     the level may be written in the character sheet as a sum: $[upright("unmodified level")] + [upright("modifier")] = [upright("modified level")]$.
     The modified level represents actual proficiency,
     and the unmodified level represents where the character is on the learning curve for the ability.
-    Therefore,
-    when using the ability,
+    When _using_ the ability,
     the sum is used,
-    but when spending XP to level up the ability,
+    but when spending XP to _level_ the ability,
     the unmodified level is used to determine the cost.
     For example,
     a hobbit and an ogre may get the same amount of Strength practice,
