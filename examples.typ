@@ -1,6 +1,6 @@
 #import "figures.typ": xp-allocation-example
 
-#let peupfudge = [Peupfudge]
+#let examples(peupfudge) = [
 #let example-counter = counter("example")
 #let example(body) = [
   #example-counter.step()
@@ -35,19 +35,21 @@
   The GM tells the players, Kurt and Olivia, about the world, showing them a world map and a character sheet template with a few traits on it specific to this campaign.
   The GM has chosen the set of abilities to be represented in this campaign, and has also decided how to interpret the proficiency of levels for different abilities:
 
-  #align(center)[
-    #table(
-      columns: (auto, 5.3em, 5.3em, 5.3em),
-      align: (left, center, center, center),
-      stroke: 0.5pt,
-      inset: (x: 4pt, y: 3pt),
-      table.cell(stroke: (top: none, right: 0.5pt, bottom: 0.5pt, left: none))[],
-      [poor level], [decent level], [great level],
-      [Muscle], [2], [4], [6],
-      [Charisma], [2], [4], [6],
-      [Perception], [2], [4], [6],
-      [Knowledge], [3], [5], [7],
-    )
+  #block(width: 100%, breakable: false)[
+    #align(center)[
+      #table(
+        columns: (auto, 5.3em, 5.3em, 5.3em),
+        align: (left, center, center, center),
+        stroke: 0.5pt,
+        inset: (x: 4pt, y: 3pt),
+        table.cell(stroke: (top: none, right: 0.5pt, bottom: 0.5pt, left: none))[],
+        [poor level], [decent level], [great level],
+        [Muscle], [2], [4], [6],
+        [Charisma], [2], [4], [6],
+        [Perception], [2], [4], [6],
+        [Knowledge], [3], [5], [7],
+      )
+    ]
   ]
 
   According to this interpretation, attaining a Knowledge level that would be described as “decent” requires more time (and hence more XP)
@@ -215,4 +217,5 @@
   - The ant is determined to level up its Strength.
     The ant’s current unmodified Strength is $7$, so the XP needed for a level-up is $2^7$, and the ant trains accordingly.
     The ant’s effective Strength for the next match has increased to $L = 8 - 50 = -42$.
+]
 ]

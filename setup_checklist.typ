@@ -1,5 +1,4 @@
-#let peupfudge = [Peupfudge]
-
+#let setup-checklist(peupfudge) = [
 = Campaign Setup Checklist
 
 The following checklist only focuses on the #peupfudge aspects of a campaign that should be ready before the first session.
@@ -23,4 +22,5 @@ and it omits setup that is done on a per-session basis such as rooms and NPC cha
   - What is the starting XP and how might it vary between characters?
   - Determine the procedure for populating the initial inventory and setting the initial states of statuses.
   - Make a character sheet template.
+]
 ]

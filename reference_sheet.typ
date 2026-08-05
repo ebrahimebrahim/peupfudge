@@ -4,7 +4,7 @@
 
 #let reference_accent = rgb("98a6ca")
 
-#let probability-table = block(width: 1.58in)[
+#let probability-table = block(width: 1.52in)[
   #table(
     columns: (0.5fr, 1.8fr),
     align: center + horizon,
@@ -23,6 +23,7 @@
 ]
 
 #let outlined-symbol(body, size: 52pt) = text(
+  font: "DejaVu Sans Mono",
   size: size,
   weight: "bold",
   fill: white,
@@ -51,7 +52,7 @@
         ]
         #v(0.37in)
 
-        #text(size: 13pt)[#xp-progression-table()]
+        #align(center, text(size: 13pt)[#xp-progression-table()])
         #v(0.60in)
 
         #text(size: 28pt)[Action success if:]

@@ -3,7 +3,9 @@ VERSION_FILE := .build/version.txt
 PYTHON_ENV := pyproject.toml uv.lock .python-version
 TYPST_SOURCES := $(wildcard *.typ)
 ARTWORK := artwork/char_sheet_example.svg artwork/framework_diagram.svg
-FONTS := fonts/kalam/Kalam-Regular.ttf
+FONTS := fonts/kalam/Kalam-Regular.ttf \
+	fonts/libertinus/LibertinusSerif-Regular.otf \
+	fonts/libertinus/LibertinusSerif-Bold.otf
 
 .PHONY: all clean FORCE
 
