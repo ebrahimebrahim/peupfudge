@@ -78,7 +78,7 @@
          H 1 Z" />
     <path class="outline" d="M 1,210 V 255 H 250 V 210" />
     <path class="outline" d="M 84,210 V 255 M 167,210 V 255" />
-    <text class="label" x="125" y="128" font-size="38" text-anchor="middle">Peupfudge</text>
+    <text id="game-name" class="label" x="125" y="128" font-size="38" text-anchor="middle">Peupfudge</text>
     <text class="label" x="125" y="160" font-size="25" text-anchor="middle">(this document)</text>
     <text class="label" x="125" y="293" font-size="27" text-anchor="middle">(modules)</text>
   </g>

@@ -1,16 +1,36 @@
 #import "figures.typ": xp-progression-table
 
-#let peupfudge = [Peupfudge]
 #let run-in-heading(title, body) = [
   #strong[#title] #h(0.8em) #body
 ]
 
+#let xml-text(value) = (
+  value
+    .replace("&", "&amp;")
+    .replace("<", "&lt;")
+    .replace(">", "&gt;")
+)
+
+#let framework-diagram(game-name) = {
+  let source = read("artwork/framework_diagram.svg")
+  let element = source.match(
+    regex("<text[^>]*id=\"game-name\"[^>]*>[^<]*</text>"),
+  )
+  assert(element != none, message: "framework diagram is missing its game-name text element")
+  let replacement = element.text.replace(
+    regex(">[^<]*</text>$"),
+    ">" + xml-text(game-name) + "</text>",
+  )
+  image(bytes(source.replace(element.text, replacement)), format: "svg")
+}
+
+#let core(peupfudge) = [
 #peupfudge is a generic framework for tabletop role-playing games.
 This document contains the core rules, which can be modified or extended by modules.
 The game master (GM) provides a world that can use the #peupfudge framework,
 and then runs campaigns within that world.
 
-#align(center, image("artwork/framework_diagram.svg"))
+#align(center, framework-diagram(peupfudge))
 
 Players will face challenges, and they will have to rely on the capabilities of their characters to confront them.
 #peupfudge is a system that crudely quantifies these challenges and capabilities in order to weave an interesting narrative.
@@ -109,7 +129,7 @@ before the start of the campaign.
 
 How strong is a character with level 5 Strength? It is as strong as a standard being that spent 5 levels worth of practice on its Strength.
 
-#xp-progression-table()
+#align(center, xp-progression-table())
 
 = Actions
 
@@ -173,4 +193,5 @@ A decent neurosurgeon may have a higher level in Neurosurgery than a decent haul
   with players rolling for their characters and the GM rolling for NPCs.
 ]
 
-Happy Peupfudgeing!
+Happy #(peupfudge + "ing")!
+]
