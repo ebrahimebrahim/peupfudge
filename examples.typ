@@ -13,38 +13,38 @@
 = Examples
 
 #example[
+  #example-label() You are a mage. You are near the end of an arduous journey to find a golden teapot at the end of a treacherous dungeon.
+  You open the door to the final room, and find yourself in a long, narrow room largely taken up by a gaping abyss.
+  On the other side of the abyss you see the teapot glowing bright!
+  You fish through your pack for a Scroll of Magical Bridge.
+  Your level in the Construction Magic ability is $6$,
+  but the GM determines
+  $D = 7$
+  by considering that a standard being with $7$ levels worth of Construction Magic XP would succeed half the time at casting this spell over an abyss of that size.
+
   #block(
     width: 100%,
     breakable: false,
-    below: 0.8em,
+    above: 0.8em,
     grid(
       columns: (1fr, 2.6in),
       column-gutter: 0.9em,
       align: top,
       [
-        #example-label() You are a mage. You are near the end of an arduous journey to find a golden teapot at the end of a treacherous dungeon.
-        You open the door to the final room, and find yourself in a long, narrow room largely taken up by a gaping abyss.
-        On the other side of the abyss you see the teapot glowing bright!
-        You fish through your pack for a Scroll of Magical Bridge.
-        Your level in the Construction Magic ability is $6$,
-        but the GM determines
-        $D = 7$
-        by considering that a standard being with $7$ levels worth of Construction Magic XP would succeed half the time at casting this spell over an abyss of that size.
+        Additionally, you recently fell ill after eating the wrong kind of dungeon mushroom,
+        and this gave a property “Shroom Belly” that makes it harder to focus on magic,
+        granting $A = -1$ for magical actions.
+        You roll $4$dF... and you get $+3$!
+        $L = 6$, $A = -1$, $R = +3$, $D = 7$, and $8 >= 7$.
+        You successfully weave the bridge into existence, walk across it, and grab the golden teapot, victorious!
+        The GM awards you $10$ XP for completion of this narrative chunk.
+        You decide to allocate $7$ XP towards Construction Magic, and $3$ XP towards Mycology (another ability you used in this dungeon, albeit not successfully).
+        Construction Magic already had $22$ XP allocated to it (out of the $64$ XP required to raise it to level $7$), and now has $29$.
+        Mycology was at level $0$, and has now been raised to level $2$.
       ],
       image("assets/illustrations/bridge.png", width: 100%),
     ),
   )
-
-  Additionally, you recently fell ill after eating the wrong kind of dungeon mushroom,
-  and this gave a property “Shroom Belly” that makes it harder to focus on magic,
-  granting $A = -1$ for magical actions.
-  You roll $4$dF... and you get $+3$!
-  $L = 6$, $A = -1$, $R = +3$, $D = 7$, and $8 >= 7$.
-  You successfully weave the bridge into existence, walk across it, and grab the golden teapot, victorious!
-  The GM awards you $10$ XP for completion of this narrative chunk.
-  You decide to allocate $7$ XP towards Construction Magic, and $3$ XP towards Mycology (another ability you used in this dungeon, albeit not successfully).
-  Construction Magic already had $22$ XP allocated to it (out of the $64$ XP required to raise it to level $7$), and now has $29$.
-  Mycology was at level $0$, and has now been raised to level $2$.
 ]
 
 #example[
@@ -134,33 +134,19 @@
   Perhaps they should have just slept at the inn.
 
   #block(width: 100%, breakable: false, above: 0.8em)[
-    #align(center, image("assets/illustrations/strong_metal.png", width: 3.3in))
+    #align(center, image("assets/illustrations/strong_metal.png", width: 3.8in))
   ]
 ]
 
 #example[
-  #block(
-    width: 100%,
-    breakable: false,
-    below: 0.8em,
-    grid(
-      columns: (1fr, 2.6in),
-      column-gutter: 0.9em,
-      align: top,
-      [
-        #example-label() You are the GM and the players have just fought their way into a dungeon room with a closed door at the opposite end.
-        The door is cracked open from the other side, just barely revealing a stack of nasty gremlins.
-        Adam announces that his archer character attempts to fire an arrow into the narrow crack.
-        As the GM, you need to set the difficulty $D$ for this action.
-        You decide that in order to have about a $50%$ chance of success, one would need about a year of dedicated archery training.
-        Earlier in the campaign a different character did a month of dedicated training and received $2$ XP for her Archery ability.
-        A year of dedicated archery training then corresponds to $24$ XP, which corresponds to a level of about $4$.
-        So you let Adam know that $D = 4$ for this action.
-      ],
-      image("assets/illustrations/shooting_gremlins.png", width: 100%),
-    ),
-  )
-
+  #example-label() You are the GM and the players have just fought their way into a dungeon room with a closed door at the opposite end.
+  The door is cracked open from the other side, just barely revealing a stack of nasty gremlins.
+  Adam announces that his archer character attempts to fire an arrow into the narrow crack.
+  As the GM, you need to set the difficulty $D$ for this action.
+  You decide that in order to have about a $50%$ chance of success, one would need about a year of dedicated archery training.
+  Earlier in the campaign a different character did a month of dedicated training and received $2$ XP for her Archery ability.
+  A year of dedicated archery training then corresponds to $24$ XP, which corresponds to a level of about $4$.
+  So you let Adam know that $D = 4$ for this action.
   “That’s pretty harsh man,” Adam complains.
   “It’s not that hard for an archery task.”
   Being the wise GM that you are, you understand that $D$ comes down to the amount of needed practice and not a comparison with similar tasks.
@@ -169,40 +155,41 @@
   By your convention that’s $1.5$ months of archery practice... but my character has been an archer for like $3$ months!
   What gives?!
   Why do I get less XP?!” After calming Adam down, you explain that his character’s practice wasn’t dedicated archery training.
-  His $3$ months of undedicated practice is being treated as though it were $1.5$ months of dedicated training.
-  Finally, Adam needs to roll to resolve the action.
-  With $L = 2$ and $D = 4$, it appears that Adam has to roll at least $+2$ to succeed.
-  Rolling $4$dF, this gives him about a $1/5$ chance of success.
-  Adam rolls his $4$dF and gets $R = -1$, failing the shot.
-  Since $-1$ is not such a surprising roll, you do not interpret Adam’s failure in a dramatically unlucky way.
-  His relative performance, on the other hand, is quite low: $L + A + R - D = 2 + 0 - 1 - 4 = -3$.
-  And so you narrate that the arrow appears to have had little hope of hitting its target,
-  and the gremlins all snicker at Adam’s character.
-]
 
-#example[
   #block(
     width: 100%,
     breakable: false,
-    below: 0.8em,
+    above: 0.8em,
     grid(
       columns: (1fr, 2.6in),
       column-gutter: 0.9em,
       align: top,
       [
-        #example-label() Three characters, Gromanno (PC), Nyrv (NPC), and Polthova (PC) just came across a set of exquisite marbles in a cave, and they all want it.
-        They decide to race to the entrance of the cave, and the marbles will go to the winner.
-        The GM says that this will be treated as an opposed action,
-        where $L + A + R$ is compared among all participants, and the ability being used is _Fitness_.
-        In this campaign,
-        a Fitness of $2$ is interpreted as poor,
-        a Fitness of $4$ is interpreted as decent,
-        and a Fitness of $7$ is interpreted as excellent.
-        Here is the outcome for $L$, $A$, and $R$:
+        His $3$ months of undedicated practice is being treated as though it were $1.5$ months of dedicated training.
+        Finally, Adam needs to roll to resolve the action.
+        With $L = 2$ and $D = 4$, it appears that Adam has to roll at least $+2$ to succeed.
+        Rolling $4$dF, this gives him about a $1/5$ chance of success.
+        Adam rolls his $4$dF and gets $R = -1$, failing the shot.
+        Since $-1$ is not such a surprising roll, you do not interpret Adam’s failure in a dramatically unlucky way.
+        His relative performance, on the other hand, is quite low: $L + A + R - D = 2 + 0 - 1 - 4 = -3$.
+        And so you narrate that the arrow appears to have had little hope of hitting its target,
+        and the gremlins all snicker at Adam’s character.
       ],
-      image("assets/illustrations/yussra_race_example.jpeg", width: 100%),
+      image("assets/illustrations/shooting_gremlins.png", width: 100%),
     ),
   )
+]
+
+#example[
+  #example-label() Three characters, Gromanno (PC), Nyrv (NPC), and Polthova (PC) just came across a set of exquisite marbles in a cave, and they all want it.
+  They decide to race to the entrance of the cave, and the marbles will go to the winner.
+  The GM says that this will be treated as an opposed action,
+  where $L + A + R$ is compared among all participants, and the ability being used is _Fitness_.
+  In this campaign,
+  a Fitness of $2$ is interpreted as poor,
+  a Fitness of $4$ is interpreted as decent,
+  and a Fitness of $7$ is interpreted as excellent.
+  Here is the outcome for $L$, $A$, and $R$:
 
   - $L$: Gromanno has a Fitness of $2$, Nyrv has a Fitness of $5$, and Polthova is a professional athlete with a Fitness of $8$.
   - $A$: Gromanno is wearing his “Old running shoes [$+1$ to $A$ for running actions]” and the GM gives him an $A$ of $+1$ for this.
@@ -219,34 +206,34 @@
 
   The GM narrates the events that led to this outcome.
   Polthova, very fit, started out ahead, with the other two trailing far behind him.
-  But due to his terrible luck, around two thirds of the way through, he slipped on some cave slime and injured his ankle.
-  He limped the rest of the way to the entrance.
-  Nyrv exerted herself very well and was able to push through her difficulty navigating, and eventually surpassed the limping Polthova.
-  Gromanno, as expected, trailed behind the other two, despite his nice running shoes.
-  Nyrv emerges from the cave first, victorious, delighted in her new set of exquisite marbles!
-]
 
-#example[
   #block(
     width: 100%,
     breakable: false,
-    below: 0.8em,
+    above: 0.8em,
     grid(
       columns: (1fr, 2.6in),
       column-gutter: 0.9em,
       align: top,
       [
-        #example-label() In a campaign where the GM has decided that humans are the standard being for the Strength ability,
-        and that a Strength level of 3 is to be interpreted as “decent,” an odd group of pals is sitting around a table arm wrestling.
-        One is a hobbit, one is a cyborg human with a mechanical left arm, and one is an ant bodybuilder.
-
-        - The hobbit, small by nature, has an unmodified Strength of $3$ (for the purposes of determining the XP cost of leveling up) and a property
-          “hobbit strength” that modifies his Strength by $-1$ (for the purposes of using Strength in an action); his $L$ is therefore represented as $3 - 1 = 2$.
+        But due to his terrible luck, around two thirds of the way through, he slipped on some cave slime and injured his ankle.
+        He limped the rest of the way to the entrance.
+        Nyrv exerted herself very well and was able to push through her difficulty navigating, and eventually surpassed the limping Polthova.
+        Gromanno, as expected, trailed behind the other two, despite his nice running shoes.
+        Nyrv emerges from the cave first, victorious, delighted in her new set of exquisite marbles!
       ],
-      image("assets/illustrations/arm_wrestle.png", width: 100%),
+      image("assets/illustrations/yussra_race_example.jpeg", width: 100%),
     ),
   )
+]
 
+#example[
+  #example-label() In a campaign where the GM has decided that humans are the standard being for the Strength ability,
+  and that a Strength level of 3 is to be interpreted as “decent,” an odd group of pals is sitting around a table arm wrestling.
+  One is a hobbit, one is a cyborg human with a mechanical left arm, and one is an ant bodybuilder.
+
+  - The hobbit, small by nature, has an unmodified Strength of $3$ (for the purposes of determining the XP cost of leveling up) and a property
+    “hobbit strength” that modifies his Strength by $-1$ (for the purposes of using Strength in an action); his $L$ is therefore represented as $3 - 1 = 2$.
   - The cyborg human has an unmodified Strength of $3$, and a property “cyborg left arm” that modifies his Strength by $+2$ when using the arm in an action;
     his $L$ for Strength for actions using his left arm can be represented as $3 + 2 = 5$, and for actions not using his left arm would be represented as $3 + 0 = 3$.
   - The ant, an avid athlete but several orders of magnitude smaller than its friends, has a property “bug strength” that modifies its Strength by $-50$.
@@ -274,10 +261,24 @@
     After a few weeks of training,
     the GM awards the hobbit $9$ XP to be allocated to Strength, raising his unmodified Strength to $4$ ($+1/16$ towards the next level).
     His $L$ would now be represented as $4 - 1 = 3$.
-  - The cyborg human repeatedly exerts his left arm in a misguided attempt to apply biological strength training concepts to a mechanical arm.
-    No XP is gained.
-  - The ant is determined to level up its Strength.
-    The ant’s current unmodified Strength is $7$, so the XP needed for a level-up is $2^7$, and the ant trains accordingly.
-    The ant’s effective Strength for the next match has increased to $L = 8 - 50 = -42$.
+
+  #block(
+    width: 100%,
+    breakable: false,
+    above: 0.3em,
+    grid(
+      columns: (1fr, 2.6in),
+      column-gutter: 0.9em,
+      align: top,
+      [
+        - The cyborg human repeatedly exerts his left arm in a misguided attempt to apply biological strength training concepts to a mechanical arm.
+          No XP is gained.
+        - The ant is determined to level up its Strength.
+          The ant’s current unmodified Strength is $7$, so the XP needed for a level-up is $2^7$, and the ant trains accordingly.
+          The ant’s effective Strength for the next match has increased to $L = 8 - 50 = -42$.
+      ],
+      image("assets/illustrations/arm_wrestle.png", width: 100%),
+    ),
+  )
 ]
 ]
