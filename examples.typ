@@ -4,20 +4,37 @@
 #let example-counter = counter("example")
 #let example(body) = [
   #example-counter.step()
-  #strong[Example #context example-counter.display():] #body
+  #body
+]
+#let example-label() = [
+  #strong[Example #context example-counter.display():]
 ]
 
 = Examples
 
 #example[
-  You are a mage. You are near the end of an arduous journey to find a golden teapot at the end of a treacherous dungeon.
-  You open the door to the final room, and find yourself in a long, narrow room largely taken up by a gaping abyss.
-  On the other side of the abyss you see the teapot glowing bright!
-  You fish through your pack for a Scroll of Magical Bridge.
-  Your level in the Construction Magic ability is $6$,
-  but the GM determines
-  $D = 7$
-  by considering that a standard being with $7$ levels worth of Construction Magic XP would succeed half the time at casting this spell over an abyss of that size.
+  #block(
+    width: 100%,
+    breakable: false,
+    below: 0.8em,
+    grid(
+      columns: (1fr, 2.6in),
+      column-gutter: 0.9em,
+      align: top,
+      [
+        #example-label() You are a mage. You are near the end of an arduous journey to find a golden teapot at the end of a treacherous dungeon.
+        You open the door to the final room, and find yourself in a long, narrow room largely taken up by a gaping abyss.
+        On the other side of the abyss you see the teapot glowing bright!
+        You fish through your pack for a Scroll of Magical Bridge.
+        Your level in the Construction Magic ability is $6$,
+        but the GM determines
+        $D = 7$
+        by considering that a standard being with $7$ levels worth of Construction Magic XP would succeed half the time at casting this spell over an abyss of that size.
+      ],
+      image("assets/illustrations/bridge.png", width: 100%),
+    ),
+  )
+
   Additionally, you recently fell ill after eating the wrong kind of dungeon mushroom,
   and this gave a property “Shroom Belly” that makes it harder to focus on magic,
   granting $A = -1$ for magical actions.
@@ -31,7 +48,7 @@
 ]
 
 #example[
-  The first session of a new #peupfudge campaign is about to start.
+  #example-label() The first session of a new #peupfudge campaign is about to start.
   The GM tells the players, Kurt and Olivia, about the world, showing them a world map and a character sheet template with a few traits on it specific to this campaign.
   The GM has chosen the set of abilities to be represented in this campaign, and has also decided how to interpret the proficiency of levels for different abilities:
 
@@ -115,17 +132,35 @@
   They sleep peacefully through the night, and wake up with their Energy state changed from “Tired” to “Neutral.” But...all of the jewels are missing!
   They ask around to see if anyone had seen the thief.
   Perhaps they should have just slept at the inn.
+
+  #block(width: 100%, breakable: false, above: 0.8em)[
+    #align(center, image("assets/illustrations/strong_metal.png", width: 3.3in))
+  ]
 ]
 
 #example[
-  You are the GM and the players have just fought their way into a dungeon room with a closed door at the opposite end.
-  The door is cracked open from the other side, just barely revealing a stack of nasty gremlins.
-  Adam announces that his archer character attempts to fire an arrow into the narrow crack.
-  As the GM, you need to set the difficulty $D$ for this action.
-  You decide that in order to have about a $50%$ chance of success, one would need about a year of dedicated archery training.
-  Earlier in the campaign a different character did a month of dedicated training and received $2$ XP for her Archery ability.
-  A year of dedicated archery training then corresponds to $24$ XP, which corresponds to a level of about $4$.
-  So you let Adam know that $D = 4$ for this action.
+  #block(
+    width: 100%,
+    breakable: false,
+    below: 0.8em,
+    grid(
+      columns: (1fr, 2.6in),
+      column-gutter: 0.9em,
+      align: top,
+      [
+        #example-label() You are the GM and the players have just fought their way into a dungeon room with a closed door at the opposite end.
+        The door is cracked open from the other side, just barely revealing a stack of nasty gremlins.
+        Adam announces that his archer character attempts to fire an arrow into the narrow crack.
+        As the GM, you need to set the difficulty $D$ for this action.
+        You decide that in order to have about a $50%$ chance of success, one would need about a year of dedicated archery training.
+        Earlier in the campaign a different character did a month of dedicated training and received $2$ XP for her Archery ability.
+        A year of dedicated archery training then corresponds to $24$ XP, which corresponds to a level of about $4$.
+        So you let Adam know that $D = 4$ for this action.
+      ],
+      image("assets/illustrations/shooting_gremlins.png", width: 100%),
+    ),
+  )
+
   “That’s pretty harsh man,” Adam complains.
   “It’s not that hard for an archery task.”
   Being the wise GM that you are, you understand that $D$ comes down to the amount of needed practice and not a comparison with similar tasks.
@@ -146,15 +181,28 @@
 ]
 
 #example[
-  Three characters, Gromanno (PC), Nyrv (NPC), and Polthova (PC) just came across a set of exquisite marbles in a cave, and they all want it.
-  They decide to race to the entrance of the cave, and the marbles will go to the winner.
-  The GM says that this will be treated as an opposed action,
-  where $L + A + R$ is compared among all participants, and the ability being used is _Fitness_.
-  In this campaign,
-  a Fitness of $2$ is interpreted as poor,
-  a Fitness of $4$ is interpreted as decent,
-  and a Fitness of $7$ is interpreted as excellent.
-  Here is the outcome for $L$, $A$, and $R$:
+  #block(
+    width: 100%,
+    breakable: false,
+    below: 0.8em,
+    grid(
+      columns: (1fr, 2.6in),
+      column-gutter: 0.9em,
+      align: top,
+      [
+        #example-label() Three characters, Gromanno (PC), Nyrv (NPC), and Polthova (PC) just came across a set of exquisite marbles in a cave, and they all want it.
+        They decide to race to the entrance of the cave, and the marbles will go to the winner.
+        The GM says that this will be treated as an opposed action,
+        where $L + A + R$ is compared among all participants, and the ability being used is _Fitness_.
+        In this campaign,
+        a Fitness of $2$ is interpreted as poor,
+        a Fitness of $4$ is interpreted as decent,
+        and a Fitness of $7$ is interpreted as excellent.
+        Here is the outcome for $L$, $A$, and $R$:
+      ],
+      image("assets/illustrations/yussra_race_example.jpeg", width: 100%),
+    ),
+  )
 
   - $L$: Gromanno has a Fitness of $2$, Nyrv has a Fitness of $5$, and Polthova is a professional athlete with a Fitness of $8$.
   - $A$: Gromanno is wearing his “Old running shoes [$+1$ to $A$ for running actions]” and the GM gives him an $A$ of $+1$ for this.
@@ -179,12 +227,26 @@
 ]
 
 #example[
-  In a campaign where the GM has decided that humans are the standard being for the Strength ability,
-  and that a Strength level of 3 is to be interpreted as “decent,” an odd group of pals is sitting around a table arm wrestling.
-  One is a hobbit, one is a cyborg human with a mechanical left arm, and one is an ant bodybuilder.
+  #block(
+    width: 100%,
+    breakable: false,
+    below: 0.8em,
+    grid(
+      columns: (1fr, 2.6in),
+      column-gutter: 0.9em,
+      align: top,
+      [
+        #example-label() In a campaign where the GM has decided that humans are the standard being for the Strength ability,
+        and that a Strength level of 3 is to be interpreted as “decent,” an odd group of pals is sitting around a table arm wrestling.
+        One is a hobbit, one is a cyborg human with a mechanical left arm, and one is an ant bodybuilder.
 
-  - The hobbit, small by nature, has an unmodified Strength of $3$ (for the purposes of determining the XP cost of leveling up) and a property
-    “hobbit strength” that modifies his Strength by $-1$ (for the purposes of using Strength in an action); his $L$ is therefore represented as $3 - 1 = 2$.
+        - The hobbit, small by nature, has an unmodified Strength of $3$ (for the purposes of determining the XP cost of leveling up) and a property
+          “hobbit strength” that modifies his Strength by $-1$ (for the purposes of using Strength in an action); his $L$ is therefore represented as $3 - 1 = 2$.
+      ],
+      image("assets/illustrations/arm_wrestle.png", width: 100%),
+    ),
+  )
+
   - The cyborg human has an unmodified Strength of $3$, and a property “cyborg left arm” that modifies his Strength by $+2$ when using the arm in an action;
     his $L$ for Strength for actions using his left arm can be represented as $3 + 2 = 5$, and for actions not using his left arm would be represented as $3 + 0 = 3$.
   - The ant, an avid athlete but several orders of magnitude smaller than its friends, has a property “bug strength” that modifies its Strength by $-50$.
