@@ -1,4 +1,4 @@
-"""Generate the probability data and plot used by the Peupfudge manual."""
+"""Generate the probability data and plot used by the manual."""
 
 import argparse
 import json
