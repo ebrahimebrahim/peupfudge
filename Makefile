@@ -3,7 +3,9 @@ OUTPUT := Peup.pdf
 VERSION_FILE := .build/version.txt
 PYTHON_ENV := pyproject.toml uv.lock .python-version
 TYPST_SOURCES := $(wildcard *.typ)
-SVG_ASSETS := assets/svg/char_sheet_example.svg assets/svg/framework_diagram.svg
+SVG_ASSETS := assets/svg/PEUP_logo.svg \
+	assets/svg/char_sheet_example.svg \
+	assets/svg/framework_diagram.svg
 ILLUSTRATIONS := assets/illustrations/bridge.png \
 	assets/illustrations/strong_metal.png \
 	assets/illustrations/shooting_gremlins.png \
