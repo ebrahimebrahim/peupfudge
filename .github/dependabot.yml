@@ -1,0 +1,13 @@
+version: 2
+
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: yearly
+    cooldown:
+      default-days: 60
+    groups:
+      actions:
+        patterns:
+          - "*"
