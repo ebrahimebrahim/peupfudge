@@ -1,0 +1,40 @@
+name: Build PDF
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: astral-sh/setup-uv@v9.0.0
+        with:
+          enable-cache: true
+
+      - run: uv python install
+
+      - uses: typst-community/setup-typst@v5
+        with:
+          typst-version: 0.14.2
+
+      - run: make
+
+      - uses: actions/upload-artifact@v7
+        id: upload-pdf
+        with:
+          path: Peup-*.pdf
+          archive: false
+          if-no-files-found: error
+
+      - name: Link PDF
+        env:
+          PDF_URL: ${{ steps.upload-pdf.outputs.artifact-url }}
+        run: |
+          PDF_NAME=$(basename Peup-*.pdf)
+          printf '::notice::[%s](%s)\n' "$PDF_NAME" "$PDF_URL"
+          printf '### [%s](%s)\n' "$PDF_NAME" "$PDF_URL" >> "$GITHUB_STEP_SUMMARY"
