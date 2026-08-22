@@ -1,4 +1,4 @@
-#let peupfudge = "Peupfudge"
+#let peupfudge = "Peup"
 
 #set document(
   title: peupfudge,
