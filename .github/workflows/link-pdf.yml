@@ -1,0 +1,67 @@
+name: Link PDF
+
+on:
+  workflow_run:
+    workflows:
+      - Build PDF
+    types:
+      - completed
+
+permissions:
+  actions: read
+  checks: write
+
+jobs:
+  link:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add PDF check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          artifacts=$(gh api \
+            "repos/$REPOSITORY/actions/runs/$RUN_ID/artifacts?per_page=100")
+
+          artifact_count=$(jq \
+            '[.artifacts[] | select(.expired == false and (.name | startswith("Peup-") and endswith(".pdf")))] | length' \
+            <<< "$artifacts")
+
+          if [[ "$artifact_count" != 1 ]]; then
+            echo "Expected exactly one PDF artifact, found $artifact_count" >&2
+            exit 1
+          fi
+
+          artifact_id=$(jq -r \
+            '.artifacts[] | select(.expired == false and (.name | startswith("Peup-") and endswith(".pdf"))) | .id' \
+            <<< "$artifacts")
+          artifact_name=$(jq -r \
+            '.artifacts[] | select(.expired == false and (.name | startswith("Peup-") and endswith(".pdf"))) | .name' \
+            <<< "$artifacts")
+          artifact_url="https://github.com/$REPOSITORY/actions/runs/$RUN_ID/artifacts/$artifact_id"
+
+          jq -n \
+            --arg name "$artifact_name" \
+            --arg sha "$HEAD_SHA" \
+            --arg url "$artifact_url" \
+            '{
+              name: $name,
+              head_sha: $sha,
+              status: "completed",
+              conclusion: "success",
+              details_url: $url,
+              output: {
+                title: $name,
+                summary: ("[" + $name + "](" + $url + ")")
+              }
+            }' |
+            gh api --method POST \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2026-03-10" \
+              "repos/$REPOSITORY/check-runs" \
+              --input -
