@@ -52,8 +52,8 @@
 }
 #grid(
   columns: (1fr, auto),
-  align: (left + bottom, right + bottom),
-  text(size: 25pt, weight: "bold")[#peupfudge],
+  align: (left + top, right + top),
+  image("assets/svg/PEUP_logo.svg", height: 0.6in),
   [Version #strong[#version]],
 )
 
