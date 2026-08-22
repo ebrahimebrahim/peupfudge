@@ -132,7 +132,7 @@ wheels = [
 ]
 
 [[package]]
-name = "peupfudge"
+name = "peup"
 version = "0.2.0"
 source = { virtual = "." }
 dependencies = [

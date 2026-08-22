@@ -1,7 +1,7 @@
 [project]
-name = "peupfudge"
+name = "peup"
 version = "0.2.0"
-description = "Build dependencies for the Peupfudge manual"
+description = "Build dependencies for the Peup manual"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "matplotlib",
