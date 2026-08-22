@@ -5,6 +5,7 @@ __pycache__/
 /.build/
 
 /Peup.pdf
+/Peup-*.pdf
 /ndf_plot.pdf
 /ndf_table.json
 /fonts/**/.uuid
