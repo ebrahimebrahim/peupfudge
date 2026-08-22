@@ -10,7 +10,7 @@ This repository contains the source for the Peupfudge manual.
 
 ## Build
 
-Run all commands from the repository root. Build `peupfudge.pdf` with:
+Run all commands from the repository root. Build `Peup.pdf` with:
 
 ```sh
 make
