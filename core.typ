@@ -42,30 +42,17 @@ We denote a fudge die roll by “dF.” The result of a roll of $N$ fudge dice (
 
 A character is an actor in the world.
 Some characters are controlled by players (PCs) and some characters are controlled by the GM (NPCs).
-Characters are represented by their _traits_, which we list below.
-PC traits are managed by players on their _character sheets_, while NPC traits are managed by the GM.
-When creating a world or campaign, the GM determines the traits that will appear on character sheets.
+A character and its state consist of the following components:
 
-There are five types of traits:
+- _Characteristics_ are free-form descriptors of identity and background. Examples: Name, Species, Tribe, Height, Favorite Food, Appearance, Backstory.
+- _Statuses_ are dynamical state variables that describe a character's current condition and are expected to change during play. Examples: Health, Mana, Hunger, Reputation, On Fire.
+- _Abilities_ are improvable capabilities that play a role in action resolution. Examples: Strength, Intelligence, Climbing, Legal Knowledge, Cartography, Neurosurgery.
+- _Traits_ are exceptional features or limitations that apply to a character. Examples: Deaf, Blessed, Stunned, Short-Tempered, One-Armed, Excellent Night Vision, Mark of Peup.
+- _Inventory_ records things carried, worn, or possessed by the character. Examples: Helmet, Potion, Gold Coins. More detail can be included as needed; for example, one could write “Helmet (equipped)” or “Helmet (damaged).”
 
-- _Abilities_ are improvable traits that play a role in action resolution.
-  Examples: Strength, Intelligence, Climbing, Legal Knowledge, Cartography, Neurosurgery.
-  We will soon describe how abilities work.
-- _Inventory_ is the collection of items on a character's person.
-  Examples: helmet, potion, gold coins.
-  More detail can be included as needed; for example, one could write “helmet (equipped)” or “helmet (damaged).”
+PCs are managed by players on their _character sheets_, while NPCs are managed by the GM.
+When creating a world or campaign, the GM determines how these character components work and how they appear on character sheets; there are more tips on this in the campaign setup checklist in the appendix.
 
-If a trait is not one of these but still has a concrete impact on action resolution, then it is one of the following:
-
-- _Statuses_ are traits that need constant tracking for their impact on action resolution.
-  Examples: health, mana, hunger, reputation.
-  When introducing a status, the GM should decide what states it can take, what causes the state to change, and what effect each state has.
-- _Properties_ are traits that can impact action resolution, but that only need to be considered when they apply to a character.
-  Examples: deaf, blessed, stunned, short-tempered, one-armed.
-- _Characteristics_ describe identity and background that mainly impact the narrative, with less of a direct connection to action resolution.
-  Examples: name, race, species, tribe, height, gender, favorite food, appearance, backstory.
-
-For tips on setting up the traits, refer to the campaign setup checklist in the appendix.
 
 == Abilities <sec-abilities>
 
