@@ -46,7 +46,7 @@ A character and its state consist of the following components:
 
 - _Characteristics_ are free-form descriptors of identity and background. Examples: Name, Species, Tribe, Height, Favorite Food, Appearance, Backstory.
 - _Abilities_ are improvable capabilities that play a role in action resolution. Examples: Strength, Intelligence, Climbing, Legal Knowledge, Cartography, Neurosurgery.
-- _Statuses_ are dynamic state variables that describe a character's current condition and are expected to change during play. Examples: Health, Mana, Hunger, Reputation.
+- _Conditions_ are dynamic state variables that describe a character's current status and are expected to change during play. Examples: Health, Mana, Hunger, Reputation, Stunned, Enraged.
 - _Traits_ are exceptional features or limitations that apply to a character. Examples: Deaf, Blessed, Stunned, Short-Tempered, One-Armed, Excellent Night Vision, Mark of Peup.
 - _Inventory_ records things carried, worn, or possessed by the character. Examples: Helmet, Potion, Gold Coins. More detail can be included as needed; for example, one could write “Helmet (equipped)” or “Helmet (damaged).”
 
@@ -119,9 +119,9 @@ How strong is a character with level 5 Strength? It is as strong as a standard b
 #align(center, xp-progression-table())
 
 
-== Statuses <sec-statuses>
+== Conditions <sec-conditions>
 
-Statuses describe a character's current condition. Some statuses might be prepared by the GM before a campaign begins, while others may be added as the campaign progresses. For each status, the GM should determine the possible "states" it can take on, how each state is entered or exited, and the effects of each state. For example, a hypothetical status "Hunger" might have the states "Starving", "Hungry", "Well-Fed", and "Bloated"; state transitions might be caused by eating or by not eating for a period of time; and each state might have effects on resolution of relevant actions. Another status "Condition" might have the states "On Fire", "Stunned", "Enraged", and "Empowered". Alternatively, some statuses might represent their states via a numerical value, but the overall framework is unchanged.
+Conditions describe a character's current status. Some conditions might be prepared by the GM before a campaign begins and act as states that are always tracked (for example, "Mana", "Hunger", or "Reputation"), while others may be transient tags that come and go (for example, "Frozen" or "Confused"). For each condition, the GM should determine the possible states it can take on, how each state is entered or exited, and the effects of each state. For example, a hypothetical status "Hunger" might have the states "Starving", "Hungry", "Well-Fed", and "Bloated"; state transitions might be caused by eating or by not eating for a period of time; and each state might have effects on resolution of relevant actions. Another more transient condition "On Fire" might only have one state that represents whether the condition itself is active.
 
 
 = Actions
